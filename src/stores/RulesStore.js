@@ -1,5 +1,5 @@
 import { ref, computed, reactive } from 'vue'
 
-export const AppState = reactive({
+export const useRulesStore = reactive({
   rules: {}
 })
