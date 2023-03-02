@@ -24,6 +24,7 @@ export class Building {
     this.navalYard = data.navalYard
     this.factory = data.factory
     this.construction = data.construction
+    this.fortification = data.fortification
   }
 }
 

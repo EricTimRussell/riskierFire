@@ -1,5 +1,5 @@
 body {
-  background-color: #8d8d8d;
+  background-color: #7c8a71;
   font-family: Impact, 'Arial Narrow Bold', sans-serif;
   // text-shadow: #aeaeae 3px 3px 2px;
 }
@@ -45,6 +45,10 @@ body {
   letter-spacing: 1px;
 }
 
+.text-tan {
+  color: #fdce78;
+}
+
 // Colors
 .bg-green {
   background: linear-gradient(#606c38, #283618)
@@ -86,4 +90,12 @@ button:active {
   border-radius: 50%;
   min-height: 55px;
   min-width: 55px;
+}
+
+.divider {
+  background-color: #282828;
+  height: 10px;
+  width: 400px;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
