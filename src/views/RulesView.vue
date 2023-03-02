@@ -1,12 +1,450 @@
 <template>
-  <h1>Rules Page</h1>
-  <div>
-    <h2>--{{ rules.infantry }}</h2>
-    <h2>--{{ rules.mechanized }}</h2>
-    <h2>--{{ rules.ifv }}</h2>
-    <h2>--{{ rules.mbt }}</h2>
-    <h2>--{{ rules.specialForces }}</h2>
-  </div>
+  <body class="container-fluid">
+    <section class="row">
+      <div class="col-12 text-center mb-2 mt-4">
+        <h1>Rule Book</h1>
+      </div>
+      <div class="col-12">
+        <!-- SECTION Resources -->
+        <div class="text-center text-warning py-2">
+          <h3>Resources</h3>
+        </div>
+        <p><span class="text-warning fs-md">Resources</span> {{ general.resources }}</p>
+        <p>
+          <span class="text-warning fs-md">Cities</span> {{ general.cities }}
+        </p>
+        <!-- SECTION Construction Sheet -->
+        <div class="text-center text-warning">
+          <h3>Construction</h3>
+        </div>
+        <p>
+          --The construction sheet is used to track the construction of buildings and naval units. All ground units and
+          air units take
+          1 turn to
+          construct. Naval units vary slightly with carriers taking 3 turns to construct and destroyer/cruisers taking
+          2 turns to construct. Naval construction is tracked on the bottom of the sheet using the naval construction
+          pieces. Naval yards are built on
+          land tiles adjacent to water tiles. The land tile region number will be recorded on the construction sheet
+          in the spot labeled "Yard Region #". Each naval yard can produce up to 3 ships at one time.
+        </p>
+        <p>
+          --All buildings take 2 turns to construct and are placed on the construction sheet to track their construction
+          progress. The region you are constructing a building on will be written on the construction sheet labeled region
+          #.
+        </p>
+        <p>
+          --Each city is worth 1 production. A max of 2 Factories can be built onto capitals and 1 onto large cities and
+          medium
+          cities to
+          increase their production by 1 for each factory. Factories cannot be built on small cities. The amount of
+          production a player has dictates how many units a player can produce at one time. This does not include naval
+          units or buildings.
+        </p>
+        <!-- SECTION Main Board Pieces -->
+        <div class="text-center text-warning">
+          <h3>Main Board Pieces</h3>
+        </div>
+        <p>
+          --Each faction has flat circular pieces with numbers on them to track their regions. These are placed on the
+          tile once a region is captured.
+        </p>
+        <p>
+          --There is a red peg used to track damage to naval vessels as well as divisions/armies who have been cutoff
+          from their supply line and are subject to attrition.
+        </p>
+        <!-- <p>--Land units on the main board are represented by pieces that roughly resemble NATO military map symbols.
+          Each symbol represents a certain kind of unit. Guide to what these symbols mean can be found in the app by
+          clicking the <span class="mdi mdi-key"></span> button at the top of the page.
+        </p> -->
+        <p>
+          --There is a grey pillbox or bunker type piece that represents fortifications. When fortifications are built
+          1 bunker piece is placed on the main board where they were built. This will provide 3 bunker pieces on the
+          combat board. Only one can be built per tile. Bunkers can be built during the build phase of a players turn.
+        </p>
+        <!-- <p>
+          --Ground forces have their own main board pieces, but naval and airforce units do not have their own main
+          board pieces.
+        </p> -->
+        <!-- SECTION Attrition -->
+        <div class="text-center text-warning">
+          <h3>Attrition</h3>
+        </div>
+        <p>
+          --Attrition occurs when units are cut-off from a direct connection to a city. Units that are cut-off are
+          now subject to running out of supplies. Armies and divisions only have enough supplies for 4 battles before
+          they can no longer attack or defend themselves. Individual units cannot defend of attack after 1 turn of being
+          cutoff. After 1 turn they must follow the "retreat rules when a unit has no supplies"
+        </p>
+        <p>
+          --If an army/division runs out of supplies they can no longer attack or defends themselves. If they
+          are attacked with no supplies the player must follow the "retreat rules when a unit has no supplies".
+        </p>
+        <!-- SECTION Land Units -->
+        <div class="text-center text-warning">
+          <h3>Land Units</h3>
+        </div>
+        <p>
+          <span class="text-warning fs-md">General Rules:</span> All units have a set amount of movement points and
+          offensive points. Movement points are the number of
+          times a unit can move on the combat board per turn. All land units can move 2 spaces on the main board if they
+          are within their own territory. Otherwise land
+          units can only move 1 space on the main board if they move into uncontrolled territory. Offensive points are the
+          number of times a unit can
+          attack per turn. Range is the distance a unit can attack an enemy. A range of 1 means the unit can only
+          attack tiles that are next to them.
+        </p>
+        <p><span class="text-warning fs-md">Infantry</span> {{ units.infantry }}
+        </p>
+        <p><span class="text-warning fs-md">Special Forces</span> {{ units.specialForces }}
+        </p>
+        <p><span class="text-warning fs-md">Mechanized Infantry</span> {{ units.mechanized }}
+        </p>
+        <p><span class="text-warning fs-md">Infantry Fighting Vehicle</span> {{ units.ifv }}
+        </p>
+        <p><span class="text-warning fs-md">Main Battle Tank</span> {{ units.mbt }}
+        </p>
+        <p><span class="text-warning fs-md">Anti-aircraft</span>{{ units.antiAircraft }}
+        </p>
+        <p><span class="text-warning fs-md">Artillery</span> {{ units.artillery }}
+        </p>
+        <p><span class="text-warning fs-md">Missile-Artillery</span> {{ units.missileArtillery }}
+        </p>
+        <!-- SECTION Air Units -->
+        <div class="text-center text-warning py-2">
+          <h3>Air Units</h3>
+        </div>
+        <p><span class="text-warning fs-md">Fighter Aircraft</span> {{ units.fighterAircraft }}
+        </p>
+        <p><span class="text-warning fs-md">Close Air Support</span> {{ units.cas }}
+        </p>
+        <p><span class="text-warning fs-md">Cargo Aircraft</span> {{ units.cargoAircraft }}
+        </p>
+        <!-- SECTION Navy Units -->
+        <div class="text-center text-warning py-2">
+          <h3>Navy Units</h3>
+        </div>
+        <p><span class="text-warning fs-md">General Rules:</span> There are 3 types of naval units, Aircraft carrier,
+          Cruiser, and Destroyer. Carriers and destroyers
+          have peg holes in
+          them to track their damage. When a carrier or destroyer is hit a red peg is placed into one of the holes in the
+          center of the ship to
+          track damage. Each ship has a specific construction time. Carriers take 3
+          turns to
+          construct. Cruisers and destroyers
+          take 2 turns to construct. All ships can move 1 space per turn on the main board.
+        </p>
+        <p><span class="text-warning fs-md">Carriers</span> {{ units.carrier }}
+        </p>
+        <p><span class="text-warning fs-md">Cruisers</span> {{ units.cruiser }}
+        </p>
+        <p><span class="text-warning fs-md">Destroyers</span> {{ units.destroyer }}
+        </p>
+        <!-- SECTION Combat Rules -->
+        <div class="text-center text-warning">
+          <h3>Combat Rules</h3>
+        </div>
+        <p><span class="text-warning"> --Rules about initiating combat:</span> Only 1 offensive move per tile is
+          allowed per turn. This means that a player can only attack from a tile once per turn. Atleast 3 units need
+          to be used to iniate combat.
+        </p>
+        <p>--Land battles take place on a seperate board called the combat board.
+        </p>
+        <p>--Before combat begins be sure to place any item cards face up in front of the player at
+          the combat board
+          when being used.
+        </p>
+        <p>--The defending player places their units first on the board and then the offensive player places theirs.
+          There is a maximum of 12 ground units each for both sides on the board at one time. There is no limit on
+          aircraft. A maximum of 2 ground units can share the same tile, however there is no limit on aircraft. If
+          there are more than 12 defending units involved the defending player can decide to retreat the extra units
+          or keep them as reserves to be used in combat later. Offense can only deploy a max of 12 units at one time
+          as well, but does not get to use reserves. The defending player will place their 3 bunkers (only infantry
+          or Special forces can use bunkers) and all their units involved and place them in the middle of the combat
+          board. The defending player cannot place units on first row of tiles closest to them.
+        </p>
+        <p>--Infantry/Special forces that occupy fortifications take 2 hits to destroy. If a player
+          only lands 1
+          successful hit then the fortification is destroyed and removed from play but the infantry remains. Tiles
+          with fortifications can only have 1 unit at a time on that tile.
+        </p>
+        <p>-- The defending player must deploy all their units possible up to the maximum of 12. For example the
+          defending player cannot deploy 2 units and have the other 10 retreat. If they wish to try and retreat they
+          need to follow the retreat rules.
+        </p>
+        <p>--The offensive player will place their units as close to the defending player as they
+          wish. However,
+          they
+          cannot place their units behind the defending player unless they are using the paratroopers item.
+        </p>
+        <p>--During combat if the defending player loses units they can deploy reserves and they will enter the
+          combat board in the row closest to the defending player. When reserve are placed they cannot move until
+          the next turn.
+        </p>
+        <p>--During combat every unit is subject to their environmental rules to determine their
+          probabilities of
+          hitting and missing attacks.
+        </p>
+        <p>--Fighters and CAS can be deployed immediately or they can be set to the side and called up when players
+          wish to use them. When aircraft are deployed they will be placed on the 1st row closest to the player
+          deploying the aircraft. Fighter aircraft can move and attack immediately. CAS can move immediately but
+          they cannot attack until the players next turn.
+        </p>
+        <p>--Any action an aircraft takes when they are within AA range the AA gets to fire 1 shot
+          at the aircraft.
+          This applies to all AA that is in range. For example if a player moves their aircraft into AA range the AA
+          get to fire at them first before the aircraft can do anything else. During that same turn if that aircraft
+          moves onto another tile and is still within AA range the AA gets to fire again. This can occur as many
+          times as the aircraft moves within AA range.
+        </p>
+        <p>--Once a unit is locked into combat that unit cannot move until they destroy the enemy
+          or are relieved by
+          another unit.
+        </p>
+        <p><span class="text-warning">--Example of combat:</span> An IFV unit attacks an enemy unit on the space next to
+          it. The
+          attacking unit
+          fails to destroy the defending unit. The attacking player still has 3 movement points left but cannot
+          attack with that unit again during this turn. If the attacking unit was successfull they would move into
+          the space they captured and this would count as 1 movement point. The player can still move the unit 2
+          more space but cannot attack anymore. If the attacking unit were an MBT it can attack twice in one turn as
+          well as move twice.
+        </p>
+        <p><span class="text-warning"> Example of combat:</span> A mechanized unit is attacking an infantry unit. They
+          both roll
+          successfull
+          hits and neither of them are destroyed, however the mech unit cannot attack again since it only has 1
+          attack point. And since the mech unit was unsuccessfull at destroying the infantry the mech is now locked
+          in combat with the infantry and cannot move even though it still has 2 movement points left. If during
+          that same turn another unit comes along and destroys the infantry they are no longer locked in combat and
+          can now move if they wish. If the mech unit was not relieved at the end of the players turn the other
+          player can now go on the offensive against the mech unit.
+        </p>
+        <!-- SECTION Retreat Rules -->
+        <div class="text-center text-warning">
+          <h3>Retreat Rules</h3>
+        </div>
+        <p>--The defending/offensive players can retreat by moving there units to first row of
+          tiles closest to
+          them on the combat board and declaring that the unit is retreating. They have to remain on that tile for 1
+          turn in order to retreat and be will removed from the board. If the combat board is not being used the
+          retreating player declares that they are retreating and the retreating unit will have to survive 1 turn
+          before moving the unit in the opposite direction where combat is taking place. Once it is declared that a
+          unit is retreating this cannot be undone and the unit will be removed after 1 turn unless it is destroyed.
+        </p>
+        <p>--Once a unit has retreated the player will move that unit one space in the opposite direction to any
+          friendly or non-hostile territory. If the opposite tile is water or hostile territory the unit will move
+          to the nearest safe tile. If there are no safe tiles the unit cannot retreat.
+        </p>
+        <p>--Fighter Aircraft can retreat instantly and will be returned to any airfield within
+          range.
+        </p>
+        <p>--Combat is resolved once all of a players units are destroyed or the attacker/defender retreats from the
+          battlefield.
+        </p>
+        <p>--If both players declare that they want to end combat before all units have been
+          destroyed/retreated
+          then
+          combat immediately ends.
+        </p>
+        <p>--Players involved should keep track of units lost and territory lost during combat and then update their
+          economies immediately after the combat phase ends. This means adding and subtracting your resources to
+          reflect your casualties and territory lost.
+        </p>
+        <p>--When a player takes territory from another player they must hold that territory for 1
+          turn before they
+          can claim it. Once claimed they can then roll for resources and draw a card from the item deck.
+        </p>
+        <p><span class="text-warning">--Retreating when a unit has no supplies: </span> In the event a army/division has
+          no
+          supplies left to defend themselves from an attack they must all retreat. A dice roll for each unit
+          retreating will be used determine a successfull escape or not. Using a D12 the defending player must roll
+          2 higher than the attacking player to escape. If a unit successfully escapes the player can choose which
+          adjacent tile to place each unit. If there are no safe tiles to retreat to then all units are destroyed.
+        </p>
+        <!-- SECTION Navy Combat Rules -->
+        <div class="text-center text-warning">
+          <h3>Navy Combat Rules</h3>
+        </div>
+        <p>--Naval units do not need to occupy the same MB tile to all be included in a naval
+          battle. All adjacent
+          naval units to the tile where combat is initiated will be included on the combat board. A max of 3 ships
+          can occupy a tile at one time.
+        </p>
+        <p>--Their is a combat board for naval battles as well and is largely identical to the combat board for land
+          battles. The difference however is that the defending player can only place their units on the 2nd and 3rd
+          row closest to them. The attacking player can place their units on the first 3 rows closest to them.
+        </p>
+        <p>--Any action an aircraft takes when they are within AA range the AA gets to fire 1 shot
+          at the aircraft.
+          This applies to all AA that is in range. For example if a player moves their aircraft into AA range the AA
+          get to fire at them first before the aircraft can do anything else (unless the aircraft is using the
+          stealth item). During that same turn if that aircraft moves onto another tile and is still within AA range
+          the AA gets to fire again. This can occur as many times as the aircraft moves within AA range.
+        </p>
+        <p>--Destroyers have heavy armor giving them a chance to absorb any incoming hits.
+        </p>
+        <!-- SECTION Item Card Rules -->
+        <div class="text-center text-warning">
+          <h3>Item Card Rules</h3>
+        </div>
+        <p>--Players start with 3 item cards chosen at random from the deck.
+        </p>
+        <p>--Items are cards that are drawn from a pile every time a player takes a territory including territory
+          not
+          owned by another player. This does not apply to territory claimed during set-up phase. Players can have as
+          many item cards as they want. Once they are used shuffle them back into item deck.
+        </p>
+        <p>--Item cards are placed face up in front of the player when using an item card at the
+          combat board. The
+          item cards will not be placed face up until both players have chosen the items they will be using. Once
+          players choose and place their cards face up they cannot remove or change them. Players should not know
+          what items another player is going to use before they place them face up.
+        </p>
+        <p><span class="text-warning">--Exsplosive Reactive Armor:</span> This can be used before a battle begins to
+          increase MBT's
+          odds of surving a hit. When an MBT takes a hit roll a D12 to determine if the reactive armor deflects the
+          shot 1-5 is successful.
+        </p>
+        <p><span class="text-warning">--Laser Designator:</span> This item can be used beofre a battle to increase
+          the odds of
+          artillery hitting its target. Special forces units are required to use the laser designator item. Enemy
+          units next to a special forces unit can be lased and give artillery a better chance of hitting their
+          target so long as the artillery is within range. Lasing a target does not use up the special forces
+          offensive point.
+        </p>
+        <p><span class="text-warning">--Cruise Missile:</span> This item can be used during a players 3rd phase before
+          or after a
+          battle. It cannot be used during a battle. Cruise missiles can be launched from any of the players
+          cruisers to hit targets as far away as 4 tiles on the MB. Cruise missile hits are determined
+          by a D12 (1-10), and they can only be intercepted using the Point Defense item, carrier, or AA. If the
+          cruise missile flies over a hostile tile with AA (not including cities) or a carrier the player that owns
+          that tile should roll a D12 to try and intercept the missile.
+        </p>
+        <p><span class="text-warning">Point Defense:</span> The point defense item can be used by a defending player
+          before a battle
+          to provide better AA and anti-missile protection. If used on an aircraft D12 1-9 is a hit. Point defense
+          can only target 1 unit and is discarded after use regardless of outcome. Defending players can use as many
+          point defense cards as they want but will need to declare how many cards they are going to deploy before
+          the battle. Item cannot be used during naval battles.
+        </p>
+        <p><span class="text-warning">Aircraft Stealth:</span> The stealth card can be applied before a battle. This
+          will reverse
+          attack
+          order of AA and aircraft meaning the aircraft will fire first and then the AA will fire second and also
+          reduces the AA hit chance to D12 (1-6). If the AA is destroyed by an aircrafts first shot the AA does not
+          get to fire.
+        </p>
+        <p><span class="text-warning">Surplus Fuel:</span> This item can be used before a battle begins to upgrade
+          mechanized units
+          movement. When used mechanized units can now move 3 spaces on the battlefield but can still only attack
+          once per turn.
+        </p>
+        <p><span class="text-warning">Paratroopers:</span> This item card can be used before combat by the offensive
+          player. The
+          offensive player can place up to 3 infantry units behind the defending player during the combat board
+          set-up phase. This requires the offensive player to have infantry or SF infantry present when the attack
+          is initiated. If AA is present then each infantry unit being deployed as paratroopers will have to survive
+          one AA attack roll. The AA only gets to shoot once at each paratrooper.
+        </p>
+        <p><span class="text-warning">Javelin Missiles</span> : This item card equips infantry units (not SF) with
+          effective
+          anti-tank
+          weapons. A roll of can be added to all infantry attacks vs MBT's bringing the odds up to 64% chance to
+          hit. Does not apply to defense rolls.
+        </p>
+        <!-- SECTION Event Card Rules -->
+        <div class="text-center text-warning">
+          <h3>Event Card Rules</h3>
+        </div>
+        <p>--Event cards are cards that are drawn at the end of the 4th players turn. The 4th
+          player draws the card
+          and proceeds to resolve whatever event the card presents. Players cannot decline any event unless the card
+          says otherwise.
+        </p>
+        <p>--The player(s) affected by the event card is determined by a D4 dice roll or based on whatever is
+          written
+          on the card (it may affect all players). The 4th player rolls the D4 and each number represents a player
+          based on their team color. Player 1 is green, player 2 is tan, player 3 is brown, and player 4 is blue.
+        </p>
+        <!-- SECTION Structure Rules -->
+        <div class="text-center text-warning">
+          <h3>Structure Rules</h3>
+        </div>
+        <p>--Only one structure can occupy any one tile, except for factories on capitals.
+        </p>
+        <p>--Players capitals act as airfields. Players do not need to build an airfield by their capital.
+        </p>
+        <p>--Airfields can only be built within the adjacent tiles of cities.
+        </p>
+        <p>--Aircraft can only be placed on airfields when built.
+        </p>
+        <p>--Airfields can also be used to transport units around the board from one airfield to another airfield.
+          Moving a unit via airfield uses that units 1 movement point and requires 1 available movement point as well as a
+          transport aircraft present at the airfield.
+        </p>
+        <p>--Fortifications can be built anywhere. One Fortification placed on the game board
+          represents 3
+          Fortifications on the combat board.
+        </p>
+        <p>--Only Infantry and special forces can use fortifications and it gives provides immunity to artillery. It
+          also gives the occupying unit an extra hitpoint. A successfull hits on a fortification destroys it, but
+          not the unit occupying it.
+        </p>
+        <p>--Naval Yards can be built on any tile that is next to a water tile. Each naval yard can
+          build up to
+          three
+          ships at a time. This is tracked on the unit construction sheet. The player must own the tile the naval
+          yard is built from.
+        </p>
+        <!-- <p>--Naval yards can store up to 6 total supply pegs.
+            </p> -->
+        <!-- <p>--Naval yards take 6 hits to destroy. This damage will be tracked using the peg holes
+              that represent the
+              number of supplies stored at the naval yard. When a naval yard is damaged each hit reduces the number of
+              supplies a naval yard can store by 1.
+            </p> -->
+        <p>--Naval yards can repair a max of 2 cruisers/destroyers or 1 carrier at one time.
+        </p>
+        <p>--Factories can be built on any city except small cities and are used to increase production capacity. When
+          they are built
+          onto cities they increase your faction production by 1. Capitals can have 2 factories. Large and medium cities
+          can have 1 factory. And small cities cannot have factories. Factories can be destroyed in one successfull hit.
+        </p>
+        <!-- <p>--Warehouse can be built adjacent to cities. Warehouse supplies to a maximum of 3 per warehouse.
+              Warehouses can be destroyed in one successfull hit.
+            </p> -->
+        <!-- SECTION Army/Division Rules -->
+        <div class="text-center text-warning">
+          <h3>Army/Division Rules</h3>
+        </div>
+        <p>--Army and Division pieces are a way to consolidate large groups of units. Armies are
+          groups of 9 units
+          and Divisions are groups of 6. Each unit piece has holes that represent each unit within the division or
+          army. Division pieces have 10 peg holes and army pieces have 13 peg holes. The group of 4 peg holes
+          represent the supplies the army/division has total if their supply line is cut.
+        </p>
+        <p>--Units contained within these groups will be tracked on paper or the companion app. If
+          a unit is
+          destroyed it will be erased from the resource sheet or removed on the app.
+        </p>
+        <p>--Units that are not within a division or army can join these groups to replace destroyed units.
+        </p>
+        <p>--If more than half of a division or army group is destroyed, and the player does not
+          have any extra
+          units within range to immediately replace the lost units then the division or army is disbanded and
+          replaced with the remaining individual units.
+        </p>
+        <p>--Divisions and army groups can only move if all units within the group have not already moved. For
+          example if a unit traveled 1 space to join the group the entire group cannot move until next turn.
+        </p>
+        <p>--Divisions and Army groups can instantly capture unnoccupied tiles.
+        </p>
+      </div>
+      <div class="col-12 d-flex justify-content-center my-3">
+        <button @click="backToTop()" class="btn">Back-to-Top</button>
+      </div>
+    </section>
+  </body>
 </template>
 
 <script>
@@ -14,24 +452,75 @@ import { computed, onMounted } from 'vue'
 import { rulesService } from '../services/RulesService.js'
 import { useRulesStore } from "../stores/RulesStore";
 export default {
-  async setup() {
-
-    async function getRules() {
+  setup() {
+    async function getUnitRules() {
       try {
-        await rulesService.getRules()
+        await rulesService.getUnitRules()
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function getBuildingRules() {
+      try {
+        await rulesService.getBuildingRules()
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function getGeneralRules() {
+      try {
+        await rulesService.getGeneralRules()
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function getCombatRules() {
+      try {
+        await rulesService.getCombatRules()
       } catch (error) {
         console.error(error);
       }
     }
 
     onMounted(() => {
-      getRules()
+      getUnitRules()
+      getBuildingRules()
+      getGeneralRules()
+      getCombatRules()
     })
     return {
-      rules: computed(() => useRulesStore.rules)
+      units: computed(() => useRulesStore.units),
+      buildings: computed(() => useRulesStore.buildings),
+      general: computed(() => useRulesStore.general),
+      combat: computed(() => useRulesStore.combat),
+
+      backToTop() {
+        window.scrollTo(0, 0)
+      }
+
     }
   }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+body {
+  color: #1d1d1d;
+  text-shadow: #000000 3px 3px 2px;
+  color: whitesmoke;
+  min-height: 80vh;
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+
+@media screen and (min-width: 768px) {
+  p {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+</style>

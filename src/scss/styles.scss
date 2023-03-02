@@ -1,3 +1,10 @@
+body {
+  background-color: #8d8d8d;
+  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  // text-shadow: #aeaeae 3px 3px 2px;
+}
+
+// Box Shadows
 .elevation-1 {
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
 }
@@ -18,8 +25,9 @@
   box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 6px 0 rgba(0, 0, 0, 0.14), 0 1px 12px 0 rgba(0, 0, 0, 0.12);
 }
 
+// Font classes
 .fs-md {
-  font-size: 16px;
+  font-size: 22px;
 }
 
 .fs-lg {
@@ -30,6 +38,36 @@
   font-size: 42px;
 }
 
+.text-shadow-dark {
+  color: #1d1d1d;
+  text-shadow: whitesmoke 2px 2px;
+  background: linear-gradient(#FFDA96, #dda15e);
+  letter-spacing: 1px;
+}
+
+// Colors
+.bg-green {
+  background: linear-gradient(#606c38, #283618)
+}
+
+// Buttons
+button {
+  background: linear-gradient(#FFDA96, #dda15e);
+  box-shadow: black 4px 4px;
+  border-radius: 7px;
+}
+
+button:hover {
+  text-shadow: white 3px 3px;
+}
+
+button:active {
+  box-shadow: none;
+  background: #515151
+}
+
+
+// Misc utilities
 .selectable {
   cursor: pointer;
 }
@@ -39,6 +77,13 @@
   background: none;
 }
 
-body {
-  background-color: whitesmoke
+.no-pad {
+  padding: 0%;
+}
+
+.user-img-placeholder {
+  background-color: black;
+  border-radius: 50%;
+  min-height: 55px;
+  min-width: 55px;
 }

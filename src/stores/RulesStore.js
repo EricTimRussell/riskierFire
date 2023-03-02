@@ -1,5 +1,8 @@
-import { ref, computed, reactive } from 'vue'
+import { reactive } from 'vue'
 
 export const useRulesStore = reactive({
-  rules: {}
+  units: {},
+  combat: {},
+  buildings: {},
+  general: {},
 })
