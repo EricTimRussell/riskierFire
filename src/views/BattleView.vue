@@ -27,26 +27,26 @@
               <!-- Select Adversary -->
               <div class="col-12 d-flex justify-content-evenly">
                 <div>
-                  <input id="infantry" class="mx-1" type="checkbox">
+                  <input id="infantry" class="mx-1" type="checkbox" v-model="infantry">
                   <label>Vs Infantry: 5-8 (55.6%)</label>
                 </div>
                 <div>
-                  <input class="mx-1" type="checkbox">
+                  <input id="mech" class="mx-1" type="checkbox" v-model="mech">
                   <label>Vs Mech: 7-10 (50%)</label>
                 </div>
                 <div>
-                  <input class="mx-1" type="checkbox">
+                  <input id="ifv" class="mx-1" type="checkbox" v-model="ifv">
                   <label>Vs IFV: 7-8 (30.56%)</label>
                 </div>
                 <div>
-                  <input class="mx-1" type="checkbox">
+                  <input id="mbt" class="mx-1" type="checkbox" v-model="mbt">
                   <label>Vs MBT: 7-10 (50%)</label>
                 </div>
               </div>
-              <!-- ANCHOR Figure out checkbox conditional rendering -->
+
               <!-- Vs Infantry -->
               <div class="col-3 d-flex justify-content-center">
-                <label for="infantry">
+                <label for="infantry" v-if="infantry == true">
                   <div v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 8)">
                     <h1>Vs Infantry</h1>
                     <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
@@ -62,44 +62,50 @@
 
               <!-- Vs Mech -->
               <div class="col-3 d-flex justify-content-center">
-                <div v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
-                  <h1>Vs Mech</h1>
-                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                  <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
-                </div>
-                <div v-else>
-                  <h1>Vs Mech</h1>
-                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                  <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
-                </div>
+                <label for="mech" v-if="mech == true">
+                  <div v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
+                    <h1>Vs Mech</h1>
+                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                    <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
+                  </div>
+                  <div v-else>
+                    <h1>Vs Mech</h1>
+                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                    <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
+                  </div>
+                </label>
               </div>
 
               <!-- Vs IFV -->
               <div class="col-3 d-flex justify-content-center">
-                <div v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 8)">
-                  <h1>Vs IFV</h1>
-                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                  <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
-                </div>
-                <div v-else>
-                  <h1>Vs IFV</h1>
-                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                  <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
-                </div>
+                <label for="ifv" v-if="ifv == true">
+                  <div v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 8)">
+                    <h1>Vs IFV</h1>
+                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                    <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
+                  </div>
+                  <div v-else>
+                    <h1>Vs IFV</h1>
+                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                    <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
+                  </div>
+                </label>
               </div>
 
               <!-- Vs MBT -->
               <div class="col-3 d-flex justify-content-center">
-                <div v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
-                  <h1>Vs MBT</h1>
-                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                  <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
-                </div>
-                <div v-else>
-                  <h1>Vs MBT</h1>
-                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                  <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
-                </div>
+                <label for="mbt" v-if="mbt == true">
+                  <div v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
+                    <h1>Vs MBT</h1>
+                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                    <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
+                  </div>
+                  <div v-else>
+                    <h1>Vs MBT</h1>
+                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                    <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
+                  </div>
+                </label>
               </div>
             </div>
           </div>
@@ -179,8 +185,15 @@ export default {
   setup() {
     const twoSixDie = ref({ roll: 0 })
     const oneTwelveDie = ref({ roll: 0 })
-
+    const infantry = ref(false)
+    const mech = ref(false)
+    const ifv = ref(false)
+    const mbt = ref(false)
     return {
+      infantry,
+      mech,
+      ifv,
+      mbt,
       twoSixDie,
       oneTwelveDie,
       rollTwoSixDie() {
