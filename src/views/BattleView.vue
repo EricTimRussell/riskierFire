@@ -12,100 +12,116 @@
       </div>
     </section>
     <section class="row justify-content-center">
-      <div class="accordion accordion-flush col-10" id="accordionFlushExample">
+      <div class="accordion accordion-flush" id="accordionFlushExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+            <button class="accordion-button collapsed fs-xl" type="button" data-bs-toggle="collapse"
               data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
               Infantry
             </button>
           </h2>
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body row">
+            <div class="accordion-body row justify-content-center">
 
-              <!-- Select Adversary -->
-              <div class="col-12 d-flex justify-content-evenly">
-                <div>
-                  <input id="infantry" class="mx-1" type="checkbox" v-model="infantry">
-                  <label>Vs Infantry: 5-8 (55.6%)</label>
+              <!-- Select Adversary Offense-->
+              <div class="col-12 text-center">
+                <h2>Select Adversary</h2>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <div class="d-flex">
+                  <input id="infantry" class="mx-1 checkbox" type="checkbox" v-model="infantry">
+                  <h3>Infantry</h3>
                 </div>
-                <div>
-                  <input id="mech" class="mx-1" type="checkbox" v-model="mech">
-                  <label>Vs Mech: 7-10 (50%)</label>
+                <div class="d-flex">
+                  <input id="mech" class="mx-1 checkbox" type="checkbox" v-model="mech">
+                  <h3>Mechanized</h3>
                 </div>
-                <div>
-                  <input id="ifv" class="mx-1" type="checkbox" v-model="ifv">
-                  <label>Vs IFV: 7-8 (30.56%)</label>
+              </div>
+              <div class="col-12 d-flex text-center justify-content-center">
+                <div class="d-flex">
+                  <input id="ifv" class="mx-1 checkbox" type="checkbox" v-model="ifv">
+                  <h3>IFV</h3>
                 </div>
-                <div>
-                  <input id="mbt" class="mx-1" type="checkbox" v-model="mbt">
-                  <label>Vs MBT: 7-10 (50%)</label>
+                <div class="d-flex">
+                  <input id="mbt" class="mx-1 checkbox" type="checkbox" v-model="mbt">
+                  <h3>MBT</h3>
                 </div>
               </div>
 
               <!-- Vs Infantry -->
-              <div class="col-3 d-flex justify-content-center">
-                <label for="infantry" v-if="infantry == true">
-                  <div v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 8)">
-                    <h1>Vs Infantry</h1>
-                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                    <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
-                  </div>
-                  <div v-else>
-                    <h1>Vs Infantry</h1>
-                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                    <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
-                  </div>
-                </label>
+              <div class="col-3 d-flex justify-content-center mt-5" for="infantry" v-if="infantry == true">
+                <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 8)">
+                  <button type="button" @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll
+                  }}</span></button>
+                  <h3 v-show="twoSixDie.roll > 0" class="text-center pt-3">HIT</h3>
+                </div>
+                <div v-else class="text-center">
+                  <button type="button" @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll
+                  }}</span></button>
+                  <h3 v-show="twoSixDie.roll > 0" class="text-center pt-3">MISS</h3>
+                </div>
               </div>
 
               <!-- Vs Mech -->
-              <div class="col-3 d-flex justify-content-center">
-                <label for="mech" v-if="mech == true">
-                  <div v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
-                    <h1>Vs Mech</h1>
-                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                    <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
-                  </div>
-                  <div v-else>
-                    <h1>Vs Mech</h1>
-                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                    <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
-                  </div>
-                </label>
+              <div class="col-3 d-flex justify-content-center mt-5" for="mech" v-if="mech == true">
+                <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
+                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                  <h3 v-show="twoSixDie.roll > 0" class="text-center pt-3">HIT</h3>
+                </div>
+                <div class="text-center" v-else>
+                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                  <h3 v-show="twoSixDie.roll > 0" class="text-center pt-3">MISS</h3>
+                </div>
               </div>
 
               <!-- Vs IFV -->
-              <div class="col-3 d-flex justify-content-center">
-                <label for="ifv" v-if="ifv == true">
-                  <div v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 8)">
-                    <h1>Vs IFV</h1>
-                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                    <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
-                  </div>
-                  <div v-else>
-                    <h1>Vs IFV</h1>
-                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                    <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
-                  </div>
-                </label>
+              <div class="col-3 d-flex justify-content-center mt-5" for="ifv" v-if="ifv == true">
+                <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 8)">
+                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                  <h3 v-show="twoSixDie.roll > 0" class="text-center pt-3">HIT</h3>
+                </div>
+                <div class="text-center" v-else>
+                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                  <h3 v-show="twoSixDie.roll > 0" class="text-center pt-3">MISS</h3>
+                </div>
               </div>
 
               <!-- Vs MBT -->
-              <div class="col-3 d-flex justify-content-center">
-                <label for="mbt" v-if="mbt == true">
-                  <div v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
-                    <h1>Vs MBT</h1>
-                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                    <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
-                  </div>
-                  <div v-else>
-                    <h1>Vs MBT</h1>
-                    <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-                    <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
-                  </div>
-                </label>
+              <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="mbt == true">
+                <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
+                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                  <h3 v-show="twoSixDie.roll > 0" class="text-center pt-3">HIT</h3>
+                </div>
+                <div class="text-center" v-else>
+                  <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
+                  <h3 v-show="twoSixDie.roll > 0" class="text-center pt-3">MISS</h3>
+                </div>
+              </div>
+
+              <!-- Select Environment Defense-->
+              <div class="col-12 text-center pt-5">
+                <h2>Select Environment</h2>
+              </div>
+              <div class="col-12 d-flex justify-content-center">
+                <div class="d-flex">
+                  <input id="infantry" class="mx-1 checkbox" type="checkbox" v-model="infantry">
+                  <h3>Infantry</h3>
+                </div>
+                <div class="d-flex">
+                  <input id="mech" class="mx-1 checkbox" type="checkbox" v-model="mech">
+                  <h3>Mechanized</h3>
+                </div>
+              </div>
+              <div class="col-12 d-flex text-center justify-content-center">
+                <div class="d-flex">
+                  <input id="ifv" class="mx-1 checkbox" type="checkbox" v-model="ifv">
+                  <h3>IFV</h3>
+                </div>
+                <div class="d-flex">
+                  <input id="mbt" class="mx-1 checkbox" type="checkbox" v-model="mbt">
+                  <h3>MBT</h3>
+                </div>
               </div>
             </div>
           </div>
@@ -207,4 +223,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+input.checkbox {
+  width: 20px;
+  height: 20px;
+}
+</style>
