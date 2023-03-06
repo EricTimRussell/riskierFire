@@ -39,7 +39,7 @@
         </RouterLink>
       </div>
     </div>
-    <div class="col-12 d-flex justify-content-evenly pt-4 pb-2">
+    <div class="col-12 d-flex justify-content-evenly pt-4 pb-2 px-2">
       <div>
         <span class="mx-2 material-symbols-outlined text-warning fs-xl">
           attach_money

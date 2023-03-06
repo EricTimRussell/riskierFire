@@ -1,33 +1,43 @@
 <template>
   <body class="container-fluid">
-    <section class="row">
-      <div class="col-12 text-center mb-4 mt-4">
+    <div class="row px-2">
+      <div class="col-12 text-center mb-2 mt-4">
         <h1 class="fs-xl">Rule Book</h1>
       </div>
-      <div class="col-12 mb-4">
-        <nav class="d-flex justify-content-center">
+      <div class="dropdown-center col-12 d-flex justify-content-center mb-4">
+        <button class="dropdown-toggle px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Jump to:
+        </button>
+        <ul class="dropdown-menu drop-menu">
           <nav class="nav nav-pills">
-            <a class="nav-link" href="#units">Unit Rules</a>
-            <a class="nav-link" href="#groundCombat">Ground Combat Rules</a>
-            <a class="nav-link" href="#airCombat">Air Combat Rules</a>
-            <a class="nav-link" href="#navyCombat">Navy Combat Rules</a>
-            <a class="nav-link" href="#items">Item Rules</a>
+            <a class="nav-link dropdown-item" href="#mainBoardPieces">Main Board Pieces</a>
+            <a class="nav-link dropdown-item" href="#units">Unit Rules</a>
+            <a class="nav-link dropdown-item" href="#groundCombat">Ground Combat Rules</a>
+            <a class="nav-link dropdown-item" href="#airCombat">Air Combat Rules</a>
+            <a class="nav-link dropdown-item" href="#navyCombat">Navy Combat Rules</a>
+            <a class="nav-link dropdown-item" href="#items">Item Rules</a>
+            <a class="nav-link dropdown-item" href="#events">Event Rules</a>
+            <a class="nav-link dropdown-item" href="#structure">Structure Rules</a>
+            <a class="nav-link dropdown-item" href="#armyDivision">Army & Division Rules</a>
+
           </nav>
-        </nav>
+        </ul>
       </div>
+    </div>
+    <section class="row px-2">
       <div class="col-12">
         <!-- SECTION Resources -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Resources</h3>
+          <h2>Resources</h2>
           <span class="divider"></span>
         </div>
         <p><span class="text-tan fs-md">Resources</span> {{ general.resources }}</p>
         <p>
           <span class="text-tan fs-md">Cities</span> {{ general.cities }}
         </p>
-        <!-- SECTION Construction Sheet -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Construction</h3>
+        <!-- SECTION Construction -->
+        <!-- <div class="d-flex flex-column align-items-center text-center text-tan py-2">
+          <h2>Construction</h2>
           <span class="divider"></span>
         </div>
         <p>
@@ -52,21 +62,21 @@
           increase their production by 1 for each factory. Factories cannot be built on small cities. The amount of
           production a player has dictates how many units a player can produce at one time. This does not include naval
           units or buildings.
-        </p>
+        </p> -->
         <!-- SECTION Main Board Pieces -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Main Board Pieces</h3>
+        <div id="mainBoardPieces" class="d-flex flex-column align-items-center text-center text-tan py-2">
+          <h2>Main Board Pieces</h2>
           <span class="divider"></span>
         </div>
         <p>
           <span class="text-tan fs-md">Cities</span> {{ general.cities }}
         </p>
         <p>
-          <span class="text-tan fs-md">Fortification</span> {{ buildings.fortification }}
+          <span class="text-tan fs-md">Fortifications:</span> {{ buildings.fortification }}
         </p>
         <!-- SECTION Land Units -->
         <div id="units" class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Ground Units</h3>
+          <h2>Ground Units</h2>
           <span class="divider"></span>
         </div>
         <p>
@@ -97,7 +107,7 @@
         </p>
         <!-- SECTION Air Units -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Air Units</h3>
+          <h2>Air Units</h2>
           <span class="divider"></span>
         </div>
         <p><span class="text-tan fs-md">Fighter Aircraft</span> {{ units.fighterAircraft }}
@@ -108,7 +118,7 @@
         </p>
         <!-- SECTION Navy Units -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Navy Units</h3>
+          <h2>Navy Units</h2>
           <span class="divider"></span>
         </div>
         <p><span class="text-tan fs-md">General Rules:</span> There are 3 types of naval units, Aircraft carrier,
@@ -129,7 +139,7 @@
         </p>
         <!-- SECTION Combat Rules -->
         <div id="groundCombat" class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Combat Rules</h3>
+          <h2>Combat Rules</h2>
           <span class="divider"></span>
         </div>
         <p><span class="text-tan fs-md"> General Rules on Combat:</span> Only 1 offensive move per tile is
@@ -163,7 +173,7 @@
           the next turn.
         </p>
         <div id="airCombat" class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Air Combat Rules</h3>
+          <h2>Air Combat Rules</h2>
           <span class="divider"></span>
         </div>
         <p>--Fighters and CAS can be deployed immediately or they can be set to the side and called up when players
@@ -213,10 +223,10 @@
         </p>
         <!-- SECTION Retreat Rules -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Retreat Rules</h3>
+          <h2>Retreat Rules</h2>
           <span class="divider"></span>
         </div>
-        <p><span class="text-tan fs-md"> Retreating:</span>The defending or offensive players can retreat by moving there
+        <p><span class="text-tan fs-md"> Retreating:</span> The defending or offensive players can retreat by moving there
           units to first row of
           tiles closest to
           them on the combat board and declaring that the unit is retreating. They have to remain on that tile for 1
@@ -229,7 +239,7 @@
           friendly or non-hostile territory. If the opposite tile is water or hostile territory the unit will move
           to the nearest safe tile. If there are no safe tiles the unit cannot retreat.
         </p>
-        <p>--Fighter Aircraft can retreat instantly and will be returned to any airfield within
+        <p>--Fighter Aircraft and CAS can retreat instantly and will be returned to any airfield within
           range.
         </p>
         <p><span class="text-tan fs-md">--Retreating when a unit has no supplies: </span> In the event a army/division has
@@ -241,7 +251,7 @@
         </p>
         <!-- SECTION Attrition -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Attrition</h3>
+          <h2>Attrition</h2>
           <span class="divider"></span>
         </div>
         <p>
@@ -249,7 +259,7 @@
         </p>
         <!-- SECTION Navy Combat Rules -->
         <div id="navyCombat" class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Navy Combat Rules</h3>
+          <h2>Navy Combat Rules</h2>
           <span class="divider"></span>
         </div>
         <p>--Naval units do not need to occupy the same MB tile to all be included in a naval
@@ -272,7 +282,7 @@
         </p>
         <!-- SECTION Item Card Rules -->
         <div id="items" class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Item Rules</h3>
+          <h2>Item Rules</h2>
           <span class="divider"></span>
         </div>
         <p><span class="text-tan fs-md">Items:</span> {{ general.items }}
@@ -322,15 +332,15 @@
           hit. Does not apply to defense rolls.
         </p>
         <!-- SECTION Event Card Rules -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Event Rules</h3>
+        <div id="events" class="d-flex flex-column align-items-center text-center text-tan py-2">
+          <h2>Event Rules</h2>
           <span class="divider"></span>
         </div>
         <p><span class="text-tan fs-md">Event</span> {{ general.events }}
         </p>
         <!-- SECTION Structure Rules -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Structure Rules</h3>
+        <div id="structure" class="d-flex flex-column align-items-center text-center text-tan py-2">
+          <h2>Structure Rules</h2>
           <span class="divider"></span>
         </div>
         <p><span class="text-tan fs-md">General Rules:</span> Only one structure can occupy any one tile. A player
@@ -344,8 +354,8 @@
         <p><span class="text-tan fs-md">Factories</span> {{ buildings.factory }}
         </p>
         <!-- SECTION Army/Division Rules -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Army & Division Rules</h3>
+        <div id="armyDivision" class="d-flex flex-column align-items-center text-center text-tan py-2">
+          <h2>Army & Division Rules</h2>
           <span class="divider"></span>
         </div>
         <p>--Army and Division pieces are a way to consolidate large groups of units. Armies are
@@ -371,8 +381,9 @@
         <p>--Divisions and Army groups can instantly capture unnoccupied tiles.
         </p>
       </div>
-      <div class="col-12 d-flex justify-content-center my-3">
-        <button @click="backToTop()" class="btn">Back-to-Top</button>
+      <span class="divider"></span>
+      <div class="col-12 d-flex justify-content-center py-3 sticky-bottom">
+        <button @click="backToTop()" class="p-2">Back-to-Top</button>
       </div>
     </section>
   </body>
@@ -450,17 +461,20 @@ body {
 
 a {
   border-bottom: #1d1d1d 5px solid;
-  color: #fdce78;
+  color: black;
+  text-shadow: none;
 }
 
 a:hover {
-  color: white;
   text-decoration: underline 2px solid black;
 }
 
 a:active {
-  color: white;
   text-decoration: underline 2px solid black;
+}
+
+.drop-menu {
+  max-width: 250px;
 }
 
 @media screen and (min-width: 768px) {
