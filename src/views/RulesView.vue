@@ -1,8 +1,19 @@
 <template>
   <body class="container-fluid">
     <section class="row">
-      <div class="col-12 text-center mb-2 mt-4">
+      <div class="col-12 text-center mb-4 mt-4">
         <h1 class="fs-xl">Rule Book</h1>
+      </div>
+      <div class="col-12 mb-4">
+        <nav class="d-flex justify-content-center">
+          <nav class="nav nav-pills">
+            <a class="nav-link" href="#units">Unit Rules</a>
+            <a class="nav-link" href="#groundCombat">Ground Combat Rules</a>
+            <a class="nav-link" href="#airCombat">Air Combat Rules</a>
+            <a class="nav-link" href="#navyCombat">Navy Combat Rules</a>
+            <a class="nav-link" href="#items">Item Rules</a>
+          </nav>
+        </nav>
       </div>
       <div class="col-12">
         <!-- SECTION Resources -->
@@ -54,7 +65,7 @@
           <span class="text-tan fs-md">Fortification</span> {{ buildings.fortification }}
         </p>
         <!-- SECTION Land Units -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div id="units" class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h3>Ground Units</h3>
           <span class="divider"></span>
         </div>
@@ -117,51 +128,44 @@
         <p><span class="text-tan fs-md">Destroyers</span> {{ units.destroyer }}
         </p>
         <!-- SECTION Combat Rules -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div id="groundCombat" class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h3>Combat Rules</h3>
           <span class="divider"></span>
         </div>
-        <p><span class="text-tan"> --Rules about initiating combat:</span> Only 1 offensive move per tile is
-          allowed per turn. This means that a player can only attack from a tile once per turn. Atleast 3 units need
-          to be used to iniate combat.
-        </p>
-        <p>--Land battles take place on a seperate board called the combat board.
-        </p>
-        <p>--Before combat begins be sure to place any item cards face up in front of the player at
+        <p><span class="text-tan fs-md"> General Rules on Combat:</span> Only 1 offensive move per tile is
+          allowed per turn on the main board. This means that a player can only attack from a tile once per turn. Land
+          battles take place on a seperate board called the combat board. Before combat begins be sure to place any item
+          in front of the player at
           the combat board
           when being used.
         </p>
-        <p>--The defending player places their units first on the board and then the offensive player places theirs.
+        <p><span class="text-tan fs-md">Ground Combat Setup:</span>
           There is a maximum of 12 ground units each for both sides on the board at one time. There is no limit on
           aircraft. A maximum of 2 ground units can share the same tile, however there is no limit on aircraft. If
           there are more than 12 defending units involved the defending player can decide to retreat the extra units
           or keep them as reserves to be used in combat later. Offense can only deploy a max of 12 units at one time
-          as well, but does not get to use reserves. The defending player will place their 3 bunkers (only infantry
-          or Special forces can use bunkers) and all their units involved and place them in the middle of the combat
-          board. The defending player cannot place units on first row of tiles closest to them.
-        </p>
-        <p>--Infantry/Special forces that occupy fortifications take 2 hits to destroy. If a player
-          only lands 1
-          successful hit then the fortification is destroyed and removed from play but the infantry remains. Tiles
-          with fortifications can only have 1 unit at a time on that tile.
+          as well as keep reserves. The defending player will place their 3 fortifications only 1 per tile and only
+          infantry
+          or Special forces can use fortifications. All of the defenders units involved will be placed in the middle of
+          the combat
+          board. The defending player cannot place units on first row of tiles closest to them or past the middle row. The
+          offensive player will now place their units anywhere up to the defenders line but not on or past it.
         </p>
         <p>-- The defending player must deploy all their units possible up to the maximum of 12. For example the
           defending player cannot deploy 2 units and have the other 10 retreat. If they wish to try and retreat they
-          need to follow the retreat rules.
+          have to follow the retreat rules.
         </p>
-        <p>--The offensive player will place their units as close to the defending player as they
-          wish. However,
-          they
-          cannot place their units behind the defending player unless they are using the paratroopers item.
+        <p>-- A unit is considered locked in combat when they engage an enemy. When locked in combat both
+          units cannot move until another one of them is destroyed or they are relieved by a friendly unit.
         </p>
-        <p>--During combat if the defending player loses units they can deploy reserves and they will enter the
-          combat board in the row closest to the defending player. When reserve are placed they cannot move until
+        <p>--During combat if players lose units they can deploy reserves and they will enter the
+          combat board in the row closest to the player. When reserve are placed they cannot move until
           the next turn.
         </p>
-        <p>--During combat every unit is subject to their environmental rules to determine their
-          probabilities of
-          hitting and missing attacks.
-        </p>
+        <div id="airCombat" class="d-flex flex-column align-items-center text-center text-tan py-2">
+          <h3>Air Combat Rules</h3>
+          <span class="divider"></span>
+        </div>
         <p>--Fighters and CAS can be deployed immediately or they can be set to the side and called up when players
           wish to use them. When aircraft are deployed they will be placed on the 1st row closest to the player
           deploying the aircraft. Fighter aircraft can move and attack immediately. CAS can move immediately but
@@ -174,35 +178,46 @@
           moves onto another tile and is still within AA range the AA gets to fire again. This can occur as many
           times as the aircraft moves within AA range.
         </p>
-        <p>--Once a unit is locked into combat that unit cannot move until they destroy the enemy
-          or are relieved by
-          another unit.
+        <p>--Combat is resolved once all of a players units are destroyed or the attacker/defender retreats from the
+          battlefield. If both players declare that they want to end combat before all units have been
+          destroyed/retreated
+          then
+          combat immediately ends.
         </p>
-        <p><span class="text-tan">--Example of combat:</span> An IFV unit attacks an enemy unit on the space next to
+        <p>--Players involved should keep track of units lost and territory lost during combat and then update their
+          economies immediately after the combat phase ends.
+        </p>
+        <p>--When a player takes territory from another player they must hold that territory for 1
+          turn before they
+          can claim it.
+        </p>
+        <p><span class="text-tan fs-md">Example of combat:</span> An IFV unit attacks an enemy unit on the space next to
           it. The
           attacking unit
           fails to destroy the defending unit. The attacking player still has 3 movement points left but cannot
-          attack with that unit again during this turn. If the attacking unit was successfull they would move into
+          move that unit because they remain locked in battle with enemy. If the attacking unit was successfull they would
+          move into
           the space they captured and this would count as 1 movement point. The player can still move the unit 2
-          more space but cannot attack anymore. If the attacking unit were an MBT it can attack twice in one turn as
-          well as move twice.
+          more space but cannot attack anymore.
         </p>
-        <p><span class="text-tan"> Example of combat:</span> A mechanized unit is attacking an infantry unit. They
+        <p><span class="text-tan fs-md"> Example of combat:</span> A mechanized unit is attacking an infantry unit. They
           both roll
           successfull
           hits and neither of them are destroyed, however the mech unit cannot attack again since it only has 1
           attack point. And since the mech unit was unsuccessfull at destroying the infantry the mech is now locked
           in combat with the infantry and cannot move even though it still has 2 movement points left. If during
-          that same turn another unit comes along and destroys the infantry they are no longer locked in combat and
+          that same turn another unit comes along and destroys the infantry or takes the place of the mechanized unit they
+          are no longer locked in combat and
           can now move if they wish. If the mech unit was not relieved at the end of the players turn the other
           player can now go on the offensive against the mech unit.
         </p>
         <!-- SECTION Retreat Rules -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Retreate Rules</h3>
+          <h3>Retreat Rules</h3>
           <span class="divider"></span>
         </div>
-        <p>--The defending/offensive players can retreat by moving there units to first row of
+        <p><span class="text-tan fs-md"> Retreating:</span>The defending or offensive players can retreat by moving there
+          units to first row of
           tiles closest to
           them on the combat board and declaring that the unit is retreating. They have to remain on that tile for 1
           turn in order to retreat and be will removed from the board. If the combat board is not being used the
@@ -217,23 +232,7 @@
         <p>--Fighter Aircraft can retreat instantly and will be returned to any airfield within
           range.
         </p>
-        <p>--Combat is resolved once all of a players units are destroyed or the attacker/defender retreats from the
-          battlefield.
-        </p>
-        <p>--If both players declare that they want to end combat before all units have been
-          destroyed/retreated
-          then
-          combat immediately ends.
-        </p>
-        <p>--Players involved should keep track of units lost and territory lost during combat and then update their
-          economies immediately after the combat phase ends. This means adding and subtracting your resources to
-          reflect your casualties and territory lost.
-        </p>
-        <p>--When a player takes territory from another player they must hold that territory for 1
-          turn before they
-          can claim it. Once claimed they can then roll for resources and draw a card from the item deck.
-        </p>
-        <p><span class="text-tan">--Retreating when a unit has no supplies: </span> In the event a army/division has
+        <p><span class="text-tan fs-md">--Retreating when a unit has no supplies: </span> In the event a army/division has
           no
           supplies left to defend themselves from an attack they must all retreat. A dice roll for each unit
           retreating will be used determine a successfull escape or not. Using a D12 the defending player must roll
@@ -249,7 +248,7 @@
           <span class="text-tan fs-md">Attrition</span> {{ combat.attrition }}
         </p>
         <!-- SECTION Navy Combat Rules -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div id="navyCombat" class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h3>Navy Combat Rules</h3>
           <span class="divider"></span>
         </div>
@@ -272,22 +271,11 @@
         <p>--Destroyers have heavy armor giving them a chance to absorb any incoming hits.
         </p>
         <!-- SECTION Item Card Rules -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Item Card Rules</h3>
+        <div id="items" class="d-flex flex-column align-items-center text-center text-tan py-2">
+          <h3>Item Rules</h3>
           <span class="divider"></span>
         </div>
-        <p>--Players start with 3 item cards chosen at random from the deck.
-        </p>
-        <p>--Items are cards that are drawn from a pile every time a player takes a territory including territory
-          not
-          owned by another player. This does not apply to territory claimed during set-up phase. Players can have as
-          many item cards as they want. Once they are used shuffle them back into item deck.
-        </p>
-        <p>--Item cards are placed face up in front of the player when using an item card at the
-          combat board. The
-          item cards will not be placed face up until both players have chosen the items they will be using. Once
-          players choose and place their cards face up they cannot remove or change them. Players should not know
-          what items another player is going to use before they place them face up.
+        <p><span class="text-tan fs-md">Items:</span> {{ general.items }}
         </p>
         <p><span class="text-tan">--Exsplosive Reactive Armor:</span> This can be used before a battle begins to
           increase MBT's
@@ -300,14 +288,6 @@
           units next to a special forces unit can be lased and give artillery a better chance of hitting their
           target so long as the artillery is within range. Lasing a target does not use up the special forces
           offensive point.
-        </p>
-        <p><span class="text-tan">--Cruise Missile:</span> This item can be used during a players 3rd phase before
-          or after a
-          battle. It cannot be used during a battle. Cruise missiles can be launched from any of the players
-          cruisers to hit targets as far away as 4 tiles on the MB. Cruise missile hits are determined
-          by a D12 (1-10), and they can only be intercepted using the Point Defense item, carrier, or AA. If the
-          cruise missile flies over a hostile tile with AA (not including cities) or a carrier the player that owns
-          that tile should roll a D12 to try and intercept the missile.
         </p>
         <p><span class="text-tan">Point Defense:</span> The point defense item can be used by a defending player
           before a battle
@@ -343,18 +323,10 @@
         </p>
         <!-- SECTION Event Card Rules -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h3>Event Card Rules</h3>
+          <h3>Event Rules</h3>
           <span class="divider"></span>
         </div>
-        <p>--Event cards are cards that are drawn at the end of the 4th players turn. The 4th
-          player draws the card
-          and proceeds to resolve whatever event the card presents. Players cannot decline any event unless the card
-          says otherwise.
-        </p>
-        <p>--The player(s) affected by the event card is determined by a D4 dice roll or based on whatever is
-          written
-          on the card (it may affect all players). The 4th player rolls the D4 and each number represents a player
-          based on their team color. Player 1 is green, player 2 is tan, player 3 is brown, and player 4 is blue.
+        <p><span class="text-tan fs-md">Event</span> {{ general.events }}
         </p>
         <!-- SECTION Structure Rules -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
@@ -474,6 +446,21 @@ body {
   font-size: 17px;
   font-weight: 500;
   letter-spacing: 3px;
+}
+
+a {
+  border-bottom: #1d1d1d 5px solid;
+  color: #fdce78;
+}
+
+a:hover {
+  color: white;
+  text-decoration: underline 2px solid black;
+}
+
+a:active {
+  color: white;
+  text-decoration: underline 2px solid black;
 }
 
 @media screen and (min-width: 768px) {
