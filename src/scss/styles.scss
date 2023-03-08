@@ -80,6 +80,10 @@ button:active {
   cursor: pointer;
 }
 
+.selectable:active {
+  color: #FFDA96;
+}
+
 .btn-blank {
   border: none;
   background: none;

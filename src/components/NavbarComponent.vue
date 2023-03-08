@@ -7,20 +7,23 @@
             aria-expanded="false" alt="">
           <ul class="dropdown-menu text-center">
             <li class="pb-2">
+              <span class="fs-md text-decoration-underline">{{ user?.email }}</span>
+            </li>
+            <li>
               <RouterLink to="/" class="fs-md">Home</RouterLink>
             </li>
             <li v-if="user?.email">
               <RouterLink to="/account" class="fs-md">Account</RouterLink>
             </li>
             <li v-if="user?.email">
-              <span @click="logOutOfFirebase()" class="fs-md">Logout</span>
+              <span @click="logOutOfFirebase()" class="fs-md selectable">Logout</span>
             </li>
             <li v-else>
               <RouterLink to="/sign-in" class="fs-md">Login</RouterLink>
             </li>
           </ul>
         </div>
-        <nav class="d-flex col-8 justify-content-evenly">
+        <nav v-if="user?.email" class="d-flex col-8 justify-content-evenly">
           <RouterLink to="/rules">
             <span title="Rules Page" class="material-symbols-outlined fs-xl">
               menu_book
@@ -39,7 +42,7 @@
         </nav>
       </div>
     </div>
-    <div class="col-12 d-flex justify-content-evenly pt-4 pb-2 px-2">
+    <div v-if="user?.email" class="col-12 d-flex justify-content-evenly pt-4 pb-2 px-2">
       <div>
         <span class="mx-2 material-symbols-outlined text-warning fs-xl">
           attach_money
@@ -74,10 +77,6 @@ import { signOut } from "@firebase/auth";
 export default {
   setup() {
     const user = useCurrentUser()
-    console.log(user);
-
-
-
 
     return {
       user,
@@ -103,6 +102,7 @@ export default {
 
 a {
   color: black;
+  text-decoration: none;
 }
 
 a:hover {
@@ -126,9 +126,5 @@ a:active {
     width: fill;
     min-width: fit-content;
   }
-}
-
-li:hover {
-  text-decoration: underline 2px black solid;
 }
 </style>

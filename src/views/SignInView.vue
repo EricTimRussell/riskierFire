@@ -21,8 +21,10 @@
 import { ref } from "vue";
 import { useFirebaseAuth } from "vuefire";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
+import { useRouter } from "vue-router";
 export default {
   setup() {
+    const router = useRouter()
     const userInput = ref({
       email: '',
       password: ''
@@ -37,6 +39,7 @@ export default {
         await createUserWithEmailAndPassword(auth, userInput.value.email, userInput.value.password)
           .then((userCredential) => {
             const user = userCredential.user;
+            router.push({ name: 'home' })
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -51,6 +54,7 @@ export default {
             const user = userCredential.user;
             userInput.value.email = ''
             userInput.value.password = ''
+            router.push({ name: 'home' })
           })
           .catch((error) => {
             const errorCode = error.code;
