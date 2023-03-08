@@ -27,7 +27,7 @@
   <!-- Vs Infantry -->
   <div class="d-flex justify-content-center">
     <div class="col-3 d-flex justify-content-center mt-5" for="infantry" v-if="infantry == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 8)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 8) || (twoSixDie.roll >= 11)">
         <h6>Roll Dice</h6>
         <button type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -53,7 +53,7 @@
 
     <!-- Vs Mech -->
     <div class="col-3 d-flex justify-content-center mt-5" for="mech" v-if="mech == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
         <button type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -79,7 +79,7 @@
 
     <!-- Vs IFV -->
     <div class="col-3 d-flex justify-content-center mt-5" for="ifv" v-if="ifv == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 8)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 8) || (twoSixDie.roll >= 11)">
         <h6>Roll Dice</h6>
         <button type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -105,7 +105,7 @@
 
     <!-- Vs MBT -->
     <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="mbt == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
         <button type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>

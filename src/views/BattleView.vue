@@ -12,47 +12,53 @@
       </div>
     </section>
     <section class="row justify-content-center">
-      <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion" id="accordionExample">
         <div class="accordion-item bg-glass">
-          <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed fs-xl" type="button" data-bs-toggle="collapse"
-              data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
               Infantry
             </button>
           </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-            data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body row justify-content-center">
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
               <InfantryDiceComponent />
             </div>
           </div>
         </div>
-      </div>
-      <div class="accordion-item bg-glass">
-        <h2 class="accordion-header" id="flush-headingTwo">
-          <button class="accordion-button collapsed fs-xl" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-            Sepcial Forces
-          </button>
-        </h2>
-        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body row justify-content-center">
-            <!-- body -->
+        <!-- Special Forces -->
+        <div class="accordion-item bg-glass">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              Special Forces
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <SpecialForcesDiceComponent />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="accordion-item bg-glass">
-        <h2 class="accordion-header" id="flush-headingThree">
-          <button class="accordion-button collapsed fs-xl" type="button" data-bs-toggle="collapse"
-            data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-            Mechanized
-          </button>
-        </h2>
-        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
-          data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body row justify-content-center">
-            <!-- body -->
+        <!-- Mechanized -->
+        <div class="accordion-item bg-glass">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Mechanized
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
+              adds the appropriate classes that we use to style each element. These classes control the overall
+              appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+              CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
+              <code>.accordion-body</code>, though the transition does limit overflow.
+            </div>
           </div>
         </div>
       </div>
@@ -95,6 +101,7 @@
 <script>
 import { ref } from "vue";
 import InfantryDiceComponent from "../components/InfantryDiceComponent.vue";
+import SpecialForcesDiceComponent from "../components/SpecialForcesDiceComponent.vue";
 
 export default {
   setup() {
@@ -143,7 +150,7 @@ export default {
       }
     };
   },
-  components: { InfantryDiceComponent }
+  components: { InfantryDiceComponent, SpecialForcesDiceComponent }
 }
 
 </script>
