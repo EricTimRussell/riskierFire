@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
-import { VueFire } from "vuefire"
+import { VueFire, VueFireAuth } from "vuefire"
 import { firebaseApp } from "../src/firebase"
 
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -18,10 +18,9 @@ const app = createApp(App)
 app
   .use(VueFire, {
     firebaseApp,
-    // modules: [
-    //   // we will see other modules later on
-    //   VueFireAuth(),
-    // ],
+    modules: [
+      VueFireAuth(),
+    ],
   })
 
 app.use(createPinia())

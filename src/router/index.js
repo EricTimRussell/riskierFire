@@ -28,6 +28,11 @@ const router = createRouter({
       path: '/battle',
       name: 'battle',
       component: () => import('../views/BattleView.vue')
+    },
+    {
+      path: '/sign-in',
+      name: 'sign-in',
+      component: () => import('../views/SignInView.vue')
     }
   ]
 })

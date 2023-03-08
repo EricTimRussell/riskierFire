@@ -1,0 +1,66 @@
+<template>
+  <body class="container-fluid">
+    <form @submit="createUser()" class="row justify-content-center">
+      <div class="my-3 col-8">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" v-model="userInput.email" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3 col-8">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" v-model="userInput.password">
+      </div>
+      <div class="col-8">
+        <button @click="loginToFireBase()" type="button" class="btn">Login</button>
+        <button type="submit" class="btn mx-2">Create New User</button>
+      </div>
+    </form>
+  </body>
+</template>
+
+<script>
+import { ref } from "vue";
+import { useFirebaseAuth } from "vuefire";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
+export default {
+  setup() {
+    const userInput = ref({
+      email: '',
+      password: ''
+    })
+
+    const auth = useFirebaseAuth();
+
+    return {
+      userInput,
+      async createUser() {
+        // @ts-ignore
+        await createUserWithEmailAndPassword(auth, userInput.value.email, userInput.value.password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            // ..
+          });
+      },
+      async loginToFireBase() {
+        // @ts-ignore
+        signInWithEmailAndPassword(auth, userInput.value.email, userInput.value.password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            userInput.value.email = ''
+            userInput.value.password = ''
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
+      }
+
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped></style>
