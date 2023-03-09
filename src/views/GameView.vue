@@ -57,16 +57,47 @@
         </span>
         <span></span>
       </div>
+      <div class="pb-5">
+        <button type="submit" class="rounded text-shadow-dark p-2 mx-3" data-bs-toggle="modal"
+          data-bs-target="#createRegion" aria-label="Create Region">
+          Claim Region
+        </button>
+      </div>
     </section>
   </body>
 </template>
 
 <script>
+import { collection, query, getDocs, where } from "firebase/firestore"
+import { useCurrentUser, useFirestore, getCurrentUser } from "vuefire"
+import { onMounted } from "vue";
 export default {
   setup() {
+    const db = useFirestore()
+    const user = useCurrentUser()
 
+    async function getRegions() {
+      try {
+        // get user when undefined on page refresh
+        if (user.value?.uid == undefined) {
+          const user = await getCurrentUser()
+        }
+        // get user regions by their firbase id
+        const q = query(collection(db, "regions"), where("creatorId", "==", user.value?.uid));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          console.log(doc.id, " => ", doc.data());
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    onMounted(() => {
+      getRegions()
+    })
+    return {
 
-    return {}
+    }
   }
 }
 </script>

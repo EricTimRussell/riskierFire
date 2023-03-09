@@ -72,24 +72,23 @@
 </template>
 
 <script>
-import { useCurrentUser, useFirebaseAuth } from "vuefire";
+import { useCurrentUser, useFirebaseAuth, useIsCurrentUserLoaded } from "vuefire";
 import { signOut } from "@firebase/auth";
 export default {
   setup() {
     const user = useCurrentUser()
-
     return {
       user,
+
       async logOutOfFirebase() {
         const auth = useFirebaseAuth();
         // @ts-ignore
         signOut(auth).then(() => {
-          console.log("Logged Out")
+          // console.log("Logged Out")
         }).catch((error) => {
           error.error(error)
         });
       },
-
     }
   }
 }
