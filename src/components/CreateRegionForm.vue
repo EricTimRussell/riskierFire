@@ -19,44 +19,47 @@
         disabled>
     </div>
     <div hidden class="my-3">
-      <label for="creatorId" class="form-label">{{ creator.creatorId }}</label>
-      <input v-model="creator.creatorId" type="string" id="creatorId" disabled>
+      <label for="creatorId" class="form-label">{{ editable.creatorId }}</label>
+      <input v-model="editable.creatorId" type="string" id="creatorId" disabled>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn-danger" data-bs-dismiss="modal">Close</button>
-      <button type="submit" class="btn-green">Create</button>
+      <button type="submit" class="btn-green" data-bs-dismiss="modal">Create</button>
     </div>
   </form>
 </template>
 
 <script>
 import { ref } from "vue";
-import { collection, addDoc } from "firebase/firestore";
-import { getCurrentUser, useCurrentUser, useFirestore } from "vuefire";
+import { useCurrentUser, useFirestore } from "vuefire";
+import { regionsService } from "../services/RegionsService";
+import Swal from 'sweetalert2'
+import { addDoc, collection } from "@firebase/firestore";
 
 export default {
   setup() {
     const user = useCurrentUser()
-    const creator = ref({ creatorId: user.value?.uid })
-    const editable = ref({ regionNumber: 0, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1) })
+    const editable = ref({ regionNumber: 0, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
 
     const db = useFirestore()
 
     return {
       editable,
-      creator,
-      user,
       async createRegion() {
         try {
           const newRegion = await addDoc(collection(db, "regions"), {
-            ...editable.value,
-            ...creator.value
+            ...editable.value
           });
+          editable.value = ({ regionNumber: 0, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
+          Swal.fire({
+            title: 'Success!',
+            timer: 1000,
+            showConfirmButton: false
+          })
         } catch (error) {
-          console.error(error)
+          console.error(error, 'Creating Region')
         }
       },
-
     }
   }
 }

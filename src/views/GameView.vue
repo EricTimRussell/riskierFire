@@ -55,9 +55,6 @@
         <span class="material-symbols-outlined fs-lg px-2">
           public
         </span>
-        <span></span>
-      </div>
-      <div class="pb-5">
         <button type="submit" class="rounded text-shadow-dark p-2 mx-3" data-bs-toggle="modal"
           data-bs-target="#createRegion" aria-label="Create Region">
           Claim Region
@@ -68,34 +65,30 @@
 </template>
 
 <script>
-import { collection, query, getDocs, where } from "firebase/firestore"
-import { useCurrentUser, useFirestore, getCurrentUser } from "vuefire"
-import { onMounted } from "vue";
+import { useCurrentUser, getCurrentUser } from "vuefire"
+import { onMounted, computed } from "vue";
+import { regionsService } from "../services/RegionsService";
+import { useRegionStore } from "../stores/RegionStore";
+
 export default {
   setup() {
-    const db = useFirestore()
     const user = useCurrentUser()
-
-    async function getRegions() {
+    async function getRegionsByUserId() {
       try {
-        // get user when undefined on page refresh
+        // get user id if undefined
         if (user.value?.uid == undefined) {
           const user = await getCurrentUser()
         }
-        // get user regions by their firbase id
-        const q = query(collection(db, "regions"), where("creatorId", "==", user.value?.uid));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          console.log(doc.id, " => ", doc.data());
-        });
+        await regionsService.getRegionsByUserId(user)
       } catch (error) {
         console.error(error);
       }
     }
     onMounted(() => {
-      getRegions()
+      getRegionsByUserId()
     })
     return {
+      region: computed(() => useRegionStore.regions)
 
     }
   }
