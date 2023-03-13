@@ -5,7 +5,7 @@
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>
-        <h1>Battle Page</h1>
+        <h1>Combat Page</h1>
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>

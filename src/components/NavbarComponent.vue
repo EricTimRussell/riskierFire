@@ -29,7 +29,7 @@
               menu_book
             </span>
           </RouterLink>
-          <RouterLink to="/game">
+          <RouterLink :to="{ name: 'game', params: { id: user.uid } }">
             <span title="Game Page" class="material-symbols-outlined fs-xl">
               sports_esports
             </span>
@@ -72,11 +72,13 @@
 </template>
 
 <script>
-import { useCurrentUser, useFirebaseAuth, useIsCurrentUserLoaded } from "vuefire";
+import { useCurrentUser, useFirebaseAuth, useFirestore } from "vuefire";
 import { signOut } from "@firebase/auth";
 export default {
   setup() {
     const user = useCurrentUser()
+    const db = useFirestore()
+
     return {
       user,
 

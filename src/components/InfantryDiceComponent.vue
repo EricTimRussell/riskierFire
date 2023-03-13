@@ -24,7 +24,7 @@
         <h3>MBT</h3>
       </div>
     </div>
-
+    <!-- TODO disable roll button when isPending-->
     <!-- Vs Infantry -->
     <div class="d-flex justify-content-center">
       <div class="col-3 d-flex justify-content-center mt-5" for="infantry" v-if="infantry == true">

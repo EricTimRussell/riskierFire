@@ -1,27 +1,24 @@
 import { collection, query, getDocs, where, addDoc, onSnapshot } from "firebase/firestore"
 import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
-import { Region } from "../models/Region";
+import { Team } from "../models/Team"
 import { useRegionStore } from "../stores/RegionStore";
 
 
-
-
 const db = useFirestore()
+class TeamsService {
 
-class RegionsService {
-  async getRegionsByUserId(user) {
-    // get user regions by their firbase id
-    const q = query(collection(db, "regions"), where("creatorId", "==", user.value?.uid));
+  async getTeamByUserId(user) {
+    const q = query(collection(db, "teams"), where("creatorId", "==", user.value?.uid));
     const querySnapshot = await getDocs(q);
     onSnapshot(q, (querySnapshot) => {
       querySnapshot.forEach((doc) => {
         // console.log(doc.id, " => ", doc.data());
-        useRegionStore.regions = new Region(doc.data())
-        // console.log(useRegionStore.regions);
+        useRegionStore.teams = new Team(doc.data())
+        console.log(useRegionStore.teams);
       });
     })
   }
+
+
 }
-
-
-export const regionsService = new RegionsService()
+export const teamsService = new TeamsService()

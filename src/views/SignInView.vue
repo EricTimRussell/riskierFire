@@ -19,7 +19,7 @@
 
 <script>
 import { ref } from "vue";
-import { useFirebaseAuth } from "vuefire";
+import { useFirebaseAuth, useFirestore } from "vuefire";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
 import { useRouter } from "vue-router";
 export default {
@@ -31,7 +31,7 @@ export default {
     })
 
     const auth = useFirebaseAuth();
-
+    const db = useFirestore()
     return {
       userInput,
       async createUser() {
@@ -44,7 +44,6 @@ export default {
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            // ..
           });
       },
       async loginToFireBase() {
