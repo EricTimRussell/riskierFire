@@ -16,8 +16,8 @@ class RegionsService {
     onSnapshot(q, (querySnapshot) => {
       querySnapshot.forEach((doc) => {
         // console.log(doc.id, " => ", doc.data());
-        useRegionStore.regions = new Region(doc.data())
-        // console.log(useRegionStore.regions);
+        useRegionStore.regions.push(new Region(doc.data()))
+        console.log(useRegionStore.regions);
       });
     })
   }

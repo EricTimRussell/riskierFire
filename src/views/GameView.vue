@@ -54,6 +54,9 @@
           Claim Region
         </button>
       </div>
+      <div class="col-sm-6 col-md-3 d-flex justify-content-evenly" v-for="r in region">
+        <RegionCard :region="r" />
+      </div>
     </section>
   </body>
 
@@ -74,6 +77,7 @@ import { useRegionStore } from "../stores/RegionStore";
 import ModalComponent from "../components/ModalComponent.vue";
 import CreateRegionForm from "../components/CreateRegionForm.vue";
 import CreateTeamForm from "../components/CreateTeamForm.vue";
+import RegionCard from "../components/RegionCard.vue";
 import { teamsService } from "../services/TeamsService";
 import { useRoute } from "vue-router";
 
@@ -114,7 +118,7 @@ export default {
       teams: computed(() => useRegionStore.teams)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard }
 }
 </script>
 

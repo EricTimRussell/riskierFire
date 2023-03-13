@@ -14,7 +14,7 @@ class TeamsService {
       querySnapshot.forEach((doc) => {
         // console.log(doc.id, " => ", doc.data());
         useRegionStore.teams = new Team(doc.data())
-        console.log(useRegionStore.teams);
+        // console.log(useRegionStore.teams);
       });
     })
   }
