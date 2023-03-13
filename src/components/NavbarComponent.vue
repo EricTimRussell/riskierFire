@@ -42,30 +42,30 @@
         </nav>
       </div>
     </div>
-    <div v-if="user?.email" class="col-12 d-flex justify-content-evenly pt-4 pb-2 px-2">
+    <div v-if="user?.email" class="col-12 d-flex justify-content-evenly pt-4 pb-2 px-2 text-light">
       <div>
-        <span class="mx-2 material-symbols-outlined text-warning fs-xl">
+        <span class="material-symbols-outlined text-warning fs-xl">
           attach_money
         </span>
-        <span class="fs-lg">0</span>
+        <span class="fs-lg">{{ teams.totalCapital }}</span>
       </div>
       <div>
-        <span class="mx-2 material-symbols-outlined text-secondary fs-xl">
+        <span class="material-symbols-outlined text-secondary fs-xl">
           factory
         </span>
-        <span class="fs-lg">0</span>
+        <span class="fs-lg">{{ teams.totalIndustry }}</span>
       </div>
       <div>
-        <span class="mx-2 material-symbols-outlined text-success fs-xl">
+        <span class="material-symbols-outlined text-success fs-xl">
           psychiatry
         </span>
-        <span class="fs-lg">0</span>
+        <span class="fs-lg">{{ teams.totalAgriculture }}</span>
       </div>
       <div>
-        <span class="mx-2 material-symbols-outlined text-dark fs-xl">
+        <span class="material-symbols-outlined text-dark fs-xl">
           build
         </span>
-        <span class="fs-lg">0</span>
+        <span class="fs-lg">{{ teams.totalProduction }}</span>
       </div>
     </div>
   </div>
@@ -74,14 +74,20 @@
 <script>
 import { useCurrentUser, useFirebaseAuth, useFirestore } from "vuefire";
 import { signOut } from "@firebase/auth";
+import { computed } from "@vue/reactivity";
+import { useRegionStore } from "../stores/RegionStore";
+
 export default {
-  setup() {
+  props: {
+    teams: { type: Object, required: true }
+  },
+  setup(props) {
     const user = useCurrentUser()
     const db = useFirestore()
 
     return {
+      teams: computed(() => useRegionStore.teams),
       user,
-
       async logOutOfFirebase() {
         const auth = useFirebaseAuth();
         // @ts-ignore

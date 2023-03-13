@@ -1,12 +1,6 @@
 <template>
   <body class="container-fluid">
-    <section class="row g-0">
-      <div class="col-12 d-flex justify-content-center py-3">
-        <button type="submit" class="rounded text-shadow-dark p-2 mx-3" data-bs-toggle="modal"
-          data-bs-target="#createTeam-modal" aria-label="Create Team">
-          Create Team
-        </button>
-      </div>
+    <section class="row g-0" v-if="teams">
       <!-- Ground Forces -->
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
         <h2>Ground Forces</h2>
