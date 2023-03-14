@@ -54,18 +54,18 @@
           Claim Region
         </button>
       </div>
-      <div class="col-sm-6 col-md-3 d-flex justify-content-evenly" v-for="r in region" :key="regionId">
-        <RegionCard :regions="r" />
+      <div class="col-sm-6 col-md-3 d-flex justify-content-evenly mb-5" v-for="r in region" :key="regionId">
+        <RegionCard :regions="r" :regionId="regionId" :teams="teams" />
       </div>
     </section>
   </body>
 
 
   <ModalComponent id="createRegion-modal">
-    <CreateRegionForm :teams="teams" :key="user?.uid" />
+    <CreateRegionForm :key="user?.uid" :teams="teams" />
   </ModalComponent>
   <ModalComponent id="createTeam-modal">
-    <CreateTeamForm :key="user?.uid" />
+    <CreateTeamForm :key="user?.uid" :regions="region" />
   </ModalComponent>
 </template>
 
@@ -110,10 +110,6 @@ export default {
         console.error(error)
       }
     }
-
-
-
-
 
     onMounted(() => {
       getRegionsByUserId()

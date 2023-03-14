@@ -1,4 +1,4 @@
-import { collection, query, getDocs, where, addDoc, onSnapshot, documentId } from "firebase/firestore"
+import { collection, query, getDocs, where, addDoc, onSnapshot } from "firebase/firestore"
 import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
 import { Region } from "../models/Region";
 import { useRegionStore } from "../stores/RegionStore";
@@ -14,6 +14,8 @@ class RegionsService {
     const q = query(collection(db, "regions"), where("creatorId", "==", user.value?.uid));
     const querySnapshot = await getDocs(q);
     onSnapshot(q, (querySnapshot) => {
+      useRegionStore.regions = []
+      useRegionStore.regionId = ''
       querySnapshot.forEach((doc) => {
         // console.log(doc.id, " => ", doc.data());
         useRegionStore.regionId = doc.id
@@ -24,5 +26,4 @@ class RegionsService {
   }
 }
 
-// ANCHOR put everything on one page?
 export const regionsService = new RegionsService()

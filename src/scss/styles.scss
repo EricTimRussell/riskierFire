@@ -95,6 +95,16 @@ button:active {
 .btn-blank {
   border: none;
   background: none;
+  box-shadow: none;
+}
+
+.btn-blank:hover {
+  transform: scale(1.2);
+}
+
+.btn-blank:active {
+  transform: scale(1);
+  background: none;
 }
 
 .no-pad {

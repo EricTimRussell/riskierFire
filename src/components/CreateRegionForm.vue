@@ -40,7 +40,7 @@ import { useRegionStore } from "../stores/RegionStore";
 
 export default {
   props: {
-    teams: { type: Object, required: true }
+    teams: { type: Object, required: true },
   },
   setup(props) {
     const user = useCurrentUser()
@@ -64,6 +64,7 @@ export default {
             ...editable.value
           });
           await updateDoc(team, {
+            // Create region updates team object to reflect resources gained automatically
             totalCapital: editable.value.capital += props.teams.totalCapital,
             totalIndustry: editable.value.industry += props.teams.totalIndustry,
             totalAgriculture: editable.value.agriculture += props.teams.totalAgriculture
@@ -71,7 +72,7 @@ export default {
           editable.value = ({ regionNumber: 0, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
           Swal.fire({
             title: 'Success!',
-            timer: 1000,
+            timer: 900,
             showConfirmButton: false
           })
         } catch (error) {
