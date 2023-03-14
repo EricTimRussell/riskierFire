@@ -54,8 +54,8 @@
           Claim Region
         </button>
       </div>
-      <div class="col-sm-6 col-md-3 d-flex justify-content-evenly" v-for="r in region">
-        <RegionCard :region="r" />
+      <div class="col-sm-6 col-md-3 d-flex justify-content-evenly" v-for="r in region" :key="regionId">
+        <RegionCard :regions="r" />
       </div>
     </section>
   </body>
@@ -85,6 +85,7 @@ export default {
   setup() {
     const route = useRoute()
     const user = useCurrentUser();
+
     async function getRegionsByUserId() {
       try {
         // get user id if undefined
@@ -97,6 +98,7 @@ export default {
         console.error(error);
       }
     }
+
     async function getTeamByUserId() {
       try {
         // get user id if undefined
@@ -108,12 +110,19 @@ export default {
         console.error(error)
       }
     }
+
+
+
+
+
     onMounted(() => {
       getRegionsByUserId()
       getTeamByUserId()
     });
+
     return {
       user,
+      regionId: computed(() => useRegionStore.regionId),
       region: computed(() => useRegionStore.regions),
       teams: computed(() => useRegionStore.teams)
     };
