@@ -1,6 +1,6 @@
 <template>
   <body class="container-fluid">
-    <section class="row g-0" v-if="teams">
+    <section class="row" v-if="teams">
       <!-- Ground Forces -->
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
         <h2>Ground Forces</h2>
@@ -53,9 +53,19 @@
           data-bs-target="#createRegion-modal" aria-label="Create Region">
           Claim Region
         </button>
+        <button type="submit" class="rounded text-shadow-dark p-2 mx-3" data-bs-toggle="modal"
+          data-bs-target="#createCity-modal" aria-label="Create City">
+          Claim City
+        </button>
       </div>
-      <div class="col-sm-6 col-md-3 d-flex justify-content-evenly mb-5" v-for="r in region" :key="regionId">
-        <RegionCard :regions="r" :regionId="regionId" :teams="teams" />
+      <div class="col-sm-6 col-md-3 d-flex justify-content-evenly mb-5" v-for="r in region">
+        <RegionCard :regions="r" :teams="teams" />
+      </div>
+      <div class="col-12 text-center bg-green text-light my-3 elevation-5">
+        <h2>Cities</h2>
+      </div>
+      <div class="col-sm-6 col-md-3 d-flex justify-content-evenly mb-5" v-for="c in cities">
+        <CityCard :cities="c" :teams="teams" />
       </div>
     </section>
   </body>
@@ -66,6 +76,9 @@
   </ModalComponent>
   <ModalComponent id="createTeam-modal">
     <CreateTeamForm :key="user?.uid" :regions="region" />
+  </ModalComponent>
+  <ModalComponent id="createCity-modal">
+    <CreateCityForm :key="user?.uid" :teams="teams" />
   </ModalComponent>
 </template>
 
@@ -80,6 +93,8 @@ import CreateTeamForm from "../components/CreateTeamForm.vue";
 import RegionCard from "../components/RegionCard.vue";
 import { teamsService } from "../services/TeamsService";
 import { useRoute } from "vue-router";
+import CreateCityForm from "../components/CreateCityForm.vue";
+import CityCard from "../components/CityCard.vue";
 
 export default {
   setup() {
@@ -93,6 +108,19 @@ export default {
           const user = await getCurrentUser();
         }
         await regionsService.getRegionsByUserId(user);
+      }
+      catch (error) {
+        console.error(error);
+      }
+    }
+
+    async function getCitiesByUserId() {
+      try {
+        // get user id if undefined
+        if (user.value?.uid == undefined) {
+          const user = await getCurrentUser();
+        }
+        await regionsService.getCitiesByUserId(user);
       }
       catch (error) {
         console.error(error);
@@ -113,17 +141,18 @@ export default {
 
     onMounted(() => {
       getRegionsByUserId()
+      getCitiesByUserId()
       getTeamByUserId()
     });
 
     return {
       user,
-      regionId: computed(() => useRegionStore.regionId),
       region: computed(() => useRegionStore.regions),
-      teams: computed(() => useRegionStore.teams)
+      teams: computed(() => useRegionStore.teams),
+      cities: computed(() => useRegionStore.cities)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard }
 }
 </script>
 

@@ -1,22 +1,46 @@
 <template>
-  <form @submit.prevent="createRegion()">
+  <form @submit.prevent="createCity()">
     <div class="form-floating mb-3">
       <input v-model="editable.regionNumber" required type="text" maxlength="2" class="form-control" id="regionNumber"
         placeholder="1,2,3..." autocomplete="off">
       <label for="regionNumber">Region Number...</label>
     </div>
-    <div hidden>
+    <div>
       <label for="capital" class="form-label">Capital: {{ editable.capital }}</label>
-      <input v-model="editable.capital" type="range" class="form-range" min="1" max="15" step="1" id="capital" disabled>
+      <input v-model="editable.capital" type="range" class="form-range" min="4" max="15" step="1" id="capital">
     </div>
-    <div hidden class="my-3">
+    <div class="my-3">
       <label for="industry" class="form-label">Industry: {{ editable.industry }}</label>
-      <input v-model="editable.industry" type="range" class="form-range" min="1" max="15" step="1" id="industry" disabled>
+      <input v-model="editable.industry" type="range" class="form-range" min="4" max="15" step="1" id="industry">
     </div>
-    <div hidden class="mb-3">
+    <div class="mb-3">
       <label for="agriculture" class="form-label">Agriculture: {{ editable.agriculture }}</label>
-      <input v-model="editable.agriculture" type="range" class="form-range" min="1" max="15" step="1" id="agriculture"
-        disabled>
+      <input v-model="editable.agriculture" type="range" class="form-range" min="4" max="15" step="1" id="agriculture">
+    </div>
+    <div class="form-floating mb-3">
+      <div>
+        <h4>Select City Size</h4>
+      </div>
+      <div class="form-check form-check-inline">
+        <input v-model="editable.citySize" value="Small" class="form-check-input" type="radio" name="citySize"
+          id="SmallCity">
+        <label class="form-check-label" for="SmallCity">Small</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input v-model="editable.citySize" value="Medium" class="form-check-input" type="radio" name="citySize"
+          id="mediumCity">
+        <label class="form-check-label" for="mediumCity">Medium</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input v-model="editable.citySize" value="Large" class="form-check-input" type="radio" name="citySize"
+          id="largeCity">
+        <label class="form-check-label" for="largeCity">Large</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input v-model="editable.citySize" value="Capital" class="form-check-input" type="radio" name="citySize"
+          id="capitalCity">
+        <label class="form-check-label" for="capitalCity">Capital</label>
+      </div>
     </div>
     <div hidden class="my-3">
       <label for="creatorId" class="form-label">{{ editable.creatorId }}</label>
@@ -47,36 +71,38 @@ export default {
     const route = useRoute()
     const db = useFirestore()
 
-    const editable = ref({ regionNumber: 0, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
+    const editable = ref({ regionNumber: 0, capital: 4, industry: 4, agriculture: 4, citySize: '', production: 1, creatorId: user.value?.uid })
+
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
 
     computed(() => useRegionStore.teams)
     return {
       editable,
-      async createRegion() {
+      async createCity() {
         try {
           // get user id if undefined
           if (user.value?.uid == undefined) {
             const user = await getCurrentUser();
           }
-          const newRegion = await addDoc(collection(db, "regions"), {
-            ...editable.value
+          const newCity = await addDoc(collection(db, "cities"), {
+            ...editable.value,
           });
           await updateDoc(team, {
             // Create region updates team object to reflect resources gained automatically
             totalCapital: increment(editable.value.capital),
             totalIndustry: increment(editable.value.industry),
-            totalAgriculture: increment(editable.value.agriculture)
+            totalAgriculture: increment(editable.value.agriculture),
+            totalProduction: increment(editable.value.production)
           });
-          editable.value = ({ regionNumber: 0, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
+          editable.value = ({ regionNumber: 0, capital: 4, industry: 4, agriculture: 4, citySize: '', production: 1, creatorId: user.value?.uid })
           Swal.fire({
             title: 'Success!',
             timer: 900,
             showConfirmButton: false
           })
         } catch (error) {
-          console.error(error, 'Creating Region')
+          console.error(error, 'Creating City')
         }
       },
     }
