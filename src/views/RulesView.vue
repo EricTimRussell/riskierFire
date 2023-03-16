@@ -95,9 +95,9 @@
         </p>
         <p><span class="text-tan fs-md">Mechanized Infantry</span> {{ units.mechanized }}
         </p>
-        <p><span class="text-tan fs-md">Infantry Fighting Vehicle</span> {{ units.ifv }}
+        <p><span class="text-tan fs-md">Infantry Fighting Vehicle (IFV)</span> {{ units.ifv }}
         </p>
-        <p><span class="text-tan fs-md">Main Battle Tank</span> {{ units.mbt }}
+        <p><span class="text-tan fs-md">Main Battle Tank (MBT)</span> {{ units.mbt }}
         </p>
         <p><span class="text-tan fs-md">Anti-aircraft</span>{{ units.antiAircraft }}
         </p>
