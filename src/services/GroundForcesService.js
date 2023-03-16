@@ -78,5 +78,39 @@ class GroundForcesService {
       totalAgriculture: increment(1)
     });
   }
+
+  // SECTION MBT
+  async addMBT(team) {
+    await updateDoc(team, {
+      totalMBT: increment(1),
+      totalCapital: increment(-3),
+      totalIndustry: increment(-3),
+      totalAgriculture: increment(-1)
+    });
+  }
+  async removeMBT(team) {
+    await updateDoc(team, {
+      totalMBT: increment(-1),
+      totalCapital: increment(3),
+      totalIndustry: increment(3),
+      totalAgriculture: increment(1)
+    });
+  }
+
+  // SECTION Anti-Aircraft
+  async addAntiAircraft(team) {
+    await updateDoc(team, {
+      totalAntiAircraft: increment(1),
+      totalCapital: increment(-3),
+      totalIndustry: increment(-1),
+    });
+  }
+  async removeAntiAircraft(team) {
+    await updateDoc(team, {
+      totalAntiAircraft: increment(-1),
+      totalCapital: increment(3),
+      totalIndustry: increment(1),
+    });
+  }
 }
 export const groundForcesService = new GroundForcesService()
