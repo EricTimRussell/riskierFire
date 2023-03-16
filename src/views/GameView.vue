@@ -1,5 +1,5 @@
 <template>
-  <body class="container-fluid">
+  <body class="container-fluid" v-if="teams.creatorId">
     <div class="row">
       <!-- Ground Forces -->
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
@@ -100,13 +100,13 @@
       </div>
     </div>
   </body>
+  <div v-else class="col-12 text-center pt-5">
+    <h1>Create Team to access this page</h1>
+  </div>
 
 
   <ModalComponent id="createRegion-modal">
     <CreateRegionForm :key="user?.uid" :teams="teams" />
-  </ModalComponent>
-  <ModalComponent id="createTeam-modal">
-    <CreateTeamForm :key="user?.uid" :regions="region" />
   </ModalComponent>
   <ModalComponent id="createCity-modal">
     <CreateCityForm :key="user?.uid" :teams="teams" />

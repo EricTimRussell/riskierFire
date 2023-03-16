@@ -1,6 +1,6 @@
 <template>
   <body class="container-fluid">
-    <form @submit="createUser()" class="row justify-content-center">
+    <form @submit.prevent="createUser()" class="row justify-content-center">
       <div class="my-3 col-8">
         <label for="email" class="form-label">Email address</label>
         <input type="email" class="form-control" id="email" v-model="userInput.email" aria-describedby="emailHelp">

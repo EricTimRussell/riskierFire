@@ -35,7 +35,7 @@
             </span>
           </RouterLink>
           <RouterLink to="/battle">
-            <span title="Battle Page" class="material-symbols-outlined fs-xl">
+            <span title="Combat Page" class="material-symbols-outlined fs-xl">
               swords
             </span>
           </RouterLink>
