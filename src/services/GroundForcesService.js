@@ -112,5 +112,37 @@ class GroundForcesService {
       totalIndustry: increment(1),
     });
   }
+
+  // SECTION Artillery
+  async addArtillery(team) {
+    await updateDoc(team, {
+      totalArtillery: increment(1),
+      totalCapital: increment(-1),
+      totalIndustry: increment(-3),
+    });
+  }
+  async removeArtillery(team) {
+    await updateDoc(team, {
+      totalArtillery: increment(-1),
+      totalCapital: increment(1),
+      totalIndustry: increment(3),
+    });
+  }
+
+  // SECTION Missile Artillery
+  async addMissileArtillery(team) {
+    await updateDoc(team, {
+      totalMissileArtillery: increment(1),
+      totalCapital: increment(-3),
+      totalIndustry: increment(-3),
+    });
+  }
+  async removeMissileArtillery(team) {
+    await updateDoc(team, {
+      totalMissileArtillery: increment(-1),
+      totalCapital: increment(3),
+      totalIndustry: increment(3),
+    });
+  }
 }
 export const groundForcesService = new GroundForcesService()

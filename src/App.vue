@@ -29,7 +29,7 @@ export default {
 
 <template>
   <body>
-    <header>
+    <header class="sticky-top">
       <NavbarComponent :teams="teams" />
     </header>
 
