@@ -78,18 +78,9 @@ button:active {
   background: #515151
 }
 
-
-// Misc utilities
-.selectable {
-  cursor: pointer;
-}
-
-.selectable:active {
-  color: #FFDA96;
-}
-
-.rounded {
-  border-radius: 5px;
+button:disabled {
+  box-shadow: none;
+  background: #515151;
 }
 
 .btn-blank {
@@ -105,6 +96,20 @@ button:active {
 .btn-blank:active {
   transform: scale(1);
   background: none;
+}
+
+
+// Misc utilities
+.selectable {
+  cursor: pointer;
+}
+
+.selectable:active {
+  color: #FFDA96;
+}
+
+.rounded {
+  border-radius: 5px;
 }
 
 .no-pad {

@@ -12,6 +12,9 @@
     <div class="col-12 d-flex justify-content-center">
       <InfantryComponent :team="teams" />
     </div>
+    <div class="col-12 d-flex justify-content-center">
+      <MechIfvComponent :team="teams" />
+    </div>
     <!-- Air Forces -->
     <div class="row">
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
@@ -115,6 +118,7 @@ import { useRoute } from "vue-router";
 import CreateCityForm from "../components/CreateCityForm.vue";
 import CityCard from "../components/CityCard.vue";
 import InfantryComponent from "../components/InfantryComponent.vue";
+import MechIfvComponent from "../components/MechIfvComponent.vue";
 
 export default {
   setup() {
@@ -172,7 +176,7 @@ export default {
       cities: computed(() => useRegionStore.cities)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent }
 }
 </script>
 

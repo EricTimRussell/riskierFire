@@ -15,10 +15,28 @@
 </template>
 
 <script>
+import { onMounted } from "vue";
+import { getCurrentUser, useCurrentUser } from "vuefire";
+import { teamsService } from "../services/TeamsService";
+
 export default {
   setup() {
+    const user = useCurrentUser();
 
-
+    async function getTeamByUserId() {
+      try {
+        // get user id if undefined
+        if (user.value?.uid == undefined) {
+          const user = await getCurrentUser();
+        }
+        await teamsService.getTeamByUserId(user)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    onMounted(() => {
+      getTeamByUserId()
+    })
     return {
 
     }

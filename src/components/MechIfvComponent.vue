@@ -1,28 +1,28 @@
 <template>
   <div>
 
-    <!-- SECTION Infantry -->
+    <!-- SECTION Mechanized -->
     <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group" aria-label="Small button group">
       <div>
-        <button :disabled="(team.totalInfantry <= 0)" @click="removeInfantry()" class="text-dark"><span
+        <button :disabled="(team.totalMechanized <= 0)" @click="removeMechanized()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
       </div>
       <div class="d-flex flex-column align-items-center">
-        <h6 class="px-2">Infantry</h6>
-        <h6 class="px-2 fs-4"><strong>{{ team.totalInfantry }}</strong></h6>
+        <h6 class="px-2">Mechanized</h6>
+        <h6 class="px-2 fs-4"><strong>{{ team.totalMechanized }}</strong></h6>
       </div>
       <div>
-        <button @click="addInfantry()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
+        <button @click="addMechanized()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
       </div>
     </div>
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
       <div class="d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">1</span>
+        <span class="fs-lg">2</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">1</span>
+        <span class="fs-lg">2</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
@@ -30,33 +30,33 @@
       </div>
     </div>
 
-    <!-- SECTION SpecialForces -->
+    <!-- SECTION IFV -->
     <div class="col-12 btn-group btn-group-sm px-2 d-flex justify-content-center" role="group"
       aria-label="Small button group">
       <div>
-        <button :disabled="(team.totalSpecialForces <= 0)" @click="removeSpecialForces()" class="text-dark"><span
+        <button :disabled="(team.totalIFV <= 0)" @click="removeIFV()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
       </div>
       <div class="d-flex flex-column align-items-center">
-        <h6 class="px-2">Special Forces</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalSpecialForces }}</strong></h6>
+        <h6 class="px-2">IFV</h6>
+        <h6 class="px-3 fs-4"><strong>{{ team.totalIFV }}</strong></h6>
       </div>
       <div>
-        <button @click="addSpecialForces()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
+        <button @click="addIFV()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
       </div>
     </div>
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
       <div class="d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">3</span>
+        <span class="fs-lg">2</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">1</span>
+        <span class="fs-lg">3</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
-        <span class="fs-lg">3</span>
+        <span class="fs-lg">1</span>
       </div>
     </div>
   </div>
@@ -80,31 +80,31 @@ export default {
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
     return {
-      async addInfantry() {
+      async addMechanized() {
         try {
-          await groundForcesService.addInfantry(team)
+          await groundForcesService.addMechanized(team)
         } catch (error) {
-          console.error(error, "adding infantry");
+          console.error(error, "adding Mechanized");
         }
       },
-      async removeInfantry() {
+      async removeMechanized() {
         try {
-          await groundForcesService.removeInfantry(team)
+          await groundForcesService.removeMechanized(team)
         } catch (error) {
-          console.error(error, "removing infantry");
+          console.error(error, "removing Mechanized");
         }
       },
 
-      async addSpecialForces() {
+      async addIFV() {
         try {
-          await groundForcesService.addSpecialForces(team)
+          await groundForcesService.addIFV(team)
         } catch (error) {
           console.error(error, "adding special forces");
         }
       },
-      async removeSpecialForces() {
+      async removeIFV() {
         try {
-          await groundForcesService.removeSpecialForces(team)
+          await groundForcesService.removeIFV(team)
         } catch (error) {
           console.error(error, "removing special forces");
         }
