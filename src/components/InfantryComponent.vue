@@ -65,7 +65,9 @@
 
 <script>
 import { groundForcesService } from "../services/GroundForcesService";
-
+import { useCurrentUser, useFirestore } from "vuefire"
+import { doc, increment, updateDoc, where } from "@firebase/firestore";
+import { useRoute } from "vue-router";
 
 
 export default {
@@ -73,18 +75,21 @@ export default {
     team: { type: Object, required: true }
   },
   setup() {
-
+    const db = useFirestore()
+    const route = useRoute()
+    // @ts-ignore
+    const team = doc(db, "teams", route.params.id)
     return {
       async addInfantry() {
         try {
-          await groundForcesService.addInfantry()
+          await groundForcesService.addInfantry(team)
         } catch (error) {
           console.error(error, "adding infantry");
         }
       },
       async removeInfantry() {
         try {
-
+          await groundForcesService.removeInfantry(team)
         } catch (error) {
           console.error(error, "removing infantry");
         }
