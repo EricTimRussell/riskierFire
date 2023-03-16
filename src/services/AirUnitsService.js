@@ -42,8 +42,8 @@ class AirUnitsService {
   async addCargoAircraft(team) {
     await updateDoc(team, {
       totalCargoAircraft: increment(1),
-      totalCapital: increment(-3),
-      totalIndustry: increment(-3),
+      totalCapital: increment(-1),
+      totalIndustry: increment(-2),
     });
   }
   async removeCargoAircraft(team) {

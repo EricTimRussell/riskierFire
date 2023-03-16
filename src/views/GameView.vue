@@ -29,6 +29,9 @@
           flight
         </span>
       </div>
+      <div class="col-12 d-flex justify-content-center">
+        <AirUnitsComponent :team="teams" />
+      </div>
     </div>
     <!-- Naval Forces -->
     <div class="row">
@@ -127,6 +130,7 @@ import InfantryComponent from "../components/InfantryComponent.vue";
 import MechIfvComponent from "../components/MechIfvComponent.vue";
 import MbtAntiAircraftComponent from "../components/MbtAntiAircraftComponent.vue";
 import ArtilleryComponent from "../components/ArtilleryComponent.vue";
+import AirUnitsComponent from "../components/AirUnitsComponent.vue";
 
 export default {
   setup() {
@@ -184,7 +188,7 @@ export default {
       cities: computed(() => useRegionStore.cities)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent }
 }
 </script>
 
