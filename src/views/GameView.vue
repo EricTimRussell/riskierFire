@@ -53,6 +53,9 @@
           warehouse
         </span>
       </div>
+      <div class="col-12 d-flex justify-content-center">
+        <BuildingsComponent :team="teams" />
+      </div>
     </div>
     <!-- Armies & Divisions -->
     <div class="row">
@@ -135,6 +138,7 @@ import MbtAntiAircraftComponent from "../components/MbtAntiAircraftComponent.vue
 import ArtilleryComponent from "../components/ArtilleryComponent.vue";
 import AirUnitsComponent from "../components/AirUnitsComponent.vue";
 import NavalUnitsComponent from "../components/NavalUnitsComponent.vue";
+import BuildingsComponent from "../components/BuildingsComponent.vue";
 
 export default {
   setup() {
@@ -192,7 +196,7 @@ export default {
       cities: computed(() => useRegionStore.cities)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent, BuildingsComponent }
 }
 </script>
 
