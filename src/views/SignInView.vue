@@ -9,7 +9,7 @@
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" id="password" v-model="userInput.password">
       </div>
-      <div class="col-8">
+      <div class="col-12 d-flex justify-content-center">
         <button @click="loginToFireBase()" type="button" class="btn">Login</button>
         <button type="submit" class="btn mx-2">Create New User</button>
       </div>

@@ -1,19 +1,48 @@
 <template>
   <div>
 
-    <!-- SECTION Fighter Aircraft -->
+    <!-- SECTION Aircraft Carrier -->
     <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group" aria-label="Small button group">
       <div>
-        <button :disabled="(team.totalFighterAircraft <= 0)" @click="removeFighterAircraft()" class="text-dark"><span
+        <button :disabled="(team.totalCarriers <= 0)" @click="removeCarrier()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
       </div>
       <div class="d-flex flex-column align-items-center">
-        <h6 class="px-2">Fighters</h6>
-        <h6 class="px-2 fs-4"><strong>{{ team.totalFighterAircraft }}</strong></h6>
+        <h6 class="px-2">Carriers</h6>
+        <h6 class="px-2 fs-4"><strong>{{ team.totalCarriers }}</strong></h6>
       </div>
       <div>
-        <button @click="addFighterAircraft()" class=""><span
-            class="material-symbols-outlined fs-lg p-2">add</span></button>
+        <button @click="addCarrier()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-center mb-5 gap-5">
+      <div class="d-flex justify-content-center">
+        <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
+        <span class="fs-lg">5</span>
+      </div>
+      <div class="d-flex justify-content-center">
+        <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
+        <span class="fs-lg">3</span>
+      </div>
+      <div class="d-flex justify-content-center">
+        <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
+        <span class="fs-lg">3</span>
+      </div>
+    </div>
+
+    <!-- SECTION Cruisers-->
+    <div class="col-12 btn-group btn-group-sm px-2 d-flex justify-content-center" role="group"
+      aria-label="Small button group">
+      <div>
+        <button :disabled="(team.totalCruisers <= 0)" @click="removeCruiser()" class="text-dark"><span
+            class="material-symbols-outlined fs-lg p-2">remove</span></button>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <h6 class="px-2">Cruisers</h6>
+        <h6 class="px-3 fs-4"><strong>{{ team.totalCruisers }}</strong></h6>
+      </div>
+      <div>
+        <button @click="addCruiser()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
       </div>
     </div>
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
@@ -23,60 +52,41 @@
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">3</span>
-      </div>
-    </div>
-
-    <!-- SECTION Close Air Support -->
-    <div class="col-12 btn-group btn-group-sm px-2 d-flex justify-content-center" role="group"
-      aria-label="Small button group">
-      <div>
-        <button :disabled="(team.totalCloseAirSupport <= 0)" @click="removeCloseAirSupport()" class="text-dark"><span
-            class="material-symbols-outlined fs-lg p-2">remove</span></button>
-      </div>
-      <div class="d-flex flex-column align-items-center">
-        <h6 class="px-2">CAS</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalCloseAirSupport }}</strong></h6>
-      </div>
-      <div>
-        <button @click="addCloseAirSupport()" class=""><span
-            class="material-symbols-outlined fs-lg p-2">add</span></button>
-      </div>
-    </div>
-    <div class="col-12 d-flex justify-content-center mb-5 gap-5">
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">3</span>
+        <span class="fs-lg">4</span>
       </div>
       <div class="d-flex justify-content-center">
-        <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">3</span>
-      </div>
-    </div>
-
-    <!-- SECTION Cargo Aircraft -->
-    <div class="col-12 btn-group btn-group-sm px-2 d-flex justify-content-center" role="group"
-      aria-label="Small button group">
-      <div>
-        <button :disabled="(team.totalCargoAircraft <= 0)" @click="removeCargoAircraft()" class="text-dark"><span
-            class="material-symbols-outlined fs-lg p-2">remove</span></button>
-      </div>
-      <div class="d-flex flex-column align-items-center">
-        <h6 class="px-2">Cargo Aircraft</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalCargoAircraft }}</strong></h6>
-      </div>
-      <div>
-        <button @click="addCargoAircraft()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
-      </div>
-    </div>
-    <div class="col-12 d-flex justify-content-center mb-5 gap-5">
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
+        <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
         <span class="fs-lg">1</span>
       </div>
+    </div>
+
+    <!-- SECTION Destroyers -->
+    <div class="col-12 btn-group btn-group-sm px-2 d-flex justify-content-center" role="group"
+      aria-label="Small button group">
+      <div>
+        <button :disabled="(team.totalDestroyers <= 0)" @click="removeDestroyer()" class="text-dark"><span
+            class="material-symbols-outlined fs-lg p-2">remove</span></button>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <h6 class="px-2">Destroyers</h6>
+        <h6 class="px-3 fs-4"><strong>{{ team.totalDestroyers }}</strong></h6>
+      </div>
+      <div>
+        <button @click="addDestroyer()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-center mb-5 gap-5">
+      <div class="d-flex justify-content-center">
+        <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
+        <span class="fs-lg">3</span>
+      </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">2</span>
+        <span class="fs-lg">3</span>
+      </div>
+      <div class="d-flex justify-content-center">
+        <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
+        <span class="fs-lg">1</span>
       </div>
     </div>
   </div>
@@ -87,7 +97,7 @@
 import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
-import { airUnitsService } from "../services/AirUnitsService";
+import { navyUnitsService } from "../services/NavyUnitsService";
 
 
 export default {
@@ -100,48 +110,48 @@ export default {
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
     return {
-      async addFighterAircraft() {
+      async addCarrier() {
         try {
-          await airUnitsService.addFighterAircraft(team)
+          await navyUnitsService.addCarrier(team)
         } catch (error) {
-          console.error(error, "adding FighterAircraft");
+          console.error(error, "adding Carrier");
         }
       },
-      async removeFighterAircraft() {
+      async removeCarrier() {
         try {
-          await airUnitsService.removeFighterAircraft(team)
+          await navyUnitsService.removeCarrier(team)
         } catch (error) {
-          console.error(error, "removing FighterAircraft");
-        }
-      },
-
-      async addCloseAirSupport() {
-        try {
-          await airUnitsService.addCloseAirSupport(team)
-        } catch (error) {
-          console.error(error, "adding Close Air Support");
-        }
-      },
-      async removeCloseAirSupport() {
-        try {
-          await airUnitsService.removeCloseAirSupport(team)
-        } catch (error) {
-          console.error(error, "removing Close Air Support");
+          console.error(error, "removing Carrier");
         }
       },
 
-      async addCargoAircraft() {
+      async addCruiser() {
         try {
-          await airUnitsService.addCargoAircraft(team)
+          await navyUnitsService.addCruiser(team)
         } catch (error) {
-          console.error(error, "adding Cargo Aircraft");
+          console.error(error, "adding Cruiser");
         }
       },
-      async removeCargoAircraft() {
+      async removeCruiser() {
         try {
-          await airUnitsService.removeCargoAircraft(team)
+          await navyUnitsService.removeCruiser(team)
         } catch (error) {
-          console.error(error, "removing Cargo Aircraft");
+          console.error(error, "removing Cruiser");
+        }
+      },
+
+      async addDestroyer() {
+        try {
+          await navyUnitsService.addDestroyer(team)
+        } catch (error) {
+          console.error(error, "adding Destroyer");
+        }
+      },
+      async removeDestroyer() {
+        try {
+          await navyUnitsService.removeDestroyer(team)
+        } catch (error) {
+          console.error(error, "removing Destroyer");
         }
       }
     }

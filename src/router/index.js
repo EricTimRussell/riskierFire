@@ -30,6 +30,11 @@ const router = createRouter({
       component: () => import('../views/BattleView.vue')
     },
     {
+      path: '/construction',
+      name: 'construction',
+      component: () => import('../views/ConstructionView.vue')
+    },
+    {
       path: '/sign-in',
       name: 'sign-in',
       component: () => import('../views/SignInView.vue')

@@ -2,7 +2,7 @@
   <div class="container-fluid bg-green navbar elevation-5 pt-4">
     <div class="row">
       <div class="d-flex gap-3">
-        <div class="dropdown px-5 col-4">
+        <div class="dropdown px-1 col-3">
           <img src="" class="user-img-placeholder dropdown-toggle selectable" data-bs-toggle="dropdown"
             aria-expanded="false" alt="">
           <ul class="dropdown-menu text-center">
@@ -23,7 +23,7 @@
             </li>
           </ul>
         </div>
-        <nav v-if="user?.email" class="d-flex col-8 justify-content-evenly">
+        <nav v-if="user?.email" class="d-flex gap-2 col-8 justify-content-evenly">
           <RouterLink to="/rules">
             <span title="Rules Page" class="material-symbols-outlined fs-xl">
               menu_book
@@ -32,6 +32,11 @@
           <RouterLink :to="{ name: 'game', params: { id: user.uid } }">
             <span title="Game Page" class="material-symbols-outlined fs-xl">
               sports_esports
+            </span>
+          </RouterLink>
+          <RouterLink to="/construction">
+            <span title="Construction Page" class="material-symbols-outlined fs-xl">
+              construction
             </span>
           </RouterLink>
           <RouterLink to="/battle">
@@ -76,15 +81,15 @@ import { useCurrentUser, useFirebaseAuth, useFirestore } from "vuefire";
 import { signOut } from "@firebase/auth";
 import { computed } from "@vue/reactivity";
 import { useRegionStore } from "../stores/RegionStore";
+import { RouterLink } from "vue-router";
 
 export default {
   props: {
     teams: { type: Object, required: true }
   },
   setup(props) {
-    const user = useCurrentUser()
-    const db = useFirestore()
-
+    const user = useCurrentUser();
+    const db = useFirestore();
     return {
       teams: computed(() => useRegionStore.teams),
       user,
@@ -94,11 +99,12 @@ export default {
         signOut(auth).then(() => {
           // console.log("Logged Out")
         }).catch((error) => {
-          error.error(error)
+          error.error(error);
         });
       },
-    }
-  }
+    };
+  },
+  components: { RouterLink }
 }
 </script>
 
