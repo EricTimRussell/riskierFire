@@ -42,7 +42,7 @@
         </nav>
       </div>
     </div>
-    <div v-if="user?.email" class="col-12 d-flex justify-content-evenly pt-4 pb-2 px-2 text-light">
+    <div v-if="user?.email && teams.creatorId" class="col-12 d-flex justify-content-evenly pt-4 pb-2 px-2 text-light">
       <div>
         <span class="material-symbols-outlined text-warning fs-xl">
           attach_money

@@ -1,6 +1,6 @@
 <template>
   <!-- Select Adversary Offense-->
-  <div class="elevation-5 p-5">
+  <div class="p-5">
     <div class="col-12 text-center">
       <h2>Select Adversary</h2>
     </div>
@@ -133,7 +133,7 @@
   </div>
 
   <!-- Select Environment Defense-->
-  <div class="elevation-5 p-5">
+  <div class="p-5">
     <div class="col-12 text-center pt-5">
       <h2>Select Defense Environment</h2>
     </div>

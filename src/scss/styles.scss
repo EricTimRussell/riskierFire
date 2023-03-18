@@ -58,8 +58,22 @@ body {
   background: #fdce78;
 }
 
-.bg-glass {
+.bg-infantry {
   background: #ffffff52;
+  background-image: linear-gradient(#606c3878,
+      #606c3878), url(../assets/DiceBGImages/InfantryFinal.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+}
+
+.bg-specialForces {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/SpecialForcesFinal.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top right;
 }
 
 // Buttons
