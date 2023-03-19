@@ -2,7 +2,7 @@
   <div class="container-fluid bg-green navbar elevation-5 pt-4">
     <div class="row">
       <div class="d-flex gap-3">
-        <div class="dropdown px-1 col-3">
+        <div class="dropdown px-4 col-3">
           <img src="" class="user-img-placeholder dropdown-toggle selectable" data-bs-toggle="dropdown"
             aria-expanded="false" alt="">
           <ul class="dropdown-menu text-center">
@@ -23,7 +23,7 @@
             </li>
           </ul>
         </div>
-        <nav v-if="user?.email" class="d-flex gap-2 col-8 justify-content-evenly">
+        <nav v-if="user?.email" class="d-flex gap-2 col-8 ">
           <RouterLink to="/rules">
             <span title="Rules Page" class="material-symbols-outlined fs-xl">
               menu_book
@@ -131,8 +131,8 @@ a:active {
 
 @media screen and (min-width: 576px) {
   a {
-    padding-right: 5rem;
-    padding-left: 5rem;
+    padding-right: 2rem;
+    padding-left: 2rem;
   }
 
   .navbar {

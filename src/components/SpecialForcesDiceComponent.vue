@@ -25,28 +25,28 @@
   </div>
 
   <!-- Vs Infantry -->
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center height">
     <div class="col-3 d-flex justify-content-center mt-5" for="infantry" v-if="infantry == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 8) || (twoSixDie.roll >= 11)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-3" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div v-else class="text-center">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-3" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -55,24 +55,24 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="mech" v-if="mech == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -81,24 +81,24 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="ifv" v-if="ifv == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 8) || (twoSixDie.roll >= 11)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -107,28 +107,29 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="mbt == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
   </div>
+
   <!-- Select Environment Defense-->
   <div class="col-12 text-center pt-5">
     <h2>Select Defense Environment</h2>
@@ -170,28 +171,28 @@
 
   <!-- Defense Dice -->
   <!-- Highlands -->
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center height">
     <div class="col-3 d-flex justify-content-center mt-5" for="highlands" v-if="highlands == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -199,24 +200,24 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="grassland" v-if="grassland == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 9)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -224,24 +225,24 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="desert" v-if="desert == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 9)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -249,24 +250,24 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="forest" v-if="forest == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 9)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -274,24 +275,24 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="jungle" v-if="jungle == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 9)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -299,24 +300,24 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="marshland" v-if="marshland == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -324,24 +325,24 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="urban" v-if="urban == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 9)">
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">HIT</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="spinner-border py-4" role="status">
             <span></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">MISS</h3>
+        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
         <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
@@ -397,5 +398,9 @@ export default {
 input.checkbox {
   width: 20px;
   height: 20px;
+}
+
+.height {
+  min-height: 80vh;
 }
 </style>
