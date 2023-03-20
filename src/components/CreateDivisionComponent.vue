@@ -126,6 +126,7 @@
 
 <script>
 import { addDoc, collection } from "@firebase/firestore";
+import Swal from "sweetalert2";
 import { ref } from "vue";
 import { useCurrentUser, useFirestore } from "vuefire";
 export default {
@@ -144,6 +145,11 @@ export default {
             ...editable.value
           });
           editable.value = ({ creatorId: user.value?.uid })
+          Swal.fire({
+            title: 'Success!',
+            timer: 900,
+            showConfirmButton: false
+          })
         } catch (error) {
           console.error(error, "Forming Division")
         }

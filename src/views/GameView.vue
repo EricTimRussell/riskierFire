@@ -77,12 +77,18 @@
       </div>
     </div>
     <!-- Carriers -->
-    <div class="row">
-      <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
+    <div class="row  my-3 bg-green py-3 elevation-5 text-light">
+      <div class="col-12 d-flex justify-content-center">
         <h2>Carriers</h2>
         <span class="material-symbols-outlined fs-lg px-2">
           flight_takeoff
         </span>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <button type="submit" class="rounded text-shadow-dark py-2 px-3 mx-3" data-bs-toggle="modal"
+          data-bs-target="#createCarrier-modal" aria-label="Create City">
+          Create Carrier
+        </button>
       </div>
     </div>
     <!-- Regions -->
@@ -133,6 +139,9 @@
   <ModalComponent id="formArmy-modal">
     <CreateArmyComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
+  <ModalComponent id="createCarrier-modal">
+    <CreateCarrierGroupComponent :key="user?.uid" :teams="teams" />
+  </ModalComponent>
 </template>
 
 <script>
@@ -157,6 +166,7 @@ import NavalUnitsComponent from "../components/NavalUnitsComponent.vue";
 import BuildingsComponent from "../components/BuildingsComponent.vue";
 import CreateDivisionComponent from "../components/CreateDivisionComponent.vue";
 import CreateArmyComponent from "../components/CreateArmyComponent.vue";
+import CreateCarrierGroupComponent from "../components/CreateCarrierGroupComponent.vue";
 
 export default {
   setup() {
@@ -214,7 +224,7 @@ export default {
       cities: computed(() => useRegionStore.cities)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent, BuildingsComponent, CreateDivisionComponent, CreateArmyComponent }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent, BuildingsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent }
 }
 </script>
 
