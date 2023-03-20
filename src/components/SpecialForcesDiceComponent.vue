@@ -25,7 +25,7 @@
   </div>
 
   <!-- Vs Infantry -->
-  <div class="d-flex justify-content-center height">
+  <div class="d-flex justify-content-center height-top">
     <div class="col-3 d-flex justify-content-center mt-5" for="infantry" v-if="infantry == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 8) || (twoSixDie.roll >= 11)">
         <h6>Roll Dice</h6>
@@ -171,7 +171,7 @@
 
   <!-- Defense Dice -->
   <!-- Highlands -->
-  <div class="d-flex justify-content-center height">
+  <div class="d-flex justify-content-center height-bottom">
     <div class="col-3 d-flex justify-content-center mt-5" for="highlands" v-if="highlands == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
@@ -400,7 +400,11 @@ input.checkbox {
   height: 20px;
 }
 
-.height {
-  min-height: 80vh;
+.height-top {
+  min-height: 45vh;
+}
+
+.height-bottom {
+  min-height: 45vh;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <!-- Select Adversary Offense-->
-  <div class="pt-5 height">
+  <div class="pt-5 height-top">
     <div class="col-12 text-center">
       <h2>Select Adversary</h2>
     </div>
@@ -133,7 +133,7 @@
   </div>
 
   <!-- Select Environment Defense-->
-  <div class="height">
+  <div class="height-bottom">
     <div class="col-12 text-center pt-5">
       <h2>Select Defense Environment</h2>
     </div>
@@ -414,7 +414,11 @@ input.checkbox {
 }
 
 // prevents bg-image from jumping around 
-.height {
-  min-height: 80vh;
+.height-top {
+  min-height: 51vh;
+}
+
+.height-bottom {
+  min-height: 61vh;
 }
 </style>

@@ -58,12 +58,22 @@
       </div>
     </div>
     <!-- Armies & Divisions -->
-    <div class="row">
-      <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
+    <div class="row my-3 bg-green py-3 elevation-5 text-light">
+      <div class="col-12 d-flex justify-content-center text-light">
         <h2>Armies & Divisions</h2>
         <span class="material-symbols-outlined fs-lg px-2">
           local_police
         </span>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <button type="submit" class="rounded text-shadow-dark p-2 mx-3" data-bs-toggle="modal"
+          data-bs-target="#formDivision-modal" aria-label="Create Region">
+          Form Division
+        </button>
+        <button type="submit" class="rounded text-shadow-dark py-2 px-3 mx-3" data-bs-toggle="modal"
+          data-bs-target="#formArmy-modal" aria-label="Create City">
+          Form Army
+        </button>
       </div>
     </div>
     <!-- Carriers -->
@@ -117,6 +127,12 @@
   <ModalComponent id="createCity-modal">
     <CreateCityForm :key="user?.uid" :teams="teams" />
   </ModalComponent>
+  <ModalComponent id="formDivision-modal">
+    <CreateDivisionComponent :key="user?.uid" :teams="teams" />
+  </ModalComponent>
+  <ModalComponent id="formArmy-modal">
+    <CreateArmyComponent :key="user?.uid" :teams="teams" />
+  </ModalComponent>
 </template>
 
 <script>
@@ -139,6 +155,8 @@ import ArtilleryComponent from "../components/ArtilleryComponent.vue";
 import AirUnitsComponent from "../components/AirUnitsComponent.vue";
 import NavalUnitsComponent from "../components/NavalUnitsComponent.vue";
 import BuildingsComponent from "../components/BuildingsComponent.vue";
+import CreateDivisionComponent from "../components/CreateDivisionComponent.vue";
+import CreateArmyComponent from "../components/CreateArmyComponent.vue";
 
 export default {
   setup() {
@@ -196,7 +214,7 @@ export default {
       cities: computed(() => useRegionStore.cities)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent, BuildingsComponent }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent, BuildingsComponent, CreateDivisionComponent, CreateArmyComponent }
 }
 </script>
 
