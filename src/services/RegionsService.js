@@ -1,7 +1,5 @@
 import { collection, query, getDocs, where, addDoc, onSnapshot } from "firebase/firestore"
 import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
-import { Region } from "../models/Region";
-import { City } from "../models/City";
 import { useRegionStore } from "../stores/RegionStore";
 
 
