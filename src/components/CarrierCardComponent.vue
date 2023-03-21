@@ -9,49 +9,49 @@
           <h2 class="fs-xl"><u> Air Units</u></h2>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.airUnit1 }}</span>
+          <span class="fs-md">{{ carriers.airUnit1 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.airUnit2 }}</span>
+          <span class="fs-md">{{ carriers.airUnit2 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.airUnit3 }}</span>
+          <span class="fs-md">{{ carriers.airUnit3 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.airUnit4 }}</span>
+          <span class="fs-md">{{ carriers.airUnit4 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.airUnit5 }}</span>
+          <span class="fs-md">{{ carriers.airUnit5 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.airUnit6 }}</span>
+          <span class="fs-md">{{ carriers.airUnit6 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.airUnit7 }}</span>
+          <span class="fs-md">{{ carriers.airUnit7 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.airUnit8 }}</span>
+          <span class="fs-md">{{ carriers.airUnit8 }}</span>
         </div>
         <div class="col-12 d-flex justify-content-center mt-5">
           <h2 class="fs-xl"><u>Ground Units</u></h2>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.groundUnit1 }}</span>
+          <span class="fs-md">{{ carriers.groundUnit1 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.groundUnit2 }}</span>
+          <span class="fs-md">{{ carriers.groundUnit2 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.groundUnit3 }}</span>
+          <span class="fs-md">{{ carriers.groundUnit3 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.groundUnit4 }}</span>
+          <span class="fs-md">{{ carriers.groundUnit4 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.groundUnit5 }}</span>
+          <span class="fs-md">{{ carriers.groundUnit5 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ carriers.groundUnit6 }}</span>
+          <span class="fs-md">{{ carriers.groundUnit6 }}</span>
         </div>
       </div>
       <div class="col-12 text-end pt-3 px-1">

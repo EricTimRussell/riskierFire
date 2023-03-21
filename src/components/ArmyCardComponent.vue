@@ -6,31 +6,31 @@
       <div class="row">
         <h3 class="text-center"><u>Army #</u> {{ armies.armyNumber }}</h3>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ armies.unitSlot1 }}</span>
+          <span class="fs-md">{{ armies.unitSlot1 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ armies.unitSlot2 }}</span>
+          <span class="fs-md">{{ armies.unitSlot2 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ armies.unitSlot3 }}</span>
+          <span class="fs-md">{{ armies.unitSlot3 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ armies.unitSlot4 }}</span>
+          <span class="fs-md">{{ armies.unitSlot4 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ armies.unitSlot5 }}</span>
+          <span class="fs-md">{{ armies.unitSlot5 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ armies.unitSlot6 }}</span>
+          <span class="fs-md">{{ armies.unitSlot6 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ armies.unitSlot7 }}</span>
+          <span class="fs-md">{{ armies.unitSlot7 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ armies.unitSlot8 }}</span>
+          <span class="fs-md">{{ armies.unitSlot8 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ armies.unitSlot9 }}</span>
+          <span class="fs-md">{{ armies.unitSlot9 }}</span>
         </div>
       </div>
       <div class="col-12 text-end pt-3 px-1">

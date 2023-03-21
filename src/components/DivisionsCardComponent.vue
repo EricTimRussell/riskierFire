@@ -6,22 +6,22 @@
       <div class="row">
         <h3 class="text-center underline"><u>Division #</u> {{ divisions.divisionNumber }}</h3>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot1 }}</span>
+          <span class="fs-md">{{ divisions.unitSlot1 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot2 }}</span>
+          <span class="fs-md">{{ divisions.unitSlot2 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot3 }}</span>
+          <span class="fs-md">{{ divisions.unitSlot3 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot4 }}</span>
+          <span class="fs-md">{{ divisions.unitSlot4 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot5 }}</span>
+          <span class="fs-md">{{ divisions.unitSlot5 }}</span>
         </div>
         <div class="col-6 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot6 }}</span>
+          <span class="fs-md">{{ divisions.unitSlot6 }}</span>
         </div>
       </div>
       <div class="col-12 text-end pt-3 px-1">
