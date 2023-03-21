@@ -17,7 +17,7 @@
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
         <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
         </option>
-        <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
+        <option v-if="teams.totalMissileArtillery >= 1" value="Missile Artillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
         </option>
       </select>
@@ -35,7 +35,7 @@
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
         <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
         </option>
-        <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
+        <option v-if="teams.totalMissileArtillery >= 1" value="Missile Artillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
         </option>
       </select>
@@ -53,7 +53,7 @@
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
         <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
         </option>
-        <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
+        <option v-if="teams.totalMissileArtillery >= 1" value="Missile Artillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
         </option>
       </select>
@@ -71,7 +71,7 @@
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
         <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
         </option>
-        <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
+        <option v-if="teams.totalMissileArtillery >= 1" value="Missile Artillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
         </option>
       </select>
@@ -89,7 +89,7 @@
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
         <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
         </option>
-        <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
+        <option v-if="teams.totalMissileArtillery >= 1" value="Missile Artillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
         </option>
       </select>
@@ -107,7 +107,7 @@
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
         <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
         </option>
-        <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
+        <option v-if="teams.totalMissileArtillery >= 1" value="Missile Artillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
         </option>
       </select>

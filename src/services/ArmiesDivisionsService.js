@@ -1,4 +1,4 @@
-import { collection, query, getDocs, where, addDoc, onSnapshot } from "firebase/firestore"
+import { collection, query, getDocs, where, addDoc, onSnapshot, updateDoc } from "firebase/firestore"
 import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
 import { useArmyDivisionStore } from "../stores/ArmyDivisionStore";
 
@@ -22,6 +22,16 @@ class ArmiesDivisionsService {
     })
   }
 
+  async editDivision(editable, division) {
+    await updateDoc(division, {
+      unitSlot1: editable.value.unitSlot1,
+      unitSlot2: editable.value.unitSlot2,
+      unitSlot3: editable.value.unitSlot3,
+      unitSlot4: editable.value.unitSlot4,
+      unitSlot5: editable.value.unitSlot5,
+      unitSlot6: editable.value.unitSlot6
+    });
+  }
 }
 
 export const armiesDivisionsService = new ArmiesDivisionsService()
