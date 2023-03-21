@@ -4,47 +4,55 @@
 
     <div class="container-fluid region-card bg-light elevation-5 p-3 rounded">
       <div class="row gap-2">
-        <h3 class="text-center">Division # {{ divisions.divisionNumber }}</h3>
+        <h3 class="text-center">Army # {{ armies.armyNumber }}</h3>
         <div class="col-12 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot1 }}</span>
+          <span class="fs-lg">{{ armies.unitSlot1 }}</span>
         </div>
         <div class="col-12 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot2 }}</span>
+          <span class="fs-lg">{{ armies.unitSlot2 }}</span>
         </div>
         <div class="col-12 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot3 }}</span>
+          <span class="fs-lg">{{ armies.unitSlot3 }}</span>
         </div>
         <div class="col-12 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot4 }}</span>
+          <span class="fs-lg">{{ armies.unitSlot4 }}</span>
         </div>
         <div class="col-12 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot5 }}</span>
+          <span class="fs-lg">{{ armies.unitSlot5 }}</span>
         </div>
         <div class="col-12 d-flex justify-content-center">
-          <span class="fs-lg">{{ divisions.unitSlot6 }}</span>
+          <span class="fs-lg">{{ armies.unitSlot6 }}</span>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <span class="fs-lg">{{ armies.unitSlot7 }}</span>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <span class="fs-lg">{{ armies.unitSlot8 }}</span>
+        </div>
+        <div class="col-12 d-flex justify-content-center">
+          <span class="fs-lg">{{ armies.unitSlot9 }}</span>
         </div>
       </div>
       <div class="col-12 text-end pt-3 px-1">
         <button class="btn-blank text-secondary" title="edit?" data-bs-toggle="modal"
-          :data-bs-target="`#editDivision${divisions.id}`" aria-label="Edit Division"><span
-            class="material-symbols-outlined fs-lg">
+          :data-bs-target="`#editArmy${armies.id}`" aria-label="Edit Army"><span class="material-symbols-outlined fs-lg">
             settings
           </span></button>
-        <button @click="deleteDivision()" class="btn-blank text-danger" title="Delete?"><span
+        <button @click="deleteArmy()" class="btn-blank text-danger" title="Delete?"><span
             class="material-symbols-outlined fs-lg">
             delete_forever
           </span></button>
       </div>
     </div>
 
-    <!-- SECTION edit division modal -->
-    <form @submit.prevent="editDivision()">
-      <div class="modal fade text-dark l-spacing" :id="`editDivision${divisions.id}`" tabindex="-1"
-        aria-labelledby="editDivision" aria-hidden="true">
+    <!-- SECTION edit army modal -->
+    <form @submit.prevent="editArmy()">
+      <div class="modal fade text-dark l-spacing" :id="`editArmy${armies.id}`" tabindex="-1" aria-labelledby="editArmy"
+        aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5">Edit Division {{ divisions.divisionNumber }}</h1>
+              <h1 class="modal-title fs-5">Edit Army {{ armies.armiesNumber }}</h1>
               <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
                 title="close modal"></button>
             </div>
@@ -139,9 +147,54 @@
                 </select>
                 <label for="unitSlot6">Selected Unit</label>
               </div>
+              <div class="form-floating my-3">
+                <select v-model="editable.unitSlot7" required class="form-select" id="unitSlot7"
+                  aria-label="Select Unit for Slot">
+                  <option value="EmptySlot">EmptySlot</option>
+                  <option value="Infantry">Infantry</option>
+                  <option value="Special Forces">Special Forces</option>
+                  <option value="Mechanized">Mechanized</option>
+                  <option value="IFV">IFV</option>
+                  <option value="MBT">MBT</option>
+                  <option value="Artillery">Artillery</option>
+                  <option value="Missile Artillery">Missile Artillery</option>
+                  <option value="Anti-Aircraft">Anti-Aircraft</option>
+                </select>
+                <label for="unitSlot7">Selected Unit</label>
+              </div>
+              <div class="form-floating my-3">
+                <select v-model="editable.unitSlot8" required class="form-select" id="unitSlot8"
+                  aria-label="Select Unit for Slot">
+                  <option value="EmptySlot">EmptySlot</option>
+                  <option value="Infantry">Infantry</option>
+                  <option value="Special Forces">Special Forces</option>
+                  <option value="Mechanized">Mechanized</option>
+                  <option value="IFV">IFV</option>
+                  <option value="MBT">MBT</option>
+                  <option value="Artillery">Artillery</option>
+                  <option value="Missile Artillery">Missile Artillery</option>
+                  <option value="Anti-Aircraft">Anti-Aircraft</option>
+                </select>
+                <label for="unitSlot8">Selected Unit</label>
+              </div>
+              <div class="form-floating my-3">
+                <select v-model="editable.unitSlot9" required class="form-select" id="unitSlot9"
+                  aria-label="Select Unit for Slot">
+                  <option value="EmptySlot">EmptySlot</option>
+                  <option value="Infantry">Infantry</option>
+                  <option value="Special Forces">Special Forces</option>
+                  <option value="Mechanized">Mechanized</option>
+                  <option value="IFV">IFV</option>
+                  <option value="MBT">MBT</option>
+                  <option value="Artillery">Artillery</option>
+                  <option value="Missile Artillery">Missile Artillery</option>
+                  <option value="Anti-Aircraft">Anti-Aircraft</option>
+                </select>
+                <label for="unitSlot9">Selected Unit</label>
+              </div>
               <div class="modal-footer">
                 <button type="button" data-bs-dismiss="modal">Close</button>
-                <button type="submit" @click="editDivision()" data-bs-dismiss="modal">Confirm</button>
+                <button type="submit" @click="editArmy()" data-bs-dismiss="modal">Confirm</button>
               </div>
             </div>
           </div>
@@ -161,19 +214,19 @@ import { armiesDivisionsService } from "../services/ArmiesDivisionsService";
 
 export default {
   props: {
-    divisions: { type: Object, required: true }
+    armies: { type: Object, required: true }
   },
   setup(props) {
     const db = useFirestore()
     const route = useRoute()
     // @ts-ignore
-    const division = doc(db, "divisions", props.divisions.id)
+    const army = doc(db, "armies", props.armies.id)
     // Ref autofills edit form when opened
-    const editable = ref({ unitSlot1: `${props.divisions.unitSlot1}`, unitSlot2: `${props.divisions.unitSlot2}`, unitSlot3: `${props.divisions.unitSlot3}`, unitSlot4: `${props.divisions.unitSlot4}`, unitSlot5: `${props.divisions.unitSlot5}`, unitSlot6: `${props.divisions.unitSlot6}` })
+    const editable = ref({ unitSlot1: `${props.armies.unitSlot1}`, unitSlot2: `${props.armies.unitSlot2}`, unitSlot3: `${props.armies.unitSlot3}`, unitSlot4: `${props.armies.unitSlot4}`, unitSlot5: `${props.armies.unitSlot5}`, unitSlot6: `${props.armies.unitSlot6}`, unitSlot7: `${props.armies.unitSlot7}`, unitSlot8: `${props.armies.unitSlot8}`, unitSlot9: `${props.armies.unitSlot9}` })
     return {
       editable,
-      division,
-      async deleteDivision() {
+      army,
+      async deleteArmy() {
         try {
           await Swal.fire({
             title: 'Are you sure?',
@@ -183,9 +236,9 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              deleteDoc(doc(db, "divisions", props.divisions.id));
+              deleteDoc(doc(db, "armies", props.armies.id));
               Swal.fire(
-                'Division Deleted!',
+                'Army Deleted!',
                 'success'
               )
             }
@@ -195,16 +248,16 @@ export default {
         }
       },
 
-      async editDivision() {
+      async editArmy() {
         try {
-          await armiesDivisionsService.editDivision(editable, division)
+          await armiesDivisionsService.editArmy(editable, army)
           Swal.fire({
             title: 'Success!',
             timer: 900,
             showConfirmButton: false
           })
         } catch (error) {
-          console.error(error, "Editing Division")
+          console.error(error, "Editing Army")
         }
       }
     }

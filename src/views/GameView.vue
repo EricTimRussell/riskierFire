@@ -58,7 +58,7 @@
       </div>
     </div>
     <!-- Armies & Divisions -->
-    <div class="row my-3 bg-green py-3 elevation-5 text-light">
+    <div class="row bg-green py-3 elevation-5 text-light">
       <div class="col-12 d-flex justify-content-center text-light">
         <h2>Armies & Divisions</h2>
         <span class="material-symbols-outlined fs-lg px-2">
@@ -77,8 +77,21 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-12 text-center bg-green text-light my-3 elevation-5">
+        <h2>Divisions</h2>
+      </div>
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="d in divisions">
         <DivisionsCardComponent :divisions="d" :teams="teams" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 text-center bg-green text-light my-3 elevation-5">
+        <h2>Armies</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="a in armies">
+        <ArmyCardComponent :armies="a" :teams="teams" />
       </div>
     </div>
     <!-- Carriers -->
@@ -175,6 +188,7 @@ import CreateArmyComponent from "../components/CreateArmyComponent.vue";
 import CreateCarrierGroupComponent from "../components/CreateCarrierGroupComponent.vue";
 import { armiesDivisionsService } from "../services/ArmiesDivisionsService";
 import DivisionsCardComponent from "../components/DivisionsCardComponent.vue";
+import ArmyCardComponent from "../components/ArmyCardComponent.vue";
 
 export default {
   setup() {
@@ -231,7 +245,20 @@ export default {
       }
     }
 
+    async function getArmiesByUserId() {
+      try {
+        // get user id if undefined
+        if (user.value?.uid == undefined) {
+          const user = await getCurrentUser();
+        }
+        await armiesDivisionsService.getArmiesByUserId(user)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
     onMounted(() => {
+      getArmiesByUserId()
       getDivisionsByUserId()
       getRegionsByUserId()
       getCitiesByUserId()
@@ -243,10 +270,11 @@ export default {
       region: computed(() => useRegionStore.regions),
       teams: computed(() => useRegionStore.teams),
       cities: computed(() => useRegionStore.cities),
-      divisions: computed(() => useArmyDivisionStore.divisions)
+      divisions: computed(() => useArmyDivisionStore.divisions),
+      armies: computed(() => useArmyDivisionStore.armies)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent, BuildingsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent, DivisionsCardComponent }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent, BuildingsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent, DivisionsCardComponent, ArmyCardComponent }
 }
 </script>
 
