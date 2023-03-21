@@ -109,6 +109,11 @@
         </button>
       </div>
     </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="c in carriers">
+        <CarrierCardComponent :carriers="c" :teams="teams" />
+      </div>
+    </div>
     <!-- Regions -->
     <div class="row my-3 bg-green py-3 elevation-5 text-light">
       <div class="col-12 d-flex justify-content-center pb-2">
@@ -189,6 +194,9 @@ import CreateCarrierGroupComponent from "../components/CreateCarrierGroupCompone
 import { armiesDivisionsService } from "../services/ArmiesDivisionsService";
 import DivisionsCardComponent from "../components/DivisionsCardComponent.vue";
 import ArmyCardComponent from "../components/ArmyCardComponent.vue";
+import { navyUnitsService } from "../services/NavyUnitsService";
+import { useNavyStore } from "../stores/NavyStore";
+import CarrierCardComponent from "../components/CarrierCardComponent.vue";
 
 export default {
   setup() {
@@ -239,7 +247,7 @@ export default {
         if (user.value?.uid == undefined) {
           const user = await getCurrentUser();
         }
-        await armiesDivisionsService.getdivisionsByUserId(user)
+        await armiesDivisionsService.getDivisionsByUserId(user)
       } catch (error) {
         console.error(error)
       }
@@ -257,7 +265,20 @@ export default {
       }
     }
 
+    async function getCarriersByUserId() {
+      try {
+        // get user id if undefined
+        if (user.value?.uid == undefined) {
+          const user = await getCurrentUser();
+        }
+        await navyUnitsService.getCarriersByUserId(user)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
     onMounted(() => {
+      getCarriersByUserId()
       getArmiesByUserId()
       getDivisionsByUserId()
       getRegionsByUserId()
@@ -271,10 +292,11 @@ export default {
       teams: computed(() => useRegionStore.teams),
       cities: computed(() => useRegionStore.cities),
       divisions: computed(() => useArmyDivisionStore.divisions),
-      armies: computed(() => useArmyDivisionStore.armies)
+      armies: computed(() => useArmyDivisionStore.armies),
+      carriers: computed(() => useNavyStore.navy)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent, BuildingsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent, DivisionsCardComponent, ArmyCardComponent }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, NavalUnitsComponent, BuildingsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent, DivisionsCardComponent, ArmyCardComponent, CarrierCardComponent }
 }
 </script>
 

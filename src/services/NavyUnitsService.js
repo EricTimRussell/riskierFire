@@ -1,6 +1,6 @@
-import { useFirestore } from "vuefire"
-import { doc, increment, updateDoc, where } from "firebase/firestore";
-
+import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
+import { collection, query, getDocs, where, addDoc, onSnapshot, updateDoc } from "firebase/firestore";
+import { useNavyStore } from "../stores/NavyStore"
 
 
 
@@ -21,6 +21,38 @@ class NavyUnitsService {
       totalCapital: increment(5),
       totalIndustry: increment(3),
       totalAgriculture: increment(3)
+    });
+  }
+
+  async getCarriersByUserId(user) {
+    // get user carriers by their firbase id
+    const q = query(collection(db, "carriers"), where("creatorId", "==", user.value?.uid));
+    const querySnapshot = await getDocs(q);
+    onSnapshot(q, (querySnapshot) => {
+      useNavyStore.navy = []
+      querySnapshot.docs.map((doc) => {
+        // console.log(doc.id, " => ", doc.data());
+        useNavyStore.navy.push({ ...doc.data(), id: doc.id })
+      });
+    })
+  }
+
+  async editCarrier(editable, carrier) {
+    await updateDoc(carrier, {
+      airUnit1: editable.value.airUnit1,
+      airUnit2: editable.value.airUnit2,
+      airUnit3: editable.value.airUnit3,
+      airUnit4: editable.value.airUnit4,
+      airUnit5: editable.value.airUnit5,
+      airUnit6: editable.value.airUnit6,
+      airUnit7: editable.value.airUnit7,
+      airUnit8: editable.value.airUnit8,
+      groundUnit1: editable.value.groundUnit1,
+      groundUnit2: editable.value.groundUnit2,
+      groundUnit3: editable.value.groundUnit3,
+      groundUnit4: editable.value.groundUnit4,
+      groundUnit5: editable.value.groundUnit5,
+      groundUnit6: editable.value.groundUnit6
     });
   }
 

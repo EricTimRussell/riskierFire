@@ -8,7 +8,7 @@ import { useArmyDivisionStore } from "../stores/ArmyDivisionStore";
 const db = useFirestore()
 
 class ArmiesDivisionsService {
-  async getdivisionsByUserId(user) {
+  async getDivisionsByUserId(user) {
     // get user divisions by their firbase id
     const q = query(collection(db, "divisions"), where("creatorId", "==", user.value?.uid));
     const querySnapshot = await getDocs(q);
