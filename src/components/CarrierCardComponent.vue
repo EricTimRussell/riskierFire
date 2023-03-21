@@ -2,11 +2,11 @@
   <body>
 
 
-    <div class="container-fluid region-card bg-light elevation-5 p-3 rounded">
+    <div class="container-fluid region-card elevation-5 p-3 rounded">
       <div class="row">
-        <h3 class="text-center">Carrier # {{ carriers.carrierNumber }}</h3>
+        <h3 class="text-center"><u>Carrier #</u> {{ carriers.carrierNumber }}</h3>
         <div class="col-12 d-flex justify-content-center">
-          <h2 class="fs-xl">Air Units</h2>
+          <h2 class="fs-xl"><u> Air Units</u></h2>
         </div>
         <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ carriers.airUnit1 }}</span>
@@ -33,7 +33,7 @@
           <span class="fs-lg">{{ carriers.airUnit8 }}</span>
         </div>
         <div class="col-12 d-flex justify-content-center mt-5">
-          <h2 class="fs-xl">Ground Units</h2>
+          <h2 class="fs-xl"><u>Ground Units</u></h2>
         </div>
         <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ carriers.groundUnit1 }}</span>

@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid region-card bg-light elevation-5 p-3 rounded">
+  <div class="container-fluid region-card elevation-5 p-3 rounded">
     <div class="row gap-2">
-      <h3 class="text-center">Region # {{ cities.regionNumber }}</h3>
+      <h3 class="text-center"><u>Region #</u> {{ cities.regionNumber }}</h3>
       <h3 class="text-center">City Size: {{ cities.citySize }}</h3>
       <div class="col-12 d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
@@ -77,10 +77,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.region-card {
-  height: auto;
-  width: fit-content;
-}
-</style>
+<style lang="scss" scoped></style>
 

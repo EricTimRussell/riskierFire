@@ -2,34 +2,34 @@
   <body>
 
 
-    <div class="container-fluid region-card bg-light elevation-5 p-3 rounded">
-      <div class="row gap-2">
-        <h3 class="text-center">Army # {{ armies.armyNumber }}</h3>
-        <div class="col-12 d-flex justify-content-center">
+    <div class="container-fluid region-card elevation-5 p-3 rounded">
+      <div class="row">
+        <h3 class="text-center"><u>Army #</u> {{ armies.armyNumber }}</h3>
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ armies.unitSlot1 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ armies.unitSlot2 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ armies.unitSlot3 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ armies.unitSlot4 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ armies.unitSlot5 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ armies.unitSlot6 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ armies.unitSlot7 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ armies.unitSlot8 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ armies.unitSlot9 }}</span>
         </div>
       </div>

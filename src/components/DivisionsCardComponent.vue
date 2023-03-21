@@ -2,25 +2,25 @@
   <body>
 
 
-    <div class="container-fluid region-card bg-light elevation-5 p-3 rounded">
-      <div class="row gap-2">
-        <h3 class="text-center">Division # {{ divisions.divisionNumber }}</h3>
-        <div class="col-12 d-flex justify-content-center">
+    <div class="container-fluid region-card elevation-5 p-3 rounded">
+      <div class="row">
+        <h3 class="text-center underline"><u>Division #</u> {{ divisions.divisionNumber }}</h3>
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ divisions.unitSlot1 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ divisions.unitSlot2 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ divisions.unitSlot3 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ divisions.unitSlot4 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ divisions.unitSlot5 }}</span>
         </div>
-        <div class="col-12 d-flex justify-content-center">
+        <div class="col-6 d-flex justify-content-center">
           <span class="fs-lg">{{ divisions.unitSlot6 }}</span>
         </div>
       </div>
