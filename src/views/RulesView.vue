@@ -99,7 +99,7 @@
         </p>
         <p><span class="text-tan fs-md">Main Battle Tank (MBT)</span> {{ units.mbt }}
         </p>
-        <p><span class="text-tan fs-md">Anti-aircraft</span>{{ units.antiAircraft }}
+        <p><span class="text-tan fs-md">Anti-aircraft</span> {{ units.antiAircraft }}
         </p>
         <p><span class="text-tan fs-md">Artillery</span> {{ units.artillery }}
         </p>
@@ -295,22 +295,22 @@
         <p><span class="text-tan">--Laser Designator:</span> This item can be used beofre a battle to increase
           the odds of
           artillery hitting its target. Special forces units are required to use the laser designator item. Enemy
-          units next to a special forces unit can be lased and give artillery a better chance of hitting their
-          target so long as the artillery is within range. Lasing a target does not use up the special forces
+          units next to a special forces unit can be lased and give artillery and missiles a better chance of hitting
+          their
+          target so long as they are within range. Lasing a target uses up 1 movement point, but does not use up the
+          special forces 1
           offensive point.
         </p>
         <p><span class="text-tan">Point Defense:</span> The point defense item can be used by a defending player
           before a battle
-          to provide better AA and anti-missile protection. If used on an aircraft D12 1-9 is a hit. Point defense
-          can only target 1 unit and is discarded after use regardless of outcome. Defending players can use as many
-          point defense cards as they want but will need to declare how many cards they are going to deploy before
-          the battle. Item cannot be used during naval battles.
+          to provide better AA and anti-missile protection. Point defense applies to all Anti-aircraft units. Increases
+          chance to hit aircraft and missiles to a 1-9 with a D12.
         </p>
         <p><span class="text-tan">Aircraft Stealth:</span> The stealth card can be applied before a battle. This
           will reverse
           attack
-          order of AA and aircraft meaning the aircraft will fire first and then the AA will fire second and also
-          reduces the AA hit chance to D12 (1-6). If the AA is destroyed by an aircrafts first shot the AA does not
+          order of AA and aircraft meaning the aircraft will fire first and then the AA will fire second. If the AA is
+          destroyed by an aircrafts first shot the AA does not
           get to fire.
         </p>
         <p><span class="text-tan">Surplus Fuel:</span> This item can be used before a battle begins to upgrade
@@ -328,8 +328,7 @@
         <p><span class="text-tan">Javelin Missiles</span> : This item card equips infantry units (not SF) with
           effective
           anti-tank
-          weapons. A roll of can be added to all infantry attacks vs MBT's bringing the odds up to 64% chance to
-          hit. Does not apply to defense rolls.
+          weapons. A roll of 7-12 is now considered a successful hit. Does not apply to defense rolls.
         </p>
         <!-- SECTION Event Card Rules -->
         <div id="events" class="d-flex flex-column align-items-center text-center text-tan py-2">

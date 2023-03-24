@@ -24,7 +24,6 @@
         <h3>MBT</h3>
       </div>
     </div>
-    <!-- TODO disable roll button when isPending-->
     <!-- Vs Infantry -->
     <div class="d-flex justify-content-center">
       <div class="col-3 d-flex justify-content-center mt-5" for="infantry" v-if="infantry == true">
@@ -105,8 +104,12 @@
       </div>
 
       <!-- Vs MBT -->
-      <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="mbt == true">
+      <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="(mbt == true) && (javelin == false)">
         <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
+          <div class="d-flex">
+            <input v-if="mbt" id="javelin" class="mx-1 checkbox" type="checkbox" v-model="javelin">
+            <h3 v-if="mbt">Javelins?</h3>
+          </div>
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -118,6 +121,44 @@
           <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
         </div>
         <div class="text-center" v-else>
+          <div class="d-flex">
+            <input v-if="mbt" id="javelin" class="mx-1 checkbox" type="checkbox" v-model="javelin">
+            <h3 v-if="mbt">Javelins?</h3>
+          </div>
+          <h6>Roll Dice</h6>
+          <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+            <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
+            <div v-if="isPending" class="spinner-border py-4" role="status">
+              <span></span>
+            </div>
+          </button>
+          <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
+          <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+        </div>
+      </div>
+
+      <!-- Vs MBT with Javelin Item -->
+      <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="(mbt == true) && (javelin == true)">
+        <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
+          <div class="d-flex">
+            <input v-if="mbt" id="javelin" class="mx-1 checkbox" type="checkbox" v-model="javelin">
+            <h3 v-if="mbt">Javelins?</h3>
+          </div>
+          <h6>Roll Dice</h6>
+          <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+            <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
+            <div v-if="isPending" class="spinner-border py-4" role="status">
+              <span></span>
+            </div>
+          </button>
+          <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
+          <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+        </div>
+        <div class="text-center" v-else>
+          <div class="d-flex">
+            <input v-if="mbt" id="javelin" class="mx-1 checkbox" type="checkbox" v-model="javelin">
+            <h3 v-if="mbt">Javelins?</h3>
+          </div>
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -372,6 +413,7 @@ export default {
     const mech = ref(false)
     const ifv = ref(false)
     const mbt = ref(false)
+    const javelin = ref(false)
     const highlands = ref(false)
     const grassland = ref(false)
     const forest = ref(false)
@@ -386,6 +428,7 @@ export default {
       mech,
       ifv,
       mbt,
+      javelin,
       highlands,
       grassland,
       forest,

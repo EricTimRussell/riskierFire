@@ -1,6 +1,6 @@
 <template>
   <!-- Select Adversary Offense-->
-  <div class="col-12 text-center">
+  <div class="col-12 text-center pt-5">
     <h2>Select Adversary</h2>
   </div>
   <div class="col-12 d-flex justify-content-center gap-3">
