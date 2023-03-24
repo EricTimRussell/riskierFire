@@ -13,7 +13,7 @@
     </section>
     <!-- Infantry -->
     <section class="row justify-content-center">
-      <div class="accordion" id="accordionExample">
+      <div class="accordion">
         <div class="accordion-item bg-infantry">
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
@@ -21,8 +21,7 @@
               Infantry
             </button>
           </h2>
-          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample">
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
             <div class="accordion-body text-light">
               <InfantryDiceComponent />
             </div>
@@ -36,29 +35,37 @@
               Special Forces
             </button>
           </h2>
-          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-            data-bs-parent="#accordionExample">
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
             <div class="accordion-body text-light">
               <SpecialForcesDiceComponent />
             </div>
           </div>
         </div>
         <!-- Mechanized -->
-        <div class="accordion-item bg-glass">
+        <div class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
               Mechanized
             </button>
           </h2>
-          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-            data-bs-parent="#accordionExample">
-            <div class="accordion-body">
-              <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin
-              adds the appropriate classes that we use to style each element. These classes control the overall
-              appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom
-              CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the
-              <code>.accordion-body</code>, though the transition does limit overflow.
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+            <div class="accordion-body text-light">
+              <MechanizedDiceComponent />
+            </div>
+          </div>
+        </div>
+        <!-- IFV -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingFour">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              IFV
+            </button>
+          </h2>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
+            <div class="accordion-body text-light">
+              <IFVDiceComponent />
             </div>
           </div>
         </div>
@@ -102,7 +109,9 @@
 <script>
 import { ref } from "vue";
 import InfantryDiceComponent from "../components/InfantryDiceComponent.vue";
+import MechanizedDiceComponent from "../components/MechanizedDiceComponent.vue";
 import SpecialForcesDiceComponent from "../components/SpecialForcesDiceComponent.vue";
+import IFVDiceComponent from "../components/IFVDiceComponent.vue";
 
 export default {
   setup() {
@@ -151,7 +160,7 @@ export default {
       }
     };
   },
-  components: { InfantryDiceComponent, SpecialForcesDiceComponent }
+  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent }
 }
 
 </script>
