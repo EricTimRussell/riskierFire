@@ -185,23 +185,7 @@
     </section>
 
 
-
-
-
-    <!-- <div class="col-12 d-flex justify-content-center">
-      <div v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 7)">
-        <h1>Two D6's</h1>
-        <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-        <h1 v-show="twoSixDie.roll > 0" class="text-center">HIT</h1>
-      </div>
-      <div v-else>
-        <h1>Two D6's</h1>
-        <button @click="rollTwoSixDie()" class="btn p-5">Roll <span>{{ twoSixDie.roll }}</span></button>
-        <h1 v-show="twoSixDie.roll > 0" class="text-center">MISS</h1>
-      </div>
-    </div>
-
-    <div class="col-12 d-flex justify-content-center pt-5">
+    <!-- <div class="col-12 d-flex justify-content-center pt-5">
       <div v-if="(oneTwelveDie.roll >= 5) && (oneTwelveDie.roll <= 7)">
         <h1>One D12</h1>
         <button @click="rollOneTwelveDie()" class="btn p-5">Roll <span>{{ oneTwelveDie.roll }}</span></button>
@@ -226,42 +210,11 @@ import MBTDiceComponent from "../components/MBTDiceComponent.vue";
 
 export default {
   setup() {
-    const twoSixDie = ref({ roll: 0 });
     const oneTwelveDie = ref({ roll: 0 });
     const isPending = ref(false);
-    const infantry = ref(false);
-    const mech = ref(false);
-    const ifv = ref(false);
-    const mbt = ref(false);
-    const highlands = ref(false);
-    const grassland = ref(false);
-    const forest = ref(false);
-    const desert = ref(false);
-    const jungle = ref(false);
-    const marshland = ref(false);
-    const urban = ref(false);
     return {
-      infantry,
-      mech,
-      ifv,
-      mbt,
-      highlands,
-      grassland,
-      forest,
-      desert,
-      jungle,
-      marshland,
-      urban,
-      twoSixDie,
       oneTwelveDie,
       isPending,
-      rollTwoSixDie() {
-        setTimeout(() => {
-          isPending.value = false;
-        }, 1000);
-        twoSixDie.value = ({ roll: Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) });
-        isPending.value = true;
-      },
       rollOneTwelveDie() {
         setTimeout(() => {
           isPending.value = false;

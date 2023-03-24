@@ -49,7 +49,7 @@ body {
   color: #fdce78;
 }
 
-// Colors
+// Backgrounds
 .bg-green {
   background: linear-gradient(#606c38, #283618)
 }
@@ -60,11 +60,11 @@ body {
 
 .bg-infantry {
   background: #ffffff52;
-  background-image: linear-gradient(#606c3878,
-      #606c3878), url(../assets/DiceBGImages/InfantryFinal.png);
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/Infantryv2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-x: 27%;
+  background-position-x: 70%;
 }
 
 .bg-specialForces {
