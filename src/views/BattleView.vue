@@ -1,19 +1,18 @@
 <template>
   <body class="container-fluid">
-    <section class="row">
-      <div class="col-12 d-flex justify-content-center bg-green elevation-5 py-3 my-5 text-light gap-3">
+    <!-- Ground Unit Dice -->
+    <section class="row justify-content-center">
+      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>
-        <h1>Combat Page</h1>
+        <h1>Land Units</h1>
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>
       </div>
-    </section>
-    <!-- Infantry -->
-    <section class="row justify-content-center">
       <div class="accordion">
+        <!-- Infantry -->
         <div class="accordion-item bg-infantry">
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
@@ -69,10 +68,121 @@
             </div>
           </div>
         </div>
+        <!-- MBT -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingFive">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              MBT
+            </button>
+          </h2>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive">
+            <div class="accordion-body text-light">
+              <MBTDiceComponent />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Air Unit Dice -->
+    <section class="row justify-content-center">
+      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
+        <span class="material-symbols-outlined fs-xl">
+          flight
+        </span>
+        <h1>Air Units</h1>
+        <span class="material-symbols-outlined fs-xl">
+          flight
+        </span>
+      </div>
+      <div class="accordion">
+        <!-- Fighter Aircraft -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingSix">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              Fighter
+            </button>
+          </h2>
+          <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix">
+            <div class="accordion-body text-light">
+              <!-- Fighter Component -->
+            </div>
+          </div>
+        </div>
+        <!-- Close Air Support -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingSeven">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+              CAS
+            </button>
+          </h2>
+          <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven">
+            <div class="accordion-body text-light">
+              <!-- CAS component -->
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-
+    <!-- Navy Unit Dice -->
+    <section class="row justify-content-center">
+      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
+        <span class="material-symbols-outlined fs-xl">
+          directions_boat
+        </span>
+        <h1>Naval Units</h1>
+        <span class="material-symbols-outlined fs-xl">
+          directions_boat
+        </span>
+      </div>
+      <div class="accordion">
+        <!-- Carrier -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingEight">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+              Carrier
+            </button>
+          </h2>
+          <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight">
+            <div class="accordion-body text-light">
+              <!-- Carrier Component -->
+            </div>
+          </div>
+        </div>
+        <!-- Cruiser -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingNine">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+              Cruiser
+            </button>
+          </h2>
+          <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine">
+            <div class="accordion-body text-light">
+              <!-- Cruiser component -->
+            </div>
+          </div>
+        </div>
+        <!-- Destroyer -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingTen">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
+              Destroyer
+            </button>
+          </h2>
+          <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen">
+            <div class="accordion-body text-light">
+              <!-- Destroyer component -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 
@@ -112,6 +222,7 @@ import InfantryDiceComponent from "../components/InfantryDiceComponent.vue";
 import MechanizedDiceComponent from "../components/MechanizedDiceComponent.vue";
 import SpecialForcesDiceComponent from "../components/SpecialForcesDiceComponent.vue";
 import IFVDiceComponent from "../components/IFVDiceComponent.vue";
+import MBTDiceComponent from "../components/MBTDiceComponent.vue";
 
 export default {
   setup() {
@@ -160,7 +271,7 @@ export default {
       }
     };
   },
-  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent }
+  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent }
 }
 
 </script>
