@@ -82,6 +82,48 @@
             </div>
           </div>
         </div>
+        <!-- Artillery -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingEleven">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+              Artillery
+            </button>
+          </h2>
+          <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven">
+            <div class="accordion-body text-light">
+              <ArtilleryDiceComponent />
+            </div>
+          </div>
+        </div>
+        <!--Missile Artillery -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingTwelve">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+              Missile Artillery
+            </button>
+          </h2>
+          <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve">
+            <div class="accordion-body text-light">
+              <!--Missile Artillery Component -->
+            </div>
+          </div>
+        </div>
+        <!-- Anti-Aircraft -->
+        <div class="accordion-item bg-dark">
+          <h2 class="accordion-header" id="headingThirteen">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
+              Anti-Aircraft
+            </button>
+          </h2>
+          <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen">
+            <div class="accordion-body text-light">
+              <!-- Anti-Aircraft Component -->
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <!-- Air Unit Dice -->
@@ -207,6 +249,7 @@ import MechanizedDiceComponent from "../components/MechanizedDiceComponent.vue";
 import SpecialForcesDiceComponent from "../components/SpecialForcesDiceComponent.vue";
 import IFVDiceComponent from "../components/IFVDiceComponent.vue";
 import MBTDiceComponent from "../components/MBTDiceComponent.vue";
+import ArtilleryDiceComponent from "../components/ArtilleryDiceComponent.vue";
 
 export default {
   setup() {
@@ -224,7 +267,7 @@ export default {
       }
     };
   },
-  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent }
+  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent }
 }
 
 </script>
