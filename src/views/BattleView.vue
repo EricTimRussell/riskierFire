@@ -191,7 +191,7 @@
           </h2>
           <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight">
             <div class="accordion-body text-light">
-              <!-- Carrier Component -->
+              <CarrierDiceComponent />
             </div>
           </div>
         </div>
@@ -205,7 +205,7 @@
           </h2>
           <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine">
             <div class="accordion-body text-light">
-              <!-- Cruiser component -->
+              <CruiserDiceComponent />
             </div>
           </div>
         </div>
@@ -219,7 +219,7 @@
           </h2>
           <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen">
             <div class="accordion-body text-light">
-              <!-- Destroyer component -->
+              <DestroyerDiceComponent />
             </div>
           </div>
         </div>
@@ -254,6 +254,9 @@ import MissileArtilleryDiceComponent from "../components/MissileArtilleryDiceCom
 import FighterAircraftDiceComponent from "../components/aircraftDice/FighterAircraftDiceComponent.vue";
 import CasDiceComponent from "../components/aircraftDice/CasDiceComponent.vue";
 import AnitAicraftDiceComponent from "../components/AnitAicraftDiceComponent.vue";
+import CarrierDiceComponent from "../components/navyDice/CarrierDiceComponent.vue";
+import CruiserDiceComponent from "../components/navyDice/CruiserDiceComponent.vue";
+import DestroyerDiceComponent from "../components/navyDice/DestroyerDiceComponent.vue";
 
 export default {
   setup() {
@@ -271,7 +274,7 @@ export default {
       }
     };
   },
-  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent, MissileArtilleryDiceComponent, FighterAircraftDiceComponent, CasDiceComponent, AnitAicraftDiceComponent }
+  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent, MissileArtilleryDiceComponent, FighterAircraftDiceComponent, CasDiceComponent, AnitAicraftDiceComponent, CarrierDiceComponent, CruiserDiceComponent, DestroyerDiceComponent }
 }
 
 </script>
