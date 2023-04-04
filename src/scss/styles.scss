@@ -169,3 +169,20 @@ button:disabled {
   width: fit-content;
   background: linear-gradient(#FFDA96, #dda15e);
 }
+
+// Mobile
+@media (max-width: 768px) {
+
+  // Font classes
+  .fs-md {
+    font-size: 18px;
+  }
+
+  .fs-lg {
+    font-size: 24px;
+  }
+
+  .fs-xl {
+    font-size: 32px;
+  }
+}

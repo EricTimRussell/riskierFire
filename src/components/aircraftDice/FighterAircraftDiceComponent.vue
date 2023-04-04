@@ -4,26 +4,26 @@
     <h2>Select Adversary</h2>
   </div>
   <div class="col-12 d-flex justify-content-center py-2">
-    <input class="mx-1 checkbox" type="checkbox" v-model="infantryMech">
-    <h3>Infantry or Mech</h3>
+    <input class="mx-1 checkbox" type="checkbox" v-model="fighter">
+    <h3>Fighter</h3>
   </div>
   <div class="col-12 d-flex justify-content-center">
-    <input class="mx-1 checkbox" type="checkbox" v-model="ifvArtilleryAA">
-    <h3>IFV, Artillery, or AA</h3>
+    <input class="mx-1 checkbox" type="checkbox" v-model="cas">
+    <h3>CAS</h3>
   </div>
   <div class="col-12 d-flex text-center justify-content-center py-2">
-    <input class="mx-1 checkbox" type="checkbox" v-model="mbt">
-    <h3>MBT</h3>
+    <input class="mx-1 checkbox" type="checkbox" v-model="ground">
+    <h3>Ground</h3>
   </div>
-  <div class="col-12 d-flex text-center justify-content-center">
-    <input class="mx-1 checkbox" type="checkbox" v-model="laserDesignator">
-    <h3>Using Designator</h3>
+  <div class="col-12 d-flex text-center justify-content-center py-2">
+    <input class="mx-1 checkbox" type="checkbox" v-model="evade">
+    <h3>Evade</h3>
   </div>
 
-  <!-- Vs Infantry & Mech -->
+  <!-- Vs Fighter -->
   <div class="d-flex justify-content-center height-top">
-    <div class="col-3 d-flex justify-content-center mt-5" for="infantryMech" v-if="infantryMech == true">
-      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 4)">
+    <div class="col-3 d-flex justify-content-center mt-5" for="fighter" v-if="fighter == true">
+      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 6)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
@@ -47,9 +47,9 @@
       </div>
     </div>
 
-    <!-- Vs IFV, All Artillery, & AA -->
-    <div class="col-3 d-flex justify-content-center mt-5" for="ifvArtilleryAA" v-if="ifvArtilleryAA == true">
-      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 3)">
+    <!-- Vs CAS -->
+    <div class="col-3 d-flex justify-content-center mt-5" for="cas" v-if="cas == true">
+      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 9)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
@@ -73,9 +73,9 @@
       </div>
     </div>
 
-    <!-- Vs MBT -->
-    <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="mbt == true">
-      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 2)">
+    <!-- Vs Ground Target -->
+    <div class="col-3 d-flex justify-content-center mt-5" for="ground" v-if="ground == true">
+      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 4)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
@@ -99,9 +99,9 @@
       </div>
     </div>
 
-    <!-- With Laser Designator -->
-    <div class="col-3 d-flex justify-content-center mt-5" for="laserDesignator" v-if="laserDesignator == true">
-      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 7)">
+    <!-- Evade -->
+    <div class="col-3 d-flex justify-content-center mt-5" for="evade" v-if="evade == true">
+      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 4)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
@@ -136,15 +136,15 @@ export default {
     const oneTwelveDie = ref({ roll: 0 });
 
     const isPending = ref(false)
-    const infantryMech = ref(false)
-    const ifvArtilleryAA = ref(false)
-    const mbt = ref(false)
-    const laserDesignator = ref(false)
+    const fighter = ref(false)
+    const cas = ref(false)
+    const ground = ref(false)
+    const evade = ref(false)
     return {
-      infantryMech,
-      ifvArtilleryAA,
-      mbt,
-      laserDesignator,
+      fighter,
+      cas,
+      ground,
+      evade,
       oneTwelveDie,
       isPending,
       rollOneTwelveDie() {

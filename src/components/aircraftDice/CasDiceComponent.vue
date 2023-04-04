@@ -4,104 +4,74 @@
     <h2>Select Adversary</h2>
   </div>
   <div class="col-12 d-flex justify-content-center py-2">
-    <input class="mx-1 checkbox" type="checkbox" v-model="infantryMech">
-    <h3>Infantry or Mech</h3>
-  </div>
-  <div class="col-12 d-flex justify-content-center">
-    <input class="mx-1 checkbox" type="checkbox" v-model="ifvArtilleryAA">
-    <h3>IFV, Artillery, or AA</h3>
-  </div>
-  <div class="col-12 d-flex text-center justify-content-center py-2">
-    <input class="mx-1 checkbox" type="checkbox" v-model="mbt">
-    <h3>MBT</h3>
+    <input class="mx-1 checkbox" type="checkbox" v-model="cas">
+    <h3>CAS</h3>
   </div>
   <div class="col-12 d-flex text-center justify-content-center">
-    <input class="mx-1 checkbox" type="checkbox" v-model="laserDesignator">
-    <h3>Using Designator</h3>
+    <input class="mx-1 checkbox" type="checkbox" v-model="ground">
+    <h3>Ground</h3>
+  </div>
+  <div class="col-12 d-flex text-center justify-content-center py-2">
+    <input class="mx-1 checkbox" type="checkbox" v-model="evade">
+    <h3>Evade</h3>
   </div>
 
-  <!-- Vs Infantry & Mech -->
+  <!-- Vs CAS -->
   <div class="d-flex justify-content-center height-top">
-    <div class="col-3 d-flex justify-content-center mt-5" for="infantryMech" v-if="infantryMech == true">
+    <div class="col-3 d-flex justify-content-center mt-5" for="cas" v-if="cas == true">
+      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 6)">
+        <h6>Roll Dice</h6>
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
+          <div v-if="isPending" class="spinner-border py-4" role="status">
+            <span></span>
+          </div>
+        </button>
+        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
+        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+      </div>
+      <div class="text-center" v-else>
+        <h6>Roll Dice</h6>
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
+          <div v-if="isPending" class="spinner-border py-4" role="status">
+            <span></span>
+          </div>
+        </button>
+        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
+        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+      </div>
+    </div>
+
+    <!-- Vs Ground Target -->
+    <div class="col-3 d-flex justify-content-center mt-5" for="ground" v-if="ground == true">
+      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 10)">
+        <h6>Roll Dice</h6>
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
+          <div v-if="isPending" class="spinner-border py-4" role="status">
+            <span></span>
+          </div>
+        </button>
+        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
+        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+      </div>
+      <div class="text-center" v-else>
+        <h6>Roll Dice</h6>
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
+          <div v-if="isPending" class="spinner-border py-4" role="status">
+            <span></span>
+          </div>
+        </button>
+        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
+        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+      </div>
+    </div>
+
+    <!-- Evade -->
+    <div class="col-3 d-flex justify-content-center mt-5" for="evade" v-if="evade == true">
       <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 4)">
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-3" role="status">
-            <span></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-      <div v-else class="text-center">
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-3" role="status">
-            <span></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-    </div>
-
-    <!-- Vs IFV, All Artillery, & AA -->
-    <div class="col-3 d-flex justify-content-center mt-5" for="ifvArtilleryAA" v-if="ifvArtilleryAA == true">
-      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 3)">
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-4" role="status">
-            <span></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-      <div class="text-center" v-else>
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-4" role="status">
-            <span></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-    </div>
-
-    <!-- Vs MBT -->
-    <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="mbt == true">
-      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 2)">
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-4" role="status">
-            <span></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-      <div class="text-center" v-else>
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-4" role="status">
-            <span></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-    </div>
-
-    <!-- With Laser Designator -->
-    <div class="col-3 d-flex justify-content-center mt-5" for="laserDesignator" v-if="laserDesignator == true">
-      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 7)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
@@ -136,15 +106,13 @@ export default {
     const oneTwelveDie = ref({ roll: 0 });
 
     const isPending = ref(false)
-    const infantryMech = ref(false)
-    const ifvArtilleryAA = ref(false)
-    const mbt = ref(false)
-    const laserDesignator = ref(false)
+    const cas = ref(false)
+    const ground = ref(false)
+    const evade = ref(false)
     return {
-      infantryMech,
-      ifvArtilleryAA,
-      mbt,
-      laserDesignator,
+      cas,
+      ground,
+      evade,
       oneTwelveDie,
       isPending,
       rollOneTwelveDie() {

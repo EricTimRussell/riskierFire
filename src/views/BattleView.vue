@@ -106,7 +106,7 @@
           </h2>
           <div id="collapseTwelve" class="accordion-collapse collapse" aria-labelledby="headingTwelve">
             <div class="accordion-body text-light">
-              <!--Missile Artillery Component -->
+              <MissileArtilleryDiceComponent />
             </div>
           </div>
         </div>
@@ -120,7 +120,7 @@
           </h2>
           <div id="collapseThirteen" class="accordion-collapse collapse" aria-labelledby="headingThirteen">
             <div class="accordion-body text-light">
-              <!-- Anti-Aircraft Component -->
+              <AnitAicraftDiceComponent />
             </div>
           </div>
         </div>
@@ -148,7 +148,7 @@
           </h2>
           <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix">
             <div class="accordion-body text-light">
-              <!-- Fighter Component -->
+              <FighterAircraftDiceComponent />
             </div>
           </div>
         </div>
@@ -162,7 +162,7 @@
           </h2>
           <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven">
             <div class="accordion-body text-light">
-              <!-- CAS component -->
+              <CasDiceComponent />
             </div>
           </div>
         </div>
@@ -250,6 +250,10 @@ import SpecialForcesDiceComponent from "../components/SpecialForcesDiceComponent
 import IFVDiceComponent from "../components/IFVDiceComponent.vue";
 import MBTDiceComponent from "../components/MBTDiceComponent.vue";
 import ArtilleryDiceComponent from "../components/ArtilleryDiceComponent.vue";
+import MissileArtilleryDiceComponent from "../components/MissileArtilleryDiceComponent.vue";
+import FighterAircraftDiceComponent from "../components/aircraftDice/FighterAircraftDiceComponent.vue";
+import CasDiceComponent from "../components/aircraftDice/CasDiceComponent.vue";
+import AnitAicraftDiceComponent from "../components/AnitAicraftDiceComponent.vue";
 
 export default {
   setup() {
@@ -267,7 +271,7 @@ export default {
       }
     };
   },
-  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent }
+  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent, MissileArtilleryDiceComponent, FighterAircraftDiceComponent, CasDiceComponent, AnitAicraftDiceComponent }
 }
 
 </script>
