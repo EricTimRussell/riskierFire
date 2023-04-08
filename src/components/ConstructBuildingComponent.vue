@@ -1,8 +1,12 @@
 <template>
   <form @submit.prevent="constructBuilding()">
     <div class="form-floating mb-3">
-      <input v-model="editable.buildingType" required type="text" maxlength="20" class="form-control" id="buildingType"
+      <select v-model="editable.buildingType" required maxlength="20" class="form-select" id="buildingType"
         placeholder="building type" autocomplete="off">
+        <option value="Airfield">Airfield</option>
+        <option value="Factory">Factory</option>
+        <option value="Naval Yard">Naval Yard</option>
+      </select>
       <label for="buildingType">Building Type...</label>
     </div>
     <div hidden>

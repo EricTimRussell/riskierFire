@@ -6,53 +6,8 @@
         <button class="m-2" data-bs-toggle="modal" data-bs-target="#construction-modal"
           aria-label="Start Construction">+Building</button>
       </div>
-      <div class="drop-zone col-3" @drop="onDrop($event, 1)" @dragenter.prevent @dragover.prevent>
-        <h6>Start</h6>
-        <div v-for="item in getList(1)" :key="item.id" class="drag-el" draggable="true"
-          @dragstart="startDrag($event, item)">
-          {{ item.title }}
-        </div>
-      </div>
-      <div class="drop-zone col-3 mx-1" @drop="onDrop($event, 2)" @dragenter.prevent @dragover.prevent>
-        <h6>In Progress</h6>
-        <div v-for="item in getList(2)" :key="item.id" class="drag-el" draggable="true"
-          @dragstart="startDrag($event, item)">
-          {{ item.title }}
-        </div>
-      </div>
-      <div class="drop-zone col-3" @drop="onDrop($event, 3)" @dragenter.prevent @dragover.prevent>
-        <h6>Complete</h6>
-        <div v-for="item in getList(3)" :key="item.id" class="drag-el" draggable="true"
-          @dragstart="startDrag($event, item)">
-          {{ item.title }}
-        </div>
-      </div>
-    </div>
-    <div class="row mt-5 justify-content-center">
-      <div class="col-12 text-center">
-        <h1>Naval Construction</h1>
-        <button class="m-2 px-3">+Ship</button>
-      </div>
-      <div class="drop-zone col-3" @drop="onDrop($event, 1)" @dragenter.prevent @dragover.prevent>
-        <h6>Start</h6>
-        <div v-for="item in getList(1)" :key="item.id" class="drag-el" draggable="true"
-          @dragstart="startDrag($event, item)">
-          {{ item.title }}
-        </div>
-      </div>
-      <div class="drop-zone col-3 mx-1" @drop="onDrop($event, 2)" @dragenter.prevent @dragover.prevent>
-        <h6>In Progress</h6>
-        <div v-for="item in getList(2)" :key="item.id" class="drag-el" draggable="true"
-          @dragstart="startDrag($event, item)">
-          {{ item.title }}
-        </div>
-      </div>
-      <div class="drop-zone col-3" @drop="onDrop($event, 3)" @dragenter.prevent @dragover.prevent>
-        <h6>Complete</h6>
-        <div v-for="item in getList(3)" :key="item.id" class="drag-el" draggable="true"
-          @dragstart="startDrag($event, item)">
-          {{ item.title }}
-        </div>
+      <div v-for="c in construction">
+        <ConstructionCardComponent :construction="c" :teams="teams" />
       </div>
     </div>
   </div>
@@ -71,6 +26,8 @@ import { teamsService } from "../services/TeamsService";
 import { buildingsService } from "../services/BuildingsService";
 import { useRegionStore } from "../stores/RegionStore";
 import ConstructBuildingComponent from "../components/ConstructBuildingComponent.vue";
+import { useConstructionStore } from "../stores/ConstructionStore";
+import ConstructionCardComponent from "../components/ConstructionCardComponent.vue";
 export default {
   setup() {
     const user = useCurrentUser();
@@ -79,7 +36,7 @@ export default {
       { id: 0, title: 'Factory', list: 1 },
       { id: 1, title: 'Aifield', list: 1 },
       { id: 2, title: 'Naval Yard', list: 2 },
-      { id: 3, title: 'Naval Yard', list: 3 }
+      { id: 3, title: 'Naval Yard', list: 3 },
     ])
 
     const getList = (list) => {
@@ -112,12 +69,27 @@ export default {
       }
     }
 
+    async function getConstructionByUserId() {
+      try {
+        // get user id if undefined
+        if (user.value?.uid == undefined) {
+          // @ts-ignore
+          const user = await getCurrentUser();
+        }
+        await buildingsService.getConstructionByUserId(user)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+
     onMounted(() => {
       getTeamByUserId()
+      getConstructionByUserId()
     });
 
     return {
       teams: computed(() => useRegionStore.teams),
+      construction: computed(() => useConstructionStore.construction),
       user,
       getList,
       startDrag,
@@ -132,7 +104,7 @@ export default {
       }
     }
   },
-  components: { ModalComponent, ConstructBuildingComponent }
+  components: { ModalComponent, ConstructBuildingComponent, ConstructionCardComponent }
 }
 </script>
 
