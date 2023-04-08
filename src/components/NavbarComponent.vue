@@ -34,7 +34,7 @@
               sports_esports
             </span>
           </RouterLink>
-          <RouterLink to="/construction">
+          <RouterLink :to="{ name: 'construction', params: { id: user.uid } }">
             <span title="Construction Page" class="material-symbols-outlined fs-xl">
               construction
             </span>

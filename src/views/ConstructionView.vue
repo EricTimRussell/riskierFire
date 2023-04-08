@@ -3,7 +3,8 @@
     <div class="row mt-5 justify-content-center">
       <div class="col-12 text-center">
         <h1>Building Construction</h1>
-        <button class="m-2">+Building</button>
+        <button class="m-2" data-bs-toggle="modal" data-bs-target="#construction-modal"
+          aria-label="Start Construction">+Building</button>
       </div>
       <div class="drop-zone col-3" @drop="onDrop($event, 1)" @dragenter.prevent @dragover.prevent>
         <h6>Start</h6>
@@ -57,7 +58,7 @@
   </div>
 
   <ModalComponent id="construction-modal">
-
+    <ConstructBuildingComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
 </template>
 
@@ -69,6 +70,7 @@ import { getCurrentUser, useCurrentUser } from "vuefire";
 import { teamsService } from "../services/TeamsService";
 import { buildingsService } from "../services/BuildingsService";
 import { useRegionStore } from "../stores/RegionStore";
+import ConstructBuildingComponent from "../components/ConstructBuildingComponent.vue";
 export default {
   setup() {
     const user = useCurrentUser();
@@ -115,30 +117,22 @@ export default {
     });
 
     return {
-      team: computed(() => useRegionStore.teams),
+      teams: computed(() => useRegionStore.teams),
       user,
       getList,
       startDrag,
       onDrop,
 
-      async constructBuilding() {
-        try {
-          await buildingsService.constructBuilding()
-        } catch (error) {
-          console.error(error, 'construct building');
-        }
-      },
-
       async constructShip() {
         try {
           await buildingsService.constructShip()
         } catch (error) {
-          console.error(error, 'construct building');
+          console.error(error, 'construct ship');
         }
       }
     }
   },
-  components: { ModalComponent }
+  components: { ModalComponent, ConstructBuildingComponent }
 }
 </script>
 
