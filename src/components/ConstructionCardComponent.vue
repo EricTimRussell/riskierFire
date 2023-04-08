@@ -28,7 +28,7 @@
 
 <script>
 import { ref } from "vue"
-
+import draggable from "vuedraggable"
 export default {
   props: {
     construction: { type: Object, required: true },
@@ -59,7 +59,8 @@ export default {
       startDrag,
       onDrop,
     }
-  }
+  },
+  components: { draggable }
 }
 </script>
 
