@@ -58,5 +58,14 @@ class BuildingsService {
       totalAgriculture: increment(2)
     });
   }
+
+  // SECTION Construction
+  async constructBuilding() {
+
+  }
+
+  async constructShip() {
+
+  }
 }
 export const buildingsService = new BuildingsService()
