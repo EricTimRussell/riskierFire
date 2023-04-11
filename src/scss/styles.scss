@@ -58,6 +58,10 @@ body {
   background: #fdce78;
 }
 
+.bg-glass {
+  background: #87cfeb2e;
+}
+
 .bg-infantry {
   background: #ffffff52;
   background-image: linear-gradient(#192101a3,
@@ -184,5 +188,10 @@ button:disabled {
 
   .fs-xl {
     font-size: 32px;
+  }
+
+  .paragraph-mobile {
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }

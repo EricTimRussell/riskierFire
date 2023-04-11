@@ -2,9 +2,9 @@
   <div class="container-fluid bg-green navbar elevation-5 pt-4">
     <div class="row">
       <div class="d-flex gap-3">
-        <div class="dropdown px-4 col-3">
-          <img src="" class="user-img-placeholder dropdown-toggle selectable" data-bs-toggle="dropdown"
-            aria-expanded="false" alt="">
+        <div class="dropdown px-4 col-5">
+          <img src="../assets/riskierLogo/addressBarImage.jpg" class="user-img rounded dropdown-toggle selectable"
+            data-bs-toggle="dropdown" aria-expanded="false" alt="">
           <ul class="dropdown-menu text-center">
             <li class="pb-2">
               <span class="fs-md text-decoration-underline">{{ user?.email }}</span>
@@ -23,7 +23,7 @@
             </li>
           </ul>
         </div>
-        <nav v-if="user?.email" class="d-flex gap-2 col-8 ">
+        <nav v-if="user?.email" class="d-flex gap-2 col-6 ">
           <RouterLink to="/rules">
             <span title="Rules Page" class="material-symbols-outlined fs-xl">
               menu_book
@@ -127,7 +127,10 @@ a:active {
   color: #FFDA96;
 }
 
-
+.user-img {
+  width: 6rem;
+  height: 4rem;
+}
 
 @media screen and (min-width: 576px) {
   a {

@@ -3,10 +3,10 @@
     <div class="row gap-2 region-card elevation-5 rounded p-2" v-if="construction.buildTime >= 1">
       <div class="col-12 d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-dark">construction</span>
-        <span class="fs-lg">{{ construction.buildingType }}</span>
+        <span class="fs-md">{{ construction.buildingType }}</span>
       </div>
-      <span class="fs-lg text-center"><u>Turns to Complete</u></span>
-      <span class="fs-lg text-center">{{ construction.buildTime }}</span>
+      <span class="fs-md text-center"><u>Turns to Complete</u></span>
+      <span class="fs-md text-center">{{ construction.buildTime }}</span>
       <div class="col-12 text-end pt-3 px-1 d-flex justify-content-between">
         <button :disabled="construction.buildTime == 0" @click="buildTimeDecrement()" class="m-2">-BuildTime</button>
         <button @click="deleteConstruction()" class="btn-blank text-danger" title="Delete?"><span
@@ -19,10 +19,10 @@
     <div class="row gap-2 region-card elevation-5 rounded p-2" v-if="construction.buildTime == 0">
       <div class="col-12 d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-dark">construction</span>
-        <span class="fs-lg">{{ construction.buildingType }}</span>
+        <span class="fs-md">{{ construction.buildingType }}</span>
       </div>
-      <span class="fs-lg text-center"><u>Turns to Complete</u></span>
-      <span class="fs-lg text-center">{{ construction.buildTime }}</span>
+      <span class="fs-md text-center"><u>Turns to Complete</u></span>
+      <span class="fs-md text-center">{{ construction.buildTime }}</span>
       <div class="col-12 text-end pt-3 px-1 d-flex justify-content-between">
         <span class="fs-lg text-success">COMPLETE</span>
         <button @click="deleteConstruction()" class="btn-blank text-danger" title="Delete?"><span

@@ -1,14 +1,22 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 bg-primary">
-        <h1>Home Page</h1>
-        <div class="col-12 d-flex justify-content-center py-3">
-          <button type="submit" class="rounded text-shadow-dark p-2 mx-3" data-bs-toggle="modal"
-            data-bs-target="#createTeam-modal" aria-label="Create Team">
-            Create Team
-          </button>
-        </div>
+      <div class="col-md-6 col-sm-12 pt-5 d-flex justify-content-center">
+        <img class="logo" src="../assets/riskierLogo/addressBarImage.jpg" alt="">
+      </div>
+      <div class="col-md-6 col-sm-12 pt-5 d-flex flex-column">
+        <h1 class="text-center">Welcome to Riskier!</h1>
+        <p class="paragraph-mobile px-5">Log in or create an account to get started. You do not need to use a real
+          email to create an account. Once you have created an account be sure to create a team. This will allow the
+          app to track your teams assets.</p>
+        <p class="paragraph-mobile px-5"> Use the buttons at the top of the page to navigate the website.</p>
+        <button v-if="user" type="submit" class="rounded text-shadow-dark p-2" data-bs-toggle="modal"
+          data-bs-target="#createTeam-modal" aria-label="Create Team">
+          Create Team
+        </button>
+      </div>
+      <div class="col-12 d-flex justify-content-center py-3">
+
       </div>
     </div>
   </div>
@@ -24,6 +32,8 @@ import { getCurrentUser, useCurrentUser } from "vuefire";
 import CreateTeamForm from "../components/CreateTeamForm.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import { teamsService } from "../services/TeamsService";
+import { computed } from "@vue/reactivity";
+import { useRegionStore } from "../stores/RegionStore";
 
 export default {
   setup() {
@@ -44,11 +54,18 @@ export default {
       getTeamByUserId();
     });
     return {
-      user
+      team: computed(() => useRegionStore.teams),
+      user,
     };
   },
   components: { ModalComponent, CreateTeamForm }
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.logo {
+  width: 75%;
+  height: auto;
+  border: black solid 3px;
+}
+</style>
