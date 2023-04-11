@@ -6,6 +6,9 @@
         <option value="Airfield">Airfield</option>
         <option value="Factory">Factory</option>
         <option value="Naval Yard">Naval Yard</option>
+        <option value="Carrier">Carrier</option>
+        <option value="Cruiser">Cruiser</option>
+        <option value="Destroyer">Destroyer</option>
       </select>
       <label for="buildingType">Building Type...</label>
     </div>

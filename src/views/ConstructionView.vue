@@ -1,8 +1,8 @@
 <template>
   <div class="container-fluid">
     <div class="row mt-5 justify-content-center">
-      <div class="col-12 text-center">
-        <h1>Building Construction</h1>
+      <div class="col-12 text-center bg-green py-2 elevation-5 text-light">
+        <h1>Construction</h1>
         <button class="m-2" data-bs-toggle="modal" data-bs-target="#construction-modal"
           aria-label="Start Construction">+Building</button>
       </div>
@@ -22,7 +22,7 @@
 import ModalComponent from "../components/ModalComponent.vue";
 import { computed } from "@vue/reactivity";
 import { onMounted } from "vue";
-import { getCurrentUser, useCurrentUser, useFirestore } from "vuefire";
+import { getCurrentUser, useCurrentUser } from "vuefire";
 import { teamsService } from "../services/TeamsService";
 import { buildingsService } from "../services/BuildingsService";
 import { useRegionStore } from "../stores/RegionStore";
