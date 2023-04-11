@@ -66,6 +66,7 @@ class BuildingsService {
     const q = query(collection(db, "construction"), where("creatorId", "==", user.value?.uid));
     const querySnapshot = await getDocs(q);
     onSnapshot(q, (querySnapshot) => {
+      useConstructionStore.construction = []
       querySnapshot.forEach((doc) => {
         // console.log(doc.id, " => ", doc.data());
         useConstructionStore.construction.push({ ...doc.data(), id: doc.id })

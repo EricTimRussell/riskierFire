@@ -9,10 +9,6 @@
       </select>
       <label for="buildingType">Building Type...</label>
     </div>
-    <div hidden>
-      <label for="creatorId" class="form-label">{{ editable.creatorId }}</label>
-      <input v-model="editable.creatorId" type="string" id="creatorId" disabled>
-    </div>
     <div class="modal-footer">
       <button type="button" class="btn-danger" data-bs-dismiss="modal">Close</button>
       <button type="submit" class="btn-green" data-bs-dismiss="modal">Create</button>
@@ -36,7 +32,7 @@ export default {
     const route = useRoute()
     const db = useFirestore()
 
-    const editable = ref({ buildingType: '', creatorId: user.value?.uid })
+    const editable = ref({ buildingType: '', creatorId: user.value?.uid, buildTime: 2 })
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
 
@@ -56,7 +52,7 @@ export default {
           await updateDoc(team, {
             totalProduction: increment(-1)
           });
-          editable.value = ({ buildingType: '', creatorId: user.value?.uid })
+          editable.value = ({ buildingType: '', creatorId: user.value?.uid, buildTime: 2 })
           Swal.fire({
             title: 'Success!',
             timer: 900,

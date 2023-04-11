@@ -6,6 +6,9 @@
         <button class="m-2" data-bs-toggle="modal" data-bs-target="#construction-modal"
           aria-label="Start Construction">+Building</button>
       </div>
+      <div class="col-3 d-flex pt-4" v-for="c in construction">
+        <ConstructionCardComponent :teams="teams" :construction="c" />
+      </div>
     </div>
   </div>
 
@@ -18,13 +21,14 @@
 <script>
 import ModalComponent from "../components/ModalComponent.vue";
 import { computed } from "@vue/reactivity";
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 import { getCurrentUser, useCurrentUser } from "vuefire";
 import { teamsService } from "../services/TeamsService";
 import { buildingsService } from "../services/BuildingsService";
 import { useRegionStore } from "../stores/RegionStore";
 import ConstructBuildingComponent from "../components/ConstructBuildingComponent.vue";
 import { useConstructionStore } from "../stores/ConstructionStore";
+import ConstructionCardComponent from "../components/ConstructionCardComponent.vue";
 export default {
   setup() {
     const user = useCurrentUser();
@@ -74,7 +78,7 @@ export default {
       }
     }
   },
-  components: { ModalComponent, ConstructBuildingComponent }
+  components: { ModalComponent, ConstructBuildingComponent, ConstructionCardComponent }
 }
 </script>
 
