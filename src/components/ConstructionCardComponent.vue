@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid region-card elevation-5 p-3 rounded">
+  <div class="container-fluid region-card elevation-5 rounded">
     <div class="row gap-2">
       <h2 class="text-center"><u>Building</u></h2>
       <div class="col-12 d-flex justify-content-center">
@@ -14,6 +14,7 @@
           class="material-symbols-outlined fs-lg">
           delete_forever
         </span></button>
+      <button @click="buildTimeDecrement()" class="m-2">-BuildTime</button>
     </div>
   </div>
 </template>
@@ -32,6 +33,8 @@ export default {
   setup(props) {
     const db = useFirestore()
     const route = useRoute()
+    // @ts-ignore
+    const construction = doc(db, "construction", props.construction.id)
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
     return {
@@ -60,6 +63,11 @@ export default {
         } catch (error) {
           console.error(error, 'Deleting Construction')
         }
+      },
+      async buildTimeDecrement() {
+        updateDoc(construction, {
+          buildTime: increment(-1),
+        });
       }
     }
   }
