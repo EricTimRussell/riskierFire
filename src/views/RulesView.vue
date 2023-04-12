@@ -10,6 +10,7 @@
         </button>
         <ul class="dropdown-menu drop-menu">
           <nav class="nav nav-pills">
+            <a class="nav-link dropdown-item" href="#construction">Construction</a>
             <a class="nav-link dropdown-item" href="#mainBoardPieces">Main Board Pieces</a>
             <a class="nav-link dropdown-item" href="#units">Unit Rules</a>
             <a class="nav-link dropdown-item" href="#groundCombat">Ground Combat Rules</a>
@@ -26,6 +27,24 @@
     </div>
     <section class="row px-2">
       <div class="col-12">
+        <!-- SECTION Turn Phases -->
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
+          <h2>Turn Phases of Play</h2>
+          <span class="divider"></span>
+        </div>
+        <p><span class="text-tan fs-md">Turn Order of Play</span> -At the start of a players turn the <span
+            class="text-tan fs-md">First Phase</span> is to
+          place any buildings, ships, or units that have
+          finished building. The <span class="text-tan fs-md">Second Phase</span> the player should claim any new
+          territory. <span class="text-tan fs-md">Third Phase</span> they should make and
+          resolve any combat moves. <span class="text-tan fs-md">Fourth Phase</span> the player makes non-combat moves.
+          <span class="text-tan fs-md">Fifth Phase</span> the player can build new
+          units and buildings. The units will not be placed on the board until the start of the players next turn.
+        </p>
+        <p>
+          --Units that are being built will be placed in front of the player off the board until the start of their turn.
+          Newly constructed units can only be placed on a players factories or capital.
+        </p>
         <!-- SECTION Resources -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Resources</h2>
@@ -42,33 +61,29 @@
           size. 4 is a medium city and 3 is a small city.
         </p>
         <!-- SECTION Construction -->
-        <!-- <div class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div id="construction" class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Construction</h2>
           <span class="divider"></span>
         </div>
         <p>
-          --The construction sheet is used to track the construction of buildings and naval units. All ground units and
-          air units take
-          1 turn to
-          construct. Naval units vary slightly with carriers taking 3 turns to construct and destroyer/cruisers taking
-          2 turns to construct. Naval construction is tracked on the bottom of the sheet using the naval construction
-          pieces. Naval yards are built on
-          land tiles adjacent to water tiles. The land tile region number will be recorded on the construction sheet
-          in the spot labeled "Yard Region #". Each naval yard can produce up to 3 ships at one time.
+          --All buildings and naval units take 2 turns to construct and their progress can be tracked on the construction
+          page. <span class="material-symbols-outlined text-warning">
+            construction
+          </span>
         </p>
         <p>
-          --All buildings take 2 turns to construct and are placed on the construction sheet to track their construction
-          progress. The region you are constructing a building on will be written on the construction sheet labeled region
-          #.
-        </p>
-        <p>
-          --Each city is worth 1 production. A max of 2 Factories can be built onto capitals and 1 onto large cities and
+          --Each city is worth 1 production. One Factory can be built onto capitals large cities and
           medium
           cities to
-          increase their production by 1 for each factory. Factories cannot be built on small cities. The amount of
-          production a player has dictates how many units a player can produce at one time. This does not include naval
-          units or buildings.
-        </p> -->
+          increase their production by 1. Factories cannot be built on small cities. The amount of
+          production a player has dictates how many units, buildings, and naval units a player can produce per turn. NOTE:
+          Naval units and buildings take 2 turns to produce meaning a players production capacity will be reduced by 1 per
+          construction project until they are complete.
+        </p>
+        <p><span class="text-tan fs-md"> Example:</span> A player has 10 production and decides to build 2 airfields and 2
+          cruisers during their build phase. Their total production will be reduced by 4 for 2 turns and their new total
+          production is now 6. They can now only produce 6 units instead of 10 per turn until their construction projects
+          are complete or the player cancels their construction projetcs.</p>
         <!-- SECTION Main Board Pieces -->
         <div id="mainBoardPieces" class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Main Board Pieces</h2>
