@@ -10,6 +10,7 @@
         </button>
         <ul class="dropdown-menu drop-menu">
           <nav class="nav nav-pills">
+            <a class="nav-link dropdown-item" href="#resources">Resources</a>
             <a class="nav-link dropdown-item" href="#construction">Construction</a>
             <a class="nav-link dropdown-item" href="#mainBoardPieces">Main Board Pieces</a>
             <a class="nav-link dropdown-item" href="#units">Unit Rules</a>
@@ -27,6 +28,36 @@
     </div>
     <section class="row px-2">
       <div class="col-12">
+        <!-- SECTION Getting Started -->
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
+          <h2>Get Started</h2>
+          <span class="divider"></span>
+        </div>
+        <p>--Once the board has been built and players have chosen their starting locations it is time to get started in
+          the app. </p>
+        <p><span class="text-tan fs-md">First</span> a player should claim a capital city with the region # of
+          0 on the game page. <span class="material-symbols-outlined">
+            sports_esports
+          </span></p>
+        <p><span class="text-tan fs-md">Second</span> a player should place 10 of their circular region number
+          pieces around their capital. These are the initial regions to start the game with.</p>
+        <p><span class="text-tan fs-md">Third</span>
+          a player should place their other cities within the regions they just
+          claimed. And then claim each city on the game page with the appropriate region number that is located on the
+          region number piece. Be sure to select the correct amount of resource based on the city size.</p>
+        <p><span class="text-tan fs-md">Fourth</span>
+          a player should claim the rest of their regions without cities by using the claim region button on the game
+          page.</p>
+        <p><span class="text-tan fs-md">Fifth</span>
+          a player should build and place all the buildings they want to start with. Then if a player has a naval yard
+          they should build and place any ships they want to start with. During the set-up phase buildings and ships will
+          build instantly, but during normal play they take 2 turns to build. Players can add/remove anykind of building
+          or units on the game page using the "+" & "-" symbols next to the item. Resources will automatically will be
+          updated upon adding and removing anything.</p>
+        <p><span class="text-tan fs-md">Lastly</span>
+          a player should build and place any units they wish to use. They also should form any armies and divisions they
+          want after building the units they want. If a player built a carrier they should also create a carrier card on
+          the game page using the "Create Carrier" button.</p>
         <!-- SECTION Turn Phases -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Turn Phases of Play</h2>
@@ -46,7 +77,7 @@
           Newly constructed units can only be placed on a players factories or capital.
         </p>
         <!-- SECTION Resources -->
-        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div id="resources" class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Resources</h2>
           <span class="divider"></span>
         </div>

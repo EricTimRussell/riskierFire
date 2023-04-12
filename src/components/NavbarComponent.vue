@@ -34,7 +34,7 @@
               sports_esports
             </span>
           </RouterLink>
-          <RouterLink :to="{ name: 'construction', params: { id: user.uid } }">
+          <RouterLink :to="{ name: 'construction', params: { id: user.uid } }" v-if="teams.creatorId == user.uid">
             <span title="Construction Page" class="material-symbols-outlined fs-xl">
               construction
             </span>

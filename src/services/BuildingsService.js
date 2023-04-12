@@ -46,18 +46,18 @@ class BuildingsService {
   async addFactory(team) {
     await updateDoc(team, {
       totalFactories: increment(1),
-      totalCapital: increment(-2),
-      totalIndustry: increment(-2),
-      totalAgriculture: increment(-2)
+      totalCapital: increment(-1),
+      totalAgriculture: increment(-3),
+      totalProduction: increment(1)
     });
   }
 
   async removeFactory(team) {
     await updateDoc(team, {
       totalFactories: increment(-1),
-      totalCapital: increment(2),
-      totalIndustry: increment(-2),
-      totalAgriculture: increment(2)
+      totalCapital: increment(1),
+      totalAgriculture: increment(3),
+      totalProduction: increment(-1)
     });
   }
 

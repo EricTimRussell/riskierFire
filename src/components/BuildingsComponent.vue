@@ -85,7 +85,7 @@
 import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
-import { buildingsService } from "../services/buildingsService";
+import { buildingsService } from "../services/BuildingsService";
 
 
 export default {

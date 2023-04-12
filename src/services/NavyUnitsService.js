@@ -1,5 +1,5 @@
 import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
-import { collection, query, getDocs, where, addDoc, onSnapshot, updateDoc } from "firebase/firestore";
+import { collection, query, getDocs, where, addDoc, onSnapshot, updateDoc, increment } from "firebase/firestore";
 import { useNavyStore } from "../stores/NavyStore"
 
 

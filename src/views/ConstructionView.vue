@@ -3,15 +3,15 @@
     <div class="row mt-5 justify-content-center">
       <div class="col-12 text-center bg-green py-2 elevation-5 text-light">
         <h1>Construction</h1>
-        <button class="m-2 px-3 py-2" data-bs-toggle="modal" data-bs-target="#construction-modal"
-          aria-label="Start Construction">+Build</button>
+        <button class="m-2 px-3 py-2" :disabled="teams.totalProduction == 0" data-bs-toggle="modal"
+          data-bs-target="#construction-modal" aria-label="Start Construction">+Build</button>
+        <span v-if="teams.totalProduction == 0">No Production Capacity</span>
       </div>
       <div class="col-md-3 col-sm-6 d-flex pt-4" v-for="c in construction">
         <ConstructionCardComponent :teams="teams" :construction="c" />
       </div>
     </div>
   </div>
-
 
   <ModalComponent id="construction-modal">
     <ConstructBuildingComponent :key="user?.uid" :teams="teams" />

@@ -32,23 +32,19 @@
         <label class="form-check-label" for="mediumCity">Medium</label>
       </div>
       <div class="form-check form-check-inline">
-        <input v-model="editable.citySize" value="Large" class="form-check-input" type="radio" name="citySize"
-          id="largeCity">
-        <label class="form-check-label" for="largeCity">Large</label>
-      </div>
-      <div class="form-check form-check-inline">
         <input v-model="editable.citySize" value="Capital" class="form-check-input" type="radio" name="citySize"
           id="capitalCity">
         <label class="form-check-label" for="capitalCity">Capital</label>
       </div>
     </div>
-    <div hidden class="my-3">
-      <label for="creatorId" class="form-label">{{ editable.creatorId }}</label>
-      <input v-model="editable.creatorId" type="string" id="creatorId" disabled>
-    </div>
-    <div class="modal-footer">
+    <div class="modal-footer d-flex justify-content-evenly">
       <button type="button" class="btn-danger" data-bs-dismiss="modal">Close</button>
       <button type="submit" class="btn-green" data-bs-dismiss="modal">Create</button>
+      <ul>
+        <li>Capital: 15 of all resources</li>
+        <li>Medium: 6 of all resources</li>
+        <li>Small: 4 of all resources</li>
+      </ul>
     </div>
   </form>
 </template>

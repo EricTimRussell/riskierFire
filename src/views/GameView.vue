@@ -80,8 +80,11 @@
       <div class="col-12 text-center bg-green text-light my-3 elevation-5">
         <h2>Divisions</h2>
       </div>
-      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="d in divisions">
+      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="d in divisions" v-if="divisions.length > 0">
         <DivisionsCardComponent :divisions="d" :teams="teams" />
+      </div>
+      <div class="text-center" v-else>
+        <span class="fs-md">Your team has no divisions</span>
       </div>
     </div>
     <div class="row">
@@ -90,8 +93,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="a in armies">
+      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="a in armies" v-if="armies.length > 0">
         <ArmyCardComponent :armies="a" :teams="teams" />
+      </div>
+      <div class="text-center" v-else>
+        <span class="fs-md">Your team has no armies</span>
       </div>
     </div>
     <!-- Carriers -->
@@ -110,8 +116,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="c in carriers">
+      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="c in carriers" v-if="carriers.length > 0">
         <CarrierCardComponent :carriers="c" :teams="teams" />
+      </div>
+      <div class="text-center" v-else>
+        <span class="fs-md">Your team has no carriers</span>
       </div>
     </div>
     <!-- Regions -->
