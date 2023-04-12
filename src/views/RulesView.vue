@@ -34,7 +34,7 @@
           <span class="divider"></span>
         </div>
         <p>--Once the board has been built and players have chosen their starting locations it is time to get started in
-          the app. </p>
+          the app.</p>
         <p><span class="text-tan fs-md">First</span> a player should claim a capital city with the region # of
           0 on the game page. <span class="material-symbols-outlined">
             sports_esports
@@ -91,6 +91,9 @@
           City size can be determined by the number of buildings present on the board piece. 5 buildings is a capital
           size. 4 is a medium city and 3 is a small city.
         </p>
+        <p><span class="text-tan fs-md">Negative Resources:</span> A player is not allowed to be in the negative for any
+          resource. If a player finds themself in the negative they must immediately resolve it by selling assets at the
+          begining of their turn or before they end their turn.</p>
         <!-- SECTION Construction -->
         <div id="construction" class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Construction</h2>

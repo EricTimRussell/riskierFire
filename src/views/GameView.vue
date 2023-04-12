@@ -297,9 +297,11 @@ export default {
 
     return {
       user,
-      region: computed(() => useRegionStore.regions),
+      // @ts-ignore
+      region: computed(() => useRegionStore.regions.sort((a, b) => a.regionNumber - b.regionNumber)),
       teams: computed(() => useRegionStore.teams),
-      cities: computed(() => useRegionStore.cities),
+      // @ts-ignore
+      cities: computed(() => useRegionStore.cities.sort((a, b) => a.regionNumber - b.regionNumber)),
       divisions: computed(() => useArmyDivisionStore.divisions),
       armies: computed(() => useArmyDivisionStore.armies),
       carriers: computed(() => useNavyStore.navy)
