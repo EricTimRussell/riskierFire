@@ -10,9 +10,10 @@
           started. You do not need to use a real
           email to create an account. Once you have created an account be sure to create a team. This will allow the
           app to track your teams assets.</p>
-        <p class="paragraph-mobile px-5">Use the buttons at the top of the page to navigate the website.</p>
-        <p class="paragraph-mobile px-5">Refer to the rules page <span title="Rules Page"
-            class="material-symbols-outlined">
+        <p v-if="team.creatorId && user?.uid" class="paragraph-mobile px-5">Use the buttons at the top of the page to
+          navigate the website.</p>
+        <p v-if="team.creatorId && user?.uid" class="paragraph-mobile px-5">Refer to the rules page <span
+            title="Rules Page" class="material-symbols-outlined">
             menu_book
           </span> to learn more about getting started.</p>
         <button v-if="user" :disabled="team.creatorId" :hidden="team.creatorId" type="submit"

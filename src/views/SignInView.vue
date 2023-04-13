@@ -1,11 +1,11 @@
 <template>
   <body class="container-fluid">
-    <form @submit.prevent="createUser()" class="row justify-content-center">
-      <div class="my-3 col-8">
+    <form @submit.prevent="createUser()" class="row flex-column align-items-center">
+      <div class="my-3 col-6">
         <label for="email" class="form-label">Email address</label>
         <input type="email" class="form-control" id="email" v-model="userInput.email" aria-describedby="emailHelp">
       </div>
-      <div class="mb-3 col-8">
+      <div class="mb-3 col-6">
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" id="password" v-model="userInput.password">
       </div>
@@ -22,6 +22,7 @@ import { ref } from "vue";
 import { useFirebaseAuth, useFirestore } from "vuefire";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
 import { useRouter } from "vue-router";
+import Swal from "sweetalert2";
 export default {
   setup() {
     const router = useRouter()
@@ -58,6 +59,12 @@ export default {
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            if (errorCode === 'auth/wrong-password') {
+              Swal.fire({
+                title: 'Wrong Password/Username'
+              });
+              return
+            }
           });
       }
 
