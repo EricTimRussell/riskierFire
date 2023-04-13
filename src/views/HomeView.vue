@@ -4,9 +4,10 @@
       <div class="col-md-6 col-sm-12 pt-5 d-flex justify-content-center">
         <img class="logo" src="../assets/riskierLogo/addressBarImage.jpg" alt="">
       </div>
-      <div class="col-md-6 col-sm-12 pt-5 d-flex flex-column">
-        <h1 class="text-center">Welcome to Riskier!</h1>
-        <p class="paragraph-mobile px-5">Log in or create an account to get started. You do not need to use a real
+      <div class="col-md-6 col-sm-12 pt-5 d-flex flex-column text-light">
+        <h1 class="text-center">Welcome to RiskierFire!</h1>
+        <p class="paragraph-mobile px-5">Login or create an account by clicking the logo in the top left corner to get
+          started. You do not need to use a real
           email to create an account. Once you have created an account be sure to create a team. This will allow the
           app to track your teams assets.</p>
         <p class="paragraph-mobile px-5">Use the buttons at the top of the page to navigate the website.</p>

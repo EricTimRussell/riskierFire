@@ -9,19 +9,24 @@
           Jump to:
         </button>
         <ul class="dropdown-menu drop-menu">
+          <!-- id's for jump-to menu need to be attachted to p tags above the actual section becuase of sticky navbar -->
           <nav class="nav nav-pills">
             <a class="nav-link dropdown-item" href="#resources">Resources</a>
             <a class="nav-link dropdown-item" href="#construction">Construction</a>
             <a class="nav-link dropdown-item" href="#mainBoardPieces">Main Board Pieces</a>
-            <a class="nav-link dropdown-item" href="#units">Unit Rules</a>
+            <nav class="nav-pills px-3">Unit Rules:
+              <a class="nav-link dropdown-item" href="#ground">Ground Units</a>
+              <a class="nav-link dropdown-item" href="#air">Air Units</a>
+              <a class="nav-link dropdown-item" href="#navy">Navy Units</a>
+            </nav>
             <a class="nav-link dropdown-item" href="#groundCombat">Ground Combat Rules</a>
             <a class="nav-link dropdown-item" href="#airCombat">Air Combat Rules</a>
+            <a class="nav-link dropdown-item" href="#retreat">Retreat Rules</a>
             <a class="nav-link dropdown-item" href="#navyCombat">Navy Combat Rules</a>
             <a class="nav-link dropdown-item" href="#items">Item Rules</a>
             <a class="nav-link dropdown-item" href="#events">Event Rules</a>
             <a class="nav-link dropdown-item" href="#structure">Structure Rules</a>
             <a class="nav-link dropdown-item" href="#armyDivision">Army & Division Rules</a>
-
           </nav>
         </ul>
       </div>
@@ -63,7 +68,7 @@
           <h2>Turn Phases of Play</h2>
           <span class="divider"></span>
         </div>
-        <p><span class="text-tan fs-md">Turn Order of Play</span> -At the start of a players turn the <span
+        <p id="resources"><span class="text-tan fs-md">Turn Order of Play</span> -At the start of a players turn the <span
             class="text-tan fs-md">First Phase</span> is to
           place any buildings, ships, or units that have
           finished building. The <span class="text-tan fs-md">Second Phase</span> the player should claim any new
@@ -77,13 +82,13 @@
           Newly constructed units can only be placed on a players factories or capital.
         </p>
         <!-- SECTION Resources -->
-        <div id="resources" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Resources</h2>
           <span class="divider"></span>
         </div>
         <p><span class="text-tan fs-md">Resources</span> are determined at random for each tile captured, except for the
           tiles with cities on them. Each tile contains the resources capital, industry, and agriculture.</p>
-        <p>
+        <p id="construction">
           <span class="text-tan fs-md">Cities</span> are worth a pre-deterimed amount based on their size or importance. A
           players capital is worth 15 of each resource. A captured capital is worth 10 of each resource. A medium sized
           city is
@@ -95,7 +100,7 @@
           resource. If a player finds themself in the negative they must immediately resolve it by selling assets at the
           begining of their turn or before they end their turn.</p>
         <!-- SECTION Construction -->
-        <div id="construction" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Construction</h2>
           <span class="divider"></span>
         </div>
@@ -114,12 +119,15 @@
           Naval units and buildings take 2 turns to produce meaning a players production capacity will be reduced by 1 per
           construction project until they are complete.
         </p>
+        <p id="mainBoardPieces">--Once a project is complete a player can then add that building or naval unit on the
+          construction page using
+          the "+" icon.</p>
         <p><span class="text-tan fs-md"> Example:</span> A player has 10 production and decides to build 2 airfields and 2
           cruisers during their build phase. Their total production will be reduced by 4 for 2 turns and their new total
           production is now 6. They can now only produce 6 units instead of 10 per turn until their construction projects
           are complete or the player cancels their construction projetcs.</p>
         <!-- SECTION Main Board Pieces -->
-        <div id="mainBoardPieces" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Main Board Pieces</h2>
           <span class="divider"></span>
         </div>
@@ -132,8 +140,14 @@
           use fortifications and it gives provides immunity to artillery. It also gives the occupying unit an extra
           hitpoint. A successfull hits on a fortification destroys it, but not the unit occupying it.
         </p>
+        <p id="ground"><span class="text-tan fs-md">Cities:</span> Capital cities will be the same color as team it
+          belongs to. Medium
+          cities will have 4 different columns representing sky scrappers and a small city will have 3.</p>
+        <p><span class="text-tan fs-md">Region Coins:</span> Region coins are the pieces used to track which team owns a
+          region. They are circular coin pieces that are the same color as the team who owns them. They all also have
+          unique numbers on them so that players track them on the app.</p>
         <!-- SECTION Land Units -->
-        <div id="units" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Ground Units</h2>
           <span class="divider"></span>
         </div>
@@ -176,7 +190,8 @@
           that attacks a tile with AA will have to survive 1 shot from the AA unit before it can attempt to destroy its
           target.
         </p>
-        <p><span class="text-tan fs-md">Artillery</span> is a form of indirect fire unless they have special forces
+        <p id="air"><span class="text-tan fs-md">Artillery</span> is a form of indirect fire unless they have special
+          forces
           guiding their shots. Guided shots are much more effective. Artillery have 1 movement point, 1
           offensive point, and a range of 3 on the combat board. Artillery cannot fire into tiles with fortifications.
         </p>
@@ -198,14 +213,16 @@
           the battle but once they are taken off the combat board or the battle ends they will be immediately moved to a
           airfield within range.
         </p>
-        <p><span class="text-tan fs-md">Close Air Support</span> aircraft are very effective at destroying ground targets
+        <p id="navy"><span class="text-tan fs-md">Close Air Support</span> aircraft are very effective at destroying
+          ground targets
           and provide some air cover against other CAS aircraft. However, they cannot target fighter aircraft and only
           have a small chance to evade fighter attacks. CAS have 3 movement points, 2 offensive points, and a range of 1
           on the combat board. They have 2 movement points on the main board. CAS can attack once per turn meaning if they
           make attacks on the main board they cannot be involved in any combat board battles and vice versa. CAS do not
           need to be in range of an airfield.
         </p>
-        <p><span class="text-tan fs-md">Cargo Aircraft</span> can transport units from airfield to airfield. They can also
+        <p><span class="text-tan fs-md">Cargo Aircraft</span> can transport units from airfield to airfield.
+          They can also
           be used to deploy special forces units and infantry by air as paratroopers. They have no offensive or defensive
           ability. Supply aircraft are not used on the combat board. They can move 3 tiles per turn on the main board and
           must remain within 5 spaces of an airfield.
@@ -234,20 +251,22 @@
           airfield. However, the aircraft that are in the air can continue to fight until the battle is over then they are
           immediately moved to another airfield or carrier within range. Otherwise they are immediately destroyed.
         </p>
-        <p><span class="text-tan fs-md">Cruisers</span> are much more versatile than destroyers, but are not as durable or
+        <p id="groundCombat"><span class="text-tan fs-md">Cruisers</span> are much more versatile than destroyers, but are
+          not as durable or
           nimble. They have the ability to deploy missiles and AA missiles. Cruisers have 2 movement points, 1 hit point,
           and 1 offensive point. On the combat board cruisers AA has a range of 1 and their missiles have a range of 3.
           Cruiser can provide missile artillery support if a special forces unit is being used and the
           cruiser is within 2 tiles on the main board of where the combat is taking place.
         </p>
-        <p><span class="text-tan fs-md">Destroyers</span> are heavy combat vessels with large guns and heavy armor giving
+        <p><span class="text-tan fs-md">Destroyers</span> are heavy combat vessels with large guns and
+          heavy armor giving
           them the ability to absorb hits. They are smaller and more nimble than most naval vessals and are great at
           destroying other naval vessels. They have no AA ability. Destroyers have 2 movement points, 2 hit points, and 2
           offensive points with a range of 1. Destroyers have the ability to provide artillery support to land battles so
           long as they are adjacent to the tile where the battle is taking place.
         </p>
         <!-- SECTION Combat Rules -->
-        <div id="groundCombat" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Combat Rules</h2>
           <span class="divider"></span>
         </div>
@@ -270,7 +289,8 @@
           board. The defending player cannot place units on first row of tiles closest to them or past the middle row. The
           offensive player will now place their units anywhere up to the defenders line but not on or past it.
         </p>
-        <p>-- The defending player must deploy all their units possible up to the maximum of 12. For example the
+        <p id="airCombat">-- The defending player must deploy all their units possible up to the maximum of 12. For
+          example the
           defending player cannot deploy 2 units and have the other 10 retreat. If they wish to try and retreat they
           have to follow the retreat rules.
         </p>
@@ -281,7 +301,7 @@
           combat board in the row closest to the player. When reserve are placed they cannot move until
           the next turn.
         </p>
-        <div id="airCombat" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Air Combat Rules</h2>
           <span class="divider"></span>
         </div>
@@ -319,7 +339,8 @@
           the space they captured and this would count as 1 movement point. The player can still move the unit 2
           more space but cannot attack anymore.
         </p>
-        <p><span class="text-tan fs-md"> Example of combat:</span> A mechanized unit is attacking an infantry unit. They
+        <p id="retreat"><span class="text-tan fs-md"> Example of combat:</span> A mechanized unit is attacking an infantry
+          unit. They
           both roll
           successfull
           hits and neither of them are destroyed, however the mech unit cannot attack again since it only has 1
@@ -360,7 +381,7 @@
         </p>
         <!-- SECTION Attrition -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h2>Attrition</h2>
+          <h2 id="navyCombat">Attrition</h2>
           <span class="divider"></span>
         </div>
         <p>
@@ -372,7 +393,7 @@
           has no supplies".
         </p>
         <!-- SECTION Navy Combat Rules -->
-        <div id="navyCombat" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Navy Combat Rules</h2>
           <span class="divider"></span>
         </div>
@@ -385,7 +406,7 @@
           battles. The difference however is that the defending player can only place their units on the 2nd and 3rd
           row closest to them. The attacking player can place their units on the first 3 rows closest to them.
         </p>
-        <p>--Any action an aircraft takes when they are within AA range the AA gets to fire 1 shot
+        <p id="items">--Any action an aircraft takes when they are within AA range the AA gets to fire 1 shot
           at the aircraft.
           This applies to all AA that is in range. For example if a player moves their aircraft into AA range the AA
           get to fire at them first before the aircraft can do anything else (unless the aircraft is using the
@@ -395,7 +416,7 @@
         <p>--Destroyers have heavy armor giving them a chance to absorb any incoming hits.
         </p>
         <!-- SECTION Item Card Rules -->
-        <div id="items" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Item Rules</h2>
           <span class="divider"></span>
         </div>
@@ -439,20 +460,22 @@
           movement. When used mechanized units can now move 3 spaces on the battlefield but can still only attack
           once per turn.
         </p>
-        <p><span class="text-tan">Paratroopers:</span> This item card can be used before combat by the offensive
+        <p id="events"><span class="text-tan">Paratroopers:</span> This item card can be used before combat by the
+          offensive
           player. The
           offensive player can place up to 3 infantry units behind the defending player during the combat board
           set-up phase. This requires the offensive player to have infantry or SF infantry present when the attack
           is initiated. If AA is present then each infantry unit being deployed as paratroopers will have to survive
           one AA attack roll. The AA only gets to shoot once at each paratrooper.
         </p>
-        <p><span class="text-tan">Javelin Missiles</span> : This item card equips infantry units (not SF) with
+        <p id="structure"><span class="text-tan">Javelin Missiles</span> : This item card equips infantry units (not SF)
+          with
           effective
           anti-tank
           weapons. A roll of 7-12 is now considered a successful hit. Does not apply to defense rolls.
         </p>
         <!-- SECTION Event Card Rules -->
-        <div id="events" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Event Rules</h2>
           <span class="divider"></span>
         </div>
@@ -461,7 +484,7 @@
           card says otherwise. Players should decide if 2 or 1 events are to be drawn per turn.
         </p>
         <!-- SECTION Structure Rules -->
-        <div id="structure" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Structure Rules</h2>
           <span class="divider"></span>
         </div>
@@ -474,7 +497,8 @@
           one airfield to another airfield. Moving a unit via airfield uses that units 1 movement point and requires 1
           available movement point as well as a cargo aircraft present at the starting airfield.
         </p>
-        <p><span class="text-tan fs-md">Naval Yards</span> can be built on any tile that is next to a water tile. Each
+        <p id="armyDivision"><span class="text-tan fs-md">Naval Yards</span> can be built on any tile that is next to a
+          water tile. Each
           naval yard can build up to three ships at a time. The player must own the tile the naval yard is built from.
           Naval yards can repair a max of 2 cruisers/destroyers or 1 carrier at one time.
         </p>
@@ -483,7 +507,7 @@
           by 1. Large and medium cities can have 1 factory.
         </p>
         <!-- SECTION Army/Division Rules -->
-        <div id="armyDivision" class="d-flex flex-column align-items-center text-center text-tan py-2">
+        <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Army & Division Rules</h2>
           <span class="divider"></span>
         </div>
@@ -510,7 +534,6 @@
         <p>--Divisions and Army groups can instantly capture unnoccupied tiles.
         </p>
       </div>
-      <span class="divider"></span>
       <div class="col-12 d-flex justify-content-center py-3 sticky-bottom">
         <button @click="backToTop()" class="p-2">Back-to-Top</button>
       </div>
@@ -600,6 +623,12 @@ a:hover {
 
 a:active {
   text-decoration: underline 2px solid black;
+}
+
+nav {
+  color: black;
+  text-shadow: none;
+  padding: .5rem;
 }
 
 .drop-menu {

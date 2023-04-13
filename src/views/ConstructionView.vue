@@ -11,6 +11,30 @@
         <ConstructionCardComponent :teams="teams" :construction="c" />
       </div>
     </div>
+    <!-- Naval Forces -->
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
+        <h2>Navy</h2>
+        <span class="material-symbols-outlined fs-lg px-2">
+          directions_boat
+        </span>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <NavalUnitsComponent :team="teams" />
+      </div>
+    </div>
+    <!-- Structures -->
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
+        <h2>Structures</h2>
+        <span class="material-symbols-outlined fs-lg px-2">
+          warehouse
+        </span>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <BuildingsComponent :team="teams" />
+      </div>
+    </div>
   </div>
 
   <ModalComponent id="construction-modal">
@@ -29,6 +53,8 @@ import { useRegionStore } from "../stores/RegionStore";
 import ConstructBuildingComponent from "../components/ConstructBuildingComponent.vue";
 import { useConstructionStore } from "../stores/ConstructionStore";
 import ConstructionCardComponent from "../components/ConstructionCardComponent.vue";
+import NavalUnitsComponent from "../components/NavalUnitsComponent.vue";
+import BuildingsComponent from "../components/BuildingsComponent.vue";
 export default {
   setup() {
     const user = useCurrentUser();
@@ -72,7 +98,7 @@ export default {
 
     }
   },
-  components: { ModalComponent, ConstructBuildingComponent, ConstructionCardComponent }
+  components: { ModalComponent, ConstructBuildingComponent, ConstructionCardComponent, NavalUnitsComponent, BuildingsComponent }
 }
 </script>
 
