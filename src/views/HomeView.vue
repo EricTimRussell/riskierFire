@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 col-sm-12 pt-5 d-flex justify-content-center">
-        <img class="logo" src="../assets/riskierLogo/addressBarImage.jpg" alt="">
+        <img class="logo" src="../assets/riskierLogo/riskierLogo.jpg" alt="">
       </div>
       <div class="col-md-6 col-sm-12 pt-5 d-flex flex-column text-light">
         <h1 class="text-center">Welcome to RiskierFire!</h1>

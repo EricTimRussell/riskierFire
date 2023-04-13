@@ -3,12 +3,10 @@
     <div class="row">
       <div class="d-flex gap-3">
         <div class="dropdown px-4 col-5">
-          <img src="../assets/riskierLogo/addressBarImage.jpg" class="user-img rounded dropdown-toggle selectable"
+          <img src="../assets/riskierLogo/riskierLogo.jpg" class="user-img rounded dropdown-toggle selectable"
             data-bs-toggle="dropdown" aria-expanded="false" alt="">
           <ul class="dropdown-menu text-center">
-            <li class="pb-2">
-              <span class="fs-md text-decoration-underline">{{ user?.email }}</span>
-            </li>
+            <span class="fs-sm text-decoration-underline px-3">{{ user?.email }}</span>
             <li>
               <RouterLink to="/" class="fs-md">Home</RouterLink>
             </li>
@@ -34,7 +32,7 @@
               sports_esports
             </span>
           </RouterLink>
-          <RouterLink :to="{ name: 'construction', params: { id: user.uid } }" v-if="teams.creatorId == user.uid">
+          <RouterLink :to="{ name: 'construction', params: { id: user.uid } }">
             <span title="Construction Page" class="material-symbols-outlined fs-xl">
               construction
             </span>
@@ -85,7 +83,7 @@ import { useCurrentUser, useFirebaseAuth, useFirestore } from "vuefire";
 import { signOut } from "@firebase/auth";
 import { computed } from "@vue/reactivity";
 import { useRegionStore } from "../stores/RegionStore";
-import { RouterLink } from "vue-router";
+import { RouterLink, useRouter } from "vue-router";
 
 export default {
   props: {
@@ -94,6 +92,7 @@ export default {
   setup(props) {
     const user = useCurrentUser();
     const db = useFirestore();
+    const router = useRouter()
     return {
       teams: computed(() => useRegionStore.teams),
       user,
@@ -101,7 +100,7 @@ export default {
         const auth = useFirebaseAuth();
         // @ts-ignore
         signOut(auth).then(() => {
-          // console.log("Logged Out")
+          router.push({ name: 'home' })
         }).catch((error) => {
           error.error(error);
         });
@@ -129,6 +128,10 @@ a:hover {
 a:active {
   text-shadow: white 3px 3px;
   color: #FFDA96;
+}
+
+li:hover {
+  text-decoration: underline 3px;
 }
 
 .user-img {

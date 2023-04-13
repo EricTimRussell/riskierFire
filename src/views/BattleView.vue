@@ -3,6 +3,10 @@
     <!-- Ground Unit Dice -->
     <section class="row justify-content-center">
       <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
+        <button class="rounded text-shadow-dark" data-bs-toggle="modal" data-bs-target="#unitOdds" aria-label="Unit Odds"
+          title="Unit Odds"><span class="material-symbols-outlined fs-xl">
+            casino
+          </span></button>
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>
@@ -11,7 +15,7 @@
           swords
         </span>
       </div>
-      <div class="accordion">
+      <div class="accordion py-4">
         <!-- Infantry -->
         <div class="accordion-item bg-infantry">
           <h2 class="accordion-header" id="headingOne">
@@ -137,7 +141,7 @@
           flight
         </span>
       </div>
-      <div class="accordion">
+      <div class="accordion py-4">
         <!-- Fighter Aircraft -->
         <div class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingSix">
@@ -180,7 +184,7 @@
           directions_boat
         </span>
       </div>
-      <div class="accordion">
+      <div class="accordion py-4">
         <!-- Carrier -->
         <div class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingEight">
@@ -227,18 +231,9 @@
     </section>
 
 
-    <!-- <div class="col-12 d-flex justify-content-center pt-5">
-      <div v-if="(oneTwelveDie.roll >= 5) && (oneTwelveDie.roll <= 7)">
-        <h1>One D12</h1>
-        <button @click="rollOneTwelveDie()" class="btn p-5">Roll <span>{{ oneTwelveDie.roll }}</span></button>
-        <h1 v-show="oneTwelveDie.roll > 0" class="text-center">HIT</h1>
-      </div>
-      <div v-else>
-        <h1>One D12</h1>
-        <button @click="rollOneTwelveDie()" class="btn p-5">Roll <span>{{ oneTwelveDie.roll }}</span></button>
-        <h1 v-show="oneTwelveDie.roll > 0" class="text-center">MISS</h1>
-      </div>
-    </div> -->
+    <ModalComponent id="unitOdds">
+      <UnitOddsComponent />
+    </ModalComponent>
   </body>
 </template>
 
@@ -257,6 +252,8 @@ import AnitAicraftDiceComponent from "../components/AnitAicraftDiceComponent.vue
 import CarrierDiceComponent from "../components/navyDice/CarrierDiceComponent.vue";
 import CruiserDiceComponent from "../components/navyDice/CruiserDiceComponent.vue";
 import DestroyerDiceComponent from "../components/navyDice/DestroyerDiceComponent.vue";
+import ModalComponent from "../components/ModalComponent.vue";
+import UnitOddsComponent from "../components/UnitOddsComponent.vue";
 
 export default {
   setup() {
@@ -274,7 +271,7 @@ export default {
       }
     };
   },
-  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent, MissileArtilleryDiceComponent, FighterAircraftDiceComponent, CasDiceComponent, AnitAicraftDiceComponent, CarrierDiceComponent, CruiserDiceComponent, DestroyerDiceComponent }
+  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent, MissileArtilleryDiceComponent, FighterAircraftDiceComponent, CasDiceComponent, AnitAicraftDiceComponent, CarrierDiceComponent, CruiserDiceComponent, DestroyerDiceComponent, ModalComponent, UnitOddsComponent }
 }
 
 </script>
