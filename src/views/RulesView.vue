@@ -535,7 +535,7 @@
         </p>
       </div>
       <div class="col-12 d-flex justify-content-center py-3 sticky-bottom">
-        <button @click="backToTop()" class="p-2">Back-to-Top</button>
+        <button @click="backToTop()" class="rules-top-btn">Back-to-Top</button>
       </div>
     </section>
   </body>
@@ -633,6 +633,14 @@ nav {
 
 .drop-menu {
   max-width: 250px;
+}
+
+.rules-top-btn {
+  background: #0000003a;
+}
+
+.rules-top-btn:active {
+  background: grey;
 }
 
 @media screen and (min-width: 768px) {
