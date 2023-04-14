@@ -1,0 +1,8 @@
+# Redirects from what the browser requests to what we serve
+/                     /
+/game                 /game
+/rules                /rules
+/construction         /construction
+/battle               /battle
+/account              /account
+/sign-in              /sign-in
