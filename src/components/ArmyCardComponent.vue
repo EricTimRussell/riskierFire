@@ -29,7 +29,7 @@
         <div class="col-6 d-flex justify-content-center">
           <span class="fs-md">{{ armies.unitSlot8 }}</span>
         </div>
-        <div class="col-6 d-flex justify-content-center">
+        <div class="col-12 d-flex justify-content-center">
           <span class="fs-md">{{ armies.unitSlot9 }}</span>
         </div>
       </div>
