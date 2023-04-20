@@ -135,8 +135,34 @@ button:disabled {
   background: none;
 }
 
+// Dice
+@property --num {
+  syntax: "<integer>";
+  initial-value: 0;
+  inherits: false;
+}
+
+.dice {
+  animation: counter .1s infinite alternate ease-in-out;
+  counter-reset: num var(--num);
+}
+
+.dice::after {
+  content: counter(num);
+}
+
+@keyframes counter {
+  from {
+    --num: 0;
+  }
+
+  to {
+    --num: 9;
+  }
+}
 
 // Misc utilities
+
 .selectable {
   cursor: pointer;
 }

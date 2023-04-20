@@ -10,17 +10,27 @@
           started. You do not need to use a real
           email to create an account. Once you have created an account be sure to create a team. This will allow the
           app to track your teams assets.</p>
-        <p v-if="team.creatorId && user?.uid" class="paragraph-mobile">Use the buttons at the top of the page to
+        <p v-if="user?.uid" class="paragraph-mobile">Use the buttons at the top of the page to
           navigate the website.</p>
-        <p v-if="team.creatorId && user?.uid" class="paragraph-mobile">Refer to the rules page <span title="Rules Page"
+        <p v-if="user?.uid" class="paragraph-mobile">Refer to the rules page <span title="Rules Page"
             class="material-symbols-outlined">
             menu_book
           </span> to learn more about getting started.</p>
-        <button v-if="user" :disabled="team.creatorId" :hidden="team.creatorId" type="submit"
-          class="rounded text-shadow-dark p-2" data-bs-toggle="modal" data-bs-target="#createTeam-modal"
-          aria-label="Create Team">
-          Create Team
-        </button>
+        <p class="paragraph-mobile" v-if="user?.uid">
+          There are eight icons and a logo on the navbar. The logo and top
+          four icons are used to
+          navigate the website. The book is a complete list of rules. The game controller is the game page where users
+          will track units, groups, and regions. The hammer and wrench icon is the construction page where players can
+          build and manage their buildings and naval units. Lastly, the swords icon is the combat page where users can see
+          combat odds of each unit as well as roll virtual dice to determine the success or failure of an action. The four
+          icons on the bottom represent your teams total resources. The $ sign is capital, the factory is industry,
+          the leaf is agriculture, and the wrench is production. </p>
+        <div class="d-flex justify-content-center">
+          <button v-if="user?.uid && !team.creatorId" type="submit" class="rounded text-shadow-dark p-2"
+            data-bs-toggle="modal" data-bs-target="#createTeam-modal" aria-label="Create Team">
+            Create Team
+          </button>
+        </div>
       </div>
       <div class="col-12 d-flex justify-content-center py-3">
 

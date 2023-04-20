@@ -19,8 +19,8 @@
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-4" role="status">
-            <span></span>
+          <div v-if="isPending" class="fs-lg" role="status">
+            <span class="dice"></span>
           </div>
         </button>
         <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -30,8 +30,8 @@
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-4" role="status">
-            <span></span>
+          <div v-if="isPending" class="fs-lg" role="status">
+            <span class="dice"></span>
           </div>
         </button>
         <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -45,8 +45,8 @@
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-4" role="status">
-            <span></span>
+          <div v-if="isPending" class="fs-lg" role="status">
+            <span class="dice"></span>
           </div>
         </button>
         <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -56,8 +56,8 @@
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="spinner-border py-4" role="status">
-            <span></span>
+          <div v-if="isPending" class="fs-lg" role="status">
+            <span class="dice"></span>
           </div>
         </button>
         <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -106,5 +106,9 @@ input.checkbox {
 
 .height-bottom {
   min-height: 45vh;
+}
+
+h2 {
+  text-decoration: underline 2px solid;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div v-if="teams.creatorId" class="container-fluid">
     <div class="row mt-5 justify-content-center">
       <div class="col-12 text-center bg-green py-2 elevation-5 text-light">
         <h1>Construction</h1>
@@ -35,6 +35,9 @@
         <BuildingsComponent :team="teams" />
       </div>
     </div>
+  </div>
+  <div v-else class="text-center pt-5">
+    <h1>Create team to access this page</h1>
   </div>
 
   <ModalComponent id="construction-modal">

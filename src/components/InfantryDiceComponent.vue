@@ -31,8 +31,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-3" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -42,8 +42,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-3" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -57,8 +57,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -68,8 +68,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -83,8 +83,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -94,8 +94,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -113,8 +113,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -128,8 +128,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -147,8 +147,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -162,8 +162,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -221,8 +221,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -232,8 +232,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -247,8 +247,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -258,8 +258,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -273,8 +273,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -284,8 +284,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -299,8 +299,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -310,8 +310,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -325,8 +325,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -336,8 +336,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -351,8 +351,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -362,8 +362,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -377,8 +377,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
@@ -388,8 +388,8 @@
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-            <div v-if="isPending" class="spinner-border py-4" role="status">
-              <span></span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
             </div>
           </button>
           <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
@@ -458,10 +458,14 @@ input.checkbox {
 
 // prevents bg-image from jumping around 
 .height-top {
-  min-height: 55vh;
+  min-height: 58vh;
 }
 
 .height-bottom {
-  min-height: 66vh;
+  min-height: 75vh;
+}
+
+h2 {
+  text-decoration: underline 2px solid;
 }
 </style>

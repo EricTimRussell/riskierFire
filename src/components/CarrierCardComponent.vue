@@ -152,7 +152,7 @@
                 <label for="airUnit8">Selected Unit</label>
               </div>
               <div class="form-floating">
-                <select v-model="editable.groundUnit1" required class="form-select" id="groundUnit1"
+                <select v-model="editable.groundUnit1" class="form-select" id="groundUnit1"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
                   <option value="Infantry">Infantry</option>
@@ -167,7 +167,7 @@
                 <label for="groundUnit1">Selected Unit</label>
               </div>
               <div class="form-floating my-3">
-                <select v-model="editable.groundUnit2" required class="form-select" id="groundUnit2"
+                <select v-model="editable.groundUnit2" class="form-select" id="groundUnit2"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
                   <option value="Infantry">Infantry</option>
@@ -182,7 +182,7 @@
                 <label for="groundUnit2">Selected Unit</label>
               </div>
               <div class="form-floating">
-                <select v-model="editable.groundUnit3" required class="form-select" id="groundUnit3"
+                <select v-model="editable.groundUnit3" class="form-select" id="groundUnit3"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
                   <option value="Infantry">Infantry</option>
@@ -197,7 +197,7 @@
                 <label for="groundUnit3">Selected Unit</label>
               </div>
               <div class="form-floating my-3">
-                <select v-model="editable.groundUnit4" required class="form-select" id="groundUnit4"
+                <select v-model="editable.groundUnit4" class="form-select" id="groundUnit4"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
                   <option value="Infantry">Infantry</option>
@@ -212,7 +212,7 @@
                 <label for="groundUnit4">Selected Unit</label>
               </div>
               <div class="form-floating">
-                <select v-model="editable.groundUnit5" required class="form-select" id="groundUnit5"
+                <select v-model="editable.groundUnit5" class="form-select" id="groundUnit5"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
                   <option value="Infantry">Infantry</option>
@@ -227,7 +227,7 @@
                 <label for="groundUnit5">Selected Unit</label>
               </div>
               <div class="form-floating my-3">
-                <select v-model="editable.groundUnit6" required class="form-select" id="groundUnit6"
+                <select v-model="editable.groundUnit6" class="form-select" id="groundUnit6"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
                   <option value="Infantry">Infantry</option>

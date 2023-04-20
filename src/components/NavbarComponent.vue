@@ -17,7 +17,7 @@
               <span @click="logOutOfFirebase()" class="fs-md selectable">Logout</span>
             </li>
             <li v-else>
-              <RouterLink to="/sign-in" class="fs-md">Login</RouterLink>
+              <RouterLink to="/sign-in" class="fs-md">Login/Create</RouterLink>
             </li>
           </ul>
         </div>

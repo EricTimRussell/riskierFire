@@ -131,7 +131,7 @@
     </div>
   </body>
   <div v-else class="col-12 text-center pt-5">
-    <h1>Create Team to access this page</h1>
+    <h1>Create team to access this page</h1>
   </div>
 
   <!-- Modals -->
