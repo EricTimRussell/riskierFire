@@ -3,10 +3,6 @@
     <!-- Ground Unit Dice -->
     <section class="row justify-content-center">
       <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
-        <button class="rounded text-shadow-dark" data-bs-toggle="modal" data-bs-target="#unitOdds" aria-label="Unit Odds"
-          title="Unit Odds"><span class="material-symbols-outlined fs-xl">
-            casino
-          </span></button>
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>

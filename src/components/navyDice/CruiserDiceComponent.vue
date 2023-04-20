@@ -1,7 +1,11 @@
 <template>
   <!-- Select Adversary Offense-->
-  <div class="col-12 text-center pt-5">
+  <div class="col-12 d-flex justify-content-center pt-5">
     <h2>Select Adversary</h2>
+    <button class="rounded text-shadow-dark mx-3" data-bs-toggle="modal" data-bs-target="#cruiser-odds"
+      aria-label="Unit Odds" title="Unit Odds"><span class="material-symbols-outlined fs-lg">
+        casino
+      </span></button>
   </div>
   <div class="col-12 d-flex justify-content-center py-2">
     <input class="mx-1 checkbox" type="checkbox" v-model="aircraft">
@@ -66,17 +70,29 @@
     </div>
 
   </div>
+  <ModalComponent id="cruiser-odds">
+    <div class="d-flex bg-light text-dark flex-column align-items-center">
+      <h5 class="text-danger text-center">Cruiser-D12</h5>
+      <h6 class="text-center">1AP, 2MP</h6>
+      <ul>
+        <li>CB AA 1 tile range 1-7 (58%)</li>
+        <li>CB SS 3 tile range 1-8 (75%)</li>
+        <li>Missiles Vs land units follow Missile Artillery rules</li>
+      </ul>
+    </div>
+  </ModalComponent>
 </template>
 
 <script>
 import { ref } from "vue"
+import ModalComponent from "../ModalComponent.vue";
 
 export default {
   setup() {
     const oneTwelveDie = ref({ roll: 0 });
-    const isPending = ref(false)
-    const aircraft = ref(false)
-    const ship = ref(false)
+    const isPending = ref(false);
+    const aircraft = ref(false);
+    const ship = ref(false);
     return {
       aircraft,
       ship,
@@ -89,8 +105,9 @@ export default {
         oneTwelveDie.value = ({ roll: Math.floor(Math.random() * 12 + 1) });
         isPending.value = true;
       }
-    }
-  }
+    };
+  },
+  components: { ModalComponent }
 }
 </script>
 

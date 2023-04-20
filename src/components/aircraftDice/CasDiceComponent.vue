@@ -1,7 +1,11 @@
 <template>
   <!-- Select Adversary Offense-->
-  <div class="col-12 text-center pt-5">
+  <div class="col-12 d-flex justify-content-center pt-5">
     <h2>Select Adversary</h2>
+    <button class="rounded text-shadow-dark mx-3" data-bs-toggle="modal" data-bs-target="#cas-odds" aria-label="Unit Odds"
+      title="Unit Odds"><span class="material-symbols-outlined fs-lg">
+        casino
+      </span></button>
   </div>
   <div class="col-12 d-flex justify-content-center py-2">
     <input class="mx-1 checkbox" type="checkbox" v-model="cas">
@@ -96,19 +100,31 @@
     </div>
 
   </div>
+  <ModalComponent id="cas-odds">
+    <div class="d-flex flex-column align-items-center text-dark bg-light">
+      <h5 class="text-danger text-center">Close Air Support-D12</h5>
+      <h6 class="text-center">1AP, 3MP, Range of 1</h6>
+      <ul>
+        <li>Cannot Target Fighters</li>
+        <li>1-10 (83%) on all ground targets</li>
+        <li>1-6 (50%) Vs CAS</li>
+        <li>Evade 1-4 (33%)</li>
+      </ul>
+    </div>
+  </ModalComponent>
 </template>
 
 <script>
 import { ref } from "vue"
+import ModalComponent from "../ModalComponent.vue";
 
 export default {
   setup() {
     const oneTwelveDie = ref({ roll: 0 });
-
-    const isPending = ref(false)
-    const cas = ref(false)
-    const ground = ref(false)
-    const evade = ref(false)
+    const isPending = ref(false);
+    const cas = ref(false);
+    const ground = ref(false);
+    const evade = ref(false);
     return {
       cas,
       ground,
@@ -122,8 +138,9 @@ export default {
         oneTwelveDie.value = ({ roll: Math.floor(Math.random() * 12 + 1) });
         isPending.value = true;
       }
-    }
-  }
+    };
+  },
+  components: { ModalComponent }
 }
 </script>
 

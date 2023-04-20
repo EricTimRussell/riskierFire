@@ -1,7 +1,11 @@
 <template>
   <!-- Select Adversary Offense-->
-  <div class="col-12 text-center pt-5">
+  <div class="col-12 d-flex justify-content-center pt-5">
     <h2>Select Adversary</h2>
+    <button class="rounded text-shadow-dark mx-3" data-bs-toggle="modal" data-bs-target="#aa-odds" aria-label="Unit Odds"
+      title="Unit Odds"><span class="material-symbols-outlined fs-lg">
+        casino
+      </span></button>
   </div>
   <div class="col-12 d-flex justify-content-center">
     <input class="mx-1 checkbox" type="checkbox" v-model="aircraft">
@@ -96,19 +100,30 @@
     </div>
 
   </div>
+  <ModalComponent id="aa-odds">
+    <div class="d-flex bg-light text-dark flex-column align-items-center">
+      <h5 class="text-danger text-center">Anti-Aircraft-D12</h5>
+      <h6 class="text-center">1AP, 1MP, Range of 1</h6>
+      <ul>
+        <li>Vs Aircraft 1-7 (58%)</li>
+        <li>Vs missile 1-5 (50%)</li>
+        <li>With Point Defense 1-8 (67%)</li>
+      </ul>
+    </div>
+  </ModalComponent>
 </template>
 
 <script>
 import { ref } from "vue"
+import ModalComponent from "./ModalComponent.vue";
 
 export default {
   setup() {
     const oneTwelveDie = ref({ roll: 0 });
-    const isPending = ref(false)
-    const aircraft = ref(false)
-    const missile = ref(false)
-    const pointDefense = ref(false)
-
+    const isPending = ref(false);
+    const aircraft = ref(false);
+    const missile = ref(false);
+    const pointDefense = ref(false);
     return {
       aircraft,
       missile,
@@ -122,8 +137,9 @@ export default {
         oneTwelveDie.value = ({ roll: Math.floor(Math.random() * 12 + 1) });
         isPending.value = true;
       }
-    }
-  }
+    };
+  },
+  components: { ModalComponent }
 }
 </script>
 

@@ -1,7 +1,11 @@
 <template>
   <!-- Select Adversary Offense-->
-  <div class="col-12 text-center pt-5">
+  <div class="col-12 d-flex justify-content-center pt-5">
     <h2>Select Adversary</h2>
+    <button class="rounded text-shadow-dark mx-3" data-bs-toggle="modal" data-bs-target="#mbt-odds" aria-label="Unit Odds"
+      title="Unit Odds"><span class="material-symbols-outlined fs-lg">
+        casino
+      </span></button>
   </div>
   <div class="col-12 d-flex justify-content-center gap-3">
     <div class="d-flex">
@@ -287,25 +291,48 @@
       </div>
     </div>
   </div>
+
+  <ModalComponent id="mbt-odds">
+    <div class="bg-light text-dark d-flex flex-column align-items-center">
+      <h5 class="text-danger text-center">MBT: Offense-2D6</h5>
+      <h6 class="text-center">2AP, 2MP, Range of 1</h6>
+      <ul>
+        <li>Vs Infantry: 2, 7-12 (61.1%)</li>
+        <li>Vs Mech: 5-9 (66.7%)</li>
+        <li>Vs IFV: 5-12 (77.8%)</li>
+        <li>Vs MBT: 7-12 (58.3%) </li>
+      </ul>
+    </div>
+
+    <div class="d-flex flex-column align-items-center text-dark">
+      <h5 class="text-primary text-center">MBT: Deffense-2D6</h5>
+      <ul>
+        <li>Urban D: 7-10 (50%)</li>
+        <li>Grassland/Desert D: 7-10 (50%)</li>
+        <li>Forest D: 7-9 (41.7%)</li>
+        <li>Highlands D: 7-9 (41.7%)</li>
+      </ul>
+    </div>
+  </ModalComponent>
 </template>
 
 <script>
 import { ref } from "vue"
+import ModalComponent from "./ModalComponent.vue"
 
 export default {
   setup() {
-    const twoSixDie = ref({ roll: 0 })
-    const isPending = ref(false)
-    const infantry = ref(false)
-    const mech = ref(false)
-    const ifv = ref(false)
-    const mbt = ref(false)
-    const highlands = ref(false)
-    const grassland = ref(false)
-    const forest = ref(false)
-    const desert = ref(false)
-    const urban = ref(false)
-
+    const twoSixDie = ref({ roll: 0 });
+    const isPending = ref(false);
+    const infantry = ref(false);
+    const mech = ref(false);
+    const ifv = ref(false);
+    const mbt = ref(false);
+    const highlands = ref(false);
+    const grassland = ref(false);
+    const forest = ref(false);
+    const desert = ref(false);
+    const urban = ref(false);
     return {
       infantry,
       mech,
@@ -320,13 +347,14 @@ export default {
       isPending,
       rollTwoSixDie() {
         setTimeout(() => {
-          isPending.value = false
-        }, 1000)
-        twoSixDie.value = ({ roll: Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) })
-        isPending.value = true
+          isPending.value = false;
+        }, 1000);
+        twoSixDie.value = ({ roll: Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) });
+        isPending.value = true;
       },
-    }
-  }
+    };
+  },
+  components: { ModalComponent }
 }
 </script>
 

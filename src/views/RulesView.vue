@@ -603,7 +603,7 @@ export default {
 <style lang="scss" scoped>
 body {
   color: #1d1d1d;
-  text-shadow: #000000 3px 3px 2px;
+  text-shadow: #000000 2px 2px;
   color: whitesmoke;
   min-height: 80vh;
   font-size: 17px;
