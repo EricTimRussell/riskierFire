@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 text-center bg-green text-light my-3 elevation-5">
+      <div class="col-12 text-center bg-green text-light py-1 my-3 elevation-5">
         <h2>Divisions</h2>
       </div>
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="d in divisions" v-if="divisions.length > 0">
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-12 text-center bg-green text-light my-3 elevation-5">
+      <div class="col-12 text-center bg-green text-light py-1 my-3 elevation-5">
         <h2>Armies</h2>
       </div>
     </div>
@@ -122,7 +122,7 @@
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="r in region">
         <RegionCard :regions="r" :teams="teams" />
       </div>
-      <div class="col-12 text-center bg-green text-light my-3 elevation-5">
+      <div class="col-12 text-center bg-green text-light py-1 my-3 elevation-5">
         <h2>Cities</h2>
       </div>
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="c in cities">

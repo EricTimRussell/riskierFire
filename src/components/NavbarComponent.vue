@@ -121,6 +121,14 @@ a {
   text-decoration: none;
 }
 
+.router-link-active {
+  color: #FFDA96;
+}
+
+.router-link-active:hover {
+  text-shadow: none;
+}
+
 a:hover {
   text-shadow: white 3px 3px;
 }
