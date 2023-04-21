@@ -34,11 +34,11 @@
         </div>
       </div>
       <div class="col-12 text-end pt-3 px-1">
-        <button class="btn-blank text-secondary" title="edit?" data-bs-toggle="modal"
+        <button class="btn-blank text-secondary" title="Edit" data-bs-toggle="modal"
           :data-bs-target="`#editArmy${armies.id}`" aria-label="Edit Army"><span class="material-symbols-outlined fs-lg">
             settings
           </span></button>
-        <button @click="deleteArmy()" class="btn-blank text-danger" title="Delete?"><span
+        <button @click="deleteArmy()" class="btn-blank text-danger" title="Delete"><span
             class="material-symbols-outlined fs-lg">
             delete_forever
           </span></button>

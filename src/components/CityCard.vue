@@ -17,7 +17,7 @@
       </div>
     </div>
     <div class="col-12 text-end pt-3 px-1">
-      <button @click="deleteCity()" class="btn-blank text-danger" title="Delete?"><span
+      <button @click="deleteCity()" class="btn-blank text-danger" title="Delete"><span
           class="material-symbols-outlined fs-lg">
           delete_forever
         </span></button>

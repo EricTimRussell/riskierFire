@@ -25,12 +25,12 @@
         </div>
       </div>
       <div class="col-12 text-end pt-3 px-1">
-        <button class="btn-blank text-secondary" title="edit?" data-bs-toggle="modal"
+        <button class="btn-blank text-secondary" title="Edit" data-bs-toggle="modal"
           :data-bs-target="`#editDivision${divisions.id}`" aria-label="Edit Division"><span
             class="material-symbols-outlined fs-lg">
             settings
           </span></button>
-        <button @click="deleteDivision()" class="btn-blank text-danger" title="Delete?"><span
+        <button @click="deleteDivision()" class="btn-blank text-danger" title="Delete"><span
             class="material-symbols-outlined fs-lg">
             delete_forever
           </span></button>

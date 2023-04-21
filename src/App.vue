@@ -1,3 +1,19 @@
+<template>
+  <body>
+    <header class="sticky-top">
+      <NavbarComponent :teams="teams" />
+    </header>
+
+    <main>
+      <Suspense>
+        <RouterView />
+      </Suspense>
+    </main>
+  </body>
+</template>
+
+
+
 <script>
 import NavbarComponent from "./components/NavbarComponent.vue";
 import { RouterView } from 'vue-router'
@@ -27,18 +43,5 @@ export default {
 
 </script>
 
-<template>
-  <body>
-    <header class="sticky-top">
-      <NavbarComponent :teams="teams" />
-    </header>
-
-    <main>
-      <Suspense>
-        <RouterView />
-      </Suspense>
-    </main>
-  </body>
-</template>
 
 <style scoped></style>

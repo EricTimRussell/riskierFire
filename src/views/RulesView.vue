@@ -542,54 +542,9 @@
 </template>
 
 <script>
-import { computed, onMounted } from 'vue'
-import { rulesService } from '../services/RulesService.js'
-import { useRulesStore } from "../stores/RulesStore";
 export default {
   setup() {
-    async function getUnitRules() {
-      try {
-        await rulesService.getUnitRules()
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    async function getBuildingRules() {
-      try {
-        await rulesService.getBuildingRules()
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    async function getGeneralRules() {
-      try {
-        await rulesService.getGeneralRules()
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    async function getCombatRules() {
-      try {
-        await rulesService.getCombatRules()
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    // onMounted(() => {
-    //   getUnitRules()
-    //   getBuildingRules()
-    //   getGeneralRules()
-    //   getCombatRules()
-    // })
     return {
-      units: computed(() => useRulesStore.units),
-      buildings: computed(() => useRulesStore.buildings),
-      general: computed(() => useRulesStore.general),
-      combat: computed(() => useRulesStore.combat),
 
       backToTop() {
         window.scrollTo(0, 0)
