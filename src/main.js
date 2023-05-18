@@ -29,5 +29,4 @@ app
 app.use(VueSweetalert2);
 app.use(createPinia())
 app.use(router)
-
 app.mount('#app')

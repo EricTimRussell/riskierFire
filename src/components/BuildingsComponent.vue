@@ -9,7 +9,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Airfields</h6>
-        <h6 class="px-2 fs-4"><strong>{{ team.totalAirfields }}</strong></h6>
+        <h6 v-if="plusAirfield == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusAirfield == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusAirfield && !minusAirfield" class="px-2 fs-4"><strong>{{ team.totalAirfields }}</strong></h6>
       </div>
       <div>
         <button @click="addAirfield()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -35,7 +37,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Naval Yards</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalNavalYards }}</strong></h6>
+        <h6 v-if="plusNavalYard == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusNavalYard == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusNavalYard && !minusNavalYard" class="px-2 fs-4"><strong>{{ team.totalNavalYards }}</strong></h6>
       </div>
       <div>
         <button @click="addNavalYard()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -61,7 +65,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Factory</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalFactories }}</strong></h6>
+        <h6 v-if="plusFactory == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusFactory == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusFactory && !minusFactory" class="px-2 fs-4"><strong>{{ team.totalFactories }}</strong></h6>
       </div>
       <div>
         <button @click="addFactory()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -86,6 +92,7 @@ import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
 import { buildingsService } from "../services/BuildingsService";
+import { ref } from "vue";
 
 
 export default {
@@ -97,17 +104,40 @@ export default {
     const route = useRoute()
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
+
+    // conditional rendering for adding and removing units
+    const plusAirfield = ref(false)
+    const minusAirfield = ref(false)
+    const plusNavalYard = ref(false)
+    const minusNavalYard = ref(false)
+    const plusFactory = ref(false)
+    const minusFactory = ref(false)
+
     return {
+      plusAirfield,
+      minusAirfield,
+      plusNavalYard,
+      minusNavalYard,
+      plusFactory,
+      minusFactory,
       async addAirfield() {
         try {
+          plusAirfield.value = true
           await buildingsService.addAirfield(team)
+          setTimeout(() => {
+            plusAirfield.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "adding Airfield");
         }
       },
       async removeAirfield() {
         try {
+          minusAirfield.value = true
           await buildingsService.removeAirfield(team)
+          setTimeout(() => {
+            minusAirfield.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "removing Airfield");
         }
@@ -115,14 +145,22 @@ export default {
 
       async addNavalYard() {
         try {
+          plusNavalYard.value = true
           await buildingsService.addNavalYard(team)
+          setTimeout(() => {
+            plusNavalYard.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "adding Naval Yard");
         }
       },
       async removeNavalYard() {
         try {
+          minusNavalYard.value = true
           await buildingsService.removeNavalYard(team)
+          setTimeout(() => {
+            minusNavalYard.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "removing Naval Yard");
         }
@@ -130,14 +168,22 @@ export default {
 
       async addFactory() {
         try {
+          plusFactory.value = true
           await buildingsService.addFactory(team)
+          setTimeout(() => {
+            plusFactory.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "adding Factory");
         }
       },
       async removeFactory() {
         try {
+          minusFactory.value = true
           await buildingsService.removeFactory(team)
+          setTimeout(() => {
+            minusFactory.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "removing Factory");
         }

@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="constructBuilding()">
+  <form @submit.prevent="constructBuildingAndNavy()">
     <div class="form-floating mb-3">
       <select v-model="editable.buildingType" required maxlength="20" class="form-select" id="buildingType"
         placeholder="building type" autocomplete="off">
@@ -10,7 +10,7 @@
         <option value="Cruiser">Cruiser</option>
         <option value="Destroyer">Destroyer</option>
       </select>
-      <label for="buildingType">Building Type...</label>
+      <label for="buildingType">Build...</label>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn-danger" data-bs-dismiss="modal">Close</button>
@@ -43,7 +43,7 @@ export default {
     return {
       editable,
 
-      async constructBuilding() {
+      async constructBuildingAndNavy() {
         try {
           // get user id if undefined
           if (user.value?.uid == undefined) {

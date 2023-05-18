@@ -9,7 +9,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Fighters</h6>
-        <h6 class="px-2 fs-4"><strong>{{ team.totalFighterAircraft }}</strong></h6>
+        <h6 v-if="plusFighter == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusFighter == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusFighter && !minusFighter" class="px-2 fs-4"><strong>{{ team.totalFighterAircraft }}</strong></h6>
       </div>
       <div>
         <button @click="addFighterAircraft()" class=""><span
@@ -36,7 +38,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">CAS</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalCloseAirSupport }}</strong></h6>
+        <h6 v-if="plusCAS == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusCAS == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusCAS && !minusCAS" class="px-2 fs-4"><strong>{{ team.totalCloseAirSupport }}</strong></h6>
       </div>
       <div>
         <button @click="addCloseAirSupport()" class=""><span
@@ -63,7 +67,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Cargo Aircraft</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalCargoAircraft }}</strong></h6>
+        <h6 v-if="plusCargo == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusCargo == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusCargo && !minusCargo" class="px-2 fs-4"><strong>{{ team.totalCargoAircraft }}</strong></h6>
       </div>
       <div>
         <button @click="addCargoAircraft()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -88,6 +94,7 @@ import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
 import { airUnitsService } from "../services/AirUnitsService";
+import { ref } from "vue";
 
 
 export default {
@@ -97,19 +104,41 @@ export default {
   setup() {
     const db = useFirestore()
     const route = useRoute()
+
+    // conditional rendering for adding and removing units
+    const plusFighter = ref(false)
+    const minusFighter = ref(false)
+    const plusCAS = ref(false)
+    const minusCAS = ref(false)
+    const plusCargo = ref(false)
+    const minusCargo = ref(false)
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
     return {
+      plusFighter,
+      minusFighter,
+      plusCAS,
+      minusCAS,
+      plusCargo,
+      minusCargo,
       async addFighterAircraft() {
         try {
+          plusFighter.value = true
           await airUnitsService.addFighterAircraft(team)
+          setTimeout(() => {
+            plusFighter.value = false
+          }, 100)
         } catch (error) {
           console.error(error, "adding FighterAircraft");
         }
       },
       async removeFighterAircraft() {
         try {
+          minusFighter.value = true
           await airUnitsService.removeFighterAircraft(team)
+          setTimeout(() => {
+            minusFighter.value = false
+          }, 100)
         } catch (error) {
           console.error(error, "removing FighterAircraft");
         }
@@ -117,14 +146,22 @@ export default {
 
       async addCloseAirSupport() {
         try {
+          plusCAS.value = true
           await airUnitsService.addCloseAirSupport(team)
+          setTimeout(() => {
+            plusCAS.value = false
+          }, 100)
         } catch (error) {
           console.error(error, "adding Close Air Support");
         }
       },
       async removeCloseAirSupport() {
         try {
+          minusCAS.value = true
           await airUnitsService.removeCloseAirSupport(team)
+          setTimeout(() => {
+            minusCAS.value = false
+          }, 100)
         } catch (error) {
           console.error(error, "removing Close Air Support");
         }
@@ -132,14 +169,22 @@ export default {
 
       async addCargoAircraft() {
         try {
+          plusCargo.value = true
           await airUnitsService.addCargoAircraft(team)
+          setTimeout(() => {
+            plusCargo.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "adding Cargo Aircraft");
         }
       },
       async removeCargoAircraft() {
         try {
+          minusCargo.value = true
           await airUnitsService.removeCargoAircraft(team)
+          setTimeout(() => {
+            minusCargo.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "removing Cargo Aircraft");
         }

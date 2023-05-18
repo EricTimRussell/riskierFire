@@ -1,4 +1,4 @@
-import { collection, query, getDocs, where, addDoc, onSnapshot } from "firebase/firestore"
+import { collection, query, getDocs, doc, where, addDoc, onSnapshot, deleteDoc } from "firebase/firestore"
 import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
 import { useRegionStore } from "../stores/RegionStore";
 
@@ -37,5 +37,4 @@ class RegionsService {
   }
 
 }
-
 export const regionsService = new RegionsService()

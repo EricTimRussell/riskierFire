@@ -9,7 +9,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Carriers</h6>
-        <h6 class="px-2 fs-4"><strong>{{ team.totalCarriers }}</strong></h6>
+        <h6 v-if="plusCarrier == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusCarrier == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusCarrier && !minusCarrier" class="px-2 fs-4"><strong>{{ team.totalCarriers }}</strong></h6>
       </div>
       <div>
         <button @click="addCarrier()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -39,7 +41,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Cruisers</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalCruisers }}</strong></h6>
+        <h6 v-if="plusCruiser == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusCruiser == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusCruiser && !minusCruiser" class="px-2 fs-4"><strong>{{ team.totalCruisers }}</strong></h6>
       </div>
       <div>
         <button @click="addCruiser()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -69,7 +73,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Destroyers</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalDestroyers }}</strong></h6>
+        <h6 v-if="plusDestroyer == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusDestroyer == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusDestroyer && !minusDestroyer" class="px-2 fs-4"><strong>{{ team.totalDestroyers }}</strong></h6>
       </div>
       <div>
         <button @click="addDestroyer()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -98,6 +104,7 @@ import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
 import { navyUnitsService } from "../services/NavyUnitsService";
+import { ref } from "vue";
 
 
 export default {
@@ -109,17 +116,40 @@ export default {
     const route = useRoute()
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
+
+    // conditional rendering for adding and removing units
+    const plusCarrier = ref(false)
+    const minusCarrier = ref(false)
+    const plusCruiser = ref(false)
+    const minusCruiser = ref(false)
+    const plusDestroyer = ref(false)
+    const minusDestroyer = ref(false)
+
     return {
+      plusCarrier,
+      minusCarrier,
+      plusCruiser,
+      minusCruiser,
+      plusDestroyer,
+      minusDestroyer,
       async addCarrier() {
         try {
+          plusCarrier.value = true
           await navyUnitsService.addCarrier(team)
+          setTimeout(() => {
+            plusCarrier.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "adding Carrier");
         }
       },
       async removeCarrier() {
         try {
+          minusCarrier.value = true
           await navyUnitsService.removeCarrier(team)
+          setTimeout(() => {
+            minusCarrier.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "removing Carrier");
         }
@@ -127,14 +157,22 @@ export default {
 
       async addCruiser() {
         try {
+          plusCruiser.value = true
           await navyUnitsService.addCruiser(team)
+          setTimeout(() => {
+            plusCruiser.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "adding Cruiser");
         }
       },
       async removeCruiser() {
         try {
+          minusCruiser.value = true
           await navyUnitsService.removeCruiser(team)
+          setTimeout(() => {
+            minusCruiser.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "removing Cruiser");
         }
@@ -142,14 +180,22 @@ export default {
 
       async addDestroyer() {
         try {
+          plusDestroyer.value = true
           await navyUnitsService.addDestroyer(team)
+          setTimeout(() => {
+            plusDestroyer.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "adding Destroyer");
         }
       },
       async removeDestroyer() {
         try {
+          minusDestroyer.value = true
           await navyUnitsService.removeDestroyer(team)
+          setTimeout(() => {
+            minusDestroyer.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "removing Destroyer");
         }

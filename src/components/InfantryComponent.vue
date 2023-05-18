@@ -9,7 +9,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Infantry</h6>
-        <h6 class="px-2 fs-4"><strong>{{ team.totalInfantry }}</strong></h6>
+        <h6 v-if="plusInfantry == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusInfantry == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusInfantry && !minusInfantry" class="px-2 fs-4"><strong>{{ team.totalInfantry }}</strong></h6>
       </div>
       <div>
         <button @click="addInfantry()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -39,7 +41,10 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Special Forces</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalSpecialForces }}</strong></h6>
+        <h6 v-if="plusSpecialForces == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusSpecialForces == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusSpecialForces && !minusSpecialForces" class="px-3 fs-4"><strong>{{ team.totalSpecialForces
+        }}</strong></h6>
       </div>
       <div>
         <button @click="addSpecialForces()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -68,8 +73,7 @@ import { groundForcesService } from "../services/GroundForcesService";
 import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
-
-
+import { ref } from "vue"
 export default {
   props: {
     team: { type: Object, required: true }
@@ -79,17 +83,36 @@ export default {
     const route = useRoute()
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
+
+    // conditional rendering for adding and removing units
+    const plusInfantry = ref(false)
+    const minusInfantry = ref(false)
+    const plusSpecialForces = ref(false)
+    const minusSpecialForces = ref(false)
+
     return {
+      plusInfantry,
+      minusInfantry,
+      plusSpecialForces,
+      minusSpecialForces,
       async addInfantry() {
         try {
+          plusInfantry.value = true
           await groundForcesService.addInfantry(team)
+          setTimeout(() => {
+            plusInfantry.value = false
+          }, 100)
         } catch (error) {
           console.error(error, "adding infantry");
         }
       },
       async removeInfantry() {
         try {
+          minusInfantry.value = true
           await groundForcesService.removeInfantry(team)
+          setTimeout(() => {
+            minusInfantry.value = false
+          }, 100)
         } catch (error) {
           console.error(error, "removing infantry");
         }
@@ -97,14 +120,22 @@ export default {
 
       async addSpecialForces() {
         try {
+          plusSpecialForces.value = true
           await groundForcesService.addSpecialForces(team)
+          setTimeout(() => {
+            plusSpecialForces.value = false
+          }, 100)
         } catch (error) {
           console.error(error, "adding special forces");
         }
       },
       async removeSpecialForces() {
         try {
+          minusSpecialForces.value = true
           await groundForcesService.removeSpecialForces(team)
+          setTimeout(() => {
+            minusSpecialForces.value = false
+          }, 100)
         } catch (error) {
           console.error(error, "removing special forces");
         }

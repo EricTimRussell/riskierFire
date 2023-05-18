@@ -9,7 +9,9 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">MBT</h6>
-        <h6 class="px-2 fs-4"><strong>{{ team.totalMBT }}</strong></h6>
+        <h6 v-if="plusMBT == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusMBT == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusMBT && !minusMBT" class="px-2 fs-4"><strong>{{ team.totalMBT }}</strong></h6>
       </div>
       <div>
         <button @click="addMBT()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -39,7 +41,10 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">AntiAircraft</h6>
-        <h6 class="px-3 fs-4"><strong>{{ team.totalAntiAircraft }}</strong></h6>
+        <h6 v-if="plusAntiAircraft == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
+        <h6 v-if="minusAntiAircraft == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="!plusAntiAircraft && !minusAntiAircraft" class="px-2 fs-4"><strong>{{ team.totalAntiAircraft }}</strong>
+        </h6>
       </div>
       <div>
         <button @click="addAntiAircraft()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -64,6 +69,7 @@ import { groundForcesService } from "../services/GroundForcesService";
 import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
+import { ref } from "vue";
 
 
 export default {
@@ -75,17 +81,36 @@ export default {
     const route = useRoute()
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
+
+    // conditional rendering for adding and removing units
+    const plusMBT = ref(false)
+    const minusMBT = ref(false)
+    const plusAntiAircraft = ref(false)
+    const minusAntiAircraft = ref(false)
+
     return {
+      plusMBT,
+      minusMBT,
+      plusAntiAircraft,
+      minusAntiAircraft,
       async addMBT() {
         try {
+          plusMBT.value = true
           await groundForcesService.addMBT(team)
+          setTimeout(() => {
+            plusMBT.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "adding MBT");
         }
       },
       async removeMBT() {
         try {
+          minusMBT.value = true
           await groundForcesService.removeMBT(team)
+          setTimeout(() => {
+            minusMBT.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "removing MBT");
         }
@@ -93,14 +118,22 @@ export default {
 
       async addAntiAircraft() {
         try {
+          plusAntiAircraft.value = true
           await groundForcesService.addAntiAircraft(team)
+          setTimeout(() => {
+            plusAntiAircraft.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "adding Anti-aircraft");
         }
       },
       async removeAntiAircraft() {
         try {
+          minusAntiAircraft.value = true
           await groundForcesService.removeAntiAircraft(team)
+          setTimeout(() => {
+            minusAntiAircraft.value = false
+          }, 100);
         } catch (error) {
           console.error(error, "removing Anti-aircraft");
         }

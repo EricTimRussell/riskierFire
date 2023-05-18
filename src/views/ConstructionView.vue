@@ -41,7 +41,7 @@
   </div>
 
   <ModalComponent id="construction-modal">
-    <ConstructBuildingComponent :key="user?.uid" :teams="teams" />
+    <ConstructionFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
 </template>
 
@@ -53,7 +53,7 @@ import { getCurrentUser, useCurrentUser } from "vuefire";
 import { teamsService } from "../services/TeamsService";
 import { buildingsService } from "../services/BuildingsService";
 import { useRegionStore } from "../stores/RegionStore";
-import ConstructBuildingComponent from "../components/ConstructBuildingComponent.vue";
+import ConstructionFormComponent from "../components/ConstructionFormComponent.vue";
 import { useConstructionStore } from "../stores/ConstructionStore";
 import ConstructionCardComponent from "../components/ConstructionCardComponent.vue";
 import NavalUnitsComponent from "../components/NavalUnitsComponent.vue";
@@ -101,7 +101,7 @@ export default {
 
     }
   },
-  components: { ModalComponent, ConstructBuildingComponent, ConstructionCardComponent, NavalUnitsComponent, BuildingsComponent }
+  components: { ModalComponent, ConstructionFormComponent, ConstructionCardComponent, NavalUnitsComponent, BuildingsComponent }
 }
 </script>
 
