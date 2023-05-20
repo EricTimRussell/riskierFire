@@ -103,6 +103,7 @@ button {
   box-shadow: black 4px 4px;
   border-radius: 7px;
   color: black;
+  border: solid black 1px;
 }
 
 button:hover {
@@ -139,7 +140,7 @@ button:disabled {
   color: black;
 }
 
-// Dice
+// Dice animation
 @property --num {
   syntax: "<integer>";
   initial-value: 0;
@@ -158,6 +159,26 @@ button:disabled {
 }
 
 @keyframes counter {
+  from {
+    --num: 0;
+  }
+
+  to {
+    --num: 9;
+  }
+}
+
+@-moz-keyframes counter {
+  from {
+    --num: 0;
+  }
+
+  to {
+    --num: 9;
+  }
+}
+
+@-webkit-keyframes counter {
   from {
     --num: 0;
   }

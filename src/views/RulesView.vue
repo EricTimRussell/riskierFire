@@ -592,6 +592,7 @@ nav {
 
 .rules-top-btn {
   background: #0000003a;
+  color: black;
 }
 
 .rules-top-btn:active {
