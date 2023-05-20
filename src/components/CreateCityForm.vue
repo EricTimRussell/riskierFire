@@ -1,9 +1,9 @@
 <template>
   <form @submit.prevent="createCity()">
     <div class="form-floating mb-3">
-      <input v-model="editable.regionNumber" required type="text" maxlength="2" class="form-control" id="regionNumber"
-        placeholder="1,2,3..." autocomplete="off">
-      <label for="regionNumber">Region Number...</label>
+      <input v-model="editable.regionNumber" required type="number" min="0" max="99" class="form-control"
+        id="regionNumber" placeholder="1,2,3..." autocomplete="off">
+      <label for="regionNumber">Between 0-99</label>
     </div>
     <div>
       <label for="capital" class="form-label">Capital: {{ editable.capital }}</label>
@@ -39,7 +39,7 @@
     </div>
     <div class="modal-footer d-flex justify-content-evenly">
       <button type="button" class="btn-danger" data-bs-dismiss="modal">Close</button>
-      <button type="submit" class="btn-green" data-bs-dismiss="modal">Create</button>
+      <button type="submit" class="btn-green">Create</button>
       <ul>
         <li>Capital: 15 of all resources</li>
         <li>Medium: 6 of all resources</li>
@@ -67,7 +67,7 @@ export default {
     const route = useRoute()
     const db = useFirestore()
 
-    const editable = ref({ regionNumber: 0, capital: 4, industry: 4, agriculture: 4, citySize: '', production: 1, creatorId: user.value?.uid })
+    const editable = ref({ regionNumber: null, capital: 4, industry: 4, agriculture: 4, citySize: '', production: 1, creatorId: user.value?.uid })
 
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
@@ -91,7 +91,7 @@ export default {
             totalAgriculture: increment(editable.value.agriculture),
             totalProduction: increment(editable.value.production)
           });
-          editable.value = ({ regionNumber: 0, capital: 4, industry: 4, agriculture: 4, citySize: '', production: 1, creatorId: user.value?.uid })
+          editable.value = ({ regionNumber: null, capital: 4, industry: 4, agriculture: 4, citySize: '', production: 1, creatorId: user.value?.uid })
           Swal.fire({
             title: 'Success!',
             timer: 900,

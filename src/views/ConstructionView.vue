@@ -39,7 +39,6 @@
   <div v-else class="text-center pt-5">
     <h1>Create team to access this page</h1>
   </div>
-
   <ModalComponent id="construction-modal">
     <ConstructionFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
@@ -61,7 +60,6 @@ import BuildingsComponent from "../components/BuildingsComponent.vue";
 export default {
   setup() {
     const user = useCurrentUser();
-
     async function getTeamByUserId() {
       try {
         // get user id if undefined

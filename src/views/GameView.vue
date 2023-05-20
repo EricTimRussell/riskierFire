@@ -52,7 +52,7 @@
         </button>
       </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-12 text-center bg-green text-light py-1 my-3 elevation-5">
         <h2>Divisions</h2>
       </div>
@@ -68,7 +68,7 @@
         <h2>Armies</h2>
       </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="a in armies" v-if="armies.length > 0">
         <ArmyCardComponent :armies="a" :teams="teams" />
       </div>
@@ -91,7 +91,7 @@
         </button>
       </div>
     </div>
-    <div class="row">
+    <div class="row justify-content-center">
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="c in carriers" v-if="carriers.length > 0">
         <CarrierCardComponent :carriers="c" :teams="teams" />
       </div>

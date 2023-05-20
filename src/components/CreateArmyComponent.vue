@@ -170,13 +170,9 @@
       </select>
       <label for="unitSlot9">Select Unit Type</label>
     </div>
-    <div hidden class="my-3">
-      <label for="creatorId" class="form-label">{{ editable.creatorId }}</label>
-      <input v-model="editable.creatorId" type="string" id="creatorId" disabled>
-    </div>
     <div class="modal-footer">
       <button type="button" data-bs-dismiss="modal">Close</button>
-      <button type="submit" data-bs-dismiss="modal">Form Army</button>
+      <button type="submit" class="btn-green">Form Army</button>
     </div>
   </form>
 </template>

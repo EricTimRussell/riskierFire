@@ -1,8 +1,8 @@
 <template>
   <form @submit.prevent="constructBuildingAndNavy()">
     <div class="form-floating mb-3">
-      <select v-model="editable.buildingType" required maxlength="20" class="form-select" id="buildingType"
-        placeholder="building type" autocomplete="off">
+      <select v-model="editable.buildingType" required class="form-select" id="buildingType" placeholder="building type"
+        autocomplete="off">
         <option value="Airfield">Airfield</option>
         <option value="Factory">Factory</option>
         <option value="Naval Yard">Naval Yard</option>
@@ -14,7 +14,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn-danger" data-bs-dismiss="modal">Close</button>
-      <button type="submit" class="btn-green" data-bs-dismiss="modal">Create</button>
+      <button type="submit" class="btn-green">Create</button>
     </div>
   </form>
 </template>
@@ -25,7 +25,6 @@ import { useCurrentUser, useFirestore, getCurrentUser } from "vuefire";
 import Swal from 'sweetalert2'
 import { addDoc, collection, doc, increment, updateDoc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
-
 export default {
   props: {
     teams: { type: Object, required: true },
@@ -38,7 +37,6 @@ export default {
     const editable = ref({ buildingType: '', creatorId: user.value?.uid, buildTime: 2 })
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
-
 
     return {
       editable,

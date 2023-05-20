@@ -102,11 +102,11 @@ button {
   background: linear-gradient(#FFDA96, #dda15e);
   box-shadow: black 4px 4px;
   border-radius: 7px;
+  color: black;
 }
 
 button:hover {
   text-shadow: darkgray 2px 2px;
-
 }
 
 button:active {
@@ -134,6 +134,11 @@ button:disabled {
   background: none;
 }
 
+.btn-green {
+  background: #7bff2f;
+  color: black;
+}
+
 // Dice
 @property --num {
   syntax: "<integer>";
@@ -144,6 +149,8 @@ button:disabled {
 .dice {
   animation: counter .1s infinite alternate ease-in-out;
   counter-reset: num var(--num);
+  -moz-animation: counter .1s infinite alternate ease-in-out;
+  -webkit-animation: counter .1s infinite alternate ease-in-out;
 }
 
 .dice::after {

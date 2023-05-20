@@ -1,13 +1,13 @@
 <template>
   <form @submit.prevent="createRegion()">
     <div class="form-floating mb-3">
-      <input v-model="editable.regionNumber" required type="text" maxlength="2" class="form-control" id="regionNumber"
-        placeholder="1,2,3..." autocomplete="off">
-      <label for="regionNumber">Region Number...</label>
+      <input v-model="editable.regionNumber" required type="number" min="0" max="99" class="form-control"
+        id="regionNumber" placeholder="1,2,3..." autocomplete="off">
+      <label for="regionNumber">Between 0-99</label>
     </div>
     <div class="modal-footer">
       <button type="button" class="btn-danger" data-bs-dismiss="modal">Close</button>
-      <button type="submit" class="btn-green" data-bs-dismiss="modal">Create</button>
+      <button type="submit" class="btn-green">Create</button>
     </div>
   </form>
 </template>
@@ -30,7 +30,7 @@ export default {
     const route = useRoute()
     const db = useFirestore()
 
-    const editable = ref({ regionNumber: 0, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
+    const editable = ref({ regionNumber: null, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
 
@@ -52,7 +52,7 @@ export default {
             totalIndustry: increment(editable.value.industry),
             totalAgriculture: increment(editable.value.agriculture)
           });
-          editable.value = ({ regionNumber: 0, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
+          editable.value = ({ regionNumber: null, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
           Swal.fire({
             title: 'Success!',
             timer: 900,

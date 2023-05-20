@@ -9,6 +9,7 @@
         <RouterView />
       </Suspense>
     </main>
+
   </body>
 </template>
 

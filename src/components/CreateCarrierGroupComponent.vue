@@ -73,7 +73,7 @@
       <label for="airUnit8">Select Unit Type</label>
     </div>
     <div class="py-3 text-center">
-      <h2>Ground Forces Onboard</h2>
+      <h3>Ground Forces Onboard (optional)</h3>
     </div>
     <div class="form-floating mb-3">
       <select v-model="editable.groundUnit1" class="form-select" id="groundUnit1" aria-label="Select Unit for Slot">
@@ -183,13 +183,9 @@
       </select>
       <label for="groundUnit6">Select Unit Type</label>
     </div>
-    <div hidden class="my-3">
-      <label for="creatorId" class="form-label">{{ editable.creatorId }}</label>
-      <input v-model="editable.creatorId" type="string" id="creatorId" disabled>
-    </div>
     <div class="modal-footer">
       <button type="button" data-bs-dismiss="modal">Close</button>
-      <button type="submit" data-bs-dismiss="modal">Create Carrier</button>
+      <button type="submit" class="btn-green">Create Carrier</button>
     </div>
   </form>
 </template>

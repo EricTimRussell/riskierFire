@@ -80,6 +80,7 @@ export default {
         }
       },
       async buildTimeDecrement() {
+        const construction = doc(db, "construction", props.construction.id)
         updateDoc(construction, {
           buildTime: increment(-1),
         });

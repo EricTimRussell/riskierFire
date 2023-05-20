@@ -3,15 +3,16 @@
     <form @submit.prevent="createUser()" class="row flex-column align-items-center">
       <div class="my-3 col-6">
         <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" v-model="userInput.email" aria-describedby="emailHelp">
+        <input required maxlength="40" type="email" class="form-control" id="email" v-model="userInput.email"
+          aria-describedby="emailHelp">
       </div>
       <div class="mb-3 col-6">
         <label for="password" class="form-label">Password</label>
         <input type="password" class="form-control" id="password" v-model="userInput.password">
       </div>
-      <div class="col-12 d-flex justify-content-center">
-        <button @click="loginToFireBase()" type="button" class="btn">Login</button>
-        <button type="submit" class="btn mx-2">Create New User</button>
+      <div class="col-12 d-flex justify-content-center gap-1">
+        <button @click="loginToFireBase()" type="button" class="px-3">Login</button>
+        <button type="submit" class="btn-green mx-2">Create New User</button>
       </div>
     </form>
   </body>
