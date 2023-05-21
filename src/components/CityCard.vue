@@ -4,7 +4,7 @@
       <h3 class="text-center"><u>Region #</u> {{ cities.regionNumber }}</h3>
       <h3 class="text-center">City Size: {{ cities.citySize }}</h3>
       <div class="col-12 d-flex justify-content-center">
-        <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
+        <span class="fs-xl material-symbols-outlined text-capital">attach_money</span>
         <span class="fs-lg">{{ cities.capital }}</span>
       </div>
       <div class="col-12 d-flex justify-content-center">

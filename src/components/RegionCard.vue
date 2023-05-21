@@ -3,7 +3,7 @@
     <div class="row gap-2">
       <h3 class="text-center"><u>Region #</u> {{ regions.regionNumber }}</h3>
       <div class="col-12 d-flex justify-content-center">
-        <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
+        <span class="fs-xl material-symbols-outlined text-capital">attach_money</span>
         <span class="fs-lg">{{ regions.capital }}</span>
       </div>
       <div class="col-12 d-flex justify-content-center">

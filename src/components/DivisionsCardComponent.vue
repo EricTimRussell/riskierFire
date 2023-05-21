@@ -141,7 +141,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" data-bs-dismiss="modal">Close</button>
-                <button type="submit" @click="editDivision()" data-bs-dismiss="modal">Confirm</button>
+                <button type="submit" @click="editDivision()" class="btn-green" data-bs-dismiss="modal">Confirm</button>
               </div>
             </div>
           </div>
@@ -180,6 +180,8 @@ export default {
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {

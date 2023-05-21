@@ -48,7 +48,11 @@ body {
   color: #fdce78;
 }
 
-// Backgrounds
+.text-capital {
+  color: #d79e10;
+}
+
+// Backgrounds/Images
 .bg-green {
   background: linear-gradient(#606c38, #283618)
 }
@@ -95,6 +99,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: 45%;
+}
+
+.logo {
+  width: 75%;
+  height: auto;
+  border: black solid 3px;
 }
 
 // Buttons
@@ -148,8 +158,8 @@ button:disabled {
 }
 
 .dice {
-  animation: counter .1s infinite alternate ease-in-out;
   counter-reset: num var(--num);
+  animation: counter .1s infinite alternate ease-in-out;
   -moz-animation: counter .1s infinite alternate ease-in-out;
   -webkit-animation: counter .1s infinite alternate ease-in-out;
 }
@@ -170,7 +180,7 @@ button:disabled {
 
 @-moz-keyframes counter {
   from {
-    --num: 0;
+    --num: 0
   }
 
   to {
@@ -228,24 +238,49 @@ button:disabled {
 
 }
 
+// Tablets
+@media (max-width: 912px) {
+
+  // Font classes
+  .fs-md {
+    font-size: 16px;
+  }
+
+  .fs-lg {
+    font-size: 22px;
+  }
+
+  .fs-xl {
+    font-size: 26px;
+  }
+
+  .logo {
+    width: 90%;
+    height: 65%;
+    border: black solid 3px;
+  }
+}
+
+
 // Mobile
 @media (max-width: 768px) {
 
   // Font classes
   .fs-md {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .fs-lg {
-    font-size: 24px;
+    font-size: 20px;
   }
 
   .fs-xl {
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .paragraph-mobile {
     margin-left: 10%;
     margin-right: 10%;
   }
+
 }

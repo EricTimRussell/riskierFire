@@ -88,7 +88,7 @@
                 </select>
                 <label for="airUnit1">Selected Unit</label>
               </div>
-              <div class="form-floating">
+              <div class="form-floating my-3">
                 <select v-model="editable.airUnit2" required class="form-select" id="airUnit2"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
@@ -106,7 +106,7 @@
                 </select>
                 <label for="airUnit3">Selected Unit</label>
               </div>
-              <div class="form-floating">
+              <div class="form-floating my-3">
                 <select v-model="editable.airUnit4" required class="form-select" id="airUnit4"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
@@ -124,7 +124,7 @@
                 </select>
                 <label for="airUnit5">Selected Unit</label>
               </div>
-              <div class="form-floating">
+              <div class="form-floating my-3">
                 <select v-model="editable.airUnit6" required class="form-select" id="airUnit6"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
@@ -142,7 +142,7 @@
                 </select>
                 <label for="airUnit7">Selected Unit</label>
               </div>
-              <div class="form-floating">
+              <div class="form-floating mt-3">
                 <select v-model="editable.airUnit8" required class="form-select" id="airUnit8"
                   aria-label="Select Unit for Slot">
                   <option value="EmptySlot">EmptySlot</option>
@@ -150,6 +150,9 @@
                   <option value="CAS">CAS</option>
                 </select>
                 <label for="airUnit8">Selected Unit</label>
+              </div>
+              <div class="pt-4 pb-2">
+                <span class="fs-lg">Ground Units</span>
               </div>
               <div class="form-floating">
                 <select v-model="editable.groundUnit1" class="form-select" id="groundUnit1"
@@ -243,7 +246,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" data-bs-dismiss="modal">Close</button>
-                <button type="submit" @click="editCarrier()" data-bs-dismiss="modal">Confirm</button>
+                <button type="submit" @click="editCarrier()" class="btn-green" data-bs-dismiss="modal">Confirm</button>
               </div>
             </div>
           </div>
@@ -282,6 +285,8 @@ export default {
             text: "You won't be able to revert this!",
             icon: 'warning',
             showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {

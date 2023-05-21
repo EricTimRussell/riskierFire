@@ -79,10 +79,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.logo {
-  width: 75%;
-  height: auto;
-  border: black solid 3px;
-}
-</style>
+<style lang="scss" scoped></style>

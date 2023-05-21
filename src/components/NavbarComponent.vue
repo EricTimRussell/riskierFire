@@ -50,7 +50,7 @@
         <span class="material-symbols-outlined text-warning fs-xl">
           attach_money
         </span>
-        <span v-if="teams.totalCapital >= 0" class="fs-lg">{{ teams.totalCapital }}</span>
+        <span v-if="teams.totalCapital >= 0" class="fs-lg text">{{ teams.totalCapital }}</span>
         <span v-if="teams.totalCapital < 0" class="fs-lg text-danger">{{ teams.totalCapital }}</span>
       </div>
       <div>
