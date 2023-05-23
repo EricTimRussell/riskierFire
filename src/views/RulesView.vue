@@ -64,7 +64,7 @@
       </div>
     </div>
     <section class="row px-2">
-      <div class="col-12 pb-6">
+      <div class="col-12">
         <!-- SECTION Getting Started -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Get Started</h2>
@@ -566,13 +566,15 @@
         <p>--Divisions and Army groups can instantly capture unnoccupied tiles.
         </p>
       </div>
+      <div class="d-flex flex-column align-items-center text-center pb-6">
+        <span class="divider-long"></span>
+      </div>
     </section>
   </body>
 </template>
 
 <script>
-import { useCurrentUser, useFirebaseAuth, useFirestore } from "vuefire";
-import { signOut } from "@firebase/auth";
+import { useCurrentUser, useFirestore } from "vuefire";
 import { computed } from "@vue/reactivity";
 import { useRegionStore } from "../stores/RegionStore";
 import { RouterLink, useRouter } from "vue-router";
@@ -654,6 +656,11 @@ nav {
   padding-top: 0%;
 }
 
+.divider-long {
+  background-color: #282828;
+  height: 10px;
+  width: 95vw;
+}
 
 @media screen and (min-width: 768px) {
   p {
