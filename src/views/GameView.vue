@@ -1,4 +1,8 @@
 <template>
+  <header class="sticky-top">
+    <NavbarComponent :teams="teams" />
+  </header>
+
   <body class="container-fluid indepentant-scroll" v-if="teams.creatorId">
     <div class="row">
       <!-- Ground Forces -->
@@ -120,7 +124,7 @@
         </button>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center pb-4">
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="r in region">
         <RegionCard :regions="r" :teams="teams" />
       </div>
@@ -182,6 +186,7 @@ import ArmyCardComponent from "../components/ArmyCardComponent.vue";
 import { navyUnitsService } from "../services/NavyUnitsService";
 import { useNavyStore } from "../stores/NavyStore";
 import CarrierCardComponent from "../components/CarrierCardComponent.vue";
+import NavbarComponent from "../components/NavbarComponent.vue";
 
 export default {
   setup() {
@@ -283,7 +288,7 @@ export default {
       carriers: computed(() => useNavyStore.navy)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent, DivisionsCardComponent, ArmyCardComponent, CarrierCardComponent }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent, DivisionsCardComponent, ArmyCardComponent, CarrierCardComponent, NavbarComponent }
 }
 </script>
 

@@ -1,4 +1,7 @@
 <template>
+  <header class="sticky-top">
+    <NavbarComponent :teams="teams" />
+  </header>
   <div class="container-fluid indepentant-scroll">
     <div class="row">
       <div class="col-lg-6 col-md-12 col-sm-12 pt-5 d-flex justify-content-center">
@@ -26,7 +29,7 @@
           icons on the bottom represent your teams total resources. The $ sign is capital, the factory is industry,
           the leaf is agriculture, and the wrench is production. </p>
         <div class="d-flex justify-content-center">
-          <button v-if="user?.uid && !team.creatorId" type="submit" class="rounded text-shadow-dark p-2"
+          <button v-if="user?.uid && !teams.creatorId" type="submit" class="rounded text-shadow-dark p-2"
             data-bs-toggle="modal" data-bs-target="#createTeam-modal" aria-label="Create Team">
             Create Team
           </button>
@@ -51,6 +54,7 @@ import ModalComponent from "../components/ModalComponent.vue";
 import { teamsService } from "../services/TeamsService";
 import { computed } from "@vue/reactivity";
 import { useRegionStore } from "../stores/RegionStore";
+import NavbarComponent from "../components/NavbarComponent.vue";
 
 export default {
   setup() {
@@ -71,11 +75,11 @@ export default {
       getTeamByUserId();
     });
     return {
-      team: computed(() => useRegionStore.teams),
+      teams: computed(() => useRegionStore.teams),
       user,
     };
   },
-  components: { ModalComponent, CreateTeamForm }
+  components: { ModalComponent, CreateTeamForm, NavbarComponent }
 }
 </script>
 

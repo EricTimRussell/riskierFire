@@ -1,4 +1,7 @@
 <template>
+  <header class="sticky-top">
+    <NavbarComponent :teams="teams" />
+  </header>
   <div v-if="teams.creatorId" class="container-fluid indepentant-scroll">
     <div class="row mt-5 justify-content-center">
       <div class="col-12 text-center bg-green py-2 elevation-5 text-light">
@@ -57,6 +60,7 @@ import { useConstructionStore } from "../stores/ConstructionStore";
 import ConstructionCardComponent from "../components/ConstructionCardComponent.vue";
 import NavalUnitsComponent from "../components/NavalUnitsComponent.vue";
 import BuildingsComponent from "../components/BuildingsComponent.vue";
+import NavbarComponent from "../components/NavbarComponent.vue";
 export default {
   setup() {
     const user = useCurrentUser();
@@ -99,7 +103,7 @@ export default {
 
     }
   },
-  components: { ModalComponent, ConstructionFormComponent, ConstructionCardComponent, NavalUnitsComponent, BuildingsComponent }
+  components: { ModalComponent, ConstructionFormComponent, ConstructionCardComponent, NavalUnitsComponent, BuildingsComponent, NavbarComponent }
 }
 </script>
 

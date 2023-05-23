@@ -1,4 +1,8 @@
 <template>
+  <header class="sticky-top">
+    <NavbarComponent :teams="teams" />
+  </header>
+
   <body class="container-fluid indepentant-scroll">
     <!-- Ground Unit Dice -->
     <section class="row justify-content-center">
@@ -171,7 +175,7 @@
     </section>
 
     <!-- Navy Unit Dice -->
-    <section class="row justify-content-center">
+    <section class="row justify-content-center pb-4">
       <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
         <span class="material-symbols-outlined fs-xl">
           directions_boat
@@ -246,12 +250,35 @@ import CarrierDiceComponent from "../components/navyDice/CarrierDiceComponent.vu
 import CruiserDiceComponent from "../components/navyDice/CruiserDiceComponent.vue";
 import DestroyerDiceComponent from "../components/navyDice/DestroyerDiceComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
+import NavbarComponent from "../components/NavbarComponent.vue";
+import { teamsService } from "../services/TeamsService";
+import { onMounted } from "vue";
+import { getCurrentUser, useCurrentUser } from "vuefire";
+import { computed } from "@vue/reactivity";
+import { useRegionStore } from "../stores/RegionStore";
 
 export default {
   setup() {
     const oneTwelveDie = ref({ roll: 0 });
     const isPending = ref(false);
+    const user = useCurrentUser();
+    async function getTeamByUserId() {
+      try {
+        // get user id if undefined
+        if (user.value?.uid == undefined) {
+          const user = await getCurrentUser();
+        }
+        await teamsService.getTeamByUserId(user);
+      }
+      catch (error) {
+        console.error(error);
+      }
+    }
+    onMounted(() => {
+      getTeamByUserId();
+    });
     return {
+      teams: computed(() => useRegionStore.teams),
       oneTwelveDie,
       isPending,
       rollOneTwelveDie() {
@@ -263,7 +290,7 @@ export default {
       }
     };
   },
-  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent, MissileArtilleryDiceComponent, FighterAircraftDiceComponent, CasDiceComponent, AnitAicraftDiceComponent, CarrierDiceComponent, CruiserDiceComponent, DestroyerDiceComponent, ModalComponent }
+  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent, MissileArtilleryDiceComponent, FighterAircraftDiceComponent, CasDiceComponent, AnitAicraftDiceComponent, CarrierDiceComponent, CruiserDiceComponent, DestroyerDiceComponent, ModalComponent, NavbarComponent }
 }
 
 </script>

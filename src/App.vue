@@ -1,8 +1,8 @@
 <template>
   <body>
-    <header class="sticky-top">
+    <!-- <header class="sticky-top">
       <NavbarComponent :teams="teams" />
-    </header>
+    </header> -->
 
     <main>
       <Suspense>

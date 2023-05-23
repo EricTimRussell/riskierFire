@@ -1,5 +1,34 @@
 <template>
-  <body class="container-fluid indepentant-scroll">
+  <body class="container-fluid indepentant-scroll-rules">
+    <header class="row">
+      <nav v-if="user?.email" class="d-flex justify-content-center gap-2 col-12">
+        <RouterLink to="/">
+          <span title="Home" class="material-symbols-outlined fs-xl">
+            home
+          </span>
+        </RouterLink>
+        <RouterLink to="/rules">
+          <span title="Rules Page" class="material-symbols-outlined fs-xl">
+            menu_book
+          </span>
+        </RouterLink>
+        <RouterLink :to="{ name: 'game', params: { id: user.uid } }">
+          <span title="Game Page" class="material-symbols-outlined fs-xl">
+            sports_esports
+          </span>
+        </RouterLink>
+        <RouterLink :to="{ name: 'construction', params: { id: user.uid } }">
+          <span title="Construction Page" class="material-symbols-outlined fs-xl">
+            construction
+          </span>
+        </RouterLink>
+        <RouterLink to="/battle">
+          <span title="Combat Page" class="material-symbols-outlined fs-xl">
+            swords
+          </span>
+        </RouterLink>
+      </nav>
+    </header>
     <div class="row px-2">
       <div class="col-12 text-center mb-2 mt-4" id="start">
         <h1 class="fs-xl">Rule Book</h1>
@@ -35,7 +64,7 @@
       </div>
     </div>
     <section class="row px-2">
-      <div class="col-12">
+      <div class="col-12 pb-4">
         <!-- SECTION Getting Started -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Get Started</h2>
@@ -542,16 +571,26 @@
 </template>
 
 <script>
+import { useCurrentUser, useFirebaseAuth, useFirestore } from "vuefire";
+import { signOut } from "@firebase/auth";
+import { computed } from "@vue/reactivity";
+import { useRegionStore } from "../stores/RegionStore";
+import { RouterLink, useRouter } from "vue-router";
+
 export default {
-  setup() {
+  props: {
+    teams: { type: Object, required: true }
+  },
+  setup(props) {
+    const user = useCurrentUser();
+    const db = useFirestore();
+    const router = useRouter()
     return {
-
-      backToTop() {
-        window.scrollTo(0, 0)
-      }
-
-    }
-  }
+      teams: computed(() => useRegionStore.teams),
+      user
+    };
+  },
+  components: { RouterLink }
 }
 </script>
 
