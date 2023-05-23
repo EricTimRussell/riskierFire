@@ -632,9 +632,7 @@ nav {
 }
 
 .drop-menu {
-  width: 275px;
-  height: fit-content;
-  overflow: auto;
+  max-width: 275px;
 }
 
 .rules-top-btn {
@@ -650,6 +648,12 @@ nav {
   p {
     margin-left: 20%;
     margin-right: 20%;
+  }
+
+  .nav-link,
+  .nav-pills {
+    padding-bottom: 0%;
+    padding-top: 0%;
   }
 }
 </style>

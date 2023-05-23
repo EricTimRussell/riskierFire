@@ -7,7 +7,7 @@
       <div class="col-lg-6 col-md-12 col-sm-12 pt-5 d-flex justify-content-center">
         <img class="big-logo" src="../assets/riskierLogo/Riskier-logo.png" alt="">
       </div>
-      <div class="col-md-5 col-sm-12 pb-4 pt-5 d-flex flex-column text-light">
+      <div class="col-md-5 col-sm-12 pb-5 pt-5 d-flex flex-column text-light">
         <h1 class="text-center">Welcome to RiskierFire!</h1>
         <p class="paragraph-mobile">Login or create an account by clicking the logo in the top left corner to get
           started. You do not need to use a real
@@ -28,7 +28,7 @@
           combat odds of each unit as well as roll virtual dice to determine the success or failure of an action. The four
           icons on the bottom represent your teams total resources. The $ sign is capital, the factory is industry,
           the leaf is agriculture, and the wrench is production. </p>
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center pb-5">
           <button v-if="user?.uid && !teams.creatorId" type="submit" class="rounded text-shadow-dark p-2"
             data-bs-toggle="modal" data-bs-target="#createTeam-modal" aria-label="Create Team">
             Create Team
