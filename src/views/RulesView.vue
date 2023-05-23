@@ -64,7 +64,7 @@
       </div>
     </div>
     <section class="row px-2">
-      <div class="col-12 pb-4">
+      <div class="col-12 pb-6">
         <!-- SECTION Getting Started -->
         <div class="d-flex flex-column align-items-center text-center text-tan py-2">
           <h2>Get Started</h2>
@@ -625,6 +625,10 @@ nav {
   padding: .5rem;
 }
 
+.pb-6 {
+  padding-bottom: 3rem;
+}
+
 .sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -649,6 +653,7 @@ nav {
   padding-bottom: 0%;
   padding-top: 0%;
 }
+
 
 @media screen and (min-width: 768px) {
   p {
