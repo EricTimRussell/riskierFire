@@ -644,16 +644,17 @@ nav {
   background: grey;
 }
 
+.nav-link,
+.nav-pills {
+  padding-bottom: 0%;
+  padding-top: 0%;
+}
+
 @media screen and (min-width: 768px) {
   p {
     margin-left: 20%;
     margin-right: 20%;
   }
 
-  .nav-link,
-  .nav-pills {
-    padding-bottom: 0%;
-    padding-top: 0%;
-  }
 }
 </style>
