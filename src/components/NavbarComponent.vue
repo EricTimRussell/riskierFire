@@ -3,9 +3,9 @@
     <div class="row">
       <div class="d-flex gap-3">
         <div class="dropdown px-4 col-5">
-          <img src="../assets/riskierLogo/riskierLogo.jpg" class="user-img rounded dropdown-toggle selectable"
-            data-bs-toggle="dropdown" aria-expanded="false" alt="">
-          <ul class="dropdown-menu text-center">
+          <img title="Menu" src="../assets/riskierLogo/Riskier-logo.png"
+            class="logo-img rounded dropdown-toggle selectable" data-bs-toggle="dropdown" aria-expanded="false" alt="">
+          <ul class="dropdown-menu text-center mx-4">
             <span class="fs-sm text-decoration-underline px-3">{{ user?.email }}</span>
             <li>
               <RouterLink to="/" class="fs-md">Home</RouterLink>
@@ -142,9 +142,12 @@ li:hover {
   text-decoration: underline 3px;
 }
 
-.user-img {
-  width: 6rem;
-  height: 4rem;
+.logo-img:hover {
+  border: black solid 2px;
+}
+
+.logo-img:active {
+  border: black solid 2px;
 }
 
 @media screen and (min-width: 576px) {
@@ -157,5 +160,6 @@ li:hover {
     width: fill;
     min-width: fit-content;
   }
+
 }
 </style>

@@ -1,6 +1,6 @@
 body {
   background-color: #7c8a71;
-  font-family: Impact, 'Arial Narrow Bold', sans-serif;
+  font-family: Saira Stencil One, Impact;
 }
 
 // Box Shadows
@@ -101,10 +101,16 @@ body {
   background-position-x: 45%;
 }
 
-.logo {
+.big-logo {
   width: 75%;
   height: auto;
   border: black solid 3px;
+  border-radius: 5px;
+}
+
+.logo-img {
+  width: 13rem;
+  height: 6rem;
 }
 
 // Buttons
@@ -253,12 +259,6 @@ button:disabled {
   .fs-xl {
     font-size: 26px;
   }
-
-  .logo {
-    width: 90%;
-    height: 65%;
-    border: black solid 3px;
-  }
 }
 
 
@@ -283,4 +283,8 @@ button:disabled {
     margin-right: 10%;
   }
 
+  .logo-img {
+    width: 6rem;
+    height: 3rem;
+  }
 }
