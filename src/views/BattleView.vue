@@ -1,5 +1,5 @@
 <template>
-  <body class="container-fluid">
+  <body class="container-fluid indepentant-scroll">
     <!-- Ground Unit Dice -->
     <section class="row justify-content-center">
       <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">

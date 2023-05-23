@@ -1,9 +1,11 @@
 <template>
-  <body class="container-fluid">
+  <body class="container-fluid indepentant-scroll">
     <div class="row px-2">
-      <div class="col-12 text-center mb-2 mt-4">
+      <div class="col-12 text-center mb-2 mt-4" id="start">
         <h1 class="fs-xl">Rule Book</h1>
       </div>
+    </div>
+    <div class="row pt-3 sticky">
       <div class="dropdown-center col-12 d-flex justify-content-center mb-4">
         <button class="dropdown-toggle px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Jump to:
@@ -11,6 +13,7 @@
         <ul class="dropdown-menu drop-menu">
           <!-- id's for jump-to menu need to be attachted to p tags above the actual section becuase of sticky navbar -->
           <nav class="nav nav-pills">
+            <a class="nav-link dropdown-item" href="#start">Back-to-Top</a>
             <a class="nav-link dropdown-item" href="#resources">Resources</a>
             <a class="nav-link dropdown-item" href="#construction">Construction</a>
             <a class="nav-link dropdown-item" href="#mainBoardPieces">Main Board Pieces</a>
@@ -534,9 +537,6 @@
         <p>--Divisions and Army groups can instantly capture unnoccupied tiles.
         </p>
       </div>
-      <div class="col-12 d-flex justify-content-center py-3 sticky-bottom">
-        <button @click="backToTop()" class="rules-top-btn">Back-to-Top</button>
-      </div>
     </section>
   </body>
 </template>
@@ -586,8 +586,14 @@ nav {
   padding: .5rem;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 .drop-menu {
-  max-width: 250px;
+  max-width: 275px;
 }
 
 .rules-top-btn {

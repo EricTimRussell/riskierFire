@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid indepentant-scroll">
     <div class="row">
       <div class="col-lg-6 col-md-12 col-sm-12 pt-5 d-flex justify-content-center">
         <img class="big-logo" src="../assets/riskierLogo/Riskier-logo.png" alt="">

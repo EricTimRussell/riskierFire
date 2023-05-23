@@ -1,6 +1,14 @@
 body {
   background-color: #7c8a71;
   font-family: Saira Stencil One, Impact;
+  overflow: hidden;
+}
+
+.indepentant-scroll {
+  width: 100vw;
+  height: 80vh;
+  overflow: auto;
+  text-align: justify;
 }
 
 // Box Shadows

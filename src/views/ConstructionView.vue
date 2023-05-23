@@ -1,5 +1,5 @@
 <template>
-  <div v-if="teams.creatorId" class="container-fluid">
+  <div v-if="teams.creatorId" class="container-fluid indepentant-scroll">
     <div class="row mt-5 justify-content-center">
       <div class="col-12 text-center bg-green py-2 elevation-5 text-light">
         <h1>Construction</h1>

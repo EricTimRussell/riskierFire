@@ -1,5 +1,5 @@
 <template>
-  <body class="container-fluid" v-if="teams.creatorId">
+  <body class="container-fluid indepentant-scroll" v-if="teams.creatorId">
     <div class="row">
       <!-- Ground Forces -->
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
@@ -9,17 +9,19 @@
         </span>
       </div>
     </div>
-    <div class="col-12 d-flex justify-content-center">
-      <InfantryComponent :team="teams" />
-    </div>
-    <div class="col-12 d-flex justify-content-center">
-      <MechIfvComponent :team="teams" />
-    </div>
-    <div class="col-12 d-flex justify-content-center">
-      <MbtAntiAircraftComponent :team="teams" />
-    </div>
-    <div class="col-12 d-flex justify-content-center">
-      <ArtilleryComponent :team="teams" />
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center">
+        <InfantryComponent :team="teams" />
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <MechIfvComponent :team="teams" />
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <MbtAntiAircraftComponent :team="teams" />
+      </div>
+      <div class="col-12 d-flex justify-content-center">
+        <ArtilleryComponent :team="teams" />
+      </div>
     </div>
     <!-- Air Forces -->
     <div class="row">

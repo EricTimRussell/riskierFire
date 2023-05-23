@@ -1,5 +1,5 @@
 <template>
-  <body class="container-fluid">
+  <body class="container-fluid indepentant-scroll">
     <form @submit.prevent="createUser()" class="row flex-column align-items-center">
       <div class="my-3 col-6">
         <label for="email" class="form-label">Email address</label>
