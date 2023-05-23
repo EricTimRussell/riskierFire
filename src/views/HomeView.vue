@@ -7,7 +7,7 @@
       <div class="col-lg-6 col-md-12 col-sm-12 pt-5 d-flex justify-content-center">
         <img class="big-logo" src="../assets/riskierLogo/Riskier-logo.png" alt="">
       </div>
-      <div class="col-md-5 col-sm-12 pt-5 d-flex flex-column text-light">
+      <div class="col-md-5 col-sm-12 pb-4 pt-5 d-flex flex-column text-light">
         <h1 class="text-center">Welcome to RiskierFire!</h1>
         <p class="paragraph-mobile">Login or create an account by clicking the logo in the top left corner to get
           started. You do not need to use a real
@@ -34,9 +34,6 @@
             Create Team
           </button>
         </div>
-      </div>
-      <div class="col-12 d-flex justify-content-center py-3">
-
       </div>
     </div>
   </div>

@@ -27,7 +27,7 @@
       </div>
     </div>
     <!-- Structures -->
-    <div class="row">
+    <div class="row pb-5">
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
         <h2>Structures</h2>
         <span class="material-symbols-outlined fs-lg px-2">

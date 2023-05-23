@@ -39,9 +39,9 @@
         <button class="dropdown-toggle px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Jump to:
         </button>
-        <ul class="dropdown-menu drop-menu">
+        <ul class="dropdown-menu">
           <!-- id's for jump-to menu need to be attachted to p tags above the actual section becuase of sticky navbar -->
-          <nav class="nav nav-pills">
+          <nav class="nav nav-pills drop-menu">
             <a class="nav-link dropdown-item" href="#start">Back-to-Top</a>
             <a class="nav-link dropdown-item" href="#resources">Resources</a>
             <a class="nav-link dropdown-item" href="#construction">Construction</a>
@@ -632,7 +632,9 @@ nav {
 }
 
 .drop-menu {
-  max-width: 275px;
+  width: 275px;
+  height: fit-content;
+  overflow: auto;
 }
 
 .rules-top-btn {

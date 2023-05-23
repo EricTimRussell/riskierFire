@@ -124,7 +124,7 @@
         </button>
       </div>
     </div>
-    <div class="row justify-content-center pb-4">
+    <div class="row justify-content-center pb-5">
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="r in region">
         <RegionCard :regions="r" :teams="teams" />
       </div>

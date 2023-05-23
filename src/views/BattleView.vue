@@ -175,7 +175,7 @@
     </section>
 
     <!-- Navy Unit Dice -->
-    <section class="row justify-content-center pb-4">
+    <section class="row justify-content-center pb-5">
       <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
         <span class="material-symbols-outlined fs-xl">
           directions_boat
