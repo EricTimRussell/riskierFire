@@ -4,9 +4,9 @@
 
     <div class="container-fluid region-card elevation-5 p-3 rounded">
       <div class="row">
-        <h3 class="text-center"><u>Carrier #</u> {{ carriers.carrierNumber }}</h3>
+        <span class="text-center fs-lg"><u>Carrier </u> {{ carriers.carrierNumber }}</span>
         <div class="col-12 d-flex justify-content-center">
-          <h2 class="fs-xl"><u> Air Units</u></h2>
+          <span class="fs-lg"><u> Air Units</u></span>
         </div>
         <div class="col-6 d-flex justify-content-center">
           <span class="fs-md">{{ carriers.airUnit1 }}</span>
@@ -33,24 +33,24 @@
           <span class="fs-md">{{ carriers.airUnit8 }}</span>
         </div>
         <div class="col-12 d-flex justify-content-center mt-5">
-          <h2 class="fs-xl"><u>Ground Units</u></h2>
+          <span class="fs-lg"><u>Ground Units</u></span>
         </div>
-        <div class="col-6 d-flex justify-content-center">
+        <div v-if="carriers.groundUnit1 != 'undefined'" class="col-6 d-flex justify-content-center">
           <span class="fs-md">{{ carriers.groundUnit1 }}</span>
         </div>
-        <div class="col-6 d-flex justify-content-center">
+        <div v-if="carriers.groundUnit2 != 'undefined'" class="col-6 d-flex justify-content-center">
           <span class="fs-md">{{ carriers.groundUnit2 }}</span>
         </div>
-        <div class="col-6 d-flex justify-content-center">
+        <div v-if="carriers.groundUnit3 != 'undefined'" class="col-6 d-flex justify-content-center">
           <span class="fs-md">{{ carriers.groundUnit3 }}</span>
         </div>
-        <div class="col-6 d-flex justify-content-center">
+        <div v-if="carriers.groundUnit4 != 'undefined'" class="col-6 d-flex justify-content-center">
           <span class="fs-md">{{ carriers.groundUnit4 }}</span>
         </div>
-        <div class="col-6 d-flex justify-content-center">
+        <div v-if="carriers.groundUnit5 != 'undefined'" class="col-6 d-flex justify-content-center">
           <span class="fs-md">{{ carriers.groundUnit5 }}</span>
         </div>
-        <div class="col-6 d-flex justify-content-center">
+        <div v-if="carriers.groundUnit6 != 'undefined'" class="col-6 d-flex justify-content-center">
           <span class="fs-md">{{ carriers.groundUnit6 }}</span>
         </div>
       </div>
@@ -273,6 +273,7 @@ export default {
     const route = useRoute()
     // @ts-ignore
     const carrier = doc(db, "carriers", props.carriers.id)
+
     // Ref autofills edit form when opened
     const editable = ref({ groundUnit1: `${props.carriers.groundUnit1}`, groundUnit2: `${props.carriers.groundUnit2}`, groundUnit3: `${props.carriers.groundUnit3}`, groundUnit4: `${props.carriers.groundUnit4}`, groundUnit5: `${props.carriers.groundUnit5}`, groundUnit6: `${props.carriers.groundUnit6}`, airUnit1: `${props.carriers.airUnit1}`, airUnit2: `${props.carriers.airUnit2}`, airUnit3: `${props.carriers.airUnit3}`, airUnit4: `${props.carriers.airUnit4}`, airUnit5: `${props.carriers.airUnit5}`, airUnit6: `${props.carriers.airUnit6}`, airUnit7: `${props.carriers.airUnit7}`, airUnit8: `${props.carriers.airUnit8}`, })
     return {

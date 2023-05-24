@@ -1,5 +1,14 @@
 <template>
   <body class="container-fluid indepentant-scroll">
+    <div class="row">
+      <div class="col-12">
+        <RouterLink to="/">
+          <span title="Home" class="material-symbols-outlined fs-xl text-dark">
+            home
+          </span>
+        </RouterLink>
+      </div>
+    </div>
     <form @submit.prevent="createUser()" class="row flex-column align-items-center">
       <div class="my-3 col-6">
         <label for="email" class="form-label">Email address</label>
@@ -22,7 +31,7 @@
 import { ref } from "vue";
 import { useFirebaseAuth, useFirestore } from "vuefire";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
-import { useRouter } from "vue-router";
+import { useRouter, RouterLink } from "vue-router";
 import Swal from "sweetalert2";
 export default {
   setup() {
@@ -70,7 +79,9 @@ export default {
       }
 
     }
-  }
+  },
+  components: { RouterLink }
+
 }
 </script>
 

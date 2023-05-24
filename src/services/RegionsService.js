@@ -1,4 +1,4 @@
-import { collection, query, getDocs, doc, where, addDoc, onSnapshot, deleteDoc } from "firebase/firestore"
+import { collection, query, getDocs, doc, where, addDoc, onSnapshot, deleteDoc, updateDoc, increment } from "firebase/firestore"
 import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
 import { useRegionStore } from "../stores/RegionStore";
 
@@ -34,6 +34,45 @@ class RegionsService {
         // console.log(useRegionStore.cities);
       });
     })
+  }
+
+  async createSmallCity(editable, user, team) {
+    const newSmallCity = await addDoc(collection(db, "cities"), {
+      ...editable.value
+    });
+    await updateDoc(team, {
+      // Create city updates team object to reflect resources gained automatically
+      totalCapital: increment(editable.value.capital),
+      totalIndustry: increment(editable.value.industry),
+      totalAgriculture: increment(editable.value.agriculture),
+      totalProduction: increment(editable.value.production)
+    });
+  }
+
+  async createMediumCity(editable, user, team) {
+    const newMediumCity = await addDoc(collection(db, "cities"), {
+      ...editable.value
+    });
+    await updateDoc(team, {
+      // Create city updates team object to reflect resources gained automatically
+      totalCapital: increment(editable.value.capital),
+      totalIndustry: increment(editable.value.industry),
+      totalAgriculture: increment(editable.value.agriculture),
+      totalProduction: increment(editable.value.production)
+    });
+  }
+
+  async createLargeCity(editable, user, team) {
+    const newLargeCity = await addDoc(collection(db, "cities"), {
+      ...editable.value
+    });
+    await updateDoc(team, {
+      // Create city updates team object to reflect resources gained automatically
+      totalCapital: increment(editable.value.capital),
+      totalIndustry: increment(editable.value.industry),
+      totalAgriculture: increment(editable.value.agriculture),
+      totalProduction: increment(editable.value.production)
+    });
   }
 
 }

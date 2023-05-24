@@ -1,14 +1,17 @@
 <template>
-  <form @submit.prevent="createRegion()">
+  <form @submit.prevent="createMediumCity()">
     <span class="fs-md">Region #</span>
     <div class="form-floating mb-3">
       <input v-model="editable.regionNumber" required type="number" min="0" max="99" class="form-control"
         id="regionNumber" placeholder="1,2,3..." autocomplete="off">
       <label for="regionNumber">Between 0-99</label>
     </div>
-    <div class="modal-footer">
+    <div class="modal-footer d-flex justify-content-evenly">
       <button type="button" class="btn-danger" data-bs-dismiss="modal">Close</button>
       <button type="submit" class="btn-green">Create</button>
+      <ul>
+        <li>Medium: 6 of all resources</li>
+      </ul>
     </div>
   </form>
 </template>
@@ -17,9 +20,11 @@
 import { ref, computed } from "vue";
 import { useCurrentUser, useFirestore, getCurrentUser } from "vuefire";
 import Swal from 'sweetalert2'
-import { addDoc, collection, doc, increment, updateDoc } from "@firebase/firestore";
+import { doc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
-import { useRegionStore } from "../stores/RegionStore";
+import { useRegionStore } from "../../stores/RegionStore";
+import { regionsService } from "../../services/RegionsService";
+
 
 
 export default {
@@ -31,36 +36,29 @@ export default {
     const route = useRoute()
     const db = useFirestore()
 
-    const editable = ref({ regionNumber: null, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
+    const editable = ref({ regionNumber: null, capital: 6, industry: 6, agriculture: 6, citySize: 'Medium', production: 1, creatorId: user.value?.uid })
+
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
 
     computed(() => useRegionStore.teams)
     return {
       editable,
-      async createRegion() {
+      async createMediumCity() {
         try {
           // get user id if undefined
           if (user.value?.uid == undefined) {
-            const user = await getCurrentUser();
+            await getCurrentUser();
           }
-          const newRegion = await addDoc(collection(db, "regions"), {
-            ...editable.value
-          });
-          await updateDoc(team, {
-            // Create region updates team object to reflect resources gained automatically
-            totalCapital: increment(editable.value.capital),
-            totalIndustry: increment(editable.value.industry),
-            totalAgriculture: increment(editable.value.agriculture)
-          });
-          editable.value = ({ regionNumber: null, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
+          regionsService.createMediumCity(editable, user, team)
+          editable.value = ({ regionNumber: null, capital: 6, industry: 6, agriculture: 6, citySize: 'Medium', production: 1, creatorId: user.value?.uid })
           Swal.fire({
             title: 'Success!',
             timer: 900,
             showConfirmButton: false
           })
         } catch (error) {
-          console.error(error, 'Creating Region')
+          console.error(error, 'Creating City')
         }
       },
     }
@@ -68,8 +66,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.btn-green {
-  background: #7bff2f;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -118,21 +118,44 @@
           data-bs-target="#createRegion-modal" aria-label="Create Region">
           Claim Region
         </button>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-6 col-sm-6 col-md-3 d-flex mb-3" v-for="r in region" v-if="region.length > 0">
+        <RegionCard :regions="r" :teams="teams" />
+      </div>
+      <div v-else class="col-12 text-center">
+        <span class="fs-md">Claim Region to get started</span>
+      </div>
+    </div>
+    <div class="row my-3 bg-green py-3 elevation-5 text-light">
+      <div class="col-12 d-flex justify-content-center pb-2">
+        <h2>Cities</h2>
+        <span class="material-symbols-outlined fs-lg px-2">
+          location_city
+        </span>
+      </div>
+      <div class="col-12 d-flex justify-content-center">
         <button type="submit" class="rounded text-shadow-dark py-2 px-3 mx-3" data-bs-toggle="modal"
-          data-bs-target="#createCity-modal" aria-label="Create City">
-          Claim City
+          data-bs-target="#createSmallCity-modal" aria-label="Create Small City">
+          Create Small City
+        </button>
+        <button type="submit" class="rounded text-shadow-dark py-2 px-3 mx-3" data-bs-toggle="modal"
+          data-bs-target="#createMediumCity-modal" aria-label="Create Medium City">
+          Create Medium City
+        </button>
+        <button type="submit" class="rounded text-shadow-dark py-2 px-3 mx-3" data-bs-toggle="modal"
+          data-bs-target="#createLargeCity-modal" aria-label="Create Large City">
+          Create Large City
         </button>
       </div>
     </div>
     <div class="row justify-content-center pb-5">
-      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="r in region">
-        <RegionCard :regions="r" :teams="teams" />
-      </div>
-      <div class="col-12 text-center bg-green text-light py-1 my-3 elevation-5">
-        <h2>Cities</h2>
-      </div>
-      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="c in cities">
+      <div class="col-6 col-sm-6 col-md-3 d-flex mb-3" v-for="c in cities" v-if="cities.length > 0">
         <CityCard :cities="c" :teams="teams" />
+      </div>
+      <div v-else class="col-12 text-center">
+        <span class="fs-md">Create City to get started</span>
       </div>
     </div>
   </body>
@@ -144,9 +167,6 @@
   <ModalComponent id="createRegion-modal">
     <CreateRegionForm :key="user?.uid" :teams="teams" />
   </ModalComponent>
-  <ModalComponent id="createCity-modal">
-    <CreateCityForm :key="user?.uid" :teams="teams" />
-  </ModalComponent>
   <ModalComponent id="formDivision-modal">
     <CreateDivisionComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
@@ -155,6 +175,17 @@
   </ModalComponent>
   <ModalComponent id="createCarrier-modal">
     <CreateCarrierGroupComponent :key="user?.uid" :teams="teams" />
+  </ModalComponent>
+
+  <!-- Create City Modals -->
+  <ModalComponent id="createSmallCity-modal">
+    <CreateSmallCityFormComponent :key="user?.uid" :teams="teams" />
+  </ModalComponent>
+  <ModalComponent id="createMediumCity-modal">
+    <CreateMediumCityFormComponent :key="user?.uid" :teams="teams" />
+  </ModalComponent>
+  <ModalComponent id="createLargeCity-modal">
+    <CreateLargeCityFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
 </template>
 
@@ -170,7 +201,6 @@ import CreateTeamForm from "../components/CreateTeamForm.vue";
 import RegionCard from "../components/RegionCard.vue";
 import { teamsService } from "../services/TeamsService";
 import { useRoute } from "vue-router";
-import CreateCityForm from "../components/CreateCityForm.vue";
 import CityCard from "../components/CityCard.vue";
 import InfantryComponent from "../components/InfantryComponent.vue";
 import MechIfvComponent from "../components/MechIfvComponent.vue";
@@ -187,6 +217,9 @@ import { navyUnitsService } from "../services/NavyUnitsService";
 import { useNavyStore } from "../stores/NavyStore";
 import CarrierCardComponent from "../components/CarrierCardComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
+import CreateSmallCityFormComponent from "../components/forms/CreateSmallCityFormComponent.vue";
+import CreateMediumCityFormComponent from "../components/forms/CreateMediumCityFormComponent.vue";
+import CreateLargeCityFormComponent from "../components/forms/CreateLargeCityFormComponent.vue";
 
 export default {
   setup() {
@@ -288,7 +321,7 @@ export default {
       carriers: computed(() => useNavyStore.navy)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CreateCityForm, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent, DivisionsCardComponent, ArmyCardComponent, CarrierCardComponent, NavbarComponent }
+  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent, DivisionsCardComponent, ArmyCardComponent, CarrierCardComponent, NavbarComponent, CreateSmallCityFormComponent, CreateMediumCityFormComponent, CreateLargeCityFormComponent }
 }
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid region-card elevation-5 p-3 rounded">
     <div class="row gap-2">
-      <h3 class="text-center"><u>Region #</u> {{ regions.regionNumber }}</h3>
+      <span class="text-center fs-lg"><u>Region #</u> {{ regions.regionNumber }}</span>
       <div class="col-12 d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-capital">attach_money</span>
         <span class="fs-lg">{{ regions.capital }}</span>
