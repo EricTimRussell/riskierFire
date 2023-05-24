@@ -575,20 +575,12 @@
 
 <script>
 import { useCurrentUser, useFirestore } from "vuefire";
-import { computed } from "@vue/reactivity";
-import { useRegionStore } from "../stores/RegionStore";
 import { RouterLink, useRouter } from "vue-router";
 
 export default {
-  props: {
-    teams: { type: Object, required: true }
-  },
-  setup(props) {
+  setup() {
     const user = useCurrentUser();
-    const db = useFirestore();
-    const router = useRouter()
     return {
-      teams: computed(() => useRegionStore.teams),
       user
     };
   },

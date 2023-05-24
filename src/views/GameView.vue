@@ -154,7 +154,7 @@
       <div class="col-6 col-sm-6 col-md-3 d-flex mb-3" v-for="c in cities" v-if="cities.length > 0">
         <CityCard :cities="c" :teams="teams" />
       </div>
-      <div v-else class="col-12 text-center">
+      <div v-else class="col-12 text-center pb-4">
         <span class="fs-md">Create City to get started</span>
       </div>
     </div>

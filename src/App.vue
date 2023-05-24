@@ -1,8 +1,5 @@
 <template>
   <body>
-    <!-- <header class="sticky-top">
-      <NavbarComponent :teams="teams" />
-    </header> -->
 
     <main>
       <Suspense>
@@ -16,7 +13,6 @@
 
 
 <script>
-import NavbarComponent from "./components/NavbarComponent.vue";
 import { RouterView } from 'vue-router'
 import { getCurrentUser, useCurrentUser, useFirebaseAuth } from "vuefire";
 import CreateRegionForm from "./components/CreateRegionForm.vue";
@@ -26,7 +22,7 @@ import { computed } from "@vue/reactivity";
 import { useRegionStore } from "./stores/RegionStore";
 
 export default {
-  components: { NavbarComponent, CreateRegionForm, ModalComponent, CreateTeamForm },
+  components: { CreateRegionForm, ModalComponent, CreateTeamForm },
   setup() {
     const auth = useFirebaseAuth()
     const user = useCurrentUser()
