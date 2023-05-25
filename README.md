@@ -1,5 +1,6 @@
 # RiskierFire 
-![riskierLogo](https://user-images.githubusercontent.com/99972346/232327914-3ab6c685-4aef-41fe-91e5-85ab7391ecff.jpg) 
+![Riskier-logo](https://github.com/EricTimRussell/riskierFire/assets/99972346/468fd60f-5540-446e-9234-a33a51a8b7e0)
+
 ## Welcome to RiskierFire!!!
 
 This application is used in conjuction with a board game I am developing and is primarily meant to be used on mobile devices. The board game has alot of vairiables and the app simplifies all of that for a better user experience.
