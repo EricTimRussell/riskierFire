@@ -152,7 +152,7 @@
     </div>
     <div class="row justify-content-center pb-5">
       <div class="col-6 col-sm-6 col-md-3 d-flex mb-3" v-for="c in cities" v-if="cities.length > 0">
-        <CityCard :cities="c" :teams="teams" />
+        <CityCardComponent :cities="c" :teams="teams" />
       </div>
       <div v-else class="col-12 text-center pb-4">
         <span class="fs-md">Create City to get started</span>
@@ -165,16 +165,16 @@
 
   <!-- Modals -->
   <ModalComponent id="createRegion-modal">
-    <CreateRegionForm :key="user?.uid" :teams="teams" />
+    <CreateRegionFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
   <ModalComponent id="formDivision-modal">
-    <CreateDivisionComponent :key="user?.uid" :teams="teams" />
+    <CreateDivisionFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
   <ModalComponent id="formArmy-modal">
-    <CreateArmyComponent :key="user?.uid" :teams="teams" />
+    <CreateArmyFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
   <ModalComponent id="createCarrier-modal">
-    <CreateCarrierGroupComponent :key="user?.uid" :teams="teams" />
+    <CreateCarrierGroupFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
 
   <!-- Create City Modals -->
