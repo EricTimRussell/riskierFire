@@ -29,7 +29,7 @@
           icons on the bottom represent your teams total resources. The $ sign is capital, the factory is industry,
           the leaf is agriculture, and the wrench is production. </p>
         <div class="d-flex justify-content-center pb-5">
-          <button v-if="user?.uid && !teams.creatorId" type="submit" class="rounded text-shadow-dark p-2"
+          <button v-if="user?.uid != teams.creatorId && user" type="submit" class="rounded text-shadow-dark p-2"
             data-bs-toggle="modal" data-bs-target="#createTeam-modal" aria-label="Create Team">
             Create Team
           </button>
@@ -39,7 +39,7 @@
   </div>
 
   <ModalComponent id="createTeam-modal">
-    <CreateTeamFormComponent key="user?.uid" />
+    <CreateTeamFormComponent :key="user?.uid" />
   </ModalComponent>
 </template>
 

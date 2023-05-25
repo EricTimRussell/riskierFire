@@ -6,7 +6,7 @@
           <img title="Menu" src="../assets/riskierLogo/Riskier-logo.png"
             class="logo-img rounded dropdown-toggle selectable" data-bs-toggle="dropdown" aria-expanded="false" alt="">
           <ul class="dropdown-menu text-center mx-4">
-            <span class="fs-sm text-decoration-underline px-3">{{ user?.email }}</span>
+            <span v-if="user?.email" class="fs-sm text-decoration-underline px-3">{{ user?.email }}</span>
             <li>
               <RouterLink to="/" class="fs-md">Home</RouterLink>
             </li>
