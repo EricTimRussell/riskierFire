@@ -1,5 +1,5 @@
 # RiskierFire 
-![Riskier-logo](https://github.com/EricTimRussell/riskierFire/assets/99972346/468fd60f-5540-446e-9234-a33a51a8b7e0)
+![Riskier-logo-bg](https://github.com/EricTimRussell/riskierFire/assets/99972346/5c62273d-27ff-46c8-9dea-158e8e7d4779)
 
 ## Welcome to RiskierFire!!!
 
