@@ -20,11 +20,17 @@
 </template>
 
 <script>
-import { ref } from "vue";
+// Firebase
 import { useCurrentUser, useFirestore, getCurrentUser } from "vuefire";
-import Swal from 'sweetalert2'
 import { addDoc, collection, doc, increment, updateDoc } from "@firebase/firestore";
+
+// Vue
 import { useRoute } from "vue-router";
+import { ref } from "vue";
+
+// CSS imports
+import Swal from 'sweetalert2'
+
 export default {
   props: {
     teams: { type: Object, required: true },

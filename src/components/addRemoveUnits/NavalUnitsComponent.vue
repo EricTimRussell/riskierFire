@@ -100,12 +100,16 @@
 
 
 <script>
+// Firebase
 import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
+
+// Vue
 import { useRoute } from "vue-router";
-import { navyUnitsService } from "../services/NavyUnitsService";
 import { ref } from "vue";
 
+// Services
+import { navyUnitsService } from "../../services/NavyUnitsService";
 
 export default {
   props: {

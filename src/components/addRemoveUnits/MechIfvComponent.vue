@@ -68,11 +68,16 @@
 
 
 <script>
-import { groundForcesService } from "../services/GroundForcesService";
+// Firebase
 import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
+
+// Vue
 import { useRoute } from "vue-router";
 import { ref } from "vue";
+
+// Services
+import { groundForcesService } from "../../services/GroundForcesService";
 
 
 export default {

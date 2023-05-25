@@ -16,9 +16,9 @@
 
 <script>
 import { doc, setDoc } from "@firebase/firestore";
-import Swal from "sweetalert2";
-import { ref } from "vue";
 import { useCurrentUser, useFirestore } from "vuefire";
+import { ref } from "vue";
+import Swal from "sweetalert2";
 
 export default {
   setup() {

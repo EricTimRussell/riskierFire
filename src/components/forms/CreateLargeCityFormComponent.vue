@@ -17,15 +17,22 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+// Firebase
 import { useCurrentUser, useFirestore, getCurrentUser } from "vuefire";
-import Swal from 'sweetalert2'
 import { doc } from "@firebase/firestore";
+
+// Vue
+import { ref, computed } from "vue";
 import { useRoute } from "vue-router";
+
+// State Management
 import { useRegionStore } from "../../stores/RegionStore";
+
+// Services
 import { regionsService } from "../../services/RegionsService";
 
-
+// CSS
+import Swal from 'sweetalert2'
 
 export default {
   props: {

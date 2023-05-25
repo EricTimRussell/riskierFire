@@ -2,7 +2,7 @@
   <!-- Select Adversary Offense-->
   <div class="col-12 d-flex justify-content-center pt-5">
     <h2>Select Adversary</h2>
-    <button class="rounded text-shadow-dark mx-3" data-bs-toggle="modal" data-bs-target="#ifv-odds" aria-label="Unit Odds"
+    <button class="rounded text-shadow-dark mx-3" data-bs-toggle="modal" data-bs-target="#mbt-odds" aria-label="Unit Odds"
       title="Unit Odds"><span class="material-symbols-outlined fs-lg">
         casino
       </span></button>
@@ -31,7 +31,7 @@
   <!-- Vs Infantry -->
   <div class="d-flex justify-content-center height-top">
     <div class="col-3 d-flex justify-content-center mt-5" for="infantry" v-if="infantry == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 12)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12) || (twoSixDie.roll == 2)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -83,7 +83,7 @@
 
     <!-- Vs IFV -->
     <div class="col-3 d-flex justify-content-center mt-5" for="ifv" v-if="ifv == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 11)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -109,7 +109,7 @@
 
     <!-- Vs MBT -->
     <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="mbt == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 8)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -159,16 +159,6 @@
     </div>
   </div>
   <div class="col-12 d-flex justify-content-center gap-3">
-    <div class="d-flex">
-      <input id="marshland" class="mx-1 checkbox" type="checkbox" v-model="marshland">
-      <h3>Marshland</h3>
-    </div>
-    <div class="d-flex">
-      <input id="jungle" class="mx-1 checkbox" type="checkbox" v-model="jungle">
-      <h3>Jungle</h3>
-    </div>
-  </div>
-  <div class="col-12 d-flex justify-content-center gap-3">
     <input id="urban" class="mx-1 checkbox" type="checkbox" v-model="urban">
     <h3>Urban</h3>
   </div>
@@ -177,7 +167,7 @@
   <!-- Highlands -->
   <div class="d-flex justify-content-center height-bottom">
     <div class="col-3 d-flex justify-content-center mt-5" for="highlands" v-if="highlands == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 9)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -202,7 +192,7 @@
     </div>
     <!-- Grasslands -->
     <div class="col-3 d-flex justify-content-center mt-5" for="grassland" v-if="grassland == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 8)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -227,7 +217,7 @@
     </div>
     <!-- Desert -->
     <div class="col-3 d-flex justify-content-center mt-5" for="desert" v-if="desert == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 8)">
+      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -253,56 +243,6 @@
     <!-- Foreset -->
     <div class="col-3 d-flex justify-content-center mt-5" for="forest" v-if="forest == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 9)">
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-          <div v-if="isPending" class="fs-lg" role="status">
-            <span class="dice"></span>
-          </div>
-        </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
-        <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-      <div class="text-center" v-else>
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-          <div v-if="isPending" class="fs-lg" role="status">
-            <span class="dice"></span>
-          </div>
-        </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
-        <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-    </div>
-    <!-- Jungle -->
-    <div class="col-3 d-flex justify-content-center mt-5" for="jungle" v-if="jungle == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 9)">
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-          <div v-if="isPending" class="fs-lg" role="status">
-            <span class="dice"></span>
-          </div>
-        </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
-        <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-      <div class="text-center" v-else>
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
-          <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
-          <div v-if="isPending" class="fs-lg" role="status">
-            <span class="dice"></span>
-          </div>
-        </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
-        <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-    </div>
-    <!-- Marshlands -->
-    <div class="col-3 d-flex justify-content-center mt-5" for="marshland" v-if="marshland == true">
-      <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 8)">
         <h6>Roll Dice</h6>
         <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
@@ -352,26 +292,25 @@
     </div>
   </div>
 
-  <ModalComponent id="ifv-odds">
+  <ModalComponent id="mbt-odds">
     <div class="bg-light text-dark d-flex flex-column align-items-center">
-      <h5 class="text-danger text-center">IFV: Offense-2D6</h5>
-      <h6 class="text-center">1AP, 3MP, Range of 1</h6>
+      <h5 class="text-danger text-center">MBT: Offense-2D6</h5>
+      <h6 class="text-center">2AP, 2MP, Range of 1</h6>
       <ul>
-        <li>Vs Infantry: 5-12 (77.8%)</li>
+        <li>Vs Infantry: 2, 7-12 (61.1%)</li>
         <li>Vs Mech: 5-9 (66.7%)</li>
-        <li>Vs IFV: 7-11 (55.6%)</li>
-        <li>Vs MBT: 7-8 (30.6%)</li>
+        <li>Vs IFV: 5-12 (77.8%)</li>
+        <li>Vs MBT: 7-12 (58.3%) </li>
       </ul>
     </div>
 
     <div class="d-flex flex-column align-items-center text-dark">
-      <h5 class="text-primary text-center">IFV: Deffense-2D6</h5>
+      <h5 class="text-primary text-center">MBT: Deffense-2D6</h5>
       <ul>
         <li>Urban D: 7-10 (50%)</li>
-        <li>Wetlands D: 7-8 (30.6%)</li>
-        <li>Jungle/Forest D: 7-9 (41.7%)</li>
-        <li>Desert/Grassland D: 5-8 (55.6%)</li>
-        <li>Highlands D: 7-10 (50%)</li>
+        <li>Grassland/Desert D: 7-10 (50%)</li>
+        <li>Forest D: 7-9 (41.7%)</li>
+        <li>Highlands D: 7-9 (41.7%)</li>
       </ul>
     </div>
   </ModalComponent>
@@ -379,7 +318,7 @@
 
 <script>
 import { ref } from "vue"
-import ModalComponent from "./ModalComponent.vue"
+import ModalComponent from "../ModalComponent.vue"
 
 export default {
   setup() {
@@ -393,8 +332,6 @@ export default {
     const grassland = ref(false);
     const forest = ref(false);
     const desert = ref(false);
-    const jungle = ref(false);
-    const marshland = ref(false);
     const urban = ref(false);
     return {
       infantry,
@@ -405,8 +342,6 @@ export default {
       grassland,
       forest,
       desert,
-      jungle,
-      marshland,
       urban,
       twoSixDie,
       isPending,

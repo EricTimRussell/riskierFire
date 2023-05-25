@@ -257,12 +257,19 @@
 </template>
 
 <script>
-import { ref } from "vue";
+// Firebase
 import { deleteDoc, doc } from "@firebase/firestore";
-import Swal from "sweetalert2";
 import { useFirestore } from "vuefire";
+
+// Vue
+import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { navyUnitsService } from "../services/NavyUnitsService";
+
+// Services
+import { navyUnitsService } from "../../services/NavyUnitsService";
+
+// CSS
+import Swal from "sweetalert2";
 
 export default {
   props: {

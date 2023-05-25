@@ -191,10 +191,16 @@
 </template>
 
 <script>
+// Firebase
 import { addDoc, collection } from "@firebase/firestore";
-import Swal from "sweetalert2";
-import { ref } from "vue";
 import { useCurrentUser, useFirestore } from "vuefire";
+
+// Vue
+import { ref } from "vue";
+
+// CSS
+import Swal from "sweetalert2";
+
 export default {
   props: {
     teams: { type: Object, required: true },

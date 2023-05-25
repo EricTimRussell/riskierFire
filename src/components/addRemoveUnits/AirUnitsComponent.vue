@@ -90,12 +90,16 @@
 
 
 <script>
+// Firebase
 import { useFirestore } from "vuefire"
 import { doc } from "@firebase/firestore";
+
+// Vue
 import { useRoute } from "vue-router";
-import { airUnitsService } from "../services/AirUnitsService";
 import { ref } from "vue";
 
+// Services
+import { airUnitsService } from "../../services/AirUnitsService";
 
 export default {
   props: {

@@ -13,21 +13,22 @@
 
 
 <script>
-import { RouterView } from 'vue-router'
+// Firebase
 import { getCurrentUser, useCurrentUser, useFirebaseAuth } from "vuefire";
-import CreateRegionForm from "./components/CreateRegionForm.vue";
+
+// Vue
+import { RouterView } from 'vue-router'
+
+// Components
 import ModalComponent from "./components/ModalComponent.vue";
-import CreateTeamForm from "./components/CreateTeamForm.vue";
-import { computed } from "@vue/reactivity";
-import { useRegionStore } from "./stores/RegionStore";
+import CreateTeamFormComponent from "./components/forms/CreateTeamFormComponent.vue";
 
 export default {
-  components: { CreateRegionForm, ModalComponent, CreateTeamForm },
+  components: { ModalComponent, CreateTeamFormComponent },
   setup() {
     const auth = useFirebaseAuth()
     const user = useCurrentUser()
     return {
-      teams: computed(() => useRegionStore.teams),
       user,
       async getLoggedInUser() {
         if (user.value?.uid == undefined) {

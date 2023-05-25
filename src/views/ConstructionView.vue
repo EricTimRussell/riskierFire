@@ -48,19 +48,29 @@
 </template>
 
 <script>
-import ModalComponent from "../components/ModalComponent.vue";
+// Firebase
+import { getCurrentUser, useCurrentUser } from "vuefire";
+
+// Vue
 import { computed } from "@vue/reactivity";
 import { onMounted } from "vue";
-import { getCurrentUser, useCurrentUser } from "vuefire";
+
+// Services
 import { teamsService } from "../services/TeamsService";
 import { buildingsService } from "../services/BuildingsService";
+
+// State Management
 import { useRegionStore } from "../stores/RegionStore";
-import ConstructionFormComponent from "../components/ConstructionFormComponent.vue";
 import { useConstructionStore } from "../stores/ConstructionStore";
-import ConstructionCardComponent from "../components/ConstructionCardComponent.vue";
-import NavalUnitsComponent from "../components/NavalUnitsComponent.vue";
-import BuildingsComponent from "../components/BuildingsComponent.vue";
+
+// Components
+import ModalComponent from "../components/ModalComponent.vue";
+import ConstructionFormComponent from "../components/forms/ConstructionFormComponent.vue";
+import ConstructionCardComponent from "../components/cards/ConstructionCardComponent.vue";
+import NavalUnitsComponent from "../components/addRemoveUnits/NavalUnitsComponent.vue";
+import BuildingsComponent from "../components/addRemoveUnits/BuildingsComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
+
 export default {
   setup() {
     const user = useCurrentUser();

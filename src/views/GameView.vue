@@ -122,7 +122,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-6 col-sm-6 col-md-3 d-flex mb-3" v-for="r in region" v-if="region.length > 0">
-        <RegionCard :regions="r" :teams="teams" />
+        <RegionCardComponent :regions="r" :teams="teams" />
       </div>
       <div v-else class="col-12 text-center">
         <span class="fs-md">Claim Region to get started</span>
@@ -189,33 +189,43 @@
   </ModalComponent>
 </template>
 
+
 <script>
+// firbase
 import { useCurrentUser, getCurrentUser } from "vuefire"
+
+// vue
 import { onMounted, computed } from "vue";
+import { useRoute } from "vue-router";
+
+// Services
 import { regionsService } from "../services/RegionsService";
+import { teamsService } from "../services/TeamsService";
+import { armiesDivisionsService } from "../services/ArmiesDivisionsService";
+import { navyUnitsService } from "../services/NavyUnitsService";
+
+// State management
 import { useRegionStore } from "../stores/RegionStore";
 import { useArmyDivisionStore } from "../stores/ArmyDivisionStore";
-import ModalComponent from "../components/ModalComponent.vue";
-import CreateRegionForm from "../components/CreateRegionForm.vue";
-import CreateTeamForm from "../components/CreateTeamForm.vue";
-import RegionCard from "../components/RegionCard.vue";
-import { teamsService } from "../services/TeamsService";
-import { useRoute } from "vue-router";
-import CityCard from "../components/CityCard.vue";
-import InfantryComponent from "../components/InfantryComponent.vue";
-import MechIfvComponent from "../components/MechIfvComponent.vue";
-import MbtAntiAircraftComponent from "../components/MbtAntiAircraftComponent.vue";
-import ArtilleryComponent from "../components/ArtilleryComponent.vue";
-import AirUnitsComponent from "../components/AirUnitsComponent.vue";
-import CreateDivisionComponent from "../components/CreateDivisionComponent.vue";
-import CreateArmyComponent from "../components/CreateArmyComponent.vue";
-import CreateCarrierGroupComponent from "../components/CreateCarrierGroupComponent.vue";
-import { armiesDivisionsService } from "../services/ArmiesDivisionsService";
-import DivisionsCardComponent from "../components/DivisionsCardComponent.vue";
-import ArmyCardComponent from "../components/ArmyCardComponent.vue";
-import { navyUnitsService } from "../services/NavyUnitsService";
 import { useNavyStore } from "../stores/NavyStore";
-import CarrierCardComponent from "../components/CarrierCardComponent.vue";
+
+// Components
+import RegionCardComponent from "../components/cards/RegionCardComponent.vue";
+import ModalComponent from "../components/ModalComponent.vue";
+import CreateRegionFormComponent from "../components/forms/CreateRegionFormComponent.vue";
+import CreateTeamFormComponent from "../components/forms/CreateTeamFormComponent.vue";
+import CityCardComponent from "../components/cards/CityCardComponent.vue";
+import InfantryComponent from "../components/addRemoveUnits/InfantryComponent.vue";
+import MechIfvComponent from "../components/addRemoveUnits/MechIfvComponent.vue";
+import MbtAntiAircraftComponent from "../components/addRemoveUnits/MbtAntiAircraftComponent.vue";
+import ArtilleryComponent from "../components/addRemoveUnits/ArtilleryComponent.vue";
+import AirUnitsComponent from "../components/addRemoveUnits/AirUnitsComponent.vue";
+import CreateDivisionFormComponent from "../components/forms/CreateDivisionFormComponent.vue";
+import CreateArmyFormComponent from "../components/forms/CreateArmyFormComponent.vue";
+import CreateCarrierGroupFormComponent from "../components/forms/CreateCarrierGroupFormComponent.vue";
+import DivisionsCardComponent from "../components/cards/DivisionsCardComponent.vue";
+import ArmyCardComponent from "../components/cards/ArmyCardComponent.vue";
+import CarrierCardComponent from "../components/cards/CarrierCardComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
 import CreateSmallCityFormComponent from "../components/forms/CreateSmallCityFormComponent.vue";
 import CreateMediumCityFormComponent from "../components/forms/CreateMediumCityFormComponent.vue";
@@ -321,7 +331,7 @@ export default {
       carriers: computed(() => useNavyStore.navy)
     };
   },
-  components: { ModalComponent, CreateRegionForm, CreateTeamForm, RegionCard, CityCard, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, CreateDivisionComponent, CreateArmyComponent, CreateCarrierGroupComponent, DivisionsCardComponent, ArmyCardComponent, CarrierCardComponent, NavbarComponent, CreateSmallCityFormComponent, CreateMediumCityFormComponent, CreateLargeCityFormComponent }
+  components: { ModalComponent, CreateRegionFormComponent, CreateTeamFormComponent, RegionCardComponent, CityCardComponent, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, CreateDivisionFormComponent, CreateArmyFormComponent, CreateCarrierGroupFormComponent, DivisionsCardComponent, ArmyCardComponent, CarrierCardComponent, NavbarComponent, CreateSmallCityFormComponent, CreateMediumCityFormComponent, CreateLargeCityFormComponent }
 }
 </script>
 

@@ -235,27 +235,35 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import InfantryDiceComponent from "../components/InfantryDiceComponent.vue";
-import MechanizedDiceComponent from "../components/MechanizedDiceComponent.vue";
-import SpecialForcesDiceComponent from "../components/SpecialForcesDiceComponent.vue";
-import IFVDiceComponent from "../components/IFVDiceComponent.vue";
-import MBTDiceComponent from "../components/MBTDiceComponent.vue";
-import ArtilleryDiceComponent from "../components/ArtilleryDiceComponent.vue";
-import MissileArtilleryDiceComponent from "../components/MissileArtilleryDiceComponent.vue";
+// Firebase
+import { getCurrentUser, useCurrentUser } from "vuefire";
+
+// Vue
+import { ref, onMounted } from "vue";
+import { computed } from "@vue/reactivity";
+
+// Services
+import { teamsService } from "../services/TeamsService";
+
+// State Management
+import { useRegionStore } from "../stores/RegionStore";
+
+// Components
+import InfantryDiceComponent from "../components/groundUnitDice/InfantryDiceComponent.vue";
+import MechanizedDiceComponent from "../components/groundUnitDice/MechanizedDiceComponent.vue";
+import SpecialForcesDiceComponent from "../components/groundUnitDice/SpecialForcesDiceComponent.vue";
+import IFVDiceComponent from "../components/groundUnitDice/IFVDiceComponent.vue";
+import MBTDiceComponent from "../components/groundUnitDice/MBTDiceComponent.vue";
+import ArtilleryDiceComponent from "../components/groundUnitDice/ArtilleryDiceComponent.vue";
+import MissileArtilleryDiceComponent from "../components/groundUnitDice/MissileArtilleryDiceComponent.vue";
 import FighterAircraftDiceComponent from "../components/aircraftDice/FighterAircraftDiceComponent.vue";
 import CasDiceComponent from "../components/aircraftDice/CasDiceComponent.vue";
-import AnitAicraftDiceComponent from "../components/AnitAicraftDiceComponent.vue";
+import AnitAicraftDiceComponent from "../components/groundUnitDice/AnitAicraftDiceComponent.vue";
 import CarrierDiceComponent from "../components/navyDice/CarrierDiceComponent.vue";
 import CruiserDiceComponent from "../components/navyDice/CruiserDiceComponent.vue";
 import DestroyerDiceComponent from "../components/navyDice/DestroyerDiceComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
-import { teamsService } from "../services/TeamsService";
-import { onMounted } from "vue";
-import { getCurrentUser, useCurrentUser } from "vuefire";
-import { computed } from "@vue/reactivity";
-import { useRegionStore } from "../stores/RegionStore";
 
 export default {
   setup() {

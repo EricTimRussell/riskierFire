@@ -1,23 +1,22 @@
 <template>
   <div class="container-fluid region-card elevation-5 p-3 rounded">
     <div class="row gap-2">
-      <span class="text-center fs-lg"><u>Region #</u> {{ cities.regionNumber }}</span>
-      <span class="text-center fs-lg">City Size: {{ cities.citySize }}</span>
+      <span class="text-center fs-lg"><u>Region #</u> {{ regions.regionNumber }}</span>
       <div class="col-12 d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-capital">attach_money</span>
-        <span class="fs-lg">{{ cities.capital }}</span>
+        <span class="fs-lg">{{ regions.capital }}</span>
       </div>
       <div class="col-12 d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">{{ cities.industry }}</span>
+        <span class="fs-lg">{{ regions.industry }}</span>
       </div>
       <div class="col-12 d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
-        <span class="fs-lg">{{ cities.agriculture }}</span>
+        <span class="fs-lg">{{ regions.agriculture }}</span>
       </div>
     </div>
     <div class="col-12 text-end pt-3 px-1">
-      <button @click="deleteCity()" class="btn-blank text-danger" title="Delete"><span
+      <button @click="deleteRegion()" class="btn-blank text-danger" title="Delete?"><span
           class="material-symbols-outlined fs-lg">
           delete_forever
         </span></button>
@@ -26,14 +25,19 @@
 </template>
 
 <script>
+// Firebase
 import { doc, deleteDoc, updateDoc, increment } from "firebase/firestore";
-import Swal from "sweetalert2";
-import { useRoute } from "vue-router";
 import { useFirestore } from "vuefire";
+
+// Vue
+import { useRoute } from "vue-router";
+
+// CSS
+import Swal from "sweetalert2";
 
 export default {
   props: {
-    cities: { type: Object, required: true },
+    regions: { type: Object, required: true },
     teams: { type: Object, required: true }
   },
   setup(props) {
@@ -42,7 +46,7 @@ export default {
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
     return {
-      async deleteCity() {
+      async deleteRegion() {
         try {
           await Swal.fire({
             title: 'Are you sure?',
@@ -54,22 +58,22 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              // Delete city updates team object to reflect resources lost automatically
-              deleteDoc(doc(db, "cities", props.cities.id));
+              // Delete region updates team object to reflect resources lost automatically
+
+              deleteDoc(doc(db, "regions", props.regions.id));
               updateDoc(team, {
-                totalCapital: increment(-props.cities.capital),
-                totalIndustry: increment(-props.cities.industry),
-                totalAgriculture: increment(-props.cities.agriculture),
-                totalProduction: increment(-props.cities.production)
+                totalCapital: increment(-props.regions.capital),
+                totalIndustry: increment(-props.regions.industry),
+                totalAgriculture: increment(-props.regions.agriculture)
               });
               Swal.fire(
-                'City Deleted!',
+                'Region Deleted!',
                 'success'
               )
             }
           })
         } catch (error) {
-          console.error(error, 'Deleting city')
+          console.error(error, 'Deleting Region')
         }
       }
     }
@@ -77,5 +81,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
 

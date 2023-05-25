@@ -10,9 +10,9 @@
             <li>
               <RouterLink to="/" class="fs-md">Home</RouterLink>
             </li>
-            <li v-if="user?.email">
+            <!-- <li v-if="user?.email">
               <RouterLink to="/account" class="fs-md">Account</RouterLink>
-            </li>
+            </li> -->
             <li v-if="user?.email">
               <span @click="logOutOfFirebase()" class="fs-md selectable">Logout</span>
             </li>
@@ -79,11 +79,16 @@
 </template>
 
 <script>
+// Firebase
 import { useCurrentUser, useFirebaseAuth, useFirestore } from "vuefire";
 import { signOut } from "@firebase/auth";
+
+// Vue
 import { computed } from "@vue/reactivity";
-import { useRegionStore } from "../stores/RegionStore";
 import { RouterLink, useRouter } from "vue-router";
+
+// State Management
+import { useRegionStore } from "../stores/RegionStore";
 
 export default {
   props: {

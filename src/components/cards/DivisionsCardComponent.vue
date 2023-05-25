@@ -152,12 +152,19 @@
 </template>
 
 <script>
-import { ref } from "vue";
+// Firebase
 import { deleteDoc, doc } from "@firebase/firestore";
-import Swal from "sweetalert2";
 import { useFirestore } from "vuefire";
+
+// Vue
+import { ref } from "vue";
 import { useRoute } from "vue-router";
-import { armiesDivisionsService } from "../services/ArmiesDivisionsService";
+
+// Services
+import { armiesDivisionsService } from "../../services/ArmiesDivisionsService";
+
+// CSS
+import Swal from "sweetalert2";
 
 export default {
   props: {

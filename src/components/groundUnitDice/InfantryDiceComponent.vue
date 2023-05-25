@@ -430,7 +430,7 @@
 
 <script>
 import { ref } from "vue"
-import ModalComponent from "./ModalComponent.vue"
+import ModalComponent from "../ModalComponent.vue"
 
 export default {
   setup() {

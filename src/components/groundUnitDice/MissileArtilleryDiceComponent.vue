@@ -2,7 +2,7 @@
   <!-- Select Adversary Offense-->
   <div class="col-12 d-flex justify-content-center pt-5">
     <h2>Select Adversary</h2>
-    <button class="rounded text-shadow-dark mx-3" data-bs-toggle="modal" data-bs-target="#artillery-odds"
+    <button class="rounded text-shadow-dark mx-3" data-bs-toggle="modal" data-bs-target="#missile-art-odds"
       aria-label="Unit Odds" title="Unit Odds"><span class="material-symbols-outlined fs-lg">
         casino
       </span></button>
@@ -130,15 +130,16 @@
     </div>
 
   </div>
-  <ModalComponent id="artillery-odds">
+
+  <ModalComponent id="missile-art-odds">
     <div class="bg-light text-dark d-flex flex-column align-items-center">
-      <h5 class="text-danger text-center">Artillery-D12</h5>
-      <h6 class="text-center">1AP, 1MP, Range of 3</h6>
+      <h5 class="text-danger text-center">Missile Artillery-D12</h5>
+      <h6 class="text-center">1AP, 1MP, Range of 4</h6>
       <ul>
         <li>Vs Infantry/Mech 1-4 (33%)</li>
-        <li>IFV, All Artillery, & AA 1-3 (25%)</li>
-        <li>MBT 1-2 (16%)</li>
-        <li>With Designator 1-7 (58%)</li>
+        <li>IFV 1-3 (25%)</li>
+        <li>MBT/All units in cities 1-2 (16%)</li>
+        <li>With Laser Designator 1-8 (67%) Vs Everything</li>
       </ul>
     </div>
   </ModalComponent>
@@ -146,7 +147,7 @@
 
 <script>
 import { ref } from "vue"
-import ModalComponent from "./ModalComponent.vue";
+import ModalComponent from "../ModalComponent.vue";
 
 export default {
   setup() {

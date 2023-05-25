@@ -39,18 +39,27 @@
   </div>
 
   <ModalComponent id="createTeam-modal">
-    <CreateTeamForm :key="user?.uid" />
+    <CreateTeamFormComponent key="user?.uid" />
   </ModalComponent>
 </template>
 
 <script>
-import { onMounted } from "vue";
+// firebase
 import { getCurrentUser, useCurrentUser } from "vuefire";
-import CreateTeamForm from "../components/CreateTeamForm.vue";
-import ModalComponent from "../components/ModalComponent.vue";
-import { teamsService } from "../services/TeamsService";
+
+// Vue
+import { onMounted } from "vue";
 import { computed } from "@vue/reactivity";
+
+// Services
+import { teamsService } from "../services/TeamsService";
+
+// State Management
 import { useRegionStore } from "../stores/RegionStore";
+
+// Components
+import CreateTeamFormComponent from "../components/forms/CreateTeamFormComponent.vue";
+import ModalComponent from "../components/ModalComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
 
 export default {
@@ -76,7 +85,7 @@ export default {
       user,
     };
   },
-  components: { ModalComponent, CreateTeamForm, NavbarComponent }
+  components: { ModalComponent, CreateTeamFormComponent, NavbarComponent }
 }
 </script>
 

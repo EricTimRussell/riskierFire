@@ -28,11 +28,17 @@
 </template>
 
 <script>
-import { ref } from "vue";
+// Firebase
 import { useFirebaseAuth, useFirestore } from "vuefire";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
+
+// Vue
+import { ref } from "vue";
 import { useRouter, RouterLink } from "vue-router";
+
+// CSS Imports
 import Swal from "sweetalert2";
+
 export default {
   setup() {
     const router = useRouter()

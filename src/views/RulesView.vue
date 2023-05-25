@@ -574,8 +574,11 @@
 </template>
 
 <script>
-import { useCurrentUser, useFirestore } from "vuefire";
-import { RouterLink, useRouter } from "vue-router";
+// Firebase
+import { useCurrentUser } from "vuefire";
+
+// Vue
+import { RouterLink } from "vue-router";
 
 export default {
   setup() {

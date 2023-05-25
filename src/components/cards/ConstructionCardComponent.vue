@@ -35,10 +35,15 @@
 </template>
 
 <script>
+// Firebase
 import { deleteDoc, doc, updateDoc, increment } from "@firebase/firestore"
-import Swal from "sweetalert2"
-import { useRoute } from "vue-router"
 import { useFirestore } from "vuefire"
+
+// Vue
+import { useRoute } from "vue-router"
+
+// CSS
+import Swal from "sweetalert2"
 
 export default {
   props: {
