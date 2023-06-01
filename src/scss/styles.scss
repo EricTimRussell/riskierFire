@@ -219,6 +219,14 @@ button:disabled {
   }
 }
 
+// Build Animation
+.add-unit-transform {
+  transform: translateY(-12px);
+  -o-transform: translateY(-12px);
+  -moz-transform: translateY(-12);
+  -webkit-transform: translateY(-12px);
+}
+
 // Misc utilities
 
 .selectable {
@@ -294,8 +302,8 @@ button:disabled {
   }
 
   .paragraph-mobile {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 6%;
+    margin-right: 6%;
   }
 
   .logo-img {

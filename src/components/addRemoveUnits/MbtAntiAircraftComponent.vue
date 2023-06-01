@@ -9,8 +9,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">MBT</h6>
-        <h6 v-if="plusMBT == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusMBT == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusMBT == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusMBT == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusMBT && !minusMBT" class="px-2 fs-4"><strong>{{ team.totalMBT }}</strong></h6>
       </div>
       <div>
@@ -41,8 +41,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">AntiAircraft</h6>
-        <h6 v-if="plusAntiAircraft == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusAntiAircraft == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusAntiAircraft == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusAntiAircraft == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusAntiAircraft && !minusAntiAircraft" class="px-2 fs-4"><strong>{{ team.totalAntiAircraft }}</strong>
         </h6>
       </div>

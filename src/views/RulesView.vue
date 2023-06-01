@@ -404,7 +404,7 @@
         <p>--Fighter Aircraft and CAS can retreat instantly and will be returned to any airfield within
           range.
         </p>
-        <p><span class="text-tan fs-md">--Retreating when a unit has no supplies: </span> In the event a army/division has
+        <p><span class="text-tan fs-md">Retreating when a unit has no supplies: </span> In the event a army/division has
           no
           supplies left to defend themselves from an attack they must all retreat. A dice roll for each unit
           retreating will be used determine a successfull escape or not. Using a D12 the defending player must roll
@@ -461,7 +461,7 @@
           remove or change them. Players should not know what items another player is going to use before they place them
           face up.
         </p>
-        <p><span class="text-tan">--Exsplosive Reactive Armor:</span> This can be used before a battle begins to
+        <p><span class="text-tan">Exsplosive Reactive Armor:</span> This can be used before a battle begins to
           increase MBT's
           odds of surving a hit. When an MBT takes a hit roll a D12 to determine if the reactive armor deflects the
           shot 1-5 is successful.

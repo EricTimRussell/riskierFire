@@ -9,8 +9,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Carriers</h6>
-        <h6 v-if="plusCarrier == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusCarrier == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusCarrier == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusCarrier == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusCarrier && !minusCarrier" class="px-2 fs-4"><strong>{{ team.totalCarriers }}</strong></h6>
       </div>
       <div>
@@ -41,8 +41,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Cruisers</h6>
-        <h6 v-if="plusCruiser == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusCruiser == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusCruiser == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusCruiser == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusCruiser && !minusCruiser" class="px-2 fs-4"><strong>{{ team.totalCruisers }}</strong></h6>
       </div>
       <div>
@@ -73,8 +73,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Destroyers</h6>
-        <h6 v-if="plusDestroyer == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusDestroyer == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusDestroyer == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusDestroyer == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusDestroyer && !minusDestroyer" class="px-2 fs-4"><strong>{{ team.totalDestroyers }}</strong></h6>
       </div>
       <div>

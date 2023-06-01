@@ -42,7 +42,8 @@
     <CreateTeamFormComponent :key="user?.uid" />
   </ModalComponent>
 </template>
-
+<!-- TODO make a nicer homepage -->
+<!-- TODO create set card classes for all the card components -->
 <script>
 // firebase
 import { getCurrentUser, useCurrentUser } from "vuefire";

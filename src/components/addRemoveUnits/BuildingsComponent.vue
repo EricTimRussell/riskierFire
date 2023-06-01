@@ -9,8 +9,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Airfields</h6>
-        <h6 v-if="plusAirfield == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusAirfield == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusAirfield == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusAirfield == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusAirfield && !minusAirfield" class="px-2 fs-4"><strong>{{ team.totalAirfields }}</strong></h6>
       </div>
       <div>
@@ -37,8 +37,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Naval Yards</h6>
-        <h6 v-if="plusNavalYard == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusNavalYard == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusNavalYard == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusNavalYard == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusNavalYard && !minusNavalYard" class="px-2 fs-4"><strong>{{ team.totalNavalYards }}</strong></h6>
       </div>
       <div>
@@ -65,8 +65,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Factory</h6>
-        <h6 v-if="plusFactory == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusFactory == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusFactory == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusFactory == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusFactory && !minusFactory" class="px-2 fs-4"><strong>{{ team.totalFactories }}</strong></h6>
       </div>
       <div>
@@ -96,7 +96,7 @@ import { doc } from "@firebase/firestore";
 import { useRoute } from "vue-router";
 import { ref } from "vue";
 
-// Services
+// Services add-unit-transform
 import { buildingsService } from "../../services/BuildingsService";
 
 export default {

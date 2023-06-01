@@ -9,8 +9,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Fighters</h6>
-        <h6 v-if="plusFighter == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusFighter == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusFighter == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusFighter == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusFighter && !minusFighter" class="px-2 fs-4"><strong>{{ team.totalFighterAircraft }}</strong></h6>
       </div>
       <div>
@@ -38,8 +38,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">CAS</h6>
-        <h6 v-if="plusCAS == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusCAS == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusCAS == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusCAS == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusCAS && !minusCAS" class="px-2 fs-4"><strong>{{ team.totalCloseAirSupport }}</strong></h6>
       </div>
       <div>
@@ -67,8 +67,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Cargo Aircraft</h6>
-        <h6 v-if="plusCargo == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusCargo == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusCargo == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusCargo == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusCargo && !minusCargo" class="px-2 fs-4"><strong>{{ team.totalCargoAircraft }}</strong></h6>
       </div>
       <div>

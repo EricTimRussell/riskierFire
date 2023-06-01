@@ -9,8 +9,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Artillery</h6>
-        <h6 v-if="plusArtillery == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusArtillery == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusArtillery == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusArtillery == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusArtillery && !minusArtillery" class="px-2 fs-4"><strong>{{ team.totalArtillery }}</strong></h6>
       </div>
       <div>
@@ -37,8 +37,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Missile Artillery</h6>
-        <h6 v-if="plusMissileArtillery == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusMissileArtillery == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusMissileArtillery == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusMissileArtillery == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusMissileArtillery && !minusMissileArtillery" class="px-2 fs-4"><strong>{{ team.totalMissileArtillery
         }}</strong></h6>
       </div>

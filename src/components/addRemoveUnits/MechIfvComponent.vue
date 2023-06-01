@@ -9,8 +9,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Mechanized</h6>
-        <h6 v-if="plusMechanized == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusMechanized == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusMechanized == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusMechanized == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusMechanized && !minusMechanized" class="px-2 fs-4"><strong>{{ team.totalMechanized }}</strong></h6>
       </div>
       <div>
@@ -41,8 +41,8 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">IFV</h6>
-        <h6 v-if="plusIFV == true" class="px-2 fs-4 text-success"><strong>+1</strong></h6>
-        <h6 v-if="minusIFV == true" class="px-2 fs-4 text-danger"><strong>-1</strong></h6>
+        <h6 v-if="plusIFV == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
+        <h6 v-if="minusIFV == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusIFV && !minusIFV" class="px-2 fs-4"><strong>{{ team.totalIFV }}</strong></h6>
       </div>
       <div>
