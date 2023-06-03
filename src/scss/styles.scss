@@ -151,6 +151,15 @@ button:disabled {
   background: #515151;
 }
 
+.dice-btn {
+  background: linear-gradient(#FFDA96, #dda15e);
+  box-shadow: black 4px 4px;
+  border-radius: 7px;
+  color: black;
+  border: solid black 1px;
+  min-width: 9rem;
+}
+
 .btn-blank {
   border: none;
   background: none;
@@ -171,51 +180,160 @@ button:disabled {
   color: black;
 }
 
-// Dice animation
-@property --num {
-  syntax: "<integer>";
-  initial-value: 0;
-  inherits: false;
+// Cards
+.region-card {
+  height: auto;
+  width: fit-content;
+  background: linear-gradient(#FFDA96, #dda15e);
 }
 
-.dice {
-  counter-reset: num var(--num);
-  animation: counter .1s infinite alternate ease-in-out;
-  -moz-animation: counter .1s infinite alternate ease-in-out;
-  -webkit-animation: counter .1s infinite alternate ease-in-out;
+.construction-card {
+  min-height: 15rem;
+  width: fit-content;
+  background: linear-gradient(#FFDA96, #dda15e);
 }
 
 .dice::after {
-  content: counter(num);
+  content: counter(count);
+  animation: counter .2s linear infinite alternate;
+  counter-reset: count 0;
+}
+
+@-webkit-keyframes counter {
+  0% {
+    counter-increment: count 10;
+  }
+
+  10% {
+    counter-increment: count 21;
+  }
+
+  20% {
+    counter-increment: count 32;
+  }
+
+  30% {
+    counter-increment: count 43;
+  }
+
+  40% {
+    counter-increment: count 54;
+  }
+
+  50% {
+    counter-increment: count 65;
+  }
+
+  60% {
+    counter-increment: count 76;
+  }
+
+  70% {
+    counter-increment: count 87;
+  }
+
+  80% {
+    counter-increment: count 98;
+  }
+
+  90% {
+    counter-increment: count 19;
+  }
+
+  100% {
+    counter-increment: count 45;
+  }
 }
 
 @keyframes counter {
-  from {
-    --num: 0;
+  0% {
+    counter-increment: count 10;
   }
 
-  to {
-    --num: 9;
+  10% {
+    counter-increment: count 21;
+  }
+
+  20% {
+    counter-increment: count 32;
+  }
+
+  30% {
+    counter-increment: count 43;
+  }
+
+  40% {
+    counter-increment: count 54;
+  }
+
+  50% {
+    counter-increment: count 65;
+  }
+
+  60% {
+    counter-increment: count 76;
+  }
+
+  70% {
+    counter-increment: count 87;
+  }
+
+  80% {
+    counter-increment: count 98;
+  }
+
+  90% {
+    counter-increment: count 19;
+  }
+
+  100% {
+    counter-increment: count 45;
   }
 }
 
 @-moz-keyframes counter {
-  from {
-    --num: 0
+  0% {
+    counter-increment: count 10;
   }
 
-  to {
-    --num: 9;
-  }
-}
-
-@-webkit-keyframes counter {
-  from {
-    --num: 0;
+  10% {
+    counter-increment: count 21;
   }
 
-  to {
-    --num: 9;
+  20% {
+    counter-increment: count 32;
+  }
+
+  30% {
+    counter-increment: count 43;
+  }
+
+  40% {
+    counter-increment: count 54;
+  }
+
+  50% {
+    counter-increment: count 65;
+  }
+
+  60% {
+    counter-increment: count 76;
+  }
+
+  70% {
+    counter-increment: count 87;
+  }
+
+  80% {
+    counter-increment: count 98;
+  }
+
+  90% {
+    counter-increment: count 19;
+  }
+
+  100% {
+    counter-increment: count 45;
   }
 }
 
@@ -260,12 +378,6 @@ button:disabled {
   margin-bottom: .5rem;
 }
 
-.region-card {
-  height: auto;
-  width: fit-content;
-  background: linear-gradient(#FFDA96, #dda15e);
-
-}
 
 // Tablets
 @media (max-width: 912px) {

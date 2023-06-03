@@ -33,7 +33,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="infantry" v-if="infantry == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12) || (twoSixDie.roll == 2)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -44,7 +44,7 @@
       </div>
       <div v-else class="text-center">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -59,7 +59,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="mech" v-if="mech == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 9)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -70,7 +70,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -85,7 +85,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="ifv" v-if="ifv == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -96,7 +96,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -111,7 +111,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="mbt" v-if="mbt == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 12)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -122,7 +122,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -169,7 +169,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="highlands" v-if="highlands == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 9)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -180,7 +180,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -194,7 +194,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="grassland" v-if="grassland == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -205,7 +205,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -219,7 +219,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="desert" v-if="desert == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -230,7 +230,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -244,7 +244,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="forest" v-if="forest == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 9)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -255,7 +255,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -269,7 +269,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="urban" v-if="urban == true">
       <div class="text-center" v-if="(twoSixDie.roll >= 7) && (twoSixDie.roll <= 10)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -280,7 +280,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollTwoSixDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>

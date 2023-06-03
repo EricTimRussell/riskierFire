@@ -25,7 +25,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="aircraft" v-if="aircraft == true">
       <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 7)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -36,7 +36,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -51,7 +51,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="missile" v-if="missile == true">
       <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 5)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -62,7 +62,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -77,7 +77,7 @@
     <div class="col-3 d-flex justify-content-center mt-5" for="pointDefense" v-if="pointDefense == true">
       <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 8)">
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>
@@ -88,7 +88,7 @@
       </div>
       <div class="text-center" v-else>
         <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5">
+        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
           <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
           <div v-if="isPending" class="fs-lg" role="status">
             <span class="dice"></span>

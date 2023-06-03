@@ -9,7 +9,7 @@
       </div>
       <div class="col-10 pb-5 pt-5 d-flex flex-column text-light">
         <h1 class="text-center">Welcome to RiskierFire!</h1>
-        <p class="paragraph-mobile">Login or create an account by clicking the logo in the top left corner to get
+        <p class="paragraph-mobile">Login or create an account to get
           started. You do not need to use a real
           email to create an account. Once you have created an account be sure to create a team. This will allow the
           app to track your teams assets.</p>
@@ -34,6 +34,9 @@
             Create Team
           </button>
         </div>
+        <div v-if="!user?.uid" class="text-center">
+          <RouterLink to="/sign-in" class="fs-md btn">Login/Create</RouterLink>
+        </div>
       </div>
     </div>
   </div>
@@ -43,7 +46,7 @@
   </ModalComponent>
 </template>
 <!-- TODO make a nicer homepage -->
-<!-- TODO create set card classes for all the card components -->
+<!-- TODO create an new user tour on how to use the app-->
 <script>
 // firebase
 import { getCurrentUser, useCurrentUser } from "vuefire";

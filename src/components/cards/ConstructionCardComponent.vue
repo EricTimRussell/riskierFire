@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="row gap-2 region-card elevation-5 rounded p-2" v-if="construction.buildTime >= 1">
+    <div class="row gap-2 construction-card elevation-5 rounded p-2" v-if="construction.buildTime >= 1">
       <div class="col-12 d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-dark">construction</span>
         <span class="fs-md">{{ construction.buildingType }}</span>
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="row gap-2 region-card elevation-5 rounded p-2" v-if="construction.buildTime == 0">
+    <div class="row gap-2 construction-card elevation-5 rounded p-2" v-if="construction.buildTime == 0">
       <div class="col-12 d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-dark">construction</span>
         <span class="fs-md">{{ construction.buildingType }}</span>
