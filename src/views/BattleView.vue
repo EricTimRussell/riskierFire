@@ -16,7 +16,6 @@
         </span>
       </div>
       <div class="accordion py-4">
-        <span class="fs-sm">*Dice animations not yet supported on ios devices</span>
         <!-- Infantry -->
         <div class="accordion-item bg-infantry">
           <h2 class="accordion-header" id="headingOne">
