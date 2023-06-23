@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-10 pb-5 pt-5 d-flex flex-column text-light">
+      <div class="col-8 col-md-8 pb-5 pt-5 d-flex flex-column text-light">
         <p v-if="!user?.uid" class="paragraph-mobile">Login or create an account to get
           started. Once you have created an account be sure to create a team. This will allow the
           app to track your teams assets.</p>
@@ -95,7 +95,6 @@ import { useRegionStore } from "../stores/RegionStore";
 import CreateTeamFormComponent from "../components/forms/CreateTeamFormComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
-
 export default {
   setup() {
     const user = useCurrentUser();

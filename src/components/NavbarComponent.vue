@@ -50,29 +50,34 @@
         <span class="material-symbols-outlined text-warning fs-xl">
           attach_money
         </span>
-        <span v-if="teams.totalCapital >= 0" class="fs-lg text">{{ teams.totalCapital }}</span>
-        <span v-if="teams.totalCapital < 0" class="fs-lg text-danger">{{ teams.totalCapital }}</span>
+        <span title="Total Capital" v-if="teams.totalCapital >= 0" class="fs-lg text">{{ teams.totalCapital }}</span>
+        <span title="Total Capital" v-if="teams.totalCapital < 0" class="fs-lg text-danger">{{ teams.totalCapital
+        }}</span>
       </div>
       <div>
         <span class="material-symbols-outlined text-secondary fs-xl">
           factory
         </span>
-        <span v-if="teams.totalIndustry >= 0" class="fs-lg">{{ teams.totalIndustry }}</span>
-        <span v-if="teams.totalIndustry < 0" class="fs-lg text-danger">{{ teams.totalIndustry }}</span>
+        <span title="Total Industry" v-if="teams.totalIndustry >= 0" class="fs-lg">{{ teams.totalIndustry }}</span>
+        <span title="Total Industry" v-if="teams.totalIndustry < 0" class="fs-lg text-danger">{{ teams.totalIndustry
+        }}</span>
       </div>
       <div>
         <span class="material-symbols-outlined text-success fs-xl">
           psychiatry
         </span>
-        <span v-if="teams.totalAgriculture >= 0" class="fs-lg">{{ teams.totalAgriculture }}</span>
-        <span v-if="teams.totalAgriculture < 0" class="fs-lg text-danger">{{ teams.totalAgriculture }}</span>
+        <span title="Total Agriculture" v-if="teams.totalAgriculture >= 0" class="fs-lg">{{ teams.totalAgriculture
+        }}</span>
+        <span title="Total Agriculture" v-if="teams.totalAgriculture < 0" class="fs-lg text-danger">{{
+          teams.totalAgriculture }}</span>
       </div>
       <div>
         <span class="material-symbols-outlined text-dark fs-xl">
           build
         </span>
-        <span v-if="teams.totalProduction >= 0" class="fs-lg">{{ teams.totalProduction }}</span>
-        <span v-if="teams.totalProduction < 0" class="fs-lg text-danger">{{ teams.totalProduction }}</span>
+        <span title="Total Production" v-if="teams.totalProduction >= 0" class="fs-lg">{{ teams.totalProduction }}</span>
+        <span title="Total Production" v-if="teams.totalProduction < 0" class="fs-lg text-danger">{{ teams.totalProduction
+        }}</span>
       </div>
     </div>
   </div>
@@ -166,5 +171,4 @@ li:hover {
     min-width: fit-content;
   }
 
-}
-</style>
+}</style>
