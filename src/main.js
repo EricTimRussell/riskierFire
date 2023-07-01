@@ -18,6 +18,7 @@ import './assets/main.css'
 
 const app = createApp(App)
 
+
 app
   .use(VueFire, {
     firebaseApp,
@@ -25,7 +26,6 @@ app
       VueFireAuth(),
     ],
   })
-
 app.use(VueSweetalert2);
 app.use(createPinia())
 app.use(router)

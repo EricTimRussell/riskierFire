@@ -24,7 +24,6 @@ import ModalComponent from "./components/ModalComponent.vue";
 import CreateTeamFormComponent from "./components/forms/CreateTeamFormComponent.vue";
 
 export default {
-  components: { ModalComponent, CreateTeamFormComponent },
   setup() {
     const auth = useFirebaseAuth()
     const user = useCurrentUser()
@@ -36,7 +35,8 @@ export default {
         }
       }
     }
-  }
+  },
+  components: { ModalComponent, CreateTeamFormComponent },
 }
 
 </script>

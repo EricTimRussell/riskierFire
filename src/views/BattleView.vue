@@ -45,7 +45,7 @@
           </div>
         </div>
         <!-- Mechanized -->
-        <div class="accordion-item bg-mech">
+        <div class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -59,7 +59,7 @@
           </div>
         </div>
         <!-- IFV -->
-        <div class="accordion-item bg-ifv">
+        <div class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingFour">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
