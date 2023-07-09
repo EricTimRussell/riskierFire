@@ -68,8 +68,12 @@ class ArmiesDivisionsService {
     });
   }
 
-  async deleteArmy(armyId) {
-    await deleteDoc(doc(db, "armies", armyId))
+  async deleteArmy(army, team) {
+    console.log(army, team);
+    if (army.creatorId != team.creatorId) {
+      console.error("invalid id's");
+    }
+    await deleteDoc(doc(db, "armies", army.id))
   }
 }
 

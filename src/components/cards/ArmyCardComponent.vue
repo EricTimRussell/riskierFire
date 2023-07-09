@@ -221,7 +221,8 @@ import Swal from "sweetalert2";
 
 export default {
   props: {
-    armies: { type: Object, required: true }
+    armies: { type: Object, required: true },
+    teams: { type: Object, required: true }
   },
   setup(props) {
     const db = useFirestore()
@@ -246,12 +247,12 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              armiesDivisionsService.deleteArmy(props.armies.id)
-              Swal.fire(
-                'Army Deleted!',
-                'success'
-              )
+              armiesDivisionsService.deleteArmy(props.armies, props.teams)
             }
+            Swal.fire(
+              'Army Deleted!',
+              'success'
+            )
           })
         } catch (error) {
           console.error(error, 'Deleting Division')
