@@ -1,4 +1,4 @@
-import { collection, query, getDocs, where, addDoc, onSnapshot, updateDoc } from "firebase/firestore"
+import { collection, query, getDocs, where, addDoc, onSnapshot, updateDoc, doc, deleteDoc } from "firebase/firestore"
 import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
 import { useArmyDivisionStore } from "../stores/ArmyDivisionStore";
 
@@ -33,6 +33,13 @@ class ArmiesDivisionsService {
     });
   }
 
+  async deleteDivision(division, team) {
+    if (division.creatorId != team.creatorId) {
+      console.error("invalid id's");
+    }
+    await deleteDoc(doc(db, "divisions", division.id));
+  }
+
   async getArmiesByUserId(user) {
     // get user armies by their firbase id
     const q = query(collection(db, "armies"), where("creatorId", "==", user.value?.uid));
@@ -59,6 +66,10 @@ class ArmiesDivisionsService {
       unitSlot8: editable.value.unitSlot8,
       unitSlot9: editable.value.unitSlot9,
     });
+  }
+
+  async deleteArmy(armyId) {
+    await deleteDoc(doc(db, "armies", armyId))
   }
 }
 

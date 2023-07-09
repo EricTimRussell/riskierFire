@@ -153,7 +153,7 @@
 
 <script>
 // Firebase
-import { deleteDoc, doc } from "@firebase/firestore";
+import { doc } from "@firebase/firestore";
 import { useFirestore } from "vuefire";
 
 // Vue
@@ -168,7 +168,8 @@ import Swal from "sweetalert2";
 
 export default {
   props: {
-    divisions: { type: Object, required: true }
+    divisions: { type: Object, required: true },
+    teams: { type: Object, required: true }
   },
   setup(props) {
     const db = useFirestore()
@@ -192,7 +193,7 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              deleteDoc(doc(db, "divisions", props.divisions.id));
+              armiesDivisionsService.deleteDivision(props.divisions, props.teams)
               Swal.fire(
                 'Division Deleted!',
                 'success'

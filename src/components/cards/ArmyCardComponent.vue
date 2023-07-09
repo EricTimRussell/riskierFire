@@ -246,7 +246,7 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              deleteDoc(doc(db, "armies", props.armies.id));
+              armiesDivisionsService.deleteArmy(props.armies.id)
               Swal.fire(
                 'Army Deleted!',
                 'success'
