@@ -247,6 +247,7 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
+              // @ts-ignore
               armiesDivisionsService.deleteArmy(props.armies, props.teams)
             }
             Swal.fire(

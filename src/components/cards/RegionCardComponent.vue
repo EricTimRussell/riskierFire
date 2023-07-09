@@ -26,7 +26,7 @@
 
 <script>
 // Firebase
-import { doc, deleteDoc, updateDoc, increment } from "firebase/firestore";
+import { doc } from "firebase/firestore";
 import { useFirestore } from "vuefire";
 
 // Vue
@@ -34,6 +34,7 @@ import { useRoute } from "vue-router";
 
 // CSS
 import Swal from "sweetalert2";
+import { regionsService } from "../../services/RegionsService";
 
 export default {
   props: {
@@ -46,6 +47,7 @@ export default {
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
     return {
+      team,
       async deleteRegion() {
         try {
           await Swal.fire({
@@ -58,14 +60,8 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              // Delete region updates team object to reflect resources lost automatically
-
-              deleteDoc(doc(db, "regions", props.regions.id));
-              updateDoc(team, {
-                totalCapital: increment(-props.regions.capital),
-                totalIndustry: increment(-props.regions.industry),
-                totalAgriculture: increment(-props.regions.agriculture)
-              });
+              // @ts-ignore
+              regionsService.deleteRegion(props.regions, props.teams.creatorId, team)
               Swal.fire(
                 'Region Deleted!',
                 'success'

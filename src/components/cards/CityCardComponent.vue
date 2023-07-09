@@ -35,6 +35,7 @@ import { useRoute } from "vue-router";
 
 // CSS
 import Swal from "sweetalert2";
+import { regionsService } from "../../services/RegionsService";
 
 export default {
   props: {
@@ -47,6 +48,7 @@ export default {
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
     return {
+      team,
       async deleteCity() {
         try {
           await Swal.fire({
@@ -59,14 +61,8 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              // Delete city updates team object to reflect resources lost automatically
-              deleteDoc(doc(db, "cities", props.cities.id));
-              updateDoc(team, {
-                totalCapital: increment(-props.cities.capital),
-                totalIndustry: increment(-props.cities.industry),
-                totalAgriculture: increment(-props.cities.agriculture),
-                totalProduction: increment(-props.cities.production)
-              });
+              // @ts-ignore
+              regionsService.deleteCity(props.cities, props.teams.creatorId, team)
               Swal.fire(
                 'City Deleted!',
                 'success'

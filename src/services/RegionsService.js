@@ -22,6 +22,19 @@ class RegionsService {
     })
   }
 
+  async deleteRegion(region, teamCreatorId, team) {
+    await if (region.creatorId != teamCreatorId) {
+      console.error("invalid id's");
+    }
+    await deleteDoc(doc(db, "regions", region.id));
+    // Delete region updates team object to reflect resources lost automatically
+    updateDoc(team, {
+      totalCapital: increment(-region.capital),
+      totalIndustry: increment(-region.industry),
+      totalAgriculture: increment(-region.agriculture)
+    });
+  }
+
   async getCitiesByUserId(user) {
     // get user regions by their firbase id
     const q = query(collection(db, "cities"), where("creatorId", "==", user.value?.uid));
@@ -72,6 +85,20 @@ class RegionsService {
       totalIndustry: increment(editable.value.industry),
       totalAgriculture: increment(editable.value.agriculture),
       totalProduction: increment(editable.value.production)
+    });
+  }
+
+  async deleteCity(city, teamCreatorId, team) {
+    await if (city.creatorId != teamCreatorId) {
+      console.error("invalid id's");
+    }
+    await deleteDoc(doc(db, "cities", city.id));
+    // Delete city updates team object to reflect resources lost automatically
+    updateDoc(team, {
+      totalCapital: increment(-city.capital),
+      totalIndustry: increment(-city.industry),
+      totalAgriculture: increment(-city.agriculture),
+      totalProduction: increment(-city.production)
     });
   }
 
