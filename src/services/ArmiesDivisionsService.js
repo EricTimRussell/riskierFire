@@ -34,7 +34,7 @@ class ArmiesDivisionsService {
   }
 
   async deleteDivision(division, team) {
-    await if (division.creatorId != team.creatorId) {
+    if (division.creatorId != team.creatorId) {
       console.error("invalid id's");
     }
     await deleteDoc(doc(db, "divisions", division.id));
@@ -70,7 +70,7 @@ class ArmiesDivisionsService {
 
   async deleteArmy(army, team) {
     console.log(army, team);
-    await if (army.creatorId != team.creatorId) {
+    if (army.creatorId != team.creatorId) {
       console.error("invalid id's");
     }
     await deleteDoc(doc(db, "armies", army.id))

@@ -57,7 +57,7 @@ class NavyUnitsService {
   }
 
   async deleteCarrierCard(carrier, team) {
-    await if (carrier.creatorId != team.creatorId) {
+    if (carrier.creatorId != team.creatorId) {
       console.error("invalid id's");
     }
     await deleteDoc(doc(db, "carriers", carrier.id))

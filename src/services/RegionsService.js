@@ -23,7 +23,7 @@ class RegionsService {
   }
 
   async deleteRegion(region, teamCreatorId, team) {
-    await if (region.creatorId != teamCreatorId) {
+    if (region.creatorId != teamCreatorId) {
       console.error("invalid id's");
     }
     await deleteDoc(doc(db, "regions", region.id));
@@ -89,7 +89,7 @@ class RegionsService {
   }
 
   async deleteCity(city, teamCreatorId, team) {
-    await if (city.creatorId != teamCreatorId) {
+    if (city.creatorId != teamCreatorId) {
       console.error("invalid id's");
     }
     await deleteDoc(doc(db, "cities", city.id));

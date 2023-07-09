@@ -44,6 +44,7 @@ import { useRoute } from "vue-router"
 
 // CSS
 import Swal from "sweetalert2"
+import { buildingsService } from "../../services/BuildingsService"
 
 export default {
   props: {
@@ -58,6 +59,7 @@ export default {
     // @ts-ignore
     const team = doc(db, "teams", route.params.id)
     return {
+      team,
       async deleteConstruction() {
         try {
           await Swal.fire({
@@ -70,10 +72,7 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              deleteDoc(doc(db, "construction", props.construction.id));
-              updateDoc(team, {
-                totalProduction: increment(1),
-              });
+              buildingsService.deleteConstruction(props.construction, props.teams.creatorId, team)
               Swal.fire(
                 'Construction Deleted!',
                 'success'
