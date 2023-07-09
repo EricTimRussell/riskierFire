@@ -1,5 +1,5 @@
 import { useCurrentUser, useFirestore, getCurrentUser, useFirebaseAuth } from "vuefire"
-import { collection, query, getDocs, where, addDoc, onSnapshot, updateDoc, increment } from "firebase/firestore";
+import { collection, query, getDocs, where, addDoc, onSnapshot, updateDoc, increment, doc, deleteDoc } from "firebase/firestore";
 import { useNavyStore } from "../stores/NavyStore"
 
 
@@ -54,6 +54,13 @@ class NavyUnitsService {
       groundUnit5: editable.value.groundUnit5,
       groundUnit6: editable.value.groundUnit6
     });
+  }
+
+  async deleteCarrierCard(carrier, team) {
+    if (carrier.creatorId != team.creatorId) {
+      console.error("invalid id's");
+    }
+    await deleteDoc(doc(db, "carriers", carrier.id))
   }
 
   // SECTION Cruiser

@@ -273,7 +273,8 @@ import Swal from "sweetalert2";
 
 export default {
   props: {
-    carriers: { type: Object, required: true }
+    carriers: { type: Object, required: true },
+    teams: { type: Object, required: true }
   },
   setup(props) {
     const db = useFirestore()
@@ -298,7 +299,7 @@ export default {
             confirmButtonText: 'Yes, delete it!'
           }).then((result) => {
             if (result.isConfirmed) {
-              deleteDoc(doc(db, "carriers", props.carriers.id));
+              navyUnitsService.deleteCarrierCard(props.carriers, props.teams)
               Swal.fire(
                 'Carrier Deleted!',
                 'success'
