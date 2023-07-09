@@ -3,7 +3,7 @@
     <button @click="deleteAllRegionsByCreatorId()">Delete All Regions</button>
   </div>
 </template>
-
+<!-- NOTE Currently does not work -->
 <script>
 import { increment } from "firebase/database";
 import { deleteDoc, doc, updateDoc, where } from "firebase/firestore";

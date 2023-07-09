@@ -77,6 +77,7 @@
 </template>
 <!-- TODO make a nicer homepage -->
 <!-- TODO create an new user tour on how to use the app-->
+<!-- TODO add checks to game page so region and city numbers cannot be duplicated -->
 <script>
 // firebase
 import { getCurrentUser, useCurrentUser } from "vuefire";
