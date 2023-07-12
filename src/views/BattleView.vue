@@ -6,7 +6,7 @@
   <body class="container-fluid indepentant-scroll">
     <!-- Ground Unit Dice -->
     <section class="row justify-content-center">
-      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
+      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3" v-motion-pop>
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>
@@ -15,7 +15,7 @@
           swords
         </span>
       </div>
-      <div class="accordion py-4">
+      <div class="accordion py-4" v-motion-fade>
         <!-- Infantry -->
         <div class="accordion-item bg-infantry">
           <h2 class="accordion-header" id="headingOne">
@@ -132,7 +132,8 @@
     </section>
     <!-- Air Unit Dice -->
     <section class="row justify-content-center">
-      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
+      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3"
+        v-motion-pop-visible-once>
         <span class="material-symbols-outlined fs-xl">
           flight
         </span>
@@ -141,7 +142,7 @@
           flight
         </span>
       </div>
-      <div class="accordion py-4">
+      <div class="accordion py-4" v-motion-fade-visible-once>
         <!-- Fighter Aircraft -->
         <div class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingSix">
@@ -175,7 +176,8 @@
 
     <!-- Navy Unit Dice -->
     <section class="row justify-content-center pb-5">
-      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3">
+      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3"
+        v-motion-pop-visible-once>
         <span class="material-symbols-outlined fs-xl">
           directions_boat
         </span>
@@ -184,7 +186,7 @@
           directions_boat
         </span>
       </div>
-      <div class="accordion py-4">
+      <div class="accordion py-4" v-motion-fade-visible-once>
         <!-- Carrier -->
         <div class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingEight">
