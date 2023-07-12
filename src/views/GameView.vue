@@ -4,7 +4,7 @@
   </header>
 
   <body class="container-fluid indepentant-scroll" v-if="teams.creatorId">
-    <div class="row">
+    <div class="row" v-motion-pop>
       <!-- Ground Forces -->
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
         <h2>Ground Forces</h2>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <!-- Armies & Divisions -->
-    <div class="row bg-green py-3 elevation-5 text-light">
+    <div class="row bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center text-light">
         <h2>Armies & Divisions</h2>
         <span class="material-symbols-outlined fs-lg px-2">
@@ -58,7 +58,7 @@
         </button>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" v-motion-pop-visible-once>
       <div class="col-12 text-center bg-green text-light py-1 my-3 elevation-5">
         <h2>Divisions</h2>
       </div>
@@ -69,12 +69,12 @@
         <span class="fs-md">Your team has no divisions</span>
       </div>
     </div>
-    <div class="row">
+    <div class="row" v-motion-pop-visible-once>
       <div class="col-12 text-center bg-green text-light py-1 my-3 elevation-5">
         <h2>Armies</h2>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" v-motion-pop-visible-once>
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="a in armies" v-if="armies.length > 0">
         <ArmyCardComponent :armies="a" :teams="teams" />
       </div>
@@ -83,7 +83,7 @@
       </div>
     </div>
     <!-- Carriers -->
-    <div class="row  my-3 bg-green py-3 elevation-5 text-light">
+    <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center">
         <h2>Carriers</h2>
         <span class="material-symbols-outlined fs-lg px-2">
@@ -97,7 +97,7 @@
         </button>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" v-motion-pop-visible-once>
       <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="c in carriers" v-if="carriers.length > 0">
         <CarrierCardComponent :carriers="c" :teams="teams" />
       </div>
@@ -106,7 +106,7 @@
       </div>
     </div>
     <!-- Regions -->
-    <div class="row my-3 bg-green py-3 elevation-5 text-light">
+    <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center pb-2">
         <h2>Regions</h2>
         <span class="material-symbols-outlined fs-lg px-2">
@@ -120,7 +120,7 @@
         </button>
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" v-motion-pop-visible-once>
       <div class="col-6 col-sm-6 col-md-3 d-flex mb-3" v-for="r in region" v-if="region.length > 0">
         <RegionCardComponent :regions="r" :teams="teams" />
       </div>
@@ -128,7 +128,7 @@
         <span class="fs-md">Claim Region to get started</span>
       </div>
     </div>
-    <div class="row my-3 bg-green py-3 elevation-5 text-light">
+    <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center pb-2">
         <h2>Cities</h2>
         <span class="material-symbols-outlined fs-lg px-2">
@@ -150,7 +150,7 @@
         </button>
       </div>
     </div>
-    <div class="row justify-content-center pb-5">
+    <div class="row justify-content-center pb-5" v-motion-pop-visible-once>
       <div class="col-6 col-sm-6 col-md-3 d-flex mb-3" v-for="c in cities" v-if="cities.length > 0">
         <CityCardComponent :cities="c" :teams="teams" />
       </div>

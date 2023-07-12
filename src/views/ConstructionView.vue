@@ -3,7 +3,7 @@
     <NavbarComponent :teams="teams" />
   </header>
   <div v-if="teams.creatorId" class="container-fluid indepentant-scroll">
-    <div class="row mt-5 justify-content-center">
+    <div class="row mt-5 justify-content-center" v-motion-pop>
       <div class="col-12 text-center bg-green py-2 elevation-5 text-light">
         <h1>Construction</h1>
         <button class="m-2 px-3 py-2" :disabled="teams.totalProduction == 0" data-bs-toggle="modal"
@@ -15,7 +15,7 @@
       </div>
     </div>
     <!-- Naval Forces -->
-    <div class="row">
+    <div class="row" v-motion-slide-left>
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
         <h2>Navy</h2>
         <span class="material-symbols-outlined fs-lg px-2">
@@ -27,7 +27,7 @@
       </div>
     </div>
     <!-- Structures -->
-    <div class="row pb-5">
+    <div class="row pb-5" v-motion-slide-visible-once-left>
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
         <h2>Structures</h2>
         <span class="material-symbols-outlined fs-lg px-2">
