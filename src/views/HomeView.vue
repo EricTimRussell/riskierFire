@@ -2,7 +2,7 @@
   <header class="sticky-top">
     <NavbarComponent :teams="teams" />
   </header>
-  <div class="container-fluid indepentant-scroll">
+  <div class="container-fluid indepentant-scroll" v-motion-slide-left>
     <div class="row justify-content-center">
       <div class="col-12 pt-5 d-flex justify-content-center">
         <img class="big-logo" src="../assets/riskierLogo/Riskier-logo.png" alt="">

@@ -1,8 +1,8 @@
 <template>
-  <div class="container-fluid bg-green navbar elevation-5 pt-4">
+  <div class="container-fluid bg-green navbar elevation-5 pt-4" v-motion-pop>
     <div class="row">
       <div class="d-flex gap-3">
-        <div class="dropdown px-4 col-5">
+        <div class="dropdown px-4 col-5" v-motion-slide-top>
           <img title="Menu" src="../assets/riskierLogo/Riskier-logo.png"
             class="logo-img rounded dropdown-toggle selectable" data-bs-toggle="dropdown" aria-expanded="false" alt="">
           <ul class="dropdown-menu text-center mx-4">
@@ -21,7 +21,7 @@
             </li>
           </ul>
         </div>
-        <nav v-if="user?.email" class="d-flex gap-2 col-6 ">
+        <nav v-if="user?.email" class="d-flex gap-2 col-6" v-motion-slide-top>
           <RouterLink to="/rules">
             <span title="Rules Page" class="material-symbols-outlined fs-xl">
               menu_book
@@ -46,7 +46,7 @@
       </div>
     </div>
     <div v-if="user?.uid" class="col-12 d-flex justify-content-evenly pt-4 pb-2 px-2 text-light">
-      <div>
+      <div v-motion-roll-bottom>
         <span class="material-symbols-outlined text-warning fs-xl">
           attach_money
         </span>
@@ -54,7 +54,7 @@
         <span title="Total Capital" v-if="teams.totalCapital < 0" class="fs-lg text-danger">{{ teams.totalCapital
         }}</span>
       </div>
-      <div>
+      <div  v-motion-roll-bottom>
         <span class="material-symbols-outlined text-secondary fs-xl">
           factory
         </span>
@@ -62,7 +62,7 @@
         <span title="Total Industry" v-if="teams.totalIndustry < 0" class="fs-lg text-danger">{{ teams.totalIndustry
         }}</span>
       </div>
-      <div>
+      <div  v-motion-roll-bottom>
         <span class="material-symbols-outlined text-success fs-xl">
           psychiatry
         </span>
@@ -71,7 +71,7 @@
         <span title="Total Agriculture" v-if="teams.totalAgriculture < 0" class="fs-lg text-danger">{{
           teams.totalAgriculture }}</span>
       </div>
-      <div>
+      <div  v-motion-roll-bottom>
         <span class="material-symbols-outlined text-dark fs-xl">
           build
         </span>
@@ -171,4 +171,5 @@ li:hover {
     min-width: fit-content;
   }
 
-}</style>
+}
+</style>
