@@ -13,7 +13,7 @@
         </span>
       </div>
     </div>
-    <div class="row">
+    <div class="row" v-motion-slide-left>
       <div class="col-12 d-flex justify-content-center">
         <InfantryComponent :team="teams" />
       </div>
@@ -28,7 +28,7 @@
       </div>
     </div>
     <!-- Air Forces -->
-    <div class="row">
+    <div class="row" v-motion-slide-visible-once-left>
       <div class="col-12 d-flex justify-content-center my-3 bg-green py-3 elevation-5 text-light">
         <h2>Airforce</h2>
         <span class="material-symbols-outlined fs-lg px-2">

@@ -2,12 +2,12 @@
   <header class="sticky-top">
     <NavbarComponent :teams="teams" />
   </header>
-  <div class="container-fluid indepentant-scroll" v-motion-slide-left>
+  <div class="container-fluid indepentant-scroll">
     <div class="row justify-content-center">
-      <div class="col-12 pt-5 d-flex justify-content-center">
+      <div class="col-12 pt-5 d-flex justify-content-center" v-motion-slide-left>
         <img class="big-logo" src="../assets/riskierLogo/Riskier-logo.png" alt="">
       </div>
-      <div class="col-12 pt-2 text-center">
+      <div class="col-12 pt-2 text-center" v-motion-slide-left>
         <h1 class="text-center">Welcome to RiskierFire!</h1>
       </div>
       <div v-if="user?.uid" class="col-12 pt-2 text-center">
@@ -38,7 +38,7 @@
         Combat Page
       </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" v-motion-fade>
       <div class="col-8 col-md-8 pb-5 pt-5 d-flex flex-column text-light">
         <p v-if="!user?.uid" class="paragraph-mobile">Login or create an account to get
           started. Once you have created an account be sure to create a team. This will allow the
@@ -78,6 +78,7 @@
 <!-- TODO make a nicer homepage -->
 <!-- TODO create an new user tour on how to use the app-->
 <!-- TODO add checks to game page so region and city numbers cannot be duplicated -->
+<!-- TODO create an account page -->
 <script>
 // firebase
 import { getCurrentUser, useCurrentUser } from "vuefire";
