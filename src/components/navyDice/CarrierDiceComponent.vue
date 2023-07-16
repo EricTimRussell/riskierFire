@@ -68,19 +68,7 @@
         <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
-
   </div>
-  <ModalComponent id="carrier-odds">
-    <div class="bg-light d-flex flex-column align-items-center text-dark">
-      <h5 class="text-danger text-center">Aircraft Carrier-D12</h5>
-      <h6 class="text-center">0AP, 1MP, Range of 1</h6>
-      <ul>
-        <li>Point Defense 1 tile range</li>
-        <li>Vs Missiles 1-9 (75%)</li>
-        <li>Vs Aircraft 1-5 (50%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>

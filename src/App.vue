@@ -316,7 +316,63 @@
             title="close modal"></button>
         </div>
         <div class="modal-body">
+          <div class="bg-light d-flex flex-column align-items-center text-dark">
+            <h5 class="text-danger text-center">Aircraft Carrier-D12</h5>
+            <h6 class="text-center">0AP, 1MP, Range of 1</h6>
+            <ul>
+              <li>Point Defense 1 tile range</li>
+              <li>Vs Missiles 1-9 (75%)</li>
+              <li>Vs Aircraft 1-5 (50%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Cruiser modal -->
+  <div class="modal fade" id="cruiser-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex bg-light text-dark flex-column align-items-center">
+            <h5 class="text-danger text-center">Cruiser-D12</h5>
+            <h6 class="text-center">1AP, 2MP</h6>
+            <ul>
+              <li>CB AA 1 tile range 1-7 (58%)</li>
+              <li>CB SS 3 tile range 1-8 (75%)</li>
+              <li>Missiles Vs land units follow Missile Artillery rules</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Destroyer modal -->
+  <div class="modal fade" id="destroyer-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="bg-light text-dark d-flex flex-column align-items-center">
+            <h5 class="text-danger text-center">Destroyer-D12</h5>
+            <h6 class="text-center">2AP, 2MP, 1 tile range</h6>
+            <ul>
+              <li>Vs Cruiser 1-8 (66%)</li>
+              <li>Vs Carrier 1-9 (75%)</li>
+              <li>Vs Destroyer 1-6 (50%)</li>
+              <li>Vs land follow artillery rules</li>
+              <li>Armor deflection D12 1-5 (42%)</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

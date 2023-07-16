@@ -128,21 +128,7 @@
         <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
-
   </div>
-  <ModalComponent id="destroyer-odds">
-    <div class="bg-light text-dark d-flex flex-column align-items-center">
-      <h5 class="text-danger text-center">Destroyer-D12</h5>
-      <h6 class="text-center">2AP, 2MP, 1 tile range</h6>
-      <ul>
-        <li>Vs Cruiser 1-8 (66%)</li>
-        <li>Vs Carrier 1-9 (75%)</li>
-        <li>Vs Destroyer 1-6 (50%)</li>
-        <li>Vs land follow artillery rules</li>
-        <li>Armor deflection D12 1-5 (42%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>
