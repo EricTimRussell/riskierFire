@@ -128,20 +128,7 @@
         <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
-
   </div>
-  <ModalComponent id="artillery-odds">
-    <div class="bg-light text-dark d-flex flex-column align-items-center">
-      <h5 class="text-danger text-center">Artillery-D12</h5>
-      <h6 class="text-center">1AP, 1MP, Range of 3</h6>
-      <ul>
-        <li>Vs Infantry/Mech 1-4 (33%)</li>
-        <li>IFV, All Artillery, & AA 1-3 (25%)</li>
-        <li>MBT 1-2 (16%)</li>
-        <li>With Designator 1-7 (58%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>

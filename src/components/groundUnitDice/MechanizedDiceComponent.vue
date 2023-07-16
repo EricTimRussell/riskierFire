@@ -351,30 +351,6 @@
       </div>
     </div>
   </div>
-
-  <ModalComponent id="mech-odds">
-    <div class="bg-light text-dark d-flex flex-column align-items-center">
-      <h5 class="text-danger text-center">Mechanized: Offense-2D6</h5>
-      <h6 class="text-center">1AP, 2MP, Range of 1</h6>
-      <ul>
-        <li>Vs Infantry: 5-9 (66.7%)</li>
-        <li>Vs Mech: 7-11 (55.6%)</li>
-        <li>Vs IFV: 2, 7-10 (52.8%)</li>
-        <li>Vs MBT: 2, 7-9 (44.5%)</li>
-      </ul>
-    </div>
-
-    <div class="d-flex flex-column align-items-center text-dark">
-      <h5 class="text-primary text-center">Mechanized: Deffense-2D6</h5>
-      <ul>
-        <li>Urban D: 7-12 (58.3%)</li>
-        <li>Wetlands D: 7-9 (41.7%)</li>
-        <li>Jungle/Forest D: 7-12 (58.3%)</li>
-        <li>Desert/Grassland D: 7-10 (50%)</li>
-        <li>Highlands D: 5-8 (55.6%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>

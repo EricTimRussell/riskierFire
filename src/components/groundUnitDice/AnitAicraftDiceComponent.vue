@@ -98,19 +98,7 @@
         <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
-
   </div>
-  <ModalComponent id="aa-odds">
-    <div class="d-flex bg-light text-dark flex-column align-items-center">
-      <h5 class="text-danger text-center">Anti-Aircraft-D12</h5>
-      <h6 class="text-center">1AP, 1MP, Range of 1</h6>
-      <ul>
-        <li>Vs Aircraft 1-7 (58%)</li>
-        <li>Vs missile 1-5 (50%)</li>
-        <li>With Point Defense 1-8 (67%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>

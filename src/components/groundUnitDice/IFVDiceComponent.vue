@@ -351,30 +351,6 @@
       </div>
     </div>
   </div>
-
-  <ModalComponent id="ifv-odds">
-    <div class="bg-light text-dark d-flex flex-column align-items-center">
-      <h5 class="text-danger text-center">IFV: Offense-2D6</h5>
-      <h6 class="text-center">1AP, 3MP, Range of 1</h6>
-      <ul>
-        <li>Vs Infantry: 5-12 (77.8%)</li>
-        <li>Vs Mech: 5-9 (66.7%)</li>
-        <li>Vs IFV: 7-11 (55.6%)</li>
-        <li>Vs MBT: 7-8 (30.6%)</li>
-      </ul>
-    </div>
-
-    <div class="d-flex flex-column align-items-center text-dark">
-      <h5 class="text-primary text-center">IFV: Deffense-2D6</h5>
-      <ul>
-        <li>Urban D: 7-10 (50%)</li>
-        <li>Wetlands D: 7-8 (30.6%)</li>
-        <li>Jungle/Forest D: 7-9 (41.7%)</li>
-        <li>Desert/Grassland D: 5-8 (55.6%)</li>
-        <li>Highlands D: 7-10 (50%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>

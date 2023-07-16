@@ -130,19 +130,6 @@
     </div>
 
   </div>
-
-  <ModalComponent id="missile-art-odds">
-    <div class="bg-light text-dark d-flex flex-column align-items-center">
-      <h5 class="text-danger text-center">Missile Artillery-D12</h5>
-      <h6 class="text-center">1AP, 1MP, Range of 4</h6>
-      <ul>
-        <li>Vs Infantry/Mech 1-4 (33%)</li>
-        <li>IFV 1-3 (25%)</li>
-        <li>MBT/All units in cities 1-2 (16%)</li>
-        <li>With Laser Designator 1-8 (67%) Vs Everything</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>

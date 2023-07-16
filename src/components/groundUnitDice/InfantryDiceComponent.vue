@@ -402,30 +402,6 @@
       </div>
     </div>
   </div>
-
-  <ModalComponent id="infantry-odds">
-    <div class="bg-light text-dark d-flex flex-column align-items-center">
-      <h5 class="text-danger">Infantry: Offense-2D6</h5>
-      <h6 class="text-center">1AP, 1MP, Range of 1</h6>
-      <ul>
-        <li>Vs Infantry: 5-8 (55.6%)</li>
-        <li>Vs Mech: 7-10 (50%)</li>
-        <li>Vs IFV: 7-8 (30.56%)</li>
-        <li>Vs MBT: 7-10 (50%)</li>
-      </ul>
-    </div>
-
-    <div class="d-flex flex-column align-items-center text-dark">
-      <h5 class="text-primary text-center">Infantry: Deffense-2D6</h5>
-      <ul>
-        <li>Urban D: 5-9 (66.7%)</li>
-        <li>Wetlands D: 7-12 (58.3%) </li>
-        <li>Jungle/Forest: D: 5-9 (66.7%)</li>
-        <li>Desert/Grassland D: 7-9 (41.7%)</li>
-        <li>Highlands D: 7-12 (58.3%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>

@@ -8,6 +8,266 @@
     </main>
 
   </body>
+  <div class="modal fade" id="" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION battle view unit odds modals -->
+  <!-- Odds modals have to be on App.vue because of nested parent/child components needing to have certain fixed sizes which seems to break modals -->
+
+  <!-- Infantry modal -->
+  <div class="modal fade" id="infantry-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="bg-light text-dark d-flex flex-column align-items-center">
+            <h5 class="text-danger">Infantry: Offense-2D6</h5>
+            <h6 class="text-center">1AP, 1MP, Range of 1</h6>
+            <ul>
+              <li>Vs Infantry: 5-8 (55.6%)</li>
+              <li>Vs Mech: 7-10 (50%)</li>
+              <li>Vs IFV: 7-8 (30.56%)</li>
+              <li>Vs MBT: 7-10 (50%)</li>
+            </ul>
+          </div>
+          <div class="d-flex flex-column align-items-center text-dark">
+            <h5 class="text-primary text-center">Infantry: Deffense-2D6</h5>
+            <ul>
+              <li>Urban D: 5-9 (66.7%)</li>
+              <li>Wetlands D: 7-12 (58.3%) </li>
+              <li>Jungle/Forest: D: 5-9 (66.7%)</li>
+              <li>Desert/Grassland D: 7-9 (41.7%)</li>
+              <li>Highlands D: 7-12 (58.3%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SF modal -->
+  <div class="modal fade" id="sf-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="bg-light text-dark d-flex flex-column align-items-center">
+            <h5 class="text-danger text-center">Special Forces: Offense-2D6</h5>
+            <h6 class="text-center">1AP, 1MP, Range of 1</h6>
+            <ul>
+              <li>Vs Infantry: 5-8, 11-12 (63.94%)</li>
+              <li>Vs Mech: 7-12 (58.34%)</li>
+              <li>Vs IFV: 7-8, 11-12 (38.9%)</li>
+              <li>Vs MBT: 7-12 (58.34%)</li>
+            </ul>
+          </div>
+
+          <div class="d-flex flex-column align-items-center text-dark">
+            <h5 class="text-primary text-center">Special Forces: Deffense-2D6</h5>
+            <ul>
+              <li>Urban D: 5-9 (66.7%)</li>
+              <li>Wetlands D: 7-12 (58.3%) </li>
+              <li>Jungle/Forest: D: 5-9 (66.7%)</li>
+              <li>Desert/Grassland D: 7-9 (41.7%)</li>
+              <li>Highlands D: 7-12 (58.3%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mechanized modal -->
+  <div class="modal fade" id="mech-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="bg-light text-dark d-flex flex-column align-items-center">
+            <h5 class="text-danger text-center">Mechanized: Offense-2D6</h5>
+            <h6 class="text-center">1AP, 2MP, Range of 1</h6>
+            <ul>
+              <li>Vs Infantry: 5-9 (66.7%)</li>
+              <li>Vs Mech: 7-11 (55.6%)</li>
+              <li>Vs IFV: 2, 7-10 (52.8%)</li>
+              <li>Vs MBT: 2, 7-9 (44.5%)</li>
+            </ul>
+          </div>
+
+          <div class="d-flex flex-column align-items-center text-dark">
+            <h5 class="text-primary text-center">Mechanized: Deffense-2D6</h5>
+            <ul>
+              <li>Urban D: 7-12 (58.3%)</li>
+              <li>Wetlands D: 7-9 (41.7%)</li>
+              <li>Jungle/Forest D: 7-12 (58.3%)</li>
+              <li>Desert/Grassland D: 7-10 (50%)</li>
+              <li>Highlands D: 5-8 (55.6%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IFV modal -->
+  <div class="modal fade" id="ifv-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="bg-light text-dark d-flex flex-column align-items-center">
+            <h5 class="text-danger text-center">IFV: Offense-2D6</h5>
+            <h6 class="text-center">1AP, 3MP, Range of 1</h6>
+            <ul>
+              <li>Vs Infantry: 5-12 (77.8%)</li>
+              <li>Vs Mech: 5-9 (66.7%)</li>
+              <li>Vs IFV: 7-11 (55.6%)</li>
+              <li>Vs MBT: 7-8 (30.6%)</li>
+            </ul>
+          </div>
+
+          <div class="d-flex flex-column align-items-center text-dark">
+            <h5 class="text-primary text-center">IFV: Deffense-2D6</h5>
+            <ul>
+              <li>Urban D: 7-10 (50%)</li>
+              <li>Wetlands D: 7-8 (30.6%)</li>
+              <li>Jungle/Forest D: 7-9 (41.7%)</li>
+              <li>Desert/Grassland D: 5-8 (55.6%)</li>
+              <li>Highlands D: 7-10 (50%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MBT modal -->
+  <div class="modal fade" id="mbt-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="bg-light text-dark d-flex flex-column align-items-center">
+            <h5 class="text-danger text-center">MBT: Offense-2D6</h5>
+            <h6 class="text-center">2AP, 2MP, Range of 1</h6>
+            <ul>
+              <li>Vs Infantry: 2, 7-12 (61.1%)</li>
+              <li>Vs Mech: 5-9 (66.7%)</li>
+              <li>Vs IFV: 5-12 (77.8%)</li>
+              <li>Vs MBT: 7-12 (58.3%) </li>
+            </ul>
+          </div>
+
+          <div class="d-flex flex-column align-items-center text-dark">
+            <h5 class="text-primary text-center">MBT: Deffense-2D6</h5>
+            <ul>
+              <li>Urban D: 7-10 (50%)</li>
+              <li>Grassland/Desert D: 7-10 (50%)</li>
+              <li>Forest D: 7-9 (41.7%)</li>
+              <li>Highlands D: 7-9 (41.7%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Artillery modal -->
+  <div class="modal fade" id="artillery-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="bg-light text-dark d-flex flex-column align-items-center">
+            <h5 class="text-danger text-center">Artillery-D12</h5>
+            <h6 class="text-center">1AP, 1MP, Range of 3</h6>
+            <ul>
+              <li>Vs Infantry/Mech 1-4 (33%)</li>
+              <li>IFV, All Artillery, & AA 1-3 (25%)</li>
+              <li>MBT 1-2 (16%)</li>
+              <li>With Designator 1-7 (58%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Missile artillery modal -->
+  <div class="modal fade" id="missile-art-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="bg-light text-dark d-flex flex-column align-items-center">
+            <h5 class="text-danger text-center">Missile Artillery-D12</h5>
+            <h6 class="text-center">1AP, 1MP, Range of 4</h6>
+            <ul>
+              <li>Vs Infantry/Mech 1-4 (33%)</li>
+              <li>IFV 1-3 (25%)</li>
+              <li>MBT/All units in cities 1-2 (16%)</li>
+              <li>With Laser Designator 1-8 (67%) Vs Everything</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AA modal -->
+  <div class="modal fade" id="aa-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex bg-light text-dark flex-column align-items-center">
+            <h5 class="text-danger text-center">Anti-Aircraft-D12</h5>
+            <h6 class="text-center">1AP, 1MP, Range of 1</h6>
+            <ul>
+              <li>Vs Aircraft 1-7 (58%)</li>
+              <li>Vs missile 1-5 (50%)</li>
+              <li>With Point Defense 1-8 (67%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 

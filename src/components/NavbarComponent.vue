@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid bg-green navbar elevation-5 pt-4" v-motion-pop>
+  <div class="container-fluid bg-green navbar elevation-5 pt-4">
     <div class="row">
       <div class="d-flex gap-3">
         <div class="dropdown px-4 col-5" v-motion-slide-top>
@@ -54,7 +54,7 @@
         <span title="Total Capital" v-if="teams.totalCapital < 0" class="fs-lg text-danger">{{ teams.totalCapital
         }}</span>
       </div>
-      <div  v-motion-roll-bottom>
+      <div v-motion-roll-bottom>
         <span class="material-symbols-outlined text-secondary fs-xl">
           factory
         </span>
@@ -62,7 +62,7 @@
         <span title="Total Industry" v-if="teams.totalIndustry < 0" class="fs-lg text-danger">{{ teams.totalIndustry
         }}</span>
       </div>
-      <div  v-motion-roll-bottom>
+      <div v-motion-roll-bottom>
         <span class="material-symbols-outlined text-success fs-xl">
           psychiatry
         </span>
@@ -71,7 +71,7 @@
         <span title="Total Agriculture" v-if="teams.totalAgriculture < 0" class="fs-lg text-danger">{{
           teams.totalAgriculture }}</span>
       </div>
-      <div  v-motion-roll-bottom>
+      <div v-motion-roll-bottom>
         <span class="material-symbols-outlined text-dark fs-xl">
           build
         </span>

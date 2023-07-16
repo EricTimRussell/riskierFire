@@ -291,29 +291,6 @@
       </div>
     </div>
   </div>
-
-  <ModalComponent id="mbt-odds">
-    <div class="bg-light text-dark d-flex flex-column align-items-center">
-      <h5 class="text-danger text-center">MBT: Offense-2D6</h5>
-      <h6 class="text-center">2AP, 2MP, Range of 1</h6>
-      <ul>
-        <li>Vs Infantry: 2, 7-12 (61.1%)</li>
-        <li>Vs Mech: 5-9 (66.7%)</li>
-        <li>Vs IFV: 5-12 (77.8%)</li>
-        <li>Vs MBT: 7-12 (58.3%) </li>
-      </ul>
-    </div>
-
-    <div class="d-flex flex-column align-items-center text-dark">
-      <h5 class="text-primary text-center">MBT: Deffense-2D6</h5>
-      <ul>
-        <li>Urban D: 7-10 (50%)</li>
-        <li>Grassland/Desert D: 7-10 (50%)</li>
-        <li>Forest D: 7-9 (41.7%)</li>
-        <li>Highlands D: 7-9 (41.7%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>
