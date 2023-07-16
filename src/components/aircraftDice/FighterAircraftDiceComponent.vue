@@ -128,20 +128,7 @@
         <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
-
   </div>
-  <ModalComponent id="fighter-odds">
-    <div class="bg-light d-flex flex-column align-items-center text-dark">
-      <h5 class="text-danger text-center">Fighter Aircraft-D12</h5>
-      <h6 class="text-center">1AP, 4MP, Range of 1</h6>
-      <ul>
-        <li>1-4 (33%) on all ground targets</li>
-        <li>Vs Figher 1-6 (50%)</li>
-        <li>Vs CAS 1-9 (75%)</li>
-        <li>Evade 1-4 (33%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>

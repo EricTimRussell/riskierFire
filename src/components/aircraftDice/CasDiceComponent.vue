@@ -98,20 +98,7 @@
         <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
-
   </div>
-  <ModalComponent id="cas-odds">
-    <div class="d-flex flex-column align-items-center text-dark bg-light">
-      <h5 class="text-danger text-center">Close Air Support-D12</h5>
-      <h6 class="text-center">1AP, 3MP, Range of 1</h6>
-      <ul>
-        <li>Cannot Target Fighters</li>
-        <li>1-10 (83%) on all ground targets</li>
-        <li>1-6 (50%) Vs CAS</li>
-        <li>Evade 1-4 (33%)</li>
-      </ul>
-    </div>
-  </ModalComponent>
 </template>
 
 <script>

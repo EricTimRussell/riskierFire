@@ -8,23 +8,11 @@
     </main>
 
   </body>
-  <div class="modal fade" id="" tabindex="-1" aria-labelledby="" aria-hidden="false">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
-            title="close modal"></button>
-        </div>
-        <div class="modal-body">
-
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- SECTION battle view unit odds modals -->
   <!-- Odds modals have to be on App.vue because of nested parent/child components needing to have certain fixed sizes which seems to break modals -->
 
+  <!-- SECTION ground forces -->
   <!-- Infantry modal -->
   <div class="modal fade" id="infantry-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
     <div class="modal-dialog">
@@ -264,6 +252,71 @@
               <li>With Point Defense 1-8 (67%)</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION air forces -->
+  <!-- Fighter modal -->
+  <div class="modal fade" id="fighter-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="bg-light d-flex flex-column align-items-center text-dark">
+            <h5 class="text-danger text-center">Fighter Aircraft-D12</h5>
+            <h6 class="text-center">1AP, 4MP, Range of 1</h6>
+            <ul>
+              <li>1-4 (33%) on all ground targets</li>
+              <li>Vs Figher 1-6 (50%)</li>
+              <li>Vs CAS 1-9 (75%)</li>
+              <li>Evade 1-4 (33%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAS modal -->
+  <div class="modal fade" id="cas-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="d-flex flex-column align-items-center text-dark bg-light">
+            <h5 class="text-danger text-center">Close Air Support-D12</h5>
+            <h6 class="text-center">1AP, 3MP, Range of 1</h6>
+            <ul>
+              <li>Cannot Target Fighters</li>
+              <li>1-10 (83%) on all ground targets</li>
+              <li>1-6 (50%) Vs CAS</li>
+              <li>Evade 1-4 (33%)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION naval forces -->
+  <!-- Carrier modal -->
+  <div class="modal fade" id="carrier-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close bg-secondary" data-bs-dismiss="modal" aria-label="Close"
+            title="close modal"></button>
+        </div>
+        <div class="modal-body">
+
         </div>
       </div>
     </div>
