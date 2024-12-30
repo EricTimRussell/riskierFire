@@ -1,4 +1,5 @@
 <template>
+
   <body class="container-fluid indepentant-scroll-rules">
     <header class="row">
       <nav v-if="user?.email" class="d-flex justify-content-center gap-2 col-12">
@@ -81,18 +82,20 @@
         <p><span class="text-tan fs-md">Third</span>
           a player should place their other cities within the regions they just
           claimed. And then claim each city on the game page with the appropriate region number that is located on the
-          region number piece. Be sure to select the correct amount of resource based on the city size.</p>
+          region number piece.</p>
         <p><span class="text-tan fs-md">Fourth</span>
           a player should claim the rest of their regions without cities by using the claim region button on the game
           page.</p>
         <p><span class="text-tan fs-md">Fifth</span>
           a player should build and place all the buildings they want to start with. Then if a player has a naval yard
-          they should build and place any ships they want to start with. During the set-up phase buildings and ships will
+          they should build and place any ships they want to start with. During the set-up phase buildings and ships
+          will
           build instantly, but during normal play they take 2 turns to build. Players can add/remove anykind of building
           or units on the game page using the "+" & "-" symbols next to the item. Resources will automatically will be
           updated upon adding and removing anything.</p>
         <p><span class="text-tan fs-md">Lastly</span>
-          a player should build and place any units they wish to use. They also should form any armies and divisions they
+          a player should build and place any units they wish to use. They also should form any armies and divisions
+          they
           want after building the units they want. If a player built a carrier they should also create a carrier card on
           the game page using the "Create Carrier" button.</p>
         <!-- SECTION Turn Phases -->
@@ -110,7 +113,8 @@
           units and buildings. The units will not be placed on the board until the start of the players next turn.
         </p>
         <p>
-          --Units that are being built will be placed in front of the player off the board until the start of their turn.
+          --Units that are being built will be placed in front of the player off the board until the start of their
+          turn.
           Newly constructed units can only be placed on a players factories or capital.
         </p>
         <!-- SECTION Resources -->
@@ -121,7 +125,8 @@
         <p><span class="text-tan fs-md">Resources</span> are determined at random for each tile captured, except for the
           tiles with cities on them. Each tile contains the resources capital, industry, and agriculture.</p>
         <p>
-          <span class="text-tan fs-md">Cities</span> are worth a pre-deterimed amount based on their size or importance. A
+          <span class="text-tan fs-md">Cities</span> are worth a pre-deterimed amount based on their size or importance.
+          A
           players capital is worth 15 of each resource. A captured capital is worth 10 of each resource. A medium sized
           city is
           worth 6 of each resources. A small city is worth 4 of each resource. All cities are worth 1 production point.
@@ -137,7 +142,8 @@
           <span class="divider"></span>
         </div>
         <p>
-          --All buildings and naval units take 2 turns to construct and their progress can be tracked on the construction
+          --All buildings and naval units take 2 turns to construct and their progress can be tracked on the
+          construction
           page. <span class="material-symbols-outlined text-warning">
             construction
           </span>
@@ -147,16 +153,20 @@
           medium
           cities to
           increase their production by 1. Factories cannot be built on small cities. The amount of
-          production a player has dictates how many units, buildings, and naval units a player can produce per turn. NOTE:
-          Naval units and buildings take 2 turns to produce meaning a players production capacity will be reduced by 1 per
+          production a player has dictates how many units, buildings, and naval units a player can produce per turn.
+          NOTE:
+          Naval units and buildings take 2 turns to produce meaning a players production capacity will be reduced by 1
+          per
           construction project until they are complete.
         </p>
         <p>--Once a project is complete a player can then add that building or naval unit on the
           construction page using
           the "+" icon.</p>
-        <p><span class="text-tan fs-md"> Example:</span> A player has 10 production and decides to build 2 airfields and 2
+        <p><span class="text-tan fs-md"> Example:</span> A player has 10 production and decides to build 2 airfields and
+          2
           cruisers during their build phase. Their total production will be reduced by 4 for 2 turns and their new total
-          production is now 6. They can now only produce 6 units instead of 10 per turn until their construction projects
+          production is now 6. They can now only produce 6 units instead of 10 per turn until their construction
+          projects
           are complete or the player cancels their construction projetcs.</p>
         <!-- SECTION Main Board Pieces -->
         <div id="mainBoardPieces" class="d-flex flex-column align-items-center text-center text-tan py-2">
@@ -167,9 +177,10 @@
           <span class="text-tan fs-md">Fortifications:</span> Each player has pillbox or bunker type pieces that
           represents fortifications. When fortifications are built 1 bunker piece is placed on the main board where they
           were built. This will provide 3 bunker pieces on the combat board. Only one can be built per tile. Bunkers can
-          be built during the build phase of a players turn and they build instantly. A player must own the tile to build
+          be built during the build phase of a players turn. They take one turn to build. A player must own the tile to
+          build
           fortifications on it. Only Infantry and special forces can
-          use fortifications and it gives provides immunity to artillery. It also gives the occupying unit an extra
+          use fortifications and it provides immunity to artillery. It also gives the occupying unit an extra
           hitpoint. A successfull hits on a fortification destroys it, but not the unit occupying it.
         </p>
         <p><span class="text-tan fs-md">Cities:</span> Capital cities will be the same color as team it
@@ -188,10 +199,12 @@
           offensive points. Movement points are the number of
           times a unit can move on the combat board per turn. All land units can move 2 spaces on the main board if they
           are within their own territory. Otherwise land
-          units can only move 1 space on the main board if they move into uncontrolled territory. Offensive points are the
+          units can only move 1 space on the main board if they move into uncontrolled territory. Offensive points are
+          the
           number of times a unit can
           attack per turn. Range is the distance a unit can attack an enemy. A range of 1 means the unit can only
-          attack tiles that are next to them.
+          attack tiles that are next to them. Lastly, one infantry, mechanized, IFV, or MBT piece on the main board
+          represents 3 units on the combat board. This does not apply to artillery, AA, and special forces.
         </p>
         <p><span class="text-tan fs-md">Infantry</span> are a more defensively balanced unit with limited offensive
           capabilities. They have the ability to occupy fortifications giving them a boost to defensive durability.
@@ -203,7 +216,8 @@
           designators giving artillery more accuracy and gaining access to destroyer and cruiser artillery if
           applicable. SF units have 1 movement point, 1 offensive point, and a range of 1.
         </p>
-        <p><span class="text-tan fs-md">Mechanized Infantry</span> are a heavier more mobile version of infantry. They are
+        <p><span class="text-tan fs-md">Mechanized Infantry</span> are a heavier more mobile version of infantry. They
+          are
           balanced between offensive ability and defensive ability. Making these units slightly more effective at taking
           on heavier opponents. Mech units have 2 movement points, 1 offensive point, and a range of 1.
         </p>
@@ -211,12 +225,15 @@
           effective at taking on infantry and Mechanized units. They are average at taking on other IFV's and are
           ineffective at taking on MBT's. IFV's have 3 movement points, 1 offensive point, and a range of 1.
         </p>
-        <p><span class="text-tan fs-md">Main Battle Tank (MBT)</span> are the offensive work horse of any ground assault.
+        <p><span class="text-tan fs-md">Main Battle Tank (MBT)</span> are the offensive work horse of any ground
+          assault.
           They are effective at taking on any ground enemy, but have very limited defensive capabilities. MBT's have 2
           movement points, 2 offensive points, and a range of 1.
         </p>
-        <p><span class="text-tan fs-md">Anti-aircraft</span> is a players ground defense from aircraft and missiles. They
-          can fire AA missiles at aircraft and missiles that are within range. They have no other offensive ability and do
+        <p><span class="text-tan fs-md">Anti-aircraft</span> is a players ground defense from aircraft and missiles.
+          They
+          can fire AA missiles at aircraft and missiles that are within range. They have no other offensive ability and
+          do
           not have any defensive ability. If they are attacked by ground units they are immediately destroyed. AA have 1
           movement point, 1 offensive point, and a range of 1. On the main board any aircraft
           that attacks a tile with AA will have to survive 1 shot from the AA unit before it can attempt to destroy its
@@ -227,8 +244,10 @@
           guiding their shots. Guided shots are much more effective. Artillery have 1 movement point, 1
           offensive point, and a range of 3 on the combat board. Artillery cannot fire into tiles with fortifications.
         </p>
-        <p><span class="text-tan fs-md">Missile-Artillery</span> is a very effective form of artillery but are limited by
-          the need to be guided by a laser designator. Missile artillery can only fire when being guided by special forces
+        <p><span class="text-tan fs-md">Missile-Artillery</span> is a very effective form of artillery but are limited
+          by
+          the need to be guided by a laser designator. Missile artillery can only fire when being guided by special
+          forces
           unit. They do not have any defensive ability. They have a range of 4 on the combat board.
         </p>
         <!-- SECTION Air Units -->
@@ -239,8 +258,10 @@
         <p><span class="text-tan fs-md">Fighter Aircraft</span> provide more flexable AA cover for ground units with a
           limited ability to strike ground targets. Fighter aircraft have 4 movement points, 1 offensive point, and a
           range of 1 on the combat board. They can move 3 tiles on the main board per turn. Fighter aircraft must stay
-          within 3 tiles of an airfield. When a fighter aircraft is used to make attacks on the main board the player will
-          immediately return it to an airfield within range after the attack. Fighters on the combat board can remain for
+          within 3 tiles of an airfield. When a fighter aircraft is used to make attacks on the main board the player
+          will
+          immediately return it to an airfield within range after the attack. Fighters on the combat board can remain
+          for
           the duration of
           the battle but once they are taken off the combat board or the battle ends they will be immediately moved to a
           airfield within range.
@@ -249,14 +270,17 @@
           ground targets
           and provide some air cover against other CAS aircraft. However, they cannot target fighter aircraft and only
           have a small chance to evade fighter attacks. CAS have 3 movement points, 2 offensive points, and a range of 1
-          on the combat board. They have 2 movement points on the main board. CAS can attack once per turn meaning if they
+          on the combat board. They have 2 movement points on the main board. CAS can attack once per turn meaning if
+          they
           make attacks on the main board they cannot be involved in any combat board battles and vice versa. CAS do not
           need to be in range of an airfield.
         </p>
         <p><span class="text-tan fs-md">Cargo Aircraft</span> can transport units from airfield to airfield.
           They can also
-          be used to deploy special forces units and infantry by air as paratroopers. They have no offensive or defensive
-          ability. Supply aircraft are not used on the combat board. They can move 3 tiles per turn on the main board and
+          be used to deploy special forces units and infantry by air as paratroopers. They have no offensive or
+          defensive
+          ability. Supply aircraft are not used on the combat board. They can move 3 tiles per turn on the main board
+          and
           must remain within 5 spaces of an airfield.
         </p>
         <!-- SECTION Navy Units -->
@@ -267,34 +291,43 @@
         <p><span class="text-tan fs-md">General Rules:</span> There are 3 types of naval units, Aircraft carrier,
           Cruiser, and Destroyer. Carriers and destroyers
           have peg holes in
-          them to track their damage. When a carrier or destroyer is hit a red peg is placed into one of the holes in the
+          them to track their damage. When a carrier or destroyer is hit a red peg is placed into one of the holes in
+          the
           center of the ship to
           track damage. Each ship has a specific construction time. Carriers take 3
           turns to
           construct. Cruisers and destroyers
           take 2 turns to construct. All ships can move 1 space per turn on the main board.
         </p>
-        <p><span class="text-tan fs-md">Carriers</span> have the ability to carry up to 8 fighter aircraft and CAS units.
-          They are durable ships and rely on their aircraft for offensive and defensive capabilities. Carriers have point
-          defense systems that let them target incoming missiles and aircraft. Carriers also have the ability to transport
+        <p><span class="text-tan fs-md">Carriers</span> have the ability to carry up to 8 fighter aircraft and CAS
+          units.
+          They are durable ships and rely on their aircraft for offensive and defensive capabilities. Carriers have
+          point
+          defense systems that let them target incoming missiles and aircraft. Carriers also have the ability to
+          transport
           and land up to 6 ground units. Carriers have 1 movement point, 4 hit points, and no offensive points. Carriers
-          point defense has a range of 1 on the mainboard and the combat board. If a carrier is destroyed all the aircraft
-          on the ship are destroyed as well unless they are within range of another carrier that has available space or an
-          airfield. However, the aircraft that are in the air can continue to fight until the battle is over then they are
+          point defense has a range of 1 on the mainboard and the combat board. If a carrier is destroyed all the
+          aircraft
+          on the ship are destroyed as well. However, the aircraft that are in the air can continue to fight until the
+          battle is over then they
+          are
           immediately moved to another airfield or carrier within range. Otherwise they are immediately destroyed.
         </p>
         <p><span class="text-tan fs-md">Cruisers</span> are much more versatile than destroyers, but are
           not as durable or
-          nimble. They have the ability to deploy missiles and AA missiles. Cruisers have 2 movement points, 1 hit point,
+          nimble. They have the ability to deploy missiles and AA missiles. Cruisers have 2 movement points, 1 hit
+          point,
           and 1 offensive point. On the combat board cruisers AA has a range of 1 and their missiles have a range of 3.
-          Cruiser can provide missile artillery support if a special forces unit is being used and the
+          Cruisers can provide missile artillery support if a special forces unit is being used and the
           cruiser is within 2 tiles on the main board of where the combat is taking place.
         </p>
         <p><span class="text-tan fs-md">Destroyers</span> are heavy combat vessels with large guns and
           heavy armor giving
           them the ability to absorb hits. They are smaller and more nimble than most naval vessals and are great at
-          destroying other naval vessels. They have no AA ability. Destroyers have 2 movement points, 2 hit points, and 2
-          offensive points with a range of 1. Destroyers have the ability to provide artillery support to land battles so
+          destroying other naval vessels. They have no AA ability. Destroyers have 2 movement points, 2 hit points, and
+          2
+          offensive points with a range of 1. Destroyers have the ability to provide artillery support to land battles
+          so
           long as they are adjacent to the tile where the battle is taking place.
         </p>
         <!-- SECTION Combat Rules -->
@@ -318,8 +351,10 @@
           infantry
           or Special forces can use fortifications. All of the defenders units involved will be placed in the middle of
           the combat
-          board. The defending player cannot place units on first row of tiles closest to them or past the middle row. The
+          board. The defending player cannot place units on first row of tiles closest to them or past the middle row.
+          The
           offensive player will now place their units anywhere up to the defenders line but not on or past it.
+          Paratroopers can deploy past or directly on a defenders units.
         </p>
         <p>-- The defending player must deploy all their units possible up to the maximum of 12. For
           example the
@@ -366,7 +401,8 @@
           it. The
           attacking unit
           fails to destroy the defending unit. The attacking player still has 3 movement points left but cannot
-          move that unit because they remain locked in battle with enemy. If the attacking unit was successfull they would
+          move that unit because they remain locked in battle with enemy. If the attacking unit was successfull they
+          would
           move into
           the space they captured and this would count as 1 movement point. The player can still move the unit 2
           more space but cannot attack anymore.
@@ -378,7 +414,8 @@
           hits and neither of them are destroyed, however the mech unit cannot attack again since it only has 1
           attack point. And since the mech unit was unsuccessfull at destroying the infantry the mech is now locked
           in combat with the infantry and cannot move even though it still has 2 movement points left. If during
-          that same turn another unit comes along and destroys the infantry or takes the place of the mechanized unit they
+          that same turn another unit comes along and destroys the infantry or takes the place of the mechanized unit
+          they
           are no longer locked in combat and
           can now move if they wish. If the mech unit was not relieved at the end of the players turn the other
           player can now go on the offensive against the mech unit.
@@ -388,7 +425,8 @@
           <h2>Retreat Rules</h2>
           <span class="divider"></span>
         </div>
-        <p><span class="text-tan fs-md"> Retreating:</span> The defending or offensive players can retreat by moving there
+        <p><span class="text-tan fs-md"> Retreating:</span> The defending or offensive players can retreat by moving
+          there
           units to first row of
           tiles closest to
           them on the combat board and declaring that the unit is retreating. They have to remain on that tile for 1
@@ -417,11 +455,13 @@
           <span class="divider"></span>
         </div>
         <p>
-          <span class="text-tan fs-md">Attrition</span> occurs when units are cut-off from a direct connection to a city,
+          <span class="text-tan fs-md">Attrition</span> occurs when units are cut-off from a direct connection to a
+          city,
           naval yard or carrier. Units that are cut-off are now subject to running out of supplies. Armies and divisions
           only have
           enough supplies for 4 battles. If an army/division or unit runs out of supplies they can no longer attack or
-          defends themselves. If they are attacked with no supplies the player must follow the "retreat rules when a unit
+          defends themselves. If they are attacked with no supplies the player must follow the "retreat rules when a
+          unit
           has no supplies".
         </p>
         <!-- SECTION Navy Combat Rules -->
@@ -434,7 +474,8 @@
           naval units to the tile where combat is initiated will be included on the combat board. A max of 3 ships
           can occupy a tile at one time.
         </p>
-        <p>--Their is a combat board for naval battles as well and is largely identical to the combat board for land
+        <p>--The same combat board is used for naval battles as well and is largely identical to the combat board for
+          land
           battles. The difference however is that the defending player can only place their units on the 2nd and 3rd
           row closest to them. The attacking player can place their units on the first 3 rows closest to them.
         </p>
@@ -454,11 +495,15 @@
         </div>
         <p><span class="text-tan fs-md">Items:</span> Players start with 3 item cards chosen at random from the deck.
           Items are cards that are drawn from a pile every time a player takes a territory including territory not owned
-          by another player. This does not apply to territory claimed during set-up phase. Players can have as many item
-          cards as they want. Once they are used shuffle them back into item deck. Item cards are placed face up in front
-          of the player when using an item card at the combat board. The item cards will not be placed face up until both
-          players have chosen the items they will be using. Once players choose and place their cards face up they cannot
-          remove or change them. Players should not know what items another player is going to use before they place them
+          by another player. This does not apply to territory claimed during set-up phase. Players can have 10 item
+          cards max. Once they are used shuffle them back into item deck. Item cards are placed face up in
+          front
+          of the player when using an item card at the combat board. The item cards will not be placed face up until
+          both
+          players have chosen the items they will be using. Once players choose and place their cards face up they
+          cannot
+          remove or change them. Players should not know what items another player is going to use before they place
+          them
           face up.
         </p>
         <p><span class="text-tan">Exsplosive Reactive Armor:</span> This can be used before a battle begins to
@@ -477,10 +522,12 @@
         </p> -->
         <p><span class="text-tan">Point Defense:</span> The point defense item can be used by a defending player
           before a battle
-          to provide better AA and anti-missile protection. Point defense applies to all Anti-aircraft units. Increases
+          to provide better AA and anti-missile protection. Point defense applies to all Anti-aircraft ground units.
+          Increases
           chance to hit aircraft and missiles to a 1-8 with a D12.
         </p>
-        <p><span class="text-tan">Aircraft Stealth:</span> The stealth card can be applied before a battle. This
+        <p><span class="text-tan">Aircraft Stealth:</span> The stealth card can be applied to fighters before a battle.
+          This
           will reverse
           attack
           order of AA and aircraft meaning the aircraft will fire first and then the AA will fire second. If the AA is
@@ -495,10 +542,9 @@
         <p><span class="text-tan">Paratroopers:</span> This item card can be used before combat by the
           offensive
           player. The
-          offensive player can place up to 3 infantry units behind the defending player during the combat board
+          offensive player can place up to 3 infantry units behind or on the defending player during the combat board
           set-up phase. This requires the offensive player to have infantry or SF infantry present when the attack
-          is initiated. If AA is present then each infantry unit being deployed as paratroopers will have to survive
-          one AA attack roll. The AA only gets to shoot once at each paratrooper.
+          is initiated. If AA is present it can only engage 1 paratrooper aircraft per AA vehicle.
         </p>
         <p><span class="text-tan">Javelin Missiles</span> : This item card equips infantry units (not SF)
           with
@@ -511,9 +557,10 @@
           <h2>Event Rules</h2>
           <span class="divider"></span>
         </div>
-        <p><span class="text-tan fs-md">Event</span> cards are drawn at the end of the last players turn. Any player draws
-          the card and proceeds to resolve whatever event the card presents. Players cannot decline any event unless the
-          card says otherwise. Players should decide if 2 or 1 events are to be drawn per turn.
+        <p><span class="text-tan fs-md">Event</span> cards are drawn at the end of the last players turn. Any player
+          can draw
+          the card and proceed to resolve whatever event the card presents. Players cannot decline any event unless the
+          card says otherwise.
         </p>
         <!-- SECTION Structure Rules -->
         <div id="structure" class="d-flex flex-column align-items-center text-center text-tan py-2">
@@ -524,8 +571,9 @@
           must own the tile in order to build anything on the tile. Players
           capitals act as airfields.
         </p>
-        <p><span class="text-tan fs-md">Airfields</span> can only be built within the adjacent tiles of cities. Aircraft
-          can only be placed on airfields when built. Airfields can also be used to transport units around the board from
+        <p><span class="text-tan fs-md">Airfields</span> can be built anywhere within a players territory. Aircraft
+          can only be placed on airfields when built. Airfields can also be used to transport units around the board
+          from
           one airfield to another airfield. Moving a unit via airfield uses that units 1 movement point and requires 1
           available movement point as well as a cargo aircraft present at the starting airfield.
         </p>
@@ -536,7 +584,7 @@
         </p>
         <p><span class="text-tan fs-md">Factories</span> can be built on any city except small cities and are used to
           increase a factions production capacity. When they are built onto cities they increase your faction production
-          by 1. Large and medium cities can have 1 factory.
+          by 1. Large and medium cities can have 1 factory max.
         </p>
         <!-- SECTION Army/Division Rules -->
         <div id="armyDivision" class="d-flex flex-column align-items-center text-center text-tan py-2">

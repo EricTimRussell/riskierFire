@@ -11,17 +11,17 @@ class GroundForcesService {
   async addInfantry(team) {
     await updateDoc(team, {
       totalInfantry: increment(1),
-      totalCapital: increment(-1),
+      totalCapital: increment(-2),
       totalIndustry: increment(-1),
-      totalAgriculture: increment(-3)
+      totalAgriculture: increment(-5)
     });
   }
   async removeInfantry(team) {
     await updateDoc(team, {
       totalInfantry: increment(-1),
-      totalCapital: increment(1),
+      totalCapital: increment(2),
       totalIndustry: increment(1),
-      totalAgriculture: increment(3)
+      totalAgriculture: increment(5)
     });
   }
 
@@ -47,17 +47,17 @@ class GroundForcesService {
   async addMechanized(team) {
     await updateDoc(team, {
       totalMechanized: increment(1),
-      totalCapital: increment(-2),
-      totalIndustry: increment(-2),
-      totalAgriculture: increment(-3)
+      totalCapital: increment(-3),
+      totalIndustry: increment(-3),
+      totalAgriculture: increment(-5)
     });
   }
   async removeMechanized(team) {
     await updateDoc(team, {
       totalMechanized: increment(-1),
-      totalCapital: increment(2),
-      totalIndustry: increment(2),
-      totalAgriculture: increment(3)
+      totalCapital: increment(3),
+      totalIndustry: increment(3),
+      totalAgriculture: increment(5)
     });
   }
 
@@ -65,16 +65,16 @@ class GroundForcesService {
   async addIFV(team) {
     await updateDoc(team, {
       totalIFV: increment(1),
-      totalCapital: increment(-2),
-      totalIndustry: increment(-3),
+      totalCapital: increment(-4),
+      totalIndustry: increment(-5),
       totalAgriculture: increment(-1)
     });
   }
   async removeIFV(team) {
     await updateDoc(team, {
       totalIFV: increment(-1),
-      totalCapital: increment(2),
-      totalIndustry: increment(3),
+      totalCapital: increment(4),
+      totalIndustry: increment(5),
       totalAgriculture: increment(1)
     });
   }
@@ -83,16 +83,16 @@ class GroundForcesService {
   async addMBT(team) {
     await updateDoc(team, {
       totalMBT: increment(1),
-      totalCapital: increment(-3),
-      totalIndustry: increment(-3),
+      totalCapital: increment(-6),
+      totalIndustry: increment(-6),
       totalAgriculture: increment(-1)
     });
   }
   async removeMBT(team) {
     await updateDoc(team, {
       totalMBT: increment(-1),
-      totalCapital: increment(3),
-      totalIndustry: increment(3),
+      totalCapital: increment(6),
+      totalIndustry: increment(6),
       totalAgriculture: increment(1)
     });
   }

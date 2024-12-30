@@ -10,7 +10,7 @@
   </body>
 
   <!-- SECTION battle view unit odds modals -->
-  <!-- Odds modals have to be on App.vue because of nested parent/child components needing to have certain fixed sizes which seems to break modals -->
+  <!-- Odds modals are on App.vue because of nested parent/child components needing to have certain fixed sizes which seems to break modals -->
 
   <!-- SECTION ground forces -->
   <!-- Infantry modal -->
@@ -256,6 +256,7 @@
       </div>
     </div>
   </div>
+  <!-- !SECTION -->
 
   <!-- SECTION air forces -->
   <!-- Fighter modal -->
@@ -305,6 +306,7 @@
       </div>
     </div>
   </div>
+  <!-- !SECTION -->
 
   <!-- SECTION naval forces -->
   <!-- Carrier modal -->
@@ -377,6 +379,9 @@
       </div>
     </div>
   </div>
+  <!-- !SECTION -->
+
+  <!-- !SECTION End modals-->
 </template>
 
 

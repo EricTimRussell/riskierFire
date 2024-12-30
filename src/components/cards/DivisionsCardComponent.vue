@@ -178,6 +178,7 @@ export default {
     const division = doc(db, "divisions", props.divisions.id)
     // Ref autofills edit form when opened
     const editable = ref({ unitSlot1: `${props.divisions.unitSlot1}`, unitSlot2: `${props.divisions.unitSlot2}`, unitSlot3: `${props.divisions.unitSlot3}`, unitSlot4: `${props.divisions.unitSlot4}`, unitSlot5: `${props.divisions.unitSlot5}`, unitSlot6: `${props.divisions.unitSlot6}` })
+
     return {
       editable,
       division,
