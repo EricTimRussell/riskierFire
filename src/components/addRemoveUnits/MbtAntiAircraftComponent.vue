@@ -2,7 +2,8 @@
   <div>
 
     <!-- SECTION MBT -->
-    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group" aria-label="Small button group">
+    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
+      aria-label="Small button group">
       <div>
         <button :disabled="(team.totalMBT <= 0)" @click="removeMBT()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
@@ -20,11 +21,11 @@
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
       <div class="d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">3</span>
+        <span class="fs-lg">6</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">3</span>
+        <span class="fs-lg">6</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
@@ -43,11 +44,13 @@
         <h6 class="px-2">AntiAircraft</h6>
         <h6 v-if="plusAntiAircraft == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
         <h6 v-if="minusAntiAircraft == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
-        <h6 v-if="!plusAntiAircraft && !minusAntiAircraft" class="px-2 fs-4"><strong>{{ team.totalAntiAircraft }}</strong>
+        <h6 v-if="!plusAntiAircraft && !minusAntiAircraft" class="px-2 fs-4"><strong>{{ team.totalAntiAircraft
+            }}</strong>
         </h6>
       </div>
       <div>
-        <button @click="addAntiAircraft()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
+        <button @click="addAntiAircraft()" class=""><span
+            class="material-symbols-outlined fs-lg p-2">add</span></button>
       </div>
     </div>
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">

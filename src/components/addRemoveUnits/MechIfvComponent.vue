@@ -2,7 +2,8 @@
   <div>
 
     <!-- SECTION Mechanized -->
-    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group" aria-label="Small button group">
+    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
+      aria-label="Small button group">
       <div>
         <button :disabled="(team.totalMechanized <= 0)" @click="removeMechanized()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
@@ -11,7 +12,8 @@
         <h6 class="px-2">Mechanized</h6>
         <h6 v-if="plusMechanized == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
         <h6 v-if="minusMechanized == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
-        <h6 v-if="!plusMechanized && !minusMechanized" class="px-2 fs-4"><strong>{{ team.totalMechanized }}</strong></h6>
+        <h6 v-if="!plusMechanized && !minusMechanized" class="px-2 fs-4"><strong>{{ team.totalMechanized }}</strong>
+        </h6>
       </div>
       <div>
         <button @click="addMechanized()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
@@ -20,15 +22,15 @@
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
       <div class="d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">2</span>
+        <span class="fs-lg">3</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">2</span>
+        <span class="fs-lg">3</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
-        <span class="fs-lg">3</span>
+        <span class="fs-lg">5</span>
       </div>
     </div>
 
@@ -52,11 +54,11 @@
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
       <div class="d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">2</span>
+        <span class="fs-lg">4</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">3</span>
+        <span class="fs-lg">5</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>

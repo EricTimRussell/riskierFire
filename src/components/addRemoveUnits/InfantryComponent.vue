@@ -2,7 +2,8 @@
   <div>
 
     <!-- SECTION Infantry -->
-    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group" aria-label="Small button group">
+    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
+      aria-label="Small button group">
       <div>
         <button :disabled="(team.totalInfantry <= 0)" @click="removeInfantry()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
@@ -20,7 +21,7 @@
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
       <div class="d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">1</span>
+        <span class="fs-lg">2</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
@@ -28,7 +29,7 @@
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
-        <span class="fs-lg">3</span>
+        <span class="fs-lg">5</span>
       </div>
     </div>
 
@@ -44,10 +45,11 @@
         <h6 v-if="plusSpecialForces == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
         <h6 v-if="minusSpecialForces == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusSpecialForces && !minusSpecialForces" class="px-3 fs-4"><strong>{{ team.totalSpecialForces
-        }}</strong></h6>
+            }}</strong></h6>
       </div>
       <div>
-        <button @click="addSpecialForces()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
+        <button @click="addSpecialForces()" class=""><span
+            class="material-symbols-outlined fs-lg p-2">add</span></button>
       </div>
     </div>
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
