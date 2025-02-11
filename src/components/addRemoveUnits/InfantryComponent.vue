@@ -73,7 +73,7 @@
 <script>
 // Firebase
 import { useFirestore } from "vuefire"
-import { doc } from "@firebase/firestore";
+import { doc, updateDoc, increment } from "@firebase/firestore";
 
 // Vue
 import { useRoute } from "vue-router";
@@ -81,6 +81,7 @@ import { ref } from "vue"
 
 // Services
 import { groundForcesService } from "../../services/GroundForcesService";
+import { resourcesService } from "../../services/ResourcesService";
 
 export default {
   props: {
@@ -106,7 +107,10 @@ export default {
       async addInfantry() {
         try {
           plusInfantry.value = true
-          await groundForcesService.addInfantry(team)
+          await resourcesService.updateResources(team, -5, -2, -1, 0)
+          await updateDoc(team, {
+            totalInfantry: increment(1)
+          });
           setTimeout(() => {
             plusInfantry.value = false
           }, 100)
@@ -117,7 +121,10 @@ export default {
       async removeInfantry() {
         try {
           minusInfantry.value = true
-          await groundForcesService.removeInfantry(team)
+          await resourcesService.updateResources(team, 5, 2, 1, 0)
+          await updateDoc(team, {
+            totalInfantry: increment(-1)
+          });
           setTimeout(() => {
             minusInfantry.value = false
           }, 100)
@@ -129,7 +136,10 @@ export default {
       async addSpecialForces() {
         try {
           plusSpecialForces.value = true
-          await groundForcesService.addSpecialForces(team)
+          await resourcesService.updateResources(team, -3, -3, -1, 0)
+          await updateDoc(team, {
+            totalSpecialForces: increment(1)
+          });
           setTimeout(() => {
             plusSpecialForces.value = false
           }, 100)
@@ -139,13 +149,16 @@ export default {
       },
       async removeSpecialForces() {
         try {
-          minusSpecialForces.value = true
-          await groundForcesService.removeSpecialForces(team)
+          plusSpecialForces.value = true
+          await resourcesService.updateResources(team, 3, 3, 1, 0)
+          await updateDoc(team, {
+            totalSpecialForces: increment(-1)
+          });
           setTimeout(() => {
-            minusSpecialForces.value = false
+            plusSpecialForces.value = false
           }, 100)
         } catch (error) {
-          console.error(error, "removing special forces");
+          console.error(error, "adding special forces");
         }
       }
     }

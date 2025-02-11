@@ -10,7 +10,7 @@
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>
-        <h1>Land Units</h1>
+        <h1>Ground Units</h1>
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>
