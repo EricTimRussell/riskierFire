@@ -70,14 +70,14 @@
 <script>
 // Firebase
 import { useFirestore } from "vuefire"
-import { doc } from "@firebase/firestore";
+import { doc, updateDoc, increment } from "@firebase/firestore";
 
 // Vue
 import { useRoute } from "vue-router";
 import { ref } from "vue";
 
 // Services
-import { groundForcesService } from "../../services/GroundForcesService";
+import { resourcesService } from "../../services/ResourcesService";
 
 export default {
   props: {
@@ -102,9 +102,15 @@ export default {
       minusAntiAircraft,
       async addMBT() {
         try {
+          // change ref value to true to display +1 or -1 icon
           plusMBT.value = true
-          await groundForcesService.addMBT(team)
+          // update team resource count
+          await resourcesService.updateResources(team, -1, -6, -6, 0)
+          await updateDoc(team, {
+            totalMBT: increment(1)
+          });
           setTimeout(() => {
+            // change ref value back to false to remove +1 or -1 icon
             plusMBT.value = false
           }, 100);
         } catch (error) {
@@ -114,7 +120,10 @@ export default {
       async removeMBT() {
         try {
           minusMBT.value = true
-          await groundForcesService.removeMBT(team)
+          await resourcesService.updateResources(team, 1, 6, 6, 0)
+          await updateDoc(team, {
+            totalMBT: increment(-1)
+          });
           setTimeout(() => {
             minusMBT.value = false
           }, 100);
@@ -126,7 +135,10 @@ export default {
       async addAntiAircraft() {
         try {
           plusAntiAircraft.value = true
-          await groundForcesService.addAntiAircraft(team)
+          await resourcesService.updateResources(team, 0, -3, -1, 0)
+          await updateDoc(team, {
+            totalAntiAircraft: increment(1)
+          });
           setTimeout(() => {
             plusAntiAircraft.value = false
           }, 100);
@@ -137,7 +149,10 @@ export default {
       async removeAntiAircraft() {
         try {
           minusAntiAircraft.value = true
-          await groundForcesService.removeAntiAircraft(team)
+          await resourcesService.updateResources(team, 0, 3, 1, 0)
+          await updateDoc(team, {
+            totalAntiAircraft: increment(-1)
+          });
           setTimeout(() => {
             minusAntiAircraft.value = false
           }, 100);
