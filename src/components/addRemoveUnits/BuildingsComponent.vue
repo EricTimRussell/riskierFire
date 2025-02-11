@@ -2,7 +2,8 @@
   <div>
 
     <!-- SECTION Airfield -->
-    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group" aria-label="Small button group">
+    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
+      aria-label="Small button group">
       <div>
         <button :disabled="(team.totalAirfields <= 0)" @click="removeAirfield()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
@@ -90,7 +91,7 @@
 <script>
 // Firebase
 import { useFirestore } from "vuefire"
-import { doc } from "@firebase/firestore";
+import { doc, updateDoc, increment } from "@firebase/firestore";
 
 // Vue
 import { useRoute } from "vue-router";
@@ -98,6 +99,7 @@ import { ref } from "vue";
 
 // Services add-unit-transform
 import { buildingsService } from "../../services/BuildingsService";
+import { resourcesService } from "../../services/ResourcesService";
 
 export default {
   props: {
@@ -124,21 +126,32 @@ export default {
       minusNavalYard,
       plusFactory,
       minusFactory,
+
       async addAirfield() {
         try {
+          // change ref value to true to display +1 or -1 icon
           plusAirfield.value = true
-          await buildingsService.addAirfield(team)
+          // update team resource count
+          await resourcesService.updateResources(team, -1, -2, 0, 0)
+          await updateDoc(team, {
+            totalAirfields: increment(1)
+          });
           setTimeout(() => {
+            // change ref value back to false to remove +1 or -1 icon
             plusAirfield.value = false
           }, 100);
         } catch (error) {
           console.error(error, "adding Airfield");
         }
       },
+
       async removeAirfield() {
         try {
           minusAirfield.value = true
-          await buildingsService.removeAirfield(team)
+          await resourcesService.updateResources(team, 1, 2, 0, 0)
+          await updateDoc(team, {
+            totalAirfields: increment(-1)
+          });
           setTimeout(() => {
             minusAirfield.value = false
           }, 100);
@@ -150,7 +163,10 @@ export default {
       async addNavalYard() {
         try {
           plusNavalYard.value = true
-          await buildingsService.addNavalYard(team)
+          await resourcesService.updateResources(team, -2, -2, 0, 0)
+          await updateDoc(team, {
+            totalNavalYards: increment(1)
+          });
           setTimeout(() => {
             plusNavalYard.value = false
           }, 100);
@@ -158,10 +174,14 @@ export default {
           console.error(error, "adding Naval Yard");
         }
       },
+
       async removeNavalYard() {
         try {
           minusNavalYard.value = true
-          await buildingsService.removeNavalYard(team)
+          await resourcesService.updateResources(team, 2, 2, 0, 0)
+          await updateDoc(team, {
+            totalNavalYards: increment(-1)
+          });
           setTimeout(() => {
             minusNavalYard.value = false
           }, 100);
@@ -173,7 +193,10 @@ export default {
       async addFactory() {
         try {
           plusFactory.value = true
-          await buildingsService.addFactory(team)
+          await resourcesService.updateResources(team, -3, -1, 0, 0)
+          await updateDoc(team, {
+            totalFactories: increment(1)
+          });
           setTimeout(() => {
             plusFactory.value = false
           }, 100);
@@ -181,10 +204,14 @@ export default {
           console.error(error, "adding Factory");
         }
       },
+
       async removeFactory() {
         try {
           minusFactory.value = true
-          await buildingsService.removeFactory(team)
+          await resourcesService.updateResources(team, 3, 1, 0, 0)
+          await updateDoc(team, {
+            totalFactories: increment(-1)
+          });
           setTimeout(() => {
             minusFactory.value = false
           }, 100);
