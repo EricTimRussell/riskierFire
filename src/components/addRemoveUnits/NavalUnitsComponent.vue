@@ -2,7 +2,8 @@
   <div>
 
     <!-- SECTION Aircraft Carrier -->
-    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group" aria-label="Small button group">
+    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
+      aria-label="Small button group">
       <div>
         <button :disabled="(team.totalCarriers <= 0)" @click="removeCarrier()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
@@ -102,7 +103,7 @@
 <script>
 // Firebase
 import { useFirestore } from "vuefire"
-import { doc } from "@firebase/firestore";
+import { doc, updateDoc, increment } from "@firebase/firestore";
 
 // Vue
 import { useRoute } from "vue-router";
@@ -110,6 +111,7 @@ import { ref } from "vue";
 
 // Services
 import { navyUnitsService } from "../../services/NavyUnitsService";
+import { resourcesService } from "../../services/ResourcesService";
 
 export default {
   props: {
@@ -136,21 +138,32 @@ export default {
       minusCruiser,
       plusDestroyer,
       minusDestroyer,
+
       async addCarrier() {
         try {
+          // change ref value to true to display +1 or -1 icon
           plusCarrier.value = true
-          await navyUnitsService.addCarrier(team)
+          // update team resource count
+          await resourcesService.updateResources(team, -3, -5, -3, 0)
+          await updateDoc(team, {
+            totalCarriers: increment(1)
+          });
           setTimeout(() => {
+            // change ref value back to false to remove +1 or -1 icon
             plusCarrier.value = false
           }, 100);
         } catch (error) {
           console.error(error, "adding Carrier");
         }
       },
+
       async removeCarrier() {
         try {
           minusCarrier.value = true
-          await navyUnitsService.removeCarrier(team)
+          await resourcesService.updateResources(team, 3, 5, 3, 0)
+          await updateDoc(team, {
+            totalCarriers: increment(-1)
+          });
           setTimeout(() => {
             minusCarrier.value = false
           }, 100);
@@ -162,7 +175,10 @@ export default {
       async addCruiser() {
         try {
           plusCruiser.value = true
-          await navyUnitsService.addCruiser(team)
+          await resourcesService.updateResources(team, -1, -3, -4, 0)
+          await updateDoc(team, {
+            totalCruisers: increment(1)
+          });
           setTimeout(() => {
             plusCruiser.value = false
           }, 100);
@@ -170,10 +186,14 @@ export default {
           console.error(error, "adding Cruiser");
         }
       },
+
       async removeCruiser() {
         try {
           minusCruiser.value = true
-          await navyUnitsService.removeCruiser(team)
+          await resourcesService.updateResources(team, 1, 3, 4, 0)
+          await updateDoc(team, {
+            totalCruisers: increment(-1)
+          });
           setTimeout(() => {
             minusCruiser.value = false
           }, 100);
@@ -185,7 +205,10 @@ export default {
       async addDestroyer() {
         try {
           plusDestroyer.value = true
-          await navyUnitsService.addDestroyer(team)
+          await resourcesService.updateResources(team, -1, -3, -3, 0)
+          await updateDoc(team, {
+            totalDestroyers: increment(1)
+          });
           setTimeout(() => {
             plusDestroyer.value = false
           }, 100);
@@ -193,10 +216,14 @@ export default {
           console.error(error, "adding Destroyer");
         }
       },
+
       async removeDestroyer() {
         try {
           minusDestroyer.value = true
-          await navyUnitsService.removeDestroyer(team)
+          await resourcesService.updateResources(team, 1, 3, 3, 0)
+          await updateDoc(team, {
+            totalDestroyers: increment(-1)
+          });
           setTimeout(() => {
             minusDestroyer.value = false
           }, 100);

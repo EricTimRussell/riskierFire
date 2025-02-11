@@ -157,7 +157,7 @@ export default {
           minusIFV.value = true
           await resourcesService.updateResources(team, 1, 4, 5, 0)
           await updateDoc(team, {
-            totalMechanized: increment(-1)
+            totalIFV: increment(-1)
           });
           setTimeout(() => {
             minusIFV.value = false
