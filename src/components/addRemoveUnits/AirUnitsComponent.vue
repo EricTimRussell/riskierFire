@@ -2,7 +2,8 @@
   <div>
 
     <!-- SECTION Fighter Aircraft -->
-    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group" aria-label="Small button group">
+    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
+      aria-label="Small button group">
       <div>
         <button :disabled="(team.totalFighterAircraft <= 0)" @click="removeFighterAircraft()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
@@ -72,7 +73,8 @@
         <h6 v-if="!plusCargo && !minusCargo" class="px-2 fs-4"><strong>{{ team.totalCargoAircraft }}</strong></h6>
       </div>
       <div>
-        <button @click="addCargoAircraft()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
+        <button @click="addCargoAircraft()" class=""><span
+            class="material-symbols-outlined fs-lg p-2">add</span></button>
       </div>
     </div>
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
@@ -92,7 +94,7 @@
 <script>
 // Firebase
 import { useFirestore } from "vuefire"
-import { doc } from "@firebase/firestore";
+import { doc, updateDoc, increment } from "@firebase/firestore";
 
 // Vue
 import { useRoute } from "vue-router";
@@ -100,6 +102,7 @@ import { ref } from "vue";
 
 // Services
 import { airUnitsService } from "../../services/AirUnitsService";
+import { resourcesService } from "../../services/ResourcesService";
 
 export default {
   props: {
@@ -127,9 +130,15 @@ export default {
       minusCargo,
       async addFighterAircraft() {
         try {
+          // change ref value to true to display +1 or -1 icon
           plusFighter.value = true
-          await airUnitsService.addFighterAircraft(team)
+          // update team resource count
+          await resourcesService.updateResources(team, 0, -3, -3, 0)
+          await updateDoc(team, {
+            totalFighterAircraft: increment(1)
+          });
           setTimeout(() => {
+            // change ref value back to false to remove +1 or -1 icon
             plusFighter.value = false
           }, 100)
         } catch (error) {
@@ -139,7 +148,10 @@ export default {
       async removeFighterAircraft() {
         try {
           minusFighter.value = true
-          await airUnitsService.removeFighterAircraft(team)
+          await resourcesService.updateResources(team, 0, 3, 3, 0)
+          await updateDoc(team, {
+            totalFighterAircraft: increment(-1)
+          });
           setTimeout(() => {
             minusFighter.value = false
           }, 100)
@@ -151,7 +163,10 @@ export default {
       async addCloseAirSupport() {
         try {
           plusCAS.value = true
-          await airUnitsService.addCloseAirSupport(team)
+          await resourcesService.updateResources(team, 0, -3, -3, 0)
+          await updateDoc(team, {
+            totalCloseAirSupport: increment(1)
+          });
           setTimeout(() => {
             plusCAS.value = false
           }, 100)
@@ -162,7 +177,10 @@ export default {
       async removeCloseAirSupport() {
         try {
           minusCAS.value = true
-          await airUnitsService.removeCloseAirSupport(team)
+          await resourcesService.updateResources(team, 0, 3, 3, 0)
+          await updateDoc(team, {
+            totalCloseAirSupport: increment(-1)
+          });
           setTimeout(() => {
             minusCAS.value = false
           }, 100)
@@ -174,7 +192,10 @@ export default {
       async addCargoAircraft() {
         try {
           plusCargo.value = true
-          await airUnitsService.addCargoAircraft(team)
+          await resourcesService.updateResources(team, 0, -1, -2, 0)
+          await updateDoc(team, {
+            totalCargoAircraft: increment(1)
+          });
           setTimeout(() => {
             plusCargo.value = false
           }, 100);
@@ -185,7 +206,10 @@ export default {
       async removeCargoAircraft() {
         try {
           minusCargo.value = true
-          await airUnitsService.removeCargoAircraft(team)
+          await resourcesService.updateResources(team, 0, 1, 2, 0)
+          await updateDoc(team, {
+            totalCargoAircraft: increment(-1)
+          });
           setTimeout(() => {
             minusCargo.value = false
           }, 100);

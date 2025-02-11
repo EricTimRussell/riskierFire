@@ -80,7 +80,6 @@ import { useRoute } from "vue-router";
 import { ref } from "vue"
 
 // Services
-import { groundForcesService } from "../../services/GroundForcesService";
 import { resourcesService } from "../../services/ResourcesService";
 
 export default {
@@ -106,12 +105,16 @@ export default {
       minusSpecialForces,
       async addInfantry() {
         try {
+          // change ref value to true to display +1 or -1 icon
           plusInfantry.value = true
+          // update team resource count
           await resourcesService.updateResources(team, -5, -2, -1, 0)
+          // update firebase to add one infantry
           await updateDoc(team, {
             totalInfantry: increment(1)
           });
           setTimeout(() => {
+            // change ref back to false to remove +1 or -1 icon
             plusInfantry.value = false
           }, 100)
         } catch (error) {
