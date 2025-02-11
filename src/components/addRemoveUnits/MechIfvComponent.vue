@@ -72,14 +72,14 @@
 <script>
 // Firebase
 import { useFirestore } from "vuefire"
-import { doc } from "@firebase/firestore";
+import { doc, updateDoc, increment } from "@firebase/firestore";
 
 // Vue
 import { useRoute } from "vue-router";
 import { ref } from "vue";
 
 // Services
-import { groundForcesService } from "../../services/GroundForcesService";
+import { resourcesService } from "../../services/ResourcesService";
 
 
 export default {
@@ -103,21 +103,32 @@ export default {
       minusMechanized,
       plusIFV,
       minusIFV,
+
       async addMechanized() {
         try {
+          // change ref value to true to display +1 or -1 icon
           plusMechanized.value = true
-          await groundForcesService.addMechanized(team)
+          // update team resource count
+          await resourcesService.updateResources(team, -5, -3, -3, 0)
+          await updateDoc(team, {
+            totalMechanized: increment(1)
+          });
           setTimeout(() => {
+            // change ref value back to false to remove +1 or -1 icon
             plusMechanized.value = false
           }, 100);
         } catch (error) {
           console.error(error, "adding Mechanized");
         }
       },
+
       async removeMechanized() {
         try {
           minusMechanized.value = true
-          await groundForcesService.removeMechanized(team)
+          await resourcesService.updateResources(team, 5, 3, 3, 0)
+          await updateDoc(team, {
+            totalMechanized: increment(-1)
+          });
           setTimeout(() => {
             minusMechanized.value = false
           }, 100);
@@ -129,7 +140,10 @@ export default {
       async addIFV() {
         try {
           plusIFV.value = true
-          await groundForcesService.addIFV(team)
+          await resourcesService.updateResources(team, -1, -4, -5, 0)
+          await updateDoc(team, {
+            totalIFV: increment(1)
+          });
           setTimeout(() => {
             plusIFV.value = false
           }, 100);
@@ -137,10 +151,14 @@ export default {
           console.error(error, "adding IFV");
         }
       },
+
       async removeIFV() {
         try {
           minusIFV.value = true
-          await groundForcesService.removeIFV(team)
+          await resourcesService.updateResources(team, 1, 4, 5, 0)
+          await updateDoc(team, {
+            totalMechanized: increment(-1)
+          });
           setTimeout(() => {
             minusIFV.value = false
           }, 100);
