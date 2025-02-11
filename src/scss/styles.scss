@@ -18,7 +18,7 @@ body {
   text-align: justify;
 }
 
-// Box Shadows
+// SECTION Box Shadows
 .elevation-1 {
   box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
 }
@@ -67,7 +67,7 @@ body {
   color: #d79e10;
 }
 
-// Backgrounds/Images
+// SECTION Backgrounds/Images
 .bg-green {
   background: linear-gradient(#606c38, #283618)
 }
@@ -98,23 +98,6 @@ body {
   background-position-x: 76%;
 }
 
-// .bg-mech {
-//   background: #ffffff52;
-//   background-image: linear-gradient(#192101a3,
-//       #192101a3), url(../assets/DiceBGImages/Mech.jpg);
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position-x: 45%;
-// }
-
-// .bg-ifv {
-//   background: #ffffff52;
-//   background-image: linear-gradient(#192101a3,
-//       #192101a3), url(../assets/DiceBGImages/IFV.jpg);
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position-x: 45%;
-// }
 
 .big-logo {
   width: 26rem;
@@ -128,7 +111,7 @@ body {
   height: 6rem;
 }
 
-// Buttons
+// SECTION Buttons
 button {
   background: linear-gradient(#FFDA96, #dda15e);
   box-shadow: black 4px 4px;
@@ -180,7 +163,7 @@ button:disabled {
   color: black;
 }
 
-// Cards
+// SECTION Cards
 .region-card {
   height: auto;
   width: fit-content;

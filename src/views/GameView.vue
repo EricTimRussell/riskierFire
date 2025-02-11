@@ -40,7 +40,7 @@
       </div>
     </div>
     <!-- Armies & Divisions -->
-    <div class="row bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
+    <!-- <div class="row bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center text-light">
         <h2>Armies & Divisions</h2>
         <span class="material-symbols-outlined fs-lg px-2">
@@ -81,7 +81,7 @@
       <div class="text-center" v-else>
         <span class="fs-md">Your team has no armies</span>
       </div>
-    </div>
+    </div> -->
     <!-- Carriers -->
     <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center">
@@ -167,12 +167,6 @@
   <ModalComponent id="createRegion-modal">
     <CreateRegionFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
-  <ModalComponent id="formDivision-modal">
-    <CreateDivisionFormComponent :key="user?.uid" :teams="teams" />
-  </ModalComponent>
-  <ModalComponent id="formArmy-modal">
-    <CreateArmyFormComponent :key="user?.uid" :teams="teams" />
-  </ModalComponent>
   <ModalComponent id="createCarrier-modal">
     <CreateCarrierGroupFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
@@ -201,12 +195,10 @@ import { useRoute } from "vue-router";
 // Services
 import { regionsService } from "../services/RegionsService";
 import { teamsService } from "../services/TeamsService";
-import { armiesDivisionsService } from "../services/ArmiesDivisionsService";
 import { navyUnitsService } from "../services/NavyUnitsService";
 
 // State management
 import { useRegionStore } from "../stores/RegionStore";
-import { useArmyDivisionStore } from "../stores/ArmyDivisionStore";
 import { useNavyStore } from "../stores/NavyStore";
 
 // Components
@@ -220,11 +212,7 @@ import MechIfvComponent from "../components/addRemoveUnits/MechIfvComponent.vue"
 import MbtAntiAircraftComponent from "../components/addRemoveUnits/MbtAntiAircraftComponent.vue";
 import ArtilleryComponent from "../components/addRemoveUnits/ArtilleryComponent.vue";
 import AirUnitsComponent from "../components/addRemoveUnits/AirUnitsComponent.vue";
-import CreateDivisionFormComponent from "../components/forms/CreateDivisionFormComponent.vue";
-import CreateArmyFormComponent from "../components/forms/CreateArmyFormComponent.vue";
 import CreateCarrierGroupFormComponent from "../components/forms/CreateCarrierGroupFormComponent.vue";
-import DivisionsCardComponent from "../components/cards/DivisionsCardComponent.vue";
-import ArmyCardComponent from "../components/cards/ArmyCardComponent.vue";
 import CarrierCardComponent from "../components/cards/CarrierCardComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
 import CreateSmallCityFormComponent from "../components/forms/CreateSmallCityFormComponent.vue";
@@ -274,30 +262,6 @@ export default {
       }
     }
 
-    async function getDivisionsByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          const user = await getCurrentUser();
-        }
-        await armiesDivisionsService.getDivisionsByUserId(user)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    async function getArmiesByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          const user = await getCurrentUser();
-        }
-        await armiesDivisionsService.getArmiesByUserId(user)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
     async function getCarriersByUserId() {
       try {
         // get user id if undefined
@@ -312,8 +276,6 @@ export default {
 
     onMounted(() => {
       getCarriersByUserId()
-      getArmiesByUserId()
-      getDivisionsByUserId()
       getRegionsByUserId()
       getCitiesByUserId()
       getTeamByUserId()
@@ -326,12 +288,10 @@ export default {
       teams: computed(() => useRegionStore.teams),
       // @ts-ignore
       cities: computed(() => useRegionStore.cities.sort((a, b) => a.regionNumber - b.regionNumber)),
-      divisions: computed(() => useArmyDivisionStore.divisions),
-      armies: computed(() => useArmyDivisionStore.armies),
       carriers: computed(() => useNavyStore.navy)
     };
   },
-  components: { ModalComponent, CreateRegionFormComponent, CreateTeamFormComponent, RegionCardComponent, CityCardComponent, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, CreateDivisionFormComponent, CreateArmyFormComponent, CreateCarrierGroupFormComponent, DivisionsCardComponent, ArmyCardComponent, CarrierCardComponent, NavbarComponent, CreateSmallCityFormComponent, CreateMediumCityFormComponent, CreateLargeCityFormComponent }
+  components: { ModalComponent, CreateRegionFormComponent, CreateTeamFormComponent, RegionCardComponent, CityCardComponent, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, CreateCarrierGroupFormComponent, CarrierCardComponent, NavbarComponent, CreateSmallCityFormComponent, CreateMediumCityFormComponent, CreateLargeCityFormComponent }
 }
 </script>
 
