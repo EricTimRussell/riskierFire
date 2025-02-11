@@ -101,7 +101,6 @@ import { useRoute } from "vue-router";
 import { ref } from "vue";
 
 // Services
-import { airUnitsService } from "../../services/AirUnitsService";
 import { resourcesService } from "../../services/ResourcesService";
 
 export default {

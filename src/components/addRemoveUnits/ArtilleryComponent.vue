@@ -2,7 +2,8 @@
   <div>
 
     <!-- SECTION Artillery -->
-    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group" aria-label="Small button group">
+    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
+      aria-label="Small button group">
       <div>
         <button :disabled="(team.totalArtillery <= 0)" @click="removeArtillery()" class="text-dark"><span
             class="material-symbols-outlined fs-lg p-2">remove</span></button>
@@ -37,10 +38,13 @@
       </div>
       <div class="d-flex flex-column align-items-center">
         <h6 class="px-2">Missile Artillery</h6>
-        <h6 v-if="plusMissileArtillery == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
-        <h6 v-if="minusMissileArtillery == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
-        <h6 v-if="!plusMissileArtillery && !minusMissileArtillery" class="px-2 fs-4"><strong>{{ team.totalMissileArtillery
-        }}</strong></h6>
+        <h6 v-if="plusMissileArtillery == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong>
+        </h6>
+        <h6 v-if="minusMissileArtillery == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong>
+        </h6>
+        <h6 v-if="!plusMissileArtillery && !minusMissileArtillery" class="px-2 fs-4"><strong>{{
+          team.totalMissileArtillery
+            }}</strong></h6>
       </div>
       <div>
         <button @click="addMissileArtillery()" class=""><span
@@ -64,14 +68,14 @@
 <script>
 // Firebase
 import { useFirestore } from "vuefire"
-import { doc } from "@firebase/firestore";
+import { doc, updateDoc, increment } from "@firebase/firestore";
 
 // Vue
 import { useRoute } from "vue-router";
 import { ref } from "vue";
 
 // Services
-import { groundForcesService } from "../../services/GroundForcesService";
+import { resourcesService } from "../../services/ResourcesService";
 
 export default {
   props: {
@@ -93,21 +97,32 @@ export default {
       minusArtillery,
       plusMissileArtillery,
       minusMissileArtillery,
+
       async addArtillery() {
         try {
+          // change ref value to true to display +1 or -1 icon
           plusArtillery.value = true
-          await groundForcesService.addArtillery(team)
+          // update team resource count
+          await resourcesService.updateResources(team, 0, -1, -3, 0)
+          await updateDoc(team, {
+            totalArtillery: increment(1)
+          });
           setTimeout(() => {
+            // change ref value back to false to remove +1 or -1 icon
             plusArtillery.value = false
           }, 100);
         } catch (error) {
           console.error(error, "adding Artillery");
         }
       },
+
       async removeArtillery() {
         try {
           minusArtillery.value = true
-          await groundForcesService.removeArtillery(team)
+          await resourcesService.updateResources(team, 0, 1, 3, 0)
+          await updateDoc(team, {
+            totalArtillery: increment(-1)
+          });
           setTimeout(() => {
             minusArtillery.value = false
           }, 100);
@@ -119,7 +134,10 @@ export default {
       async addMissileArtillery() {
         try {
           plusMissileArtillery.value = true
-          await groundForcesService.addMissileArtillery(team)
+          await resourcesService.updateResources(team, 0, -3, -3, 0)
+          await updateDoc(team, {
+            totalMissileArtillery: increment(1)
+          });
           setTimeout(() => {
             plusMissileArtillery.value = false
           }, 100);
@@ -127,10 +145,14 @@ export default {
           console.error(error, "adding Missile Artillery");
         }
       },
+
       async removeMissileArtillery() {
         try {
           minusMissileArtillery.value = true
-          await groundForcesService.removeMissileArtillery(team)
+          await resourcesService.updateResources(team, 0, 3, 3, 0)
+          await updateDoc(team, {
+            totalMissileArtillery: increment(-1)
+          });
           setTimeout(() => {
             minusMissileArtillery.value = false
           }, 100);
