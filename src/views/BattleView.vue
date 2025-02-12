@@ -10,14 +10,90 @@
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>
-        <h1>Ground Units</h1>
+        <h1>Select Unit</h1>
         <span class="material-symbols-outlined fs-xl">
           swords
         </span>
       </div>
-      <div class="accordion py-4" v-motion-fade>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">Infantry</span>
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">Special Forces</span>
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="infantry" class="form-check-input" type="checkbox" role="switch" id="infantry">
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="specialForces" class="form-check-input" type="checkbox" role="switch" id="specialForces">
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">Mechanized</span>
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">IFV</span>
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="mechanized" class="form-check-input" type="checkbox" role="switch" id="mechanized">
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="IFV" class="form-check-input" type="checkbox" role="switch" id="IFV">
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">MBT</span>
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">Artillery</span>
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="MBT" class="form-check-input" type="checkbox" role="switch" id="MBT">
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="artillery" class="form-check-input" type="checkbox" role="switch" id="artillery">
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">Missile</span>
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">Anti-Aircraft</span>
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="missile" class="form-check-input" type="checkbox" role="switch" id="missile">
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="antiAir" class="form-check-input" type="checkbox" role="switch" id="antiair">
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">Fighter</span>
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">CAS</span>
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="fighter" class="form-check-input" type="checkbox" role="switch" id="fighter">
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="CAS" class="form-check-input" type="checkbox" role="switch" id="CAS">
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">Carrier</span>
+      </div>
+      <div class="d-flex justify-content-center col-6">
+        <span class="fs-md">Cruiser</span>
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="carrier" class="form-check-input" type="checkbox" role="switch" id="carrier">
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="cruiser" class="form-check-input" type="checkbox" role="switch" id="cruiser">
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="destroyer" class="form-check-input" type="checkbox" role="switch" id="destroyer">
+        <label class="form-check-label" for="destroyer">Destroyer</label>
+      </div>
+      <div class="accordion">
         <!-- Infantry -->
-        <div class="accordion-item bg-infantry">
+        <div v-if="infantry" class="accordion-item bg-infantry">
           <h2 class="accordion-header" id="headingOne">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -31,7 +107,7 @@
           </div>
         </div>
         <!-- Special Forces -->
-        <div class="accordion-item bg-specialForces">
+        <div v-if="specialForces" class="accordion-item bg-specialForces">
           <h2 class="accordion-header" id="headingTwo">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -45,7 +121,7 @@
           </div>
         </div>
         <!-- Mechanized -->
-        <div class="accordion-item bg-dark">
+        <div v-if="mechanized" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -59,7 +135,7 @@
           </div>
         </div>
         <!-- IFV -->
-        <div class="accordion-item bg-dark">
+        <div v-if="IFV" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingFour">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -73,7 +149,7 @@
           </div>
         </div>
         <!-- MBT -->
-        <div class="accordion-item bg-dark">
+        <div v-if="MBT" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingFive">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -87,7 +163,7 @@
           </div>
         </div>
         <!-- Artillery -->
-        <div class="accordion-item bg-dark">
+        <div v-if="artillery" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingEleven">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
@@ -101,7 +177,7 @@
           </div>
         </div>
         <!--Missile Artillery -->
-        <div class="accordion-item bg-dark">
+        <div v-if="missile" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingTwelve">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
@@ -115,7 +191,7 @@
           </div>
         </div>
         <!-- Anti-Aircraft -->
-        <div class="accordion-item bg-dark">
+        <div v-if="antiAir" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingThirteen">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
@@ -132,19 +208,9 @@
     </section>
     <!-- Air Unit Dice -->
     <section class="row justify-content-center">
-      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3"
-        v-motion-pop-visible-once>
-        <span class="material-symbols-outlined fs-xl">
-          flight
-        </span>
-        <h1>Air Units</h1>
-        <span class="material-symbols-outlined fs-xl">
-          flight
-        </span>
-      </div>
-      <div class="accordion py-4" v-motion-fade-visible-once>
+      <div class="accordion">
         <!-- Fighter Aircraft -->
-        <div class="accordion-item bg-dark">
+        <div v-if="fighter" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingSix">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -158,7 +224,7 @@
           </div>
         </div>
         <!-- Close Air Support -->
-        <div class="accordion-item bg-dark">
+        <div v-if="CAS" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingSeven">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
@@ -175,20 +241,10 @@
     </section>
 
     <!-- Navy Unit Dice -->
-    <section class="row justify-content-center pb-5">
-      <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3"
-        v-motion-pop-visible-once>
-        <span class="material-symbols-outlined fs-xl">
-          directions_boat
-        </span>
-        <h1>Naval Units</h1>
-        <span class="material-symbols-outlined fs-xl">
-          directions_boat
-        </span>
-      </div>
-      <div class="accordion py-4" v-motion-fade-visible-once>
+    <section class="row justify-content-center">
+      <div class="accordion">
         <!-- Carrier -->
-        <div class="accordion-item bg-dark">
+        <div v-if="carrier" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingEight">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
@@ -202,7 +258,7 @@
           </div>
         </div>
         <!-- Cruiser -->
-        <div class="accordion-item bg-dark">
+        <div v-if="cruiser" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingNine">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
@@ -216,7 +272,7 @@
           </div>
         </div>
         <!-- Destroyer -->
-        <div class="accordion-item bg-dark">
+        <div v-if="destroyer" class="accordion-item bg-dark">
           <h2 class="accordion-header" id="headingTen">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
@@ -270,6 +326,19 @@ export default {
   setup() {
     const oneTwelveDie = ref({ roll: 0 });
     const isPending = ref(false);
+    const infantry = ref(false);
+    const specialForces = ref(false);
+    const mechanized = ref(false);
+    const IFV = ref(false);
+    const MBT = ref(false);
+    const artillery = ref(false);
+    const missile = ref(false);
+    const antiAir = ref(false);
+    const fighter = ref(false);
+    const CAS = ref(false);
+    const cruiser = ref(false);
+    const carrier = ref(false);
+    const destroyer = ref(false);
     const user = useCurrentUser();
     async function getTeamByUserId() {
       try {
@@ -290,6 +359,20 @@ export default {
       teams: computed(() => useRegionStore.teams),
       oneTwelveDie,
       isPending,
+      infantry,
+      specialForces,
+      mechanized,
+      IFV,
+      MBT,
+      artillery,
+      missile,
+      antiAir,
+      fighter,
+      CAS,
+      cruiser,
+      carrier,
+      destroyer,
+
       rollOneTwelveDie() {
         setTimeout(() => {
           isPending.value = false;

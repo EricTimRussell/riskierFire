@@ -11,7 +11,6 @@ import { getCurrentUser, useCurrentUser, useFirestore } from "vuefire";
 import { teamsService } from "../services/TeamsService";
 import { useRegionStore } from "../stores/RegionStore";
 import { useNavyStore } from "../stores/NavyStore";
-import { useArmyDivisionStore } from "../stores/ArmyDivisionStore";
 import { regionsService } from "../services/RegionsService";
 
 export default {
@@ -52,8 +51,6 @@ export default {
       regions: computed(() => useRegionStore.regions),
       cities: computed(() => useRegionStore.cities),
       carriers: computed(() => useNavyStore.navy),
-      divisions: computed(() => useArmyDivisionStore.divisions),
-      armies: computed(() => useArmyDivisionStore.armies),
       user,
 
     }
