@@ -288,6 +288,9 @@
       </div>
     </section>
 
+    <div class="row footer-font-color mt-3">
+      <span class="col-12 bg-green footer-font-color py-3">Footer</span>
+    </div>
   </body>
 </template>
 
@@ -388,5 +391,7 @@ export default {
 </script>
 
 <style scoped>
-
+.footer-font-color{
+  color:#28361800;
+}
 </style>
