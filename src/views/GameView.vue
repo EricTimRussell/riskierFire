@@ -184,7 +184,7 @@
 </template>
 
 
-<script>
+<script setup>
 // firbase
 import { useCurrentUser, getCurrentUser } from "vuefire"
 
@@ -219,80 +219,74 @@ import CreateSmallCityFormComponent from "../components/forms/CreateSmallCityFor
 import CreateMediumCityFormComponent from "../components/forms/CreateMediumCityFormComponent.vue";
 import CreateLargeCityFormComponent from "../components/forms/CreateLargeCityFormComponent.vue";
 
-export default {
-  setup() {
-    const route = useRoute()
-    const user = useCurrentUser();
+const route = useRoute()
+const user = useCurrentUser();
 
-    async function getRegionsByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          const user = await getCurrentUser();
-        }
-        await regionsService.getRegionsByUserId(user);
-      }
-      catch (error) {
-        console.error(error);
-      }
+async function getRegionsByUserId() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      const user = await getCurrentUser();
     }
-
-    async function getCitiesByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          const user = await getCurrentUser();
-        }
-        await regionsService.getCitiesByUserId(user);
-      }
-      catch (error) {
-        console.error(error);
-      }
-    }
-
-    async function getTeamByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          const user = await getCurrentUser();
-        }
-        await teamsService.getTeamByUserId(user)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    async function getCarriersByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          const user = await getCurrentUser();
-        }
-        await navyUnitsService.getCarriersByUserId(user)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    onMounted(() => {
-      getCarriersByUserId()
-      getRegionsByUserId()
-      getCitiesByUserId()
-      getTeamByUserId()
-    });
-
-    return {
-      user,
-      // @ts-ignore
-      region: computed(() => useRegionStore.regions.sort((a, b) => a.regionNumber - b.regionNumber)),
-      teams: computed(() => useRegionStore.teams),
-      // @ts-ignore
-      cities: computed(() => useRegionStore.cities.sort((a, b) => a.regionNumber - b.regionNumber)),
-      carriers: computed(() => useNavyStore.navy)
-    };
-  },
-  components: { ModalComponent, CreateRegionFormComponent, CreateTeamFormComponent, RegionCardComponent, CityCardComponent, InfantryComponent, MechIfvComponent, MbtAntiAircraftComponent, ArtilleryComponent, AirUnitsComponent, CreateCarrierGroupFormComponent, CarrierCardComponent, NavbarComponent, CreateSmallCityFormComponent, CreateMediumCityFormComponent, CreateLargeCityFormComponent }
+    await regionsService.getRegionsByUserId(user);
+  }
+  catch (error) {
+    console.error(error);
+  }
 }
+
+async function getCitiesByUserId() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      const user = await getCurrentUser();
+    }
+    await regionsService.getCitiesByUserId(user);
+  }
+  catch (error) {
+    console.error(error);
+  }
+}
+
+async function getTeamByUserId() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      const user = await getCurrentUser();
+    }
+    await teamsService.getTeamByUserId(user)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+async function getCarriersByUserId() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      const user = await getCurrentUser();
+    }
+    await navyUnitsService.getCarriersByUserId(user)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+onMounted(() => {
+  getCarriersByUserId()
+  getRegionsByUserId()
+  getCitiesByUserId()
+  getTeamByUserId()
+});
+
+
+const region = computed(() => useRegionStore.regions.sort((a, b) => a.regionNumber - b.regionNumber))
+const teams = computed(() => useRegionStore.teams)
+const cities = computed(() => useRegionStore.cities.sort((a, b) => a.regionNumber - b.regionNumber))
+const carriers = computed(() => useNavyStore.navy)
+
+
+
 </script>
 
 <style lang="scss" scoped></style>

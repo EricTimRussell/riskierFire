@@ -297,7 +297,7 @@
         </div>
       </div>
 
-      <!-- Foreset -->
+      <!-- Forest -->
       <div class="col-3 d-flex justify-content-center mt-5" for="forest" v-if="forest == true">
         <div class="text-center" v-if="(twoSixDie.roll >= 5) && (twoSixDie.roll <= 9)">
           <h6>Roll Dice</h6>

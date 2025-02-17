@@ -47,7 +47,7 @@
   </ModalComponent>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { getCurrentUser, useCurrentUser } from "vuefire";
 
@@ -71,50 +71,42 @@ import NavalUnitsComponent from "../components/addRemoveUnits/NavalUnitsComponen
 import BuildingsComponent from "../components/addRemoveUnits/BuildingsComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
 
-export default {
-  setup() {
-    const user = useCurrentUser();
-    async function getTeamByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          // @ts-ignore
-          const user = await getCurrentUser();
-        }
-        await teamsService.getTeamByUserId(user)
-      } catch (error) {
-        console.error(error)
-      }
+
+const user = useCurrentUser();
+const teams = computed(() => useRegionStore.teams)
+const construction = computed(() => useConstructionStore.construction)
+
+async function getTeamByUserId() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      // @ts-ignore
+      const user = await getCurrentUser();
     }
-
-    async function getConstructionByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          // @ts-ignore
-          const user = await getCurrentUser();
-        }
-        await buildingsService.getConstructionByUserId(user)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-
-    onMounted(() => {
-      getTeamByUserId()
-      getConstructionByUserId()
-    });
-
-    return {
-      teams: computed(() => useRegionStore.teams),
-      construction: computed(() => useConstructionStore.construction),
-      user
-
-
-    }
-  },
-  components: { ModalComponent, ConstructionFormComponent, ConstructionCardComponent, NavalUnitsComponent, BuildingsComponent, NavbarComponent }
+    await teamsService.getTeamByUserId(user)
+  } catch (error) {
+    console.error(error)
+  }
 }
+
+async function getConstructionByUserId() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      // @ts-ignore
+      const user = await getCurrentUser();
+    }
+    await buildingsService.getConstructionByUserId(user)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+onMounted(() => {
+  getTeamByUserId()
+  getConstructionByUserId()
+})
+
 </script>
 
 <style scoped></style>

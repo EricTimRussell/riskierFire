@@ -294,7 +294,7 @@
   </body>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { getCurrentUser, useCurrentUser } from "vuefire";
 
@@ -322,71 +322,40 @@ import AnitAicraftDiceComponent from "../components/groundUnitDice/AnitAicraftDi
 import CarrierDiceComponent from "../components/navyDice/CarrierDiceComponent.vue";
 import CruiserDiceComponent from "../components/navyDice/CruiserDiceComponent.vue";
 import DestroyerDiceComponent from "../components/navyDice/DestroyerDiceComponent.vue";
-import ModalComponent from "../components/ModalComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
 
-export default {
-  setup() {
-    const oneTwelveDie = ref({ roll: 0 });
-    const isPending = ref(false);
-    const infantry = ref(false);
-    const specialForces = ref(false);
-    const mechanized = ref(false);
-    const IFV = ref(false);
-    const MBT = ref(false);
-    const artillery = ref(false);
-    const missile = ref(false);
-    const antiAir = ref(false);
-    const fighter = ref(false);
-    const CAS = ref(false);
-    const cruiser = ref(false);
-    const carrier = ref(false);
-    const destroyer = ref(false);
-    const user = useCurrentUser();
-    async function getTeamByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          const user = await getCurrentUser();
-        }
-        await teamsService.getTeamByUserId(user);
-      }
-      catch (error) {
-        console.error(error);
-      }
-    }
-    onMounted(() => {
-      getTeamByUserId();
-    });
-    return {
-      teams: computed(() => useRegionStore.teams),
-      oneTwelveDie,
-      isPending,
-      infantry,
-      specialForces,
-      mechanized,
-      IFV,
-      MBT,
-      artillery,
-      missile,
-      antiAir,
-      fighter,
-      CAS,
-      cruiser,
-      carrier,
-      destroyer,
+const infantry = ref(false)
+const specialForces = ref(false)
+const mechanized = ref(false)
+const IFV = ref(false)
+const MBT = ref(false)
+const artillery = ref(false)
+const missile = ref(false)
+const antiAir = ref(false)
+const fighter = ref(false)
+const CAS = ref(false)
+const cruiser = ref(false)
+const carrier = ref(false)
+const destroyer = ref(false)
+const user = useCurrentUser()
 
-      rollOneTwelveDie() {
-        setTimeout(() => {
-          isPending.value = false;
-        }, 1000);
-        oneTwelveDie.value = ({ roll: Math.floor(Math.random() * 12 + 1) });
-        isPending.value = true;
-      }
-    };
-  },
-  components: { InfantryDiceComponent, SpecialForcesDiceComponent, MechanizedDiceComponent, IFVDiceComponent, MBTDiceComponent, ArtilleryDiceComponent, MissileArtilleryDiceComponent, FighterAircraftDiceComponent, CasDiceComponent, AnitAicraftDiceComponent, CarrierDiceComponent, CruiserDiceComponent, DestroyerDiceComponent, ModalComponent, NavbarComponent }
+const teams = computed(() => useRegionStore.teams)
+
+async function getTeamByUserId() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      const user = await getCurrentUser();
+    }
+    await teamsService.getTeamByUserId(user);
+  }
+  catch (error) {
+    console.error(error);
+  }
 }
+onMounted(() => {
+  getTeamByUserId();
+})
 
 </script>
 

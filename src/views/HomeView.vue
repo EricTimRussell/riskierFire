@@ -79,7 +79,7 @@
 <!-- TODO create an new user tour on how to use the app-->
 <!-- TODO add checks to game page so region and city numbers cannot be duplicated -->
 <!-- TODO create an account page -->
-<script>
+<script setup>
 // firebase
 import { getCurrentUser, useCurrentUser } from "vuefire";
 
@@ -97,32 +97,28 @@ import { useRegionStore } from "../stores/RegionStore";
 import CreateTeamFormComponent from "../components/forms/CreateTeamFormComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
-export default {
-  setup() {
-    const user = useCurrentUser();
 
-    async function getTeamByUserId() {
-      try {
-        // get user id if undefined
-        if (user.value?.uid == undefined) {
-          const user = await getCurrentUser();
-        }
-        await teamsService.getTeamByUserId(user);
-      }
-      catch (error) {
-        console.error(error);
-      }
+const user = useCurrentUser();
+
+async function getTeamByUserId() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      const user = await getCurrentUser();
     }
-    onMounted(() => {
-      getTeamByUserId();
-    });
-    return {
-      teams: computed(() => useRegionStore.teams),
-      user,
-    };
-  },
-  components: { ModalComponent, CreateTeamFormComponent, NavbarComponent }
+    await teamsService.getTeamByUserId(user);
+  }
+  catch (error) {
+    console.error(error);
+  }
 }
+
+onMounted(() => {
+  getTeamByUserId();
+})
+
+const teams = computed(() => useRegionStore.teams)
+
 </script>
 
 <style lang="scss" scoped></style>
