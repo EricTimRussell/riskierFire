@@ -14,9 +14,9 @@
         sports_esports
       </span></p>
     <p><span class="text-tan fs-md">Second</span> a player should place 10 of their circular region number
-      pieces around their capital. These are the initial regions to start the game with.</p>
+      pieces around their capital. All starting regions have to be within 2 spaces of their capital.</p>
     <p><span class="text-tan fs-md">Third</span>
-      a player should place their other cities within the regions they just
+      a player starts with 1 medium city and 2 small cities. They should place their cities within the regions they just
       claimed. And then claim each city on the game page with the appropriate region number that is located on the
       region number piece.</p>
     <p><span class="text-tan fs-md">Fourth</span>
@@ -27,7 +27,7 @@
       they should build and place any ships they want to start with. During the set-up phase buildings and ships
       will
       build instantly, but during normal play they take 2 turns to build. Players can add/remove anykind of building
-      or units on the game page using the "+" & "-" symbols next to the item. Resources will automatically will be
+      or units on the game page using the "+" & "-" symbols next to the item. Resources will automatically be
       updated upon adding and removing anything.</p>
     <p><span class="text-tan fs-md">Lastly</span>
       a player should build and place any units they wish to use. They also should form any armies and divisions
