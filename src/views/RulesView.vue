@@ -44,6 +44,7 @@
           <!-- id's for jump-to menu need to be attachted to p tags above the actual section becuase of sticky navbar -->
           <nav class="nav nav-pills drop-menu">
             <a class="nav-link dropdown-item" href="#start">Back-to-Top</a>
+            <a class="nav-link dropdown-item" href="#gettingStarted">Getting Started</a>
             <a class="nav-link dropdown-item" href="#resources">Resources</a>
             <a class="nav-link dropdown-item" href="#construction">Construction</a>
             <a class="nav-link dropdown-item" href="#mainBoardPieces">Main Board Pieces</a>
@@ -65,6 +66,8 @@
     </div>
     <section class="row px-2">
       <div class="col-12">
+        <!--SECTION Main Board Setup  -->
+        <BuildingTheBoardRulesComponent />
         <!-- SECTION Getting Started -->
         <GettingStartedComponent />
         <!-- SECTION Resources -->
@@ -124,7 +127,6 @@ import GettingStartedComponent from "../components/Rules/GettingStartedComponent
 import ResourceRulesComponent from "../components/Rules/ResourceRulesComponent.vue";
 import ConstructionRulesComponent from "../components/Rules/ConstructionRulesComponent.vue";
 import MainBoardPiecesRulesComponent from "../components/Rules/MainBoardPiecesRulesComponent.vue";
-// @ts-ignore
 import GroundUnitsRulesComponent from "../components/Rules/GroundUnitsRulesComponent.vue";
 import AirUnitsRulesComponent from "../components/Rules/AirUnitsRulesComponent.vue";
 import NavyUnitsRulesComponent from "../components/Rules/NavyUnitsRulesComponent.vue";
@@ -134,6 +136,7 @@ import NavyCombatRulesComponent from "../components/Rules/NavyCombatRulesCompone
 import ItemCardRulesComponent from "../components/Rules/ItemCardRulesComponent.vue";
 import EventCardRulesComponent from "../components/Rules/EventCardRulesComponent.vue";
 import StructureRulesComponent from "../components/Rules/StructureRulesComponent.vue";
+import BuildingTheBoardRulesComponent from "../components/Rules/BuildingTheBoardRulesComponent.vue";
 
 const user = useCurrentUser();
 

@@ -5,8 +5,16 @@
       <h2>Main Board Pieces</h2>
       <span class="divider"></span>
     </div>
-    <p>
-      <span class="text-tan fs-md">Fortifications:</span> Each player has pillbox or bunker type pieces that
+    <p><span class="text-tan fs-md">Environments:</span> Each region has a color associated with it that represents a
+      sepcific environment. Each environment type effects a units ability to defends itself successfully. <span
+        class="text-primary">Blue</span> is a water and cannot be controlled, but is what a
+      players navy uses. <span class="text-forest">Light Green</span> represents a forest environment. <span
+        class="text-success">Dark Green</span> represents a dense jungle environment. <span
+        class="text-warning">Yellow</span> represents a flat grasslands environment. <span class="text-info">Light
+        Blue</span> represents a marshy environment. <span class="text-secondary">Grey</span> represents a rugged
+      mountain environment. <span class="text-tan">Tan</span> represents a desert environemnt.
+    </p>
+    <p><span class="text-tan fs-md">Fortifications:</span> Each player has pillbox or bunker type pieces that
       represents fortifications. When fortifications are built 1 bunker piece is placed on the main board where they
       were built. This will provide 3 bunker pieces on the combat board. Only one can be built per tile. Bunkers can
       be built during the build phase of a players turn. They take one turn to build. A player must own the tile to
@@ -37,6 +45,10 @@ body {
   font-size: 17px;
   font-weight: 500;
   letter-spacing: 3px;
+}
+
+.text-forest{
+  color: greenyellow;
 }
 
 @media screen and (min-width: 768px) {

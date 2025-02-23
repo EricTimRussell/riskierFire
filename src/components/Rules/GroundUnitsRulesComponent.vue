@@ -34,7 +34,7 @@
     </p>
     <p><span class="text-tan fs-md">Infantry Fighting Vehicle (IFV)</span> are essentially light tanks that are
       effective at taking on infantry and Mechanized units. They are average at taking on other IFV's and are
-      ineffective at taking on MBT's. IFV's have 3 movement points, 1 offensive point, and a range of 1.
+      ineffective at taking on MBT's. IFV's have 2 movement points, 1 offensive point, and a range of 1.
     </p>
     <p><span class="text-tan fs-md">Main Battle Tank (MBT)</span> are the offensive work horse of any ground
       assault.
