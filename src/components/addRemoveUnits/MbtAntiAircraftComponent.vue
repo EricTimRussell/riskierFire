@@ -21,11 +21,11 @@
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
       <div class="d-flex justify-content-center">
         <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">6</span>
+        <span class="fs-lg">4</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">6</span>
+        <span class="fs-lg">4</span>
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
@@ -45,7 +45,7 @@
         <h6 v-if="plusAntiAircraft == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
         <h6 v-if="minusAntiAircraft == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusAntiAircraft && !minusAntiAircraft" class="px-2 fs-4"><strong>{{ team.totalAntiAircraft
-            }}</strong>
+        }}</strong>
         </h6>
       </div>
       <div>
@@ -67,7 +67,7 @@
 </template>
 
 
-<script>
+<script setup>
 // Firebase
 import { useFirestore } from "vuefire"
 import { doc, updateDoc, increment } from "@firebase/firestore";
@@ -79,88 +79,81 @@ import { ref } from "vue";
 // Services
 import { resourcesService } from "../../services/ResourcesService";
 
-export default {
-  props: {
-    team: { type: Object, required: true }
-  },
-  setup() {
-    const db = useFirestore()
-    const route = useRoute()
-    // @ts-ignore
-    const team = doc(db, "teams", route.params.id)
 
-    // conditional rendering for adding and removing units
-    const plusMBT = ref(false)
-    const minusMBT = ref(false)
-    const plusAntiAircraft = ref(false)
-    const minusAntiAircraft = ref(false)
+const props = defineProps({
+  team: { type: Object }
+})
 
-    return {
-      plusMBT,
-      minusMBT,
-      plusAntiAircraft,
-      minusAntiAircraft,
-      async addMBT() {
-        try {
-          // change ref value to true to display +1 or -1 icon
-          plusMBT.value = true
-          // update team resource count
-          await resourcesService.updateResources(team, -1, -6, -6, 0)
-          await updateDoc(team, {
-            totalMBT: increment(1)
-          });
-          setTimeout(() => {
-            // change ref value back to false to remove +1 or -1 icon
-            plusMBT.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding MBT");
-        }
-      },
-      async removeMBT() {
-        try {
-          minusMBT.value = true
-          await resourcesService.updateResources(team, 1, 6, 6, 0)
-          await updateDoc(team, {
-            totalMBT: increment(-1)
-          });
-          setTimeout(() => {
-            minusMBT.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing MBT");
-        }
-      },
+const db = useFirestore()
+const route = useRoute()
+const teams = doc(db, 'teams', route.params.id)
 
-      async addAntiAircraft() {
-        try {
-          plusAntiAircraft.value = true
-          await resourcesService.updateResources(team, 0, -3, -1, 0)
-          await updateDoc(team, {
-            totalAntiAircraft: increment(1)
-          });
-          setTimeout(() => {
-            plusAntiAircraft.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Anti-aircraft");
-        }
-      },
-      async removeAntiAircraft() {
-        try {
-          minusAntiAircraft.value = true
-          await resourcesService.updateResources(team, 0, 3, 1, 0)
-          await updateDoc(team, {
-            totalAntiAircraft: increment(-1)
-          });
-          setTimeout(() => {
-            minusAntiAircraft.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Anti-aircraft");
-        }
-      }
-    }
+// conditional rendering for adding and removing units
+const plusMBT = ref(false)
+const minusMBT = ref(false)
+const plusAntiAircraft = ref(false)
+const minusAntiAircraft = ref(false)
+
+async function addMBT() {
+  try {
+    // change ref value to true to display +1 or -1 icon
+    plusMBT.value = true
+    // update team resource count
+    await resourcesService.updateResources(teams, -1, -4, -4, 0)
+    await updateDoc(teams, {
+      totalMBT: increment(1)
+    });
+    setTimeout(() => {
+      // change ref value back to false to remove +1 or -1 icon
+      plusMBT.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding MBT");
+  }
+}
+
+async function removeMBT() {
+  try {
+    minusMBT.value = true
+    await resourcesService.updateResources(teams, 1, 4, 4, 0)
+    await updateDoc(teams, {
+      totalMBT: increment(-1)
+    });
+    setTimeout(() => {
+      minusMBT.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing MBT");
+  }
+}
+
+async function addAntiAircraft() {
+  try {
+    plusAntiAircraft.value = true
+    await resourcesService.updateResources(teams, 0, -3, -1, 0)
+    await updateDoc(teams, {
+      totalAntiAircraft: increment(1)
+    });
+    setTimeout(() => {
+      plusAntiAircraft.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Anti-aircraft");
+  }
+}
+
+async function removeAntiAircraft() {
+  try {
+    minusAntiAircraft.value = true
+    await resourcesService.updateResources(teams, 0, 3, 1, 0)
+    await updateDoc(teams, {
+      totalAntiAircraft: increment(-1)
+    });
+    setTimeout(() => {
+      minusAntiAircraft.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Anti-aircraft");
   }
 }
 

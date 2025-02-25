@@ -86,21 +86,6 @@
         <CombatRulesComponent />
         <!-- SECTION Retreat Rules -->
         <RetreatRulesComponent />
-        <!-- SECTION Attrition -->
-        <!-- <div class="d-flex flex-column align-items-center text-center text-tan py-2">
-          <h2>Attrition</h2>
-          <span class="divider"></span>
-        </div>
-        <p>
-          <span class="text-tan fs-md">Attrition</span> occurs when units are cut-off from a direct connection to a
-          city,
-          naval yard or carrier. Units that are cut-off are now subject to running out of supplies. Armies and divisions
-          only have
-          enough supplies for 4 battles. If an army/division or unit runs out of supplies they can no longer attack or
-          defends themselves. If they are attacked with no supplies the player must follow the "retreat rules when a
-          unit
-          has no supplies".
-        </p> -->
         <!-- SECTION Navy Combat Rules -->
         <NavyCombatRulesComponent />
         <!-- SECTION Item Card Rules -->

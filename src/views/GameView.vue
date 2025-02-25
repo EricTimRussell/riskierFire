@@ -39,49 +39,6 @@
         <AirUnitsComponent :team="teams" />
       </div>
     </div>
-    <!-- Armies & Divisions -->
-    <!-- <div class="row bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
-      <div class="col-12 d-flex justify-content-center text-light">
-        <h2>Armies & Divisions</h2>
-        <span class="material-symbols-outlined fs-lg px-2">
-          local_police
-        </span>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <button type="submit" class="rounded text-shadow-dark p-2 mx-3" data-bs-toggle="modal"
-          data-bs-target="#formDivision-modal" aria-label="Create Region">
-          Form Division
-        </button>
-        <button type="submit" class="rounded text-shadow-dark py-2 px-3 mx-3" data-bs-toggle="modal"
-          data-bs-target="#formArmy-modal" aria-label="Create City">
-          Form Army
-        </button>
-      </div>
-    </div>
-    <div class="row justify-content-center" v-motion-pop-visible-once>
-      <div class="col-12 text-center bg-green text-light py-1 my-3 elevation-5">
-        <h2>Divisions</h2>
-      </div>
-      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="d in divisions" v-if="divisions.length > 0">
-        <DivisionsCardComponent :divisions="d" :teams="teams" />
-      </div>
-      <div class="text-center" v-else>
-        <span class="fs-md">Your team has no divisions</span>
-      </div>
-    </div>
-    <div class="row" v-motion-pop-visible-once>
-      <div class="col-12 text-center bg-green text-light py-1 my-3 elevation-5">
-        <h2>Armies</h2>
-      </div>
-    </div>
-    <div class="row justify-content-center" v-motion-pop-visible-once>
-      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="a in armies" v-if="armies.length > 0">
-        <ArmyCardComponent :armies="a" :teams="teams" />
-      </div>
-      <div class="text-center" v-else>
-        <span class="fs-md">Your team has no armies</span>
-      </div>
-    </div> -->
     <!-- Carriers -->
     <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center">

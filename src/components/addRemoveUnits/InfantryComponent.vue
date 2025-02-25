@@ -15,7 +15,7 @@
         <h6 v-if="!plusInfantry && !minusInfantry" class="px-2 fs-4"><strong>{{ team.totalInfantry }}</strong></h6>
       </div>
       <div>
-        <button @click="addInfantry()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
+        <button @click="addInfantry()"><span class="material-symbols-outlined fs-lg p-2">add</span></button>
       </div>
     </div>
     <div class="col-12 d-flex justify-content-center mb-5 gap-5">
@@ -29,7 +29,7 @@
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
-        <span class="fs-lg">5</span>
+        <span class="fs-lg">3</span>
       </div>
     </div>
 
@@ -45,7 +45,7 @@
         <h6 v-if="plusSpecialForces == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
         <h6 v-if="minusSpecialForces == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusSpecialForces && !minusSpecialForces" class="px-3 fs-4"><strong>{{ team.totalSpecialForces
-            }}</strong></h6>
+        }}</strong></h6>
       </div>
       <div>
         <button @click="addSpecialForces()" class=""><span
@@ -63,14 +63,14 @@
       </div>
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
-        <span class="fs-lg">3</span>
+        <span class="fs-lg">2</span>
       </div>
     </div>
   </div>
 </template>
 
 
-<script>
+<script setup>
 // Firebase
 import { useFirestore } from "vuefire"
 import { doc, updateDoc, increment } from "@firebase/firestore";
@@ -82,89 +82,85 @@ import { ref } from "vue"
 // Services
 import { resourcesService } from "../../services/ResourcesService";
 
-export default {
-  props: {
-    team: { type: Object, required: true }
-  },
-  setup() {
-    const db = useFirestore()
-    const route = useRoute()
-    // @ts-ignore
-    const team = doc(db, "teams", route.params.id)
 
-    // conditional rendering for adding and removing units
-    const plusInfantry = ref(false)
-    const minusInfantry = ref(false)
-    const plusSpecialForces = ref(false)
-    const minusSpecialForces = ref(false)
+const props = defineProps({
+  // current players team
+  team: { type: Object }
+})
 
-    return {
-      plusInfantry,
-      minusInfantry,
-      plusSpecialForces,
-      minusSpecialForces,
-      async addInfantry() {
-        try {
-          // change ref value to true to display +1 or -1 icon
-          plusInfantry.value = true
-          // update team resource count
-          await resourcesService.updateResources(team, -5, -2, -1, 0)
-          // update firebase to add one infantry
-          await updateDoc(team, {
-            totalInfantry: increment(1)
-          });
-          setTimeout(() => {
-            // change ref back to false to remove +1 or -1 icon
-            plusInfantry.value = false
-          }, 100)
-        } catch (error) {
-          console.error(error, "adding infantry");
-        }
-      },
-      async removeInfantry() {
-        try {
-          minusInfantry.value = true
-          await resourcesService.updateResources(team, 5, 2, 1, 0)
-          await updateDoc(team, {
-            totalInfantry: increment(-1)
-          });
-          setTimeout(() => {
-            minusInfantry.value = false
-          }, 100)
-        } catch (error) {
-          console.error(error, "removing infantry");
-        }
-      },
 
-      async addSpecialForces() {
-        try {
-          plusSpecialForces.value = true
-          await resourcesService.updateResources(team, -3, -3, -1, 0)
-          await updateDoc(team, {
-            totalSpecialForces: increment(1)
-          });
-          setTimeout(() => {
-            plusSpecialForces.value = false
-          }, 100)
-        } catch (error) {
-          console.error(error, "adding special forces");
-        }
-      },
-      async removeSpecialForces() {
-        try {
-          plusSpecialForces.value = true
-          await resourcesService.updateResources(team, 3, 3, 1, 0)
-          await updateDoc(team, {
-            totalSpecialForces: increment(-1)
-          });
-          setTimeout(() => {
-            plusSpecialForces.value = false
-          }, 100)
-        } catch (error) {
-          console.error(error, "adding special forces");
-        }
-      }
-    }
+const db = useFirestore()
+const route = useRoute()
+// teams database
+const teams = doc(db, 'teams', route.params.id)
+
+// conditional rendering for adding and removing units
+const plusInfantry = ref(false)
+const minusInfantry = ref(false)
+const plusSpecialForces = ref(false)
+const minusSpecialForces = ref(false)
+
+async function addInfantry() {
+  try {
+    // change ref value to true to display +1 or -1 icon
+    plusInfantry.value = true
+    // update team resource count
+    await resourcesService.updateResources(teams, -3, -2, -1, 0)
+    // update firebase to add one infantry
+    await updateDoc(teams, {
+      totalInfantry: increment(1)
+    });
+    setTimeout(() => {
+      // change ref back to false to remove +1 or -1 icon
+      plusInfantry.value = false
+    }, 100)
+  } catch (error) {
+    console.error(error, "adding infantry");
+  }
+}
+
+async function removeInfantry() {
+  try {
+    minusInfantry.value = true
+    await resourcesService.updateResources(teams, 3, 2, 1, 0)
+    await updateDoc(teams, {
+      totalInfantry: increment(-1)
+    });
+    setTimeout(() => {
+      minusInfantry.value = false
+    }, 100)
+  } catch (error) {
+    console.error(error, "removing infantry");
+  }
+}
+
+async function addSpecialForces() {
+  try {
+    plusSpecialForces.value = true
+    await resourcesService.updateResources(teams, -2, -3, -1, 0)
+    await updateDoc(teams, {
+      totalSpecialForces: increment(1)
+    });
+    setTimeout(() => {
+      plusSpecialForces.value = false
+    }, 100)
+  } catch (error) {
+    console.error(error, "adding special forces");
+  }
+}
+
+async function removeSpecialForces() {
+  try {
+    plusSpecialForces.value = true
+    await resourcesService.updateResources(teams, 2, 3, 1, 0)
+    await updateDoc(teams, {
+      totalSpecialForces: increment(-1)
+    });
+    setTimeout(() => {
+      plusSpecialForces.value = false
+    }, 100)
+  } catch (error) {
+    console.error(error, "adding special forces");
   }
 }
 
