@@ -57,7 +57,7 @@
             <a class="nav-link dropdown-item" href="#airCombat">Air Combat Rules</a>
             <a class="nav-link dropdown-item" href="#retreat">Retreat Rules</a>
             <a class="nav-link dropdown-item" href="#navyCombat">Navy Combat Rules</a>
-            <a class="nav-link dropdown-item" href="#items">Item Rules</a>
+            <a class="nav-link dropdown-item" href="#items">Technology Rules</a>
             <a class="nav-link dropdown-item" href="#events">Event Rules</a>
             <a class="nav-link dropdown-item" href="#structure">Structure Rules</a>
           </nav>

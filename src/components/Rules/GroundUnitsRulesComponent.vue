@@ -14,18 +14,33 @@
       the
       number of times a unit can
       attack per turn. Range is the distance a unit can attack an enemy. A range of 1 means the unit can only
-      attack tiles that are next to them. Lastly, one infantry, mechanized, IFV, or MBT piece on the main board
-      represents 3 units on the combat board. This does not apply to artillery, AA, and special forces.
+      attack tiles that are next to them.
+    </p>
+    <p>
+      <span class="text-tan fs-md">Militia</span> are civilian within cities that will defend a city when attacked. They
+      are not organized enough to go on the offensive meaning they are only allowed to fight defensive battles. Small
+      cities have 3 units of infantry. Medium cities have 3 infantry and 1 mechanized unit. Large cities will have 3
+      infantry and 2 mechanized units. If military units are present at a city players can still use the militia.
+      Militia have 1 movement point, 0 offensive points, and a range of 1. Any technology a player has does not apply to
+      militia. Militia pieces are colored white.
     </p>
     <p><span class="text-tan fs-md">Infantry</span> are a more defensively balanced unit with limited offensive
       capabilities. They have the ability to occupy fortifications giving them a boost to defensive durability.
       Infantry have 1 movement point, 1 offensive point, and a range of 1.
     </p>
-    <p><span class="text-tan fs-md">Special Forces</span> are similar to infantry in that they are defensively
-      balanced, but are a fair bit more effective offensively. They also have the ability to occupy fortifications.
-      Special forces have access to certain operational events that no other unit has. Special forces carry laser
+    <p><span class="text-tan fs-md">Special Forces</span> are an effective offensive unit, but are not a good defensive
+      unit. They also have the ability to occupy fortifications.
+      Special forces have access to certain operational events. Special forces carry laser
       designators giving artillery more accuracy and gaining access to destroyer and cruiser artillery if
-      applicable. SF units have 1 movement point, 1 offensive point, and a range of 1.
+      applicable. SF units have 2 movement points, 1 offensive point, and a
+      range of 1.
+      <span class="text-tan fs-md">Laser Designators</span> are used to direct artillery or missile strikes more
+      accurately. LD's are most effective when used against enemies that are locked in combat by another friendly unit.
+      An SF unit can also spend their offensive point to attack an enemy directly. <span
+        class="text-tan fs-md">NOTE:</span> When an SF unit uses it's offensive point to conduct an LD attack the
+      defending unit gets to attack first (if not locked in combat). As an example an SF unit uses it's laser designator
+      to attack an IFV. The IFV
+      will get a chance to destroy the SF unit before the LD attack occurs.
     </p>
     <p><span class="text-tan fs-md">Mechanized Infantry</span> are a heavier more mobile version of infantry. They
       are

@@ -22,13 +22,6 @@
     <p>--Fighter Aircraft and CAS can retreat instantly and will be returned to any airfield within
       range.
     </p>
-    <p><span class="text-tan fs-md">Retreating when a unit has no supplies: </span> In the event a army/division has
-      no
-      supplies left to defend themselves from an attack they must all retreat. A dice roll for each unit
-      retreating will be used determine a successfull escape or not. Using a D12 the defending player must roll
-      2 higher than the attacking player to escape. If a unit successfully escapes the player can choose which
-      adjacent tile to place each unit. If there are no safe tiles to retreat to then all units are destroyed.
-    </p>
   </body>
 
 </template>

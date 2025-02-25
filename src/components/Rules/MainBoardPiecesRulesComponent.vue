@@ -12,7 +12,8 @@
         class="text-success">Dark Green</span> represents a dense jungle environment. <span
         class="text-warning">Yellow</span> represents a flat grasslands environment. <span class="text-info">Light
         Blue</span> represents a marshy environment. <span class="text-secondary">Grey</span> represents a rugged
-      mountain environment. <span class="text-tan">Tan</span> represents a desert environemnt.
+      mountain environment. <span class="text-tan">Tan</span> represents a desert environemnt. Any tile with a
+      <strong>City</strong> on it now becomes an urban environemnt.
     </p>
     <p><span class="text-tan fs-md">Fortifications:</span> Each player has pillbox or bunker type pieces that
       represents fortifications. When fortifications are built 1 bunker piece is placed on the main board where they
@@ -25,7 +26,9 @@
     </p>
     <p><span class="text-tan fs-md">Cities:</span> Capital cities will be the same color as team it
       belongs to. Medium
-      cities will have 4 different columns representing sky scrappers and a small city will have 3.</p>
+      cities will have 4 different towers representing sky scrappers and a small city will have 3. Cities also
+      automatically contain militia that do not need to be placed. See <a href="#ground">Ground Units</a> for more
+      details about militia.</p>
     <p><span class="text-tan fs-md">Region Coins:</span> Region coins are the pieces used to track which team owns a
       region. They are circular coin pieces that are the same color as the team who owns them. They all also have
       unique numbers on them so that players track them on the app.</p>
@@ -45,6 +48,10 @@ body {
   font-size: 17px;
   font-weight: 500;
   letter-spacing: 3px;
+}
+
+a{
+  text-decoration: none;
 }
 
 .text-forest{

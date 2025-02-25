@@ -5,6 +5,10 @@
       <h2>Ground Combat Rules</h2>
       <span class="divider"></span>
     </div>
+    <p>
+      <span class="text-tan fs-md"> Combat Board:</span> The combat board is a seperate small board that is used to
+      conduct large battles between players. It has 44 hexagonal spaces in the shape of a hexagon.
+    </p>
     <p><span class="text-tan fs-md"> General Rules on Combat:</span> Only 1 offensive move per tile is
       allowed per turn on the main board. This means that a player can only attack from a tile once per turn. Land
       battles take place on a seperate board called the combat board. Before combat begins be sure to place any item
@@ -17,24 +21,26 @@
       aircraft. A maximum of 2 ground units can share the same tile, however there is no limit on aircraft. If
       there are more than 12 defending units involved the defending player can decide to retreat the extra units
       or keep them as reserves to be used in combat later. Offense can only deploy a max of 12 units at one time
-      as well as keep reserves. The defending player will place their 3 fortifications only 1 per tile and only
-      infantry
-      or Special forces can use fortifications. All of the defenders units involved will be placed in the middle of
-      the combat
-      board. The defending player cannot place units on first row of tiles closest to them or past the middle row.
-      The
-      offensive player will now place their units anywhere up to the defenders line but not on or past it.
+      and keep reserves as well. The defending player will place their 3 fortifications (if available) only 1 per tile
+      and only
+      infantry or Special forces can use fortifications by placing them ontop of the fortification piece. All of the
+      defenders units involved will be placed in the
+      middle of the combat board. The defending player cannot place units on first row of tiles closest to them or past
+      the middle row. The offensive player will now place their units anywhere up to the defenders line but not on or
+      past it.
       Paratroopers can deploy past or directly on a defenders units.
     </p>
     <p>-- The defending player must deploy all their units possible up to the maximum of 12. For
       example the
       defending player cannot deploy 2 units and have the other 10 retreat. If they wish to try and retreat they
-      have to follow the retreat rules.
+      have to follow the <a href="#retreat">retreat rules.</a>
     </p>
-    <p>-- A unit is considered locked in combat when they engage an enemy. When locked in combat both
+    <p><span class="text-tan fs-md">Locked in Combat:</span> A unit is considered locked in combat when they engage an
+      enemy. When locked in combat both
       units cannot move until another one of them is destroyed or they are relieved by a friendly unit.
     </p>
-    <p>--During combat if players lose units they can deploy reserves and they will enter the
+    <p><span class="text-tan fs-md">Reserves:</span> During combat if players lose units they can deploy reserves and
+      they will enter the
       combat board in the row closest to the player. When reserve are placed they cannot move until
       the next turn.
     </p>
@@ -106,6 +112,10 @@ body {
   font-size: 17px;
   font-weight: 500;
   letter-spacing: 3px;
+}
+
+a{
+  text-decoration: none;
 }
 
 @media screen and (min-width: 768px) {

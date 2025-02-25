@@ -2,7 +2,7 @@
 
   <body>
     <div id="gettingStarted" class="d-flex flex-column align-items-center text-center text-tan py-2">
-      <h2>Main Board Setup</h2>
+      <h2>Main board Setup</h2>
       <span class="divider"></span>
     </div>
     <p><span class="text-tan fs-md">First</span> players should assemble the region pieces together until it roughly
@@ -34,7 +34,7 @@
     <p>
       <span class="text-tan fs-md">Lastly</span> since each player starts with 1 research center they need to draw a
       card from the research item card deck at random. Each research center is worth 1 item card that permanently
-      upgrades your faction with a new technology. See <a href="#items">Item Rules</a> for more info about items.
+      upgrades your faction with a new technology. See <a href="#items">Technology</a> for more info about items.
     </p>
   </body>
 </template>

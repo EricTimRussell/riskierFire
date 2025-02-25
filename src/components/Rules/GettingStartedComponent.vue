@@ -15,7 +15,8 @@
       region claim token.
     </p>
     <p><span class="text-tan fs-md">Second</span>
-      a player should claim all regions that have region claim tokens by using the claim region button on the game
+      a player should claim all regions that have region claim tokens, including ones with cities on them, by using the
+      claim region button on the game
       page. The region number should match the number on the region calim token.</p>
     <p><span class="text-tan fs-md">Third</span>
       a player should build and place all the buildings they want to start with. Then if a player has a naval yard
