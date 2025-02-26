@@ -100,7 +100,7 @@
 </template>
 
 
-<script>
+<script setup>
 // Firebase
 import { useFirestore } from "vuefire"
 import { doc, updateDoc, increment } from "@firebase/firestore";
@@ -112,125 +112,116 @@ import { ref } from "vue";
 // Services
 import { resourcesService } from "../../services/ResourcesService";
 
-export default {
-  props: {
-    team: { type: Object, required: true }
-  },
-  setup() {
-    const db = useFirestore()
-    const route = useRoute()
-    // @ts-ignore
-    const team = doc(db, "teams", route.params.id)
 
-    // conditional rendering for adding and removing units
-    const plusCarrier = ref(false)
-    const minusCarrier = ref(false)
-    const plusCruiser = ref(false)
-    const minusCruiser = ref(false)
-    const plusDestroyer = ref(false)
-    const minusDestroyer = ref(false)
+const props = defineProps({
+  // current users team
+  team: { type: Object }
+})
 
-    return {
-      plusCarrier,
-      minusCarrier,
-      plusCruiser,
-      minusCruiser,
-      plusDestroyer,
-      minusDestroyer,
+const db = useFirestore()
+const route = useRoute()
+// teams database
+const teams = doc(db, 'teams', route.params.id)
 
-      async addCarrier() {
-        try {
-          // change ref value to true to display +1 or -1 icon
-          plusCarrier.value = true
-          // update team resource count
-          await resourcesService.updateResources(team, -3, -5, -3, 0)
-          await updateDoc(team, {
-            totalCarriers: increment(1)
-          });
-          setTimeout(() => {
-            // change ref value back to false to remove +1 or -1 icon
-            plusCarrier.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Carrier");
-        }
-      },
+// conditional rendering for adding and removing units
+const plusCarrier = ref(false)
+const minusCarrier = ref(false)
+const plusCruiser = ref(false)
+const minusCruiser = ref(false)
+const plusDestroyer = ref(false)
+const minusDestroyer = ref(false)
 
-      async removeCarrier() {
-        try {
-          minusCarrier.value = true
-          await resourcesService.updateResources(team, 3, 5, 3, 0)
-          await updateDoc(team, {
-            totalCarriers: increment(-1)
-          });
-          setTimeout(() => {
-            minusCarrier.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Carrier");
-        }
-      },
 
-      async addCruiser() {
-        try {
-          plusCruiser.value = true
-          await resourcesService.updateResources(team, -1, -3, -4, 0)
-          await updateDoc(team, {
-            totalCruisers: increment(1)
-          });
-          setTimeout(() => {
-            plusCruiser.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Cruiser");
-        }
-      },
+async function addCarrier() {
+  try {
+    // change ref value to true to display +1 or -1 icon
+    plusCarrier.value = true
+    // update team resource count
+    await resourcesService.updateResources(teams, -3, -5, -3, 0)
+    await updateDoc(teams, {
+      totalCarriers: increment(1)
+    });
+    setTimeout(() => {
+      // change ref value back to false to remove +1 or -1 icon
+      plusCarrier.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Carrier");
+  }
+}
 
-      async removeCruiser() {
-        try {
-          minusCruiser.value = true
-          await resourcesService.updateResources(team, 1, 3, 4, 0)
-          await updateDoc(team, {
-            totalCruisers: increment(-1)
-          });
-          setTimeout(() => {
-            minusCruiser.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Cruiser");
-        }
-      },
+async function removeCarrier() {
+  try {
+    minusCarrier.value = true
+    await resourcesService.updateResources(teams, 3, 5, 3, 0)
+    await updateDoc(teams, {
+      totalCarriers: increment(-1)
+    });
+    setTimeout(() => {
+      minusCarrier.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Carrier");
+  }
+}
 
-      async addDestroyer() {
-        try {
-          plusDestroyer.value = true
-          await resourcesService.updateResources(team, -1, -3, -3, 0)
-          await updateDoc(team, {
-            totalDestroyers: increment(1)
-          });
-          setTimeout(() => {
-            plusDestroyer.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Destroyer");
-        }
-      },
+async function addCruiser() {
+  try {
+    plusCruiser.value = true
+    await resourcesService.updateResources(teams, -1, -3, -4, 0)
+    await updateDoc(teams, {
+      totalCruisers: increment(1)
+    });
+    setTimeout(() => {
+      plusCruiser.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Cruiser");
+  }
+}
 
-      async removeDestroyer() {
-        try {
-          minusDestroyer.value = true
-          await resourcesService.updateResources(team, 1, 3, 3, 0)
-          await updateDoc(team, {
-            totalDestroyers: increment(-1)
-          });
-          setTimeout(() => {
-            minusDestroyer.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Destroyer");
-        }
-      }
-    }
+async function removeCruiser() {
+  try {
+    minusCruiser.value = true
+    await resourcesService.updateResources(teams, 1, 3, 4, 0)
+    await updateDoc(teams, {
+      totalCruisers: increment(-1)
+    });
+    setTimeout(() => {
+      minusCruiser.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Cruiser");
+  }
+}
+
+async function addDestroyer() {
+  try {
+    plusDestroyer.value = true
+    await resourcesService.updateResources(teams, -1, -3, -3, 0)
+    await updateDoc(teams, {
+      totalDestroyers: increment(1)
+    });
+    setTimeout(() => {
+      plusDestroyer.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Destroyer");
+  }
+}
+
+async function removeDestroyer() {
+  try {
+    minusDestroyer.value = true
+    await resourcesService.updateResources(teams, 1, 3, 3, 0)
+    await updateDoc(teams, {
+      totalDestroyers: increment(-1)
+    });
+    setTimeout(() => {
+      minusDestroyer.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Destroyer");
   }
 }
 

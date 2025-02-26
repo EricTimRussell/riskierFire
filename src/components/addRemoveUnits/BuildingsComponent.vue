@@ -88,7 +88,7 @@
 </template>
 
 
-<script>
+<script setup>
 // Firebase
 import { useFirestore } from "vuefire"
 import { doc, updateDoc, increment } from "@firebase/firestore";
@@ -100,125 +100,114 @@ import { ref } from "vue";
 // Services add-unit-transform
 import { resourcesService } from "../../services/ResourcesService";
 
-export default {
-  props: {
-    team: { type: Object, required: true }
-  },
-  setup() {
-    const db = useFirestore()
-    const route = useRoute()
-    // @ts-ignore
-    const team = doc(db, "teams", route.params.id)
 
-    // conditional rendering for adding and removing units
-    const plusAirfield = ref(false)
-    const minusAirfield = ref(false)
-    const plusNavalYard = ref(false)
-    const minusNavalYard = ref(false)
-    const plusFactory = ref(false)
-    const minusFactory = ref(false)
+const props = defineProps({
+  team: { type: Object }
+})
 
-    return {
-      plusAirfield,
-      minusAirfield,
-      plusNavalYard,
-      minusNavalYard,
-      plusFactory,
-      minusFactory,
 
-      async addAirfield() {
-        try {
-          // change ref value to true to display +1 or -1 icon
-          plusAirfield.value = true
-          // update team resource count
-          await resourcesService.updateResources(team, -1, -2, 0, 0)
-          await updateDoc(team, {
-            totalAirfields: increment(1)
-          });
-          setTimeout(() => {
-            // change ref value back to false to remove +1 or -1 icon
-            plusAirfield.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Airfield");
-        }
-      },
+const db = useFirestore()
+const route = useRoute()
+const teams = doc(db, 'teams', route.params.id)
 
-      async removeAirfield() {
-        try {
-          minusAirfield.value = true
-          await resourcesService.updateResources(team, 1, 2, 0, 0)
-          await updateDoc(team, {
-            totalAirfields: increment(-1)
-          });
-          setTimeout(() => {
-            minusAirfield.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Airfield");
-        }
-      },
+// conditional rendering for adding and removing units
+const plusAirfield = ref(false)
+const minusAirfield = ref(false)
+const plusNavalYard = ref(false)
+const minusNavalYard = ref(false)
+const plusFactory = ref(false)
+const minusFactory = ref(false)
 
-      async addNavalYard() {
-        try {
-          plusNavalYard.value = true
-          await resourcesService.updateResources(team, -2, -2, 0, 0)
-          await updateDoc(team, {
-            totalNavalYards: increment(1)
-          });
-          setTimeout(() => {
-            plusNavalYard.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Naval Yard");
-        }
-      },
+async function addAirfield() {
+  try {
+    // change ref value to true to display +1 or -1 icon
+    plusAirfield.value = true
+    // update team resource count
+    await resourcesService.updateResources(teams, -1, -2, 0, 0)
+    await updateDoc(teams, {
+      totalAirfields: increment(1)
+    });
+    setTimeout(() => {
+      // change ref value back to false to remove +1 or -1 icon
+      plusAirfield.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Airfield");
+  }
+}
 
-      async removeNavalYard() {
-        try {
-          minusNavalYard.value = true
-          await resourcesService.updateResources(team, 2, 2, 0, 0)
-          await updateDoc(team, {
-            totalNavalYards: increment(-1)
-          });
-          setTimeout(() => {
-            minusNavalYard.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Naval Yard");
-        }
-      },
+async function removeAirfield() {
+  try {
+    minusAirfield.value = true
+    await resourcesService.updateResources(teams, 1, 2, 0, 0)
+    await updateDoc(teams, {
+      totalAirfields: increment(-1)
+    });
+    setTimeout(() => {
+      minusAirfield.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Airfield");
+  }
+}
 
-      async addFactory() {
-        try {
-          plusFactory.value = true
-          await resourcesService.updateResources(team, -3, -1, 0, 0)
-          await updateDoc(team, {
-            totalFactories: increment(1)
-          });
-          setTimeout(() => {
-            plusFactory.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Factory");
-        }
-      },
+async function addNavalYard() {
+  try {
+    plusNavalYard.value = true
+    await resourcesService.updateResources(teams, -2, -2, 0, 0)
+    await updateDoc(teams, {
+      totalNavalYards: increment(1)
+    });
+    setTimeout(() => {
+      plusNavalYard.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Naval Yard");
+  }
+}
 
-      async removeFactory() {
-        try {
-          minusFactory.value = true
-          await resourcesService.updateResources(team, 3, 1, 0, 0)
-          await updateDoc(team, {
-            totalFactories: increment(-1)
-          });
-          setTimeout(() => {
-            minusFactory.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Factory");
-        }
-      }
-    }
+async function removeNavalYard() {
+  try {
+    minusNavalYard.value = true
+    await resourcesService.updateResources(teams, 2, 2, 0, 0)
+    await updateDoc(teams, {
+      totalNavalYards: increment(-1)
+    });
+    setTimeout(() => {
+      minusNavalYard.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Naval Yard");
+  }
+}
+
+async function addFactory() {
+  try {
+    plusFactory.value = true
+    await resourcesService.updateResources(teams, -3, -1, 0, 0)
+    await updateDoc(teams, {
+      totalFactories: increment(1)
+    });
+    setTimeout(() => {
+      plusFactory.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Factory");
+  }
+}
+
+async function removeFactory() {
+  try {
+    minusFactory.value = true
+    await resourcesService.updateResources(teams, 3, 1, 0, 0)
+    await updateDoc(teams, {
+      totalFactories: increment(-1)
+    });
+    setTimeout(() => {
+      minusFactory.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Factory");
   }
 }
 

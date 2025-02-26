@@ -45,7 +45,7 @@
         <h6 v-if="plusSpecialForces == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
         <h6 v-if="minusSpecialForces == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
         <h6 v-if="!plusSpecialForces && !minusSpecialForces" class="px-3 fs-4"><strong>{{ team.totalSpecialForces
-        }}</strong></h6>
+            }}</strong></h6>
       </div>
       <div>
         <button @click="addSpecialForces()" class=""><span
@@ -84,7 +84,7 @@ import { resourcesService } from "../../services/ResourcesService";
 
 
 const props = defineProps({
-  // current players team
+  // current users team
   team: { type: Object }
 })
 

@@ -44,7 +44,7 @@
         </h6>
         <h6 v-if="!plusMissileArtillery && !minusMissileArtillery" class="px-2 fs-4"><strong>{{
           team.totalMissileArtillery
-            }}</strong></h6>
+        }}</strong></h6>
       </div>
       <div>
         <button @click="addMissileArtillery()" class=""><span
@@ -65,7 +65,7 @@
 </template>
 
 
-<script>
+<script setup>
 // Firebase
 import { useFirestore } from "vuefire"
 import { doc, updateDoc, increment } from "@firebase/firestore";
@@ -77,90 +77,84 @@ import { ref } from "vue";
 // Services
 import { resourcesService } from "../../services/ResourcesService";
 
-export default {
-  props: {
-    team: { type: Object, required: true }
-  },
-  setup() {
-    const db = useFirestore()
-    const route = useRoute()
-    // @ts-ignore
-    const team = doc(db, "teams", route.params.id)
 
-    // conditional rendering for adding and removing units
-    const plusArtillery = ref(false)
-    const minusArtillery = ref(false)
-    const plusMissileArtillery = ref(false)
-    const minusMissileArtillery = ref(false)
-    return {
-      plusArtillery,
-      minusArtillery,
-      plusMissileArtillery,
-      minusMissileArtillery,
+const props = defineProps({
+  // current user team
+  team: { type: Object }
+})
 
-      async addArtillery() {
-        try {
-          // change ref value to true to display +1 or -1 icon
-          plusArtillery.value = true
-          // update team resource count
-          await resourcesService.updateResources(team, 0, -1, -3, 0)
-          await updateDoc(team, {
-            totalArtillery: increment(1)
-          });
-          setTimeout(() => {
-            // change ref value back to false to remove +1 or -1 icon
-            plusArtillery.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Artillery");
-        }
-      },
 
-      async removeArtillery() {
-        try {
-          minusArtillery.value = true
-          await resourcesService.updateResources(team, 0, 1, 3, 0)
-          await updateDoc(team, {
-            totalArtillery: increment(-1)
-          });
-          setTimeout(() => {
-            minusArtillery.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Artillery");
-        }
-      },
+const db = useFirestore()
+const route = useRoute()
+// teams databse
+const teams = doc(db, 'teams', route.params.id)
 
-      async addMissileArtillery() {
-        try {
-          plusMissileArtillery.value = true
-          await resourcesService.updateResources(team, 0, -3, -3, 0)
-          await updateDoc(team, {
-            totalMissileArtillery: increment(1)
-          });
-          setTimeout(() => {
-            plusMissileArtillery.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Missile Artillery");
-        }
-      },
+// conditional rendering for adding and removing units
+const plusArtillery = ref(false)
+const minusArtillery = ref(false)
+const plusMissileArtillery = ref(false)
+const minusMissileArtillery = ref(false)
 
-      async removeMissileArtillery() {
-        try {
-          minusMissileArtillery.value = true
-          await resourcesService.updateResources(team, 0, 3, 3, 0)
-          await updateDoc(team, {
-            totalMissileArtillery: increment(-1)
-          });
-          setTimeout(() => {
-            minusMissileArtillery.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Missile Artillery");
-        }
-      }
-    }
+async function addArtillery() {
+  try {
+    // change ref value to true to display +1 or -1 icon
+    plusArtillery.value = true
+    // update team resource count
+    await resourcesService.updateResources(teams, 0, -1, -3, 0)
+    await updateDoc(teams, {
+      totalArtillery: increment(1)
+    });
+    setTimeout(() => {
+      // change ref value back to false to remove +1 or -1 icon
+      plusArtillery.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Artillery");
+  }
+}
+
+async function removeArtillery() {
+  try {
+    minusArtillery.value = true
+    await resourcesService.updateResources(teams, 0, 1, 3, 0)
+    await updateDoc(teams, {
+      totalArtillery: increment(-1)
+    });
+    setTimeout(() => {
+      minusArtillery.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Artillery");
+  }
+}
+
+async function addMissileArtillery() {
+  try {
+    plusMissileArtillery.value = true
+    await resourcesService.updateResources(teams, 0, -3, -3, 0)
+    await updateDoc(teams, {
+      totalMissileArtillery: increment(1)
+    });
+    setTimeout(() => {
+      plusMissileArtillery.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Missile Artillery");
+  }
+}
+
+async function removeMissileArtillery() {
+  try {
+    minusMissileArtillery.value = true
+    await resourcesService.updateResources(teams, 0, 3, 3, 0)
+    await updateDoc(teams, {
+      totalMissileArtillery: increment(-1)
+    });
+    setTimeout(() => {
+      minusMissileArtillery.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Missile Artillery");
   }
 }
 

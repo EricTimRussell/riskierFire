@@ -91,7 +91,7 @@
 </template>
 
 
-<script>
+<script setup>
 // Firebase
 import { useFirestore } from "vuefire"
 import { doc, updateDoc, increment } from "@firebase/firestore";
@@ -103,122 +103,115 @@ import { ref } from "vue";
 // Services
 import { resourcesService } from "../../services/ResourcesService";
 
-export default {
-  props: {
-    team: { type: Object, required: true }
-  },
-  setup() {
-    const db = useFirestore()
-    const route = useRoute()
 
-    // conditional rendering for adding and removing units
-    const plusFighter = ref(false)
-    const minusFighter = ref(false)
-    const plusCAS = ref(false)
-    const minusCAS = ref(false)
-    const plusCargo = ref(false)
-    const minusCargo = ref(false)
-    // @ts-ignore
-    const team = doc(db, "teams", route.params.id)
-    return {
-      plusFighter,
-      minusFighter,
-      plusCAS,
-      minusCAS,
-      plusCargo,
-      minusCargo,
-      async addFighterAircraft() {
-        try {
-          // change ref value to true to display +1 or -1 icon
-          plusFighter.value = true
-          // update team resource count
-          await resourcesService.updateResources(team, 0, -3, -3, 0)
-          await updateDoc(team, {
-            totalFighterAircraft: increment(1)
-          });
-          setTimeout(() => {
-            // change ref value back to false to remove +1 or -1 icon
-            plusFighter.value = false
-          }, 100)
-        } catch (error) {
-          console.error(error, "adding FighterAircraft");
-        }
-      },
-      async removeFighterAircraft() {
-        try {
-          minusFighter.value = true
-          await resourcesService.updateResources(team, 0, 3, 3, 0)
-          await updateDoc(team, {
-            totalFighterAircraft: increment(-1)
-          });
-          setTimeout(() => {
-            minusFighter.value = false
-          }, 100)
-        } catch (error) {
-          console.error(error, "removing FighterAircraft");
-        }
-      },
+const props = defineProps({
+  //current users team
+  team: { type: Object }
+})
 
-      async addCloseAirSupport() {
-        try {
-          plusCAS.value = true
-          await resourcesService.updateResources(team, 0, -3, -3, 0)
-          await updateDoc(team, {
-            totalCloseAirSupport: increment(1)
-          });
-          setTimeout(() => {
-            plusCAS.value = false
-          }, 100)
-        } catch (error) {
-          console.error(error, "adding Close Air Support");
-        }
-      },
-      async removeCloseAirSupport() {
-        try {
-          minusCAS.value = true
-          await resourcesService.updateResources(team, 0, 3, 3, 0)
-          await updateDoc(team, {
-            totalCloseAirSupport: increment(-1)
-          });
-          setTimeout(() => {
-            minusCAS.value = false
-          }, 100)
-        } catch (error) {
-          console.error(error, "removing Close Air Support");
-        }
-      },
 
-      async addCargoAircraft() {
-        try {
-          plusCargo.value = true
-          await resourcesService.updateResources(team, 0, -1, -2, 0)
-          await updateDoc(team, {
-            totalCargoAircraft: increment(1)
-          });
-          setTimeout(() => {
-            plusCargo.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "adding Cargo Aircraft");
-        }
-      },
-      async removeCargoAircraft() {
-        try {
-          minusCargo.value = true
-          await resourcesService.updateResources(team, 0, 1, 2, 0)
-          await updateDoc(team, {
-            totalCargoAircraft: increment(-1)
-          });
-          setTimeout(() => {
-            minusCargo.value = false
-          }, 100);
-        } catch (error) {
-          console.error(error, "removing Cargo Aircraft");
-        }
-      }
-    }
+const db = useFirestore()
+const route = useRoute()
+
+// conditional rendering for adding and removing units
+const plusFighter = ref(false)
+const minusFighter = ref(false)
+const plusCAS = ref(false)
+const minusCAS = ref(false)
+const plusCargo = ref(false)
+const minusCargo = ref(false)
+
+// teams database
+const teams = doc(db, 'teams', route.params.id)
+
+async function addFighterAircraft() {
+  try {
+    // change ref value to true to display +1 or -1 icon
+    plusFighter.value = true
+    // update team resource count
+    await resourcesService.updateResources(teams, 0, -3, -3, 0)
+    await updateDoc(teams, {
+      totalFighterAircraft: increment(1)
+    });
+    setTimeout(() => {
+      // change ref value back to false to remove +1 or -1 icon
+      plusFighter.value = false
+    }, 100)
+  } catch (error) {
+    console.error(error, "adding FighterAircraft");
   }
 }
+async function removeFighterAircraft() {
+  try {
+    minusFighter.value = true
+    await resourcesService.updateResources(teams, 0, 3, 3, 0)
+    await updateDoc(teams, {
+      totalFighterAircraft: increment(-1)
+    });
+    setTimeout(() => {
+      minusFighter.value = false
+    }, 100)
+  } catch (error) {
+    console.error(error, "removing FighterAircraft");
+  }
+}
+async function addCloseAirSupport() {
+  try {
+    plusCAS.value = true
+    await resourcesService.updateResources(teams, 0, -3, -3, 0)
+    await updateDoc(teams, {
+      totalCloseAirSupport: increment(1)
+    });
+    setTimeout(() => {
+      plusCAS.value = false
+    }, 100)
+  } catch (error) {
+    console.error(error, "adding Close Air Support");
+  }
+}
+async function removeCloseAirSupport() {
+  try {
+    minusCAS.value = true
+    await resourcesService.updateResources(teams, 0, 3, 3, 0)
+    await updateDoc(teams, {
+      totalCloseAirSupport: increment(-1)
+    });
+    setTimeout(() => {
+      minusCAS.value = false
+    }, 100)
+  } catch (error) {
+    console.error(error, "removing Close Air Support");
+  }
+}
+async function addCargoAircraft() {
+  try {
+    plusCargo.value = true
+    await resourcesService.updateResources(teams, 0, -1, -2, 0)
+    await updateDoc(teams, {
+      totalCargoAircraft: increment(1)
+    });
+    setTimeout(() => {
+      plusCargo.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "adding Cargo Aircraft");
+  }
+}
+async function removeCargoAircraft() {
+  try {
+    minusCargo.value = true
+    await resourcesService.updateResources(teams, 0, 1, 2, 0)
+    await updateDoc(teams, {
+      totalCargoAircraft: increment(-1)
+    });
+    setTimeout(() => {
+      minusCargo.value = false
+    }, 100);
+  } catch (error) {
+    console.error(error, "removing Cargo Aircraft");
+  }
+}
+
 
 </script>
 
