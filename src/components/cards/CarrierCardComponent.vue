@@ -1,4 +1,5 @@
 <template>
+
   <body>
 
 
@@ -25,12 +26,6 @@
         </div>
         <div class="col-6 d-flex justify-content-center">
           <span class="fs-md">{{ carriers.airUnit6 }}</span>
-        </div>
-        <div class="col-6 d-flex justify-content-center">
-          <span class="fs-md">{{ carriers.airUnit7 }}</span>
-        </div>
-        <div class="col-6 d-flex justify-content-center">
-          <span class="fs-md">{{ carriers.airUnit8 }}</span>
         </div>
         <div class="col-12 d-flex justify-content-center mt-5">
           <span class="fs-lg"><u>Ground Units</u></span>
@@ -256,7 +251,7 @@
   </body>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { deleteDoc, doc } from "@firebase/firestore";
 import { useFirestore } from "vuefire";
@@ -271,59 +266,53 @@ import { navyUnitsService } from "../../services/NavyUnitsService";
 // CSS
 import Swal from "sweetalert2";
 
-export default {
-  props: {
-    carriers: { type: Object, required: true },
-    teams: { type: Object, required: true }
-  },
-  setup(props) {
-    const db = useFirestore()
-    const route = useRoute()
-    // @ts-ignore
-    const carrier = doc(db, "carriers", props.carriers.id)
 
-    // Ref autofills edit form when opened
-    const editable = ref({ groundUnit1: `${props.carriers.groundUnit1}`, groundUnit2: `${props.carriers.groundUnit2}`, groundUnit3: `${props.carriers.groundUnit3}`, groundUnit4: `${props.carriers.groundUnit4}`, groundUnit5: `${props.carriers.groundUnit5}`, groundUnit6: `${props.carriers.groundUnit6}`, airUnit1: `${props.carriers.airUnit1}`, airUnit2: `${props.carriers.airUnit2}`, airUnit3: `${props.carriers.airUnit3}`, airUnit4: `${props.carriers.airUnit4}`, airUnit5: `${props.carriers.airUnit5}`, airUnit6: `${props.carriers.airUnit6}`, airUnit7: `${props.carriers.airUnit7}`, airUnit8: `${props.carriers.airUnit8}`, })
-    return {
-      editable,
-      carrier,
-      async deleteCarrier() {
-        try {
-          await Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              navyUnitsService.deleteCarrierCard(props.carriers, props.teams)
-              Swal.fire(
-                'Carrier Deleted!',
-                'success'
-              )
-            }
-          })
-        } catch (error) {
-          console.error(error, 'Deleting Carrier')
-        }
-      },
+const props = defineProps({
+  carriers: { type: Object },
+  teams: { type: Object }
+})
 
-      async editCarrier() {
-        try {
-          await navyUnitsService.editCarrier(editable, carrier)
-          Swal.fire({
-            title: 'Success!',
-            timer: 900,
-            showConfirmButton: false
-          })
-        } catch (error) {
-          console.error(error, "Editing Carrier")
-        }
+const db = useFirestore()
+const route = useRoute()
+const carrier = doc(db, "carriers", props.carriers.id)
+
+// Ref autofills edit form when opened
+const editable = ref({ groundUnit1: `${props.carriers.groundUnit1}`, groundUnit2: `${props.carriers.groundUnit2}`, groundUnit3: `${props.carriers.groundUnit3}`, groundUnit4: `${props.carriers.groundUnit4}`, groundUnit5: `${props.carriers.groundUnit5}`, groundUnit6: `${props.carriers.groundUnit6}`, airUnit1: `${props.carriers.airUnit1}`, airUnit2: `${props.carriers.airUnit2}`, airUnit3: `${props.carriers.airUnit3}`, airUnit4: `${props.carriers.airUnit4}`, airUnit5: `${props.carriers.airUnit5}`, airUnit6: `${props.carriers.airUnit6}` })
+
+async function deleteCarrier() {
+  try {
+    await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navyUnitsService.deleteCarrierCard(props.carriers, props.teams)
+        Swal.fire(
+          'Carrier Deleted!',
+          'success'
+        )
       }
-    }
+    })
+  } catch (error) {
+    console.error(error, 'Deleting Carrier')
+  }
+}
+
+async function editCarrier() {
+  try {
+    await navyUnitsService.editCarrier(editable, carrier)
+    Swal.fire({
+      title: 'Success!',
+      timer: 900,
+      showConfirmButton: false
+    })
+  } catch (error) {
+    console.error(error, "Editing Carrier")
   }
 }
 </script>

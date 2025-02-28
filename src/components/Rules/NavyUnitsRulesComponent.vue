@@ -16,7 +16,7 @@
       construct. Cruisers and destroyers
       take 2 turns to construct. All ships can move 1 space per turn on the main board.
     </p>
-    <p><span class="text-tan fs-md">Carriers</span> have the ability to carry up to 8 fighter aircraft and CAS
+    <p><span class="text-tan fs-md">Carriers</span> have the ability to carry up to 6 fighter aircraft and CAS
       units.
       They are durable ships and rely on their aircraft for offensive and defensive capabilities. Carriers have
       point

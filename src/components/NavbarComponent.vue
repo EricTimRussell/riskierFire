@@ -75,8 +75,10 @@
         <span class="material-symbols-outlined text-dark fs-xl">
           build
         </span>
-        <span title="Total Production" v-if="teams.totalProduction >= 0" class="fs-lg">{{ teams.totalProduction }}</span>
-        <span title="Total Production" v-if="teams.totalProduction < 0" class="fs-lg text-danger">{{ teams.totalProduction
+        <span title="Total Production" v-if="teams.totalProduction >= 0" class="fs-lg">{{ teams.totalProduction
+        }}</span>
+        <span title="Total Production" v-if="teams.totalProduction < 0" class="fs-lg text-danger">{{
+          teams.totalProduction
         }}</span>
       </div>
     </div>

@@ -29,8 +29,6 @@ class NavyUnitsService {
       airUnit4: editable.value.airUnit4,
       airUnit5: editable.value.airUnit5,
       airUnit6: editable.value.airUnit6,
-      airUnit7: editable.value.airUnit7,
-      airUnit8: editable.value.airUnit8,
       groundUnit1: editable.value.groundUnit1,
       groundUnit2: editable.value.groundUnit2,
       groundUnit3: editable.value.groundUnit3,

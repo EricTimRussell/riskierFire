@@ -56,22 +56,6 @@
       </select>
       <label for="airUnit6">Select Unit Type</label>
     </div>
-    <div class="form-floating">
-      <select v-model="editable.airUnit7" required class="form-select" id="airUnit7" aria-label="Select Unit for Slot">
-        <option value="EmptySlot">EmptySlot</option>
-        <option value="Fighter">Fighter ( {{ teams.totalFighterAircraft }} )</option>
-        <option value="CAS">CAS ( {{ teams.totalCloseAirSupport }} )</option>
-      </select>
-      <label for="airUnit7">Select Unit Type</label>
-    </div>
-    <div class="form-floating my-3">
-      <select v-model="editable.airUnit8" required class="form-select" id="airUnit8" aria-label="Select Unit for Slot">
-        <option value="EmptySlot">EmptySlot</option>
-        <option value="Fighter">Fighter ( {{ teams.totalFighterAircraft }} )</option>
-        <option value="CAS">CAS ( {{ teams.totalCloseAirSupport }} )</option>
-      </select>
-      <label for="airUnit8">Select Unit Type</label>
-    </div>
     <div class="py-3 text-center">
       <h3>Ground Forces Onboard (optional)</h3>
     </div>
@@ -85,7 +69,8 @@
         <option v-if="teams.totalIFV >= 1" value="IFV">IFV ( {{ teams.totalIFV }} )</option>
         <option v-if="teams.totalMBT >= 1" value="MBT">MBT ( {{ teams.totalMBT }} )</option>
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
-        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
+        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }}
+          )
         </option>
         <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
@@ -103,7 +88,8 @@
         <option v-if="teams.totalIFV >= 1" value="IFV">IFV ( {{ teams.totalIFV }} )</option>
         <option v-if="teams.totalMBT >= 1" value="MBT">MBT ( {{ teams.totalMBT }} )</option>
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
-        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
+        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }}
+          )
         </option>
         <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
@@ -121,7 +107,8 @@
         <option v-if="teams.totalIFV >= 1" value="IFV">IFV ( {{ teams.totalIFV }} )</option>
         <option v-if="teams.totalMBT >= 1" value="MBT">MBT ( {{ teams.totalMBT }} )</option>
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
-        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
+        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }}
+          )
         </option>
         <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
@@ -139,7 +126,8 @@
         <option v-if="teams.totalIFV >= 1" value="IFV">IFV ( {{ teams.totalIFV }} )</option>
         <option v-if="teams.totalMBT >= 1" value="MBT">MBT ( {{ teams.totalMBT }} )</option>
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
-        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
+        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }}
+          )
         </option>
         <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
@@ -157,7 +145,8 @@
         <option v-if="teams.totalIFV >= 1" value="IFV">IFV ( {{ teams.totalIFV }} )</option>
         <option v-if="teams.totalMBT >= 1" value="MBT">MBT ( {{ teams.totalMBT }} )</option>
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
-        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
+        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }}
+          )
         </option>
         <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
@@ -175,7 +164,8 @@
         <option v-if="teams.totalIFV >= 1" value="IFV">IFV ( {{ teams.totalIFV }} )</option>
         <option v-if="teams.totalMBT >= 1" value="MBT">MBT ( {{ teams.totalMBT }} )</option>
         <option v-if="teams.totalArtillery >= 1" value="Artillery">Artillery ( {{ teams.totalArtillery }} )</option>
-        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }} )
+        <option v-if="teams.totalAntiAircraft >= 1" value="Anti-Aircraft">Anti-Aircraft ( {{ teams.totalAntiAircraft }}
+          )
         </option>
         <option v-if="teams.totalMissileArtillery >= 1" value="MissileArtillery">Missile Artillery ( {{
           teams.totalMissileArtillery }} )
@@ -190,7 +180,7 @@
   </form>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { addDoc, collection } from "@firebase/firestore";
 import { useCurrentUser, useFirestore } from "vuefire";
@@ -201,32 +191,29 @@ import { ref } from "vue";
 // CSS
 import Swal from "sweetalert2";
 
-export default {
-  props: {
-    teams: { type: Object, required: true },
-  },
-  setup(props) {
-    const user = useCurrentUser()
-    const db = useFirestore()
-    const editable = ref({ creatorId: user.value?.uid })
-    return {
-      editable,
-      async createCarrier() {
-        try {
-          const newArmy = await addDoc(collection(db, "carriers"), {
-            ...editable.value
-          });
-          editable.value = ({ creatorId: user.value?.uid })
-          Swal.fire({
-            title: 'Success!',
-            timer: 900,
-            showConfirmButton: false
-          })
-        } catch (error) {
-          console.error(error, "creating carrier")
-        }
-      }
-    }
+
+const props = defineProps({
+  //current users team
+  teams: { type: Object }
+})
+
+const user = useCurrentUser()
+const db = useFirestore()
+const editable = ref({ creatorId: user.value?.uid })
+
+async function createCarrier() {
+  try {
+    const newArmy = await addDoc(collection(db, "carriers"), {
+      ...editable.value
+    });
+    editable.value = ({ creatorId: user.value?.uid })
+    Swal.fire({
+      title: 'Success!',
+      timer: 900,
+      showConfirmButton: false
+    })
+  } catch (error) {
+    console.error(error, "creating carrier")
   }
 }
 </script>
