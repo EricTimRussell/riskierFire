@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { doc, deleteDoc, updateDoc, increment } from "firebase/firestore";
 import { useFirestore } from "vuefire";
@@ -37,46 +37,40 @@ import { useRoute } from "vue-router";
 import Swal from "sweetalert2";
 import { regionsService } from "../../services/RegionsService";
 
-export default {
-  props: {
-    cities: { type: Object, required: true },
-    teams: { type: Object, required: true }
-  },
-  setup(props) {
-    const db = useFirestore()
-    const route = useRoute()
-    // @ts-ignore
-    const team = doc(db, "teams", route.params.id)
-    return {
-      team,
-      async deleteCity() {
-        try {
-          await Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              // @ts-ignore
-              regionsService.deleteCity(props.cities, props.teams.creatorId, team)
-              Swal.fire(
-                'City Deleted!',
-                'success'
-              )
-            }
-          })
-        } catch (error) {
-          console.error(error, 'Deleting city')
-        }
+
+const props = defineProps({
+  cities: { type: Object },
+  teams: { type: Object }
+})
+
+const db = useFirestore()
+const route = useRoute()
+const team = doc(db, "teams", route.params.id)
+
+async function deleteCity() {
+  try {
+    await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // @ts-ignore
+        regionsService.deleteCity(props.cities, props.teams.creatorId, team)
+        Swal.fire(
+          'City Deleted!',
+          'success'
+        )
       }
-    }
+    })
+  } catch (error) {
+    console.error(error, 'Deleting city')
   }
 }
 </script>
 
 <style lang="scss" scoped></style>
-

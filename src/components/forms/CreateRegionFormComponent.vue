@@ -13,7 +13,7 @@
   </form>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { useCurrentUser, useFirestore, getCurrentUser } from "vuefire";
 import { addDoc, collection, doc, increment, updateDoc } from "@firebase/firestore";
@@ -28,47 +28,51 @@ import { useRegionStore } from "../../stores/RegionStore";
 // CSS
 import Swal from 'sweetalert2'
 
-export default {
-  props: {
-    teams: { type: Object, required: true },
-  },
-  setup(props) {
-    const user = useCurrentUser()
-    const route = useRoute()
-    const db = useFirestore()
 
-    const editable = ref({ regionNumber: null, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
-    const team = doc(db, "teams", route.params.id)
+const props = defineProps({
+  teams: { type: Object }
+})
 
-    computed(() => useRegionStore.teams)
-    return {
-      editable,
-      async createRegion() {
-        try {
-          // get user id if undefined
-          if (user.value?.uid == undefined) {
-            const user = await getCurrentUser();
-          }
-          const newRegion = await addDoc(collection(db, "regions"), {
-            ...editable.value
-          });
-          await updateDoc(team, {
-            // Create region updates team object to reflect resources gained automatically
-            totalCapital: increment(editable.value.capital),
-            totalIndustry: increment(editable.value.industry),
-            totalAgriculture: increment(editable.value.agriculture)
-          });
-          editable.value = ({ regionNumber: null, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
-          Swal.fire({
-            title: 'Success!',
-            timer: 900,
-            showConfirmButton: false
-          })
-        } catch (error) {
-          console.error(error, 'Creating Region')
-        }
-      },
+const user = useCurrentUser()
+const route = useRoute()
+const db = useFirestore()
+const editable = ref({ regionNumber: null, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
+const team = doc(db, "teams", route.params.id)
+
+async function createRegion() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      const user = await getCurrentUser();
     }
+    const newRegion = await addDoc(collection(db, "regions"), {
+      ...editable.value
+    });
+    await updateDoc(team, {
+      // Create region updates team object to reflect resources gained automatically
+      totalCapital: increment(editable.value.capital),
+      totalIndustry: increment(editable.value.industry),
+      totalAgriculture: increment(editable.value.agriculture)
+    });
+    Swal.fire({
+      title: 'Success!',
+      html: `<span class="material-symbols-outlined text-warning fs-xl">
+              attach_money
+              </span>
+              <span class="fs-xl">+${editable.value.capital} </span>
+            <span class="material-symbols-outlined text-secondary fs-xl">
+              factory
+            </span>
+            <span class="fs-xl">+${editable.value.industry} </span>
+            <span class="material-symbols-outlined text-success fs-xl">
+              psychiatry
+            </span>
+            <span class="fs-xl">+${editable.value.agriculture}</span>`,
+      showConfirmButton: true
+    })
+    editable.value = ({ regionNumber: null, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
+  } catch (error) {
+    console.error(error, 'Creating Region')
   }
 }
 </script>

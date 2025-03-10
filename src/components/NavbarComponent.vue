@@ -85,7 +85,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { useCurrentUser, useFirebaseAuth, useFirestore } from "vuefire";
 import { signOut } from "@firebase/auth";
@@ -97,29 +97,23 @@ import { RouterLink, useRouter } from "vue-router";
 // State Management
 import { useRegionStore } from "../stores/RegionStore";
 
-export default {
-  props: {
-    teams: { type: Object, required: true }
-  },
-  setup(props) {
-    const user = useCurrentUser();
-    const db = useFirestore();
-    const router = useRouter()
-    return {
-      teams: computed(() => useRegionStore.teams),
-      user,
-      async logOutOfFirebase() {
-        const auth = useFirebaseAuth();
-        // @ts-ignore
-        signOut(auth).then(() => {
-          router.push({ name: 'home' })
-        }).catch((error) => {
-          error.error(error);
-        });
-      },
-    };
-  },
-  components: { RouterLink }
+const props = defineProps({
+  teams: { type: Object }
+})
+
+const user = useCurrentUser()
+const db = useFirestore()
+const router = useRouter()
+const teams = computed(() => useRegionStore.teams)
+
+async function logOutOfFirebase() {
+  const auth = useFirebaseAuth();
+
+  signOut(auth).then(() => {
+    router.push({ name: 'home' })
+  }).catch((error) => {
+    error.error(error);
+  });
 }
 </script>
 

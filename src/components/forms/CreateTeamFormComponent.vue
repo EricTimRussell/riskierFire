@@ -14,38 +14,33 @@
   </form>
 </template>
 
-<script>
+<script setup>
+// firebase
 import { doc, setDoc } from "@firebase/firestore";
 import { useCurrentUser, useFirestore } from "vuefire";
+// vue
 import { ref } from "vue";
+// css
 import Swal from "sweetalert2";
 
-export default {
-  setup() {
-    const user = useCurrentUser()
-    const db = useFirestore()
-    // Create a team sets all a players assets to 0
-    const editable = ref({ creatorId: user.value?.uid, totalCapital: 0, totalIndustry: 0, totalAgriculture: 0, totalInfantry: 0, totalSpecialForces: 0, totalMechanized: 0, totalIFV: 0, totalMBT: 0, totalAntiAircraft: 0, totalArtillery: 0, totalMissileArtillery: 0, totalFighterAircraft: 0, totalCloseAirSupport: 0, totalCargoAircraft: 0, totalCarriers: 0, totalCruisers: 0, totalDestroyers: 0, totalAirfields: 0, totalNavalYards: 0, totalFactories: 0, totalProduction: 0, teamName: '' })
+const user = useCurrentUser()
+const db = useFirestore()
+// Create a team sets all a players assets to 0
+const editable = ref({ creatorId: user.value?.uid, totalCapital: 0, totalIndustry: 0, totalAgriculture: 0, totalInfantry: 0, totalSpecialForces: 0, totalMechanized: 0, totalIFV: 0, totalMBT: 0, totalAntiAircraft: 0, totalArtillery: 0, totalMissileArtillery: 0, totalFighterAircraft: 0, totalCloseAirSupport: 0, totalCargoAircraft: 0, totalCarriers: 0, totalCruisers: 0, totalDestroyers: 0, totalAirfields: 0, totalNavalYards: 0, totalFactories: 0, totalProduction: 0, teamName: '' })
 
-    return {
-      editable,
-      async createTeam() {
-        try {
-          // @ts-ignore
-          const newTeam = await setDoc(doc(db, "teams", user.value?.uid), {
-            ...editable.value
-          });
-          editable.value = ({ creatorId: user.value?.uid, totalCapital: 0, totalIndustry: 0, totalAgriculture: 0, totalInfantry: 0, totalSpecialForces: 0, totalMechanized: 0, totalIFV: 0, totalMBT: 0, totalAntiAircraft: 0, totalArtillery: 0, totalMissileArtillery: 0, totalFighterAircraft: 0, totalCloseAirSupport: 0, totalCargoAircraft: 0, totalCarriers: 0, totalCruisers: 0, totalDestroyers: 0, totalAirfields: 0, totalNavalYards: 0, totalFactories: 0, totalProduction: 0, teamName: '' })
-          Swal.fire({
-            title: 'Success!',
-            timer: 1000,
-            showConfirmButton: false
-          })
-        } catch (error) {
-          console.error(error, 'Creating Team')
-        }
-      }
-    }
+async function createTeam() {
+  try {
+    const newTeam = await setDoc(doc(db, "teams", user.value?.uid), {
+      ...editable.value
+    });
+    editable.value = ({ creatorId: user.value?.uid, totalCapital: 0, totalIndustry: 0, totalAgriculture: 0, totalInfantry: 0, totalSpecialForces: 0, totalMechanized: 0, totalIFV: 0, totalMBT: 0, totalAntiAircraft: 0, totalArtillery: 0, totalMissileArtillery: 0, totalFighterAircraft: 0, totalCloseAirSupport: 0, totalCargoAircraft: 0, totalCarriers: 0, totalCruisers: 0, totalDestroyers: 0, totalAirfields: 0, totalNavalYards: 0, totalFactories: 0, totalProduction: 0, teamName: '' })
+    Swal.fire({
+      title: 'Success!',
+      timer: 1000,
+      showConfirmButton: false
+    })
+  } catch (error) {
+    console.error(error, 'Creating Team')
   }
 }
 </script>

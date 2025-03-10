@@ -367,4 +367,13 @@ onMounted(() => {
 .footer-font-color{
   color:#28361800;
 }
+.form-check-input:checked{
+  background-color: #fdce78;
+  border-color: black;
+}
+.form-check-input:focus{
+  box-shadow: 0 0 0 .25rem #fdce7840;
+  border-color: black;
+
+}
 </style>

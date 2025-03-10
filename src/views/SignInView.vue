@@ -1,4 +1,5 @@
 <template>
+
   <body class="container-fluid indepentant-scroll">
     <div class="row">
       <div class="col-12">
@@ -27,7 +28,7 @@
   </body>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { useFirebaseAuth, useFirestore } from "vuefire";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "@firebase/auth";
@@ -39,55 +40,44 @@ import { useRouter, RouterLink } from "vue-router";
 // CSS Imports
 import Swal from "sweetalert2";
 
-export default {
-  setup() {
-    const router = useRouter()
-    const userInput = ref({
-      email: '',
-      password: ''
+const router = useRouter()
+const userInput = ref({
+  email: '',
+  password: ''
+})
+
+const auth = useFirebaseAuth()
+const db = useFirestore()
+
+async function createUser() {
+  await createUserWithEmailAndPassword(auth, userInput.value.email, userInput.value.password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      router.push({ name: 'home' })
     })
-
-    const auth = useFirebaseAuth();
-    const db = useFirestore()
-    return {
-      userInput,
-      async createUser() {
-        // @ts-ignore
-        await createUserWithEmailAndPassword(auth, userInput.value.email, userInput.value.password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            router.push({ name: 'home' })
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-          });
-      },
-      async loginToFireBase() {
-        // @ts-ignore
-        signInWithEmailAndPassword(auth, userInput.value.email, userInput.value.password)
-          .then((userCredential) => {
-            const user = userCredential.user;
-            userInput.value.email = ''
-            userInput.value.password = ''
-            router.push({ name: 'home' })
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            if (errorCode === 'auth/wrong-password') {
-              Swal.fire({
-                title: 'Wrong Password/Username'
-              });
-              return
-            }
-          });
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+},
+async function loginToFireBase() {
+  signInWithEmailAndPassword(auth, userInput.value.email, userInput.value.password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      userInput.value.email = ''
+      userInput.value.password = ''
+      router.push({ name: 'home' })
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      if (errorCode === 'auth/wrong-password') {
+        Swal.fire({
+          title: 'Wrong Password/Username'
+        });
+        return
       }
-
-    }
-  },
-  components: { RouterLink }
-
+    });
 }
 </script>
 

@@ -75,10 +75,6 @@
     <CreateTeamFormComponent :key="user?.uid" />
   </ModalComponent>
 </template>
-<!-- TODO make a nicer homepage -->
-<!-- TODO create an new user tour on how to use the app-->
-<!-- TODO add checks to game page so region and city numbers cannot be duplicated -->
-<!-- TODO create an account page -->
 <script setup>
 // firebase
 import { getCurrentUser, useCurrentUser } from "vuefire";

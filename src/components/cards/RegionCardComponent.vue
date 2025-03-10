@@ -24,7 +24,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { doc } from "firebase/firestore";
 import { useFirestore } from "vuefire";
@@ -36,46 +36,40 @@ import { useRoute } from "vue-router";
 import Swal from "sweetalert2";
 import { regionsService } from "../../services/RegionsService";
 
-export default {
-  props: {
-    regions: { type: Object, required: true },
-    teams: { type: Object, required: true }
-  },
-  setup(props) {
-    const db = useFirestore()
-    const route = useRoute()
-    // @ts-ignore
-    const team = doc(db, "teams", route.params.id)
-    return {
-      team,
-      async deleteRegion() {
-        try {
-          await Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
-            if (result.isConfirmed) {
-              // @ts-ignore
-              regionsService.deleteRegion(props.regions, props.teams.creatorId, team)
-              Swal.fire(
-                'Region Deleted!',
-                'success'
-              )
-            }
-          })
-        } catch (error) {
-          console.error(error, 'Deleting Region')
-        }
+
+const props = defineProps({
+  regions: { type: Object },
+  teams: { type: Object }
+})
+
+const db = useFirestore()
+const route = useRoute()
+const team = doc(db, "teams", route.params.id)
+
+async function deleteRegion() {
+  try {
+    await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        regionsService.deleteRegion(props.regions, props.teams.creatorId, team)
+        Swal.fire({
+          title: 'Success',
+          showConfirmButton: false,
+          timer: 900
+        })
       }
-    }
+    })
+  } catch (error) {
+    console.error(error, 'Deleting Region')
   }
 }
 </script>
 
 <style scoped></style>
-

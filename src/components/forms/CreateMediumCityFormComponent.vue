@@ -16,7 +16,7 @@
   </form>
 </template>
 
-<script>
+<script setup>
 // Firebase
 import { useCurrentUser, useFirestore, getCurrentUser } from "vuefire";
 import { doc } from "@firebase/firestore";
@@ -33,41 +33,33 @@ import { regionsService } from "../../services/RegionsService";
 
 // CSS
 import Swal from 'sweetalert2'
-export default {
-  props: {
-    teams: { type: Object, required: true },
-  },
-  setup(props) {
-    const user = useCurrentUser()
-    const route = useRoute()
-    const db = useFirestore()
 
-    const editable = ref({ regionNumber: null, capital: 6, industry: 6, agriculture: 6, citySize: 'Medium', production: 1, creatorId: user.value?.uid })
+const props = defineProps({
+  teams: { type: Object }
+})
 
-    // @ts-ignore
-    const team = doc(db, "teams", route.params.id)
+const user = useCurrentUser()
+const route = useRoute()
+const db = useFirestore()
 
-    computed(() => useRegionStore.teams)
-    return {
-      editable,
-      async createMediumCity() {
-        try {
-          // get user id if undefined
-          if (user.value?.uid == undefined) {
-            await getCurrentUser();
-          }
-          regionsService.createMediumCity(editable, user, team)
-          editable.value = ({ regionNumber: null, capital: 6, industry: 6, agriculture: 6, citySize: 'Medium', production: 1, creatorId: user.value?.uid })
-          Swal.fire({
-            title: 'Success!',
-            timer: 900,
-            showConfirmButton: false
-          })
-        } catch (error) {
-          console.error(error, 'Creating City')
-        }
-      },
+const editable = ref({ regionNumber: null, capital: 6, industry: 6, agriculture: 6, citySize: 'Medium', production: 1, creatorId: user.value?.uid })
+const team = doc(db, "teams", route.params.id)
+
+async function createMediumCity() {
+  try {
+    // get user id if undefined
+    if (user.value?.uid == undefined) {
+      await getCurrentUser();
     }
+    regionsService.createMediumCity(editable, user, team)
+    editable.value = ({ regionNumber: null, capital: 6, industry: 6, agriculture: 6, citySize: 'Medium', production: 1, creatorId: user.value?.uid })
+    Swal.fire({
+      title: 'Success!',
+      timer: 900,
+      showConfirmButton: false
+    })
+  } catch (error) {
+    console.error(error, 'Creating City')
   }
 }
 </script>
