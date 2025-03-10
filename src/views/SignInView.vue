@@ -59,7 +59,7 @@ async function createUser() {
       const errorCode = error.code;
       const errorMessage = error.message;
     });
-},
+}
 async function loginToFireBase() {
   signInWithEmailAndPassword(auth, userInput.value.email, userInput.value.password)
     .then((userCredential) => {
