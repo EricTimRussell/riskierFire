@@ -40,7 +40,7 @@
       </div>
     </div>
     <!-- Carriers -->
-    <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
+    <!-- <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center">
         <h2>Carriers</h2>
         <span class="material-symbols-outlined fs-lg px-2">
@@ -61,7 +61,7 @@
       <div class="text-center" v-else>
         <span class="fs-md">Your team has no carriers</span>
       </div>
-    </div>
+    </div> -->
     <!-- Regions -->
     <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center pb-2">
@@ -138,6 +138,7 @@
   <ModalComponent id="createLargeCity-modal">
     <CreateLargeCityFormComponent :key="user?.uid" :teams="teams" />
   </ModalComponent>
+
 </template>
 
 
@@ -146,7 +147,7 @@
 import { useCurrentUser, getCurrentUser } from "vuefire"
 
 // vue
-import { onMounted, computed } from "vue";
+import { onMounted, computed, ref } from "vue";
 import { useRoute } from "vue-router";
 
 // Services
@@ -177,7 +178,8 @@ import CreateMediumCityFormComponent from "../components/forms/CreateMediumCityF
 import CreateLargeCityFormComponent from "../components/forms/CreateLargeCityFormComponent.vue";
 
 const route = useRoute()
-const user = useCurrentUser();
+const user = useCurrentUser()
+
 
 async function getRegionsByUserId() {
   try {
@@ -236,14 +238,11 @@ onMounted(() => {
   getTeamByUserId()
 });
 
-
 const region = computed(() => useRegionStore.regions.sort((a, b) => a.regionNumber - b.regionNumber))
 const teams = computed(() => useRegionStore.teams)
 const cities = computed(() => useRegionStore.cities.sort((a, b) => a.regionNumber - b.regionNumber))
 const carriers = computed(() => useNavyStore.navy)
 
-
-
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

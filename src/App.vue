@@ -1,4 +1,5 @@
 <template>
+
   <body>
 
     <main>
@@ -29,14 +30,14 @@
               <li>Vs Infantry: 5-8 (55.6%)</li>
               <li>Vs Mech: 7-10 (50%)</li>
               <li>Vs IFV: 7-8 (30.56%)</li>
-              <li>Vs MBT: 7-10 (50%)</li>
+              <li>Vs MBT: 7-9 (41.7%)</li>
             </ul>
           </div>
           <div class="d-flex flex-column align-items-center text-dark">
             <h5 class="text-primary text-center">Infantry: Deffense-2D6</h5>
             <ul>
               <li>Urban D: 5-9 (66.7%)</li>
-              <li>Wetlands D: 7-12 (58.3%) </li>
+              <li>Marshland D: 7-12 (58.3%) </li>
               <li>Jungle/Forest: D: 5-9 (66.7%)</li>
               <li>Desert/Grassland D: 7-9 (41.7%)</li>
               <li>Highlands D: 7-12 (58.3%)</li>
@@ -71,10 +72,7 @@
             <h5 class="text-primary text-center">Special Forces: Deffense-2D6</h5>
             <ul>
               <li>Urban D: 5-9 (66.7%)</li>
-              <li>Wetlands D: 7-12 (58.3%) </li>
-              <li>Jungle/Forest: D: 5-9 (66.7%)</li>
-              <li>Desert/Grassland D: 7-9 (41.7%)</li>
-              <li>Highlands D: 7-12 (58.3%)</li>
+              <li>All Other Environments D: 7-9 (41.7%)</li>
             </ul>
           </div>
         </div>
@@ -106,7 +104,7 @@
             <h5 class="text-primary text-center">Mechanized: Deffense-2D6</h5>
             <ul>
               <li>Urban D: 7-12 (58.3%)</li>
-              <li>Wetlands D: 7-9 (41.7%)</li>
+              <li>Marshland D: 7-9 (41.7%)</li>
               <li>Jungle/Forest D: 7-12 (58.3%)</li>
               <li>Desert/Grassland D: 7-10 (50%)</li>
               <li>Highlands D: 5-8 (55.6%)</li>
@@ -141,7 +139,7 @@
             <h5 class="text-primary text-center">IFV: Deffense-2D6</h5>
             <ul>
               <li>Urban D: 7-10 (50%)</li>
-              <li>Wetlands D: 7-8 (30.6%)</li>
+              <li>Marshland D: 7-8 (30.6%)</li>
               <li>Jungle/Forest D: 7-9 (41.7%)</li>
               <li>Desert/Grassland D: 5-8 (55.6%)</li>
               <li>Highlands D: 7-10 (50%)</li>
@@ -199,9 +197,9 @@
             <h5 class="text-danger text-center">Artillery-D12</h5>
             <h6 class="text-center">1AP, 1MP, Range of 3</h6>
             <ul>
-              <li>Vs Infantry/Mech 1-4 (33%)</li>
-              <li>IFV, All Artillery, & AA 1-3 (25%)</li>
-              <li>MBT 1-2 (16%)</li>
+              <li>Vs Infantry, Mech & Artillery 1-4 (33%)</li>
+              <li>IFV & AA 1-3 (25%)</li>
+              <li>MBT & All units in Urban 1-2 (16%)</li>
               <li>With Designator 1-7 (58%)</li>
             </ul>
           </div>
@@ -223,10 +221,10 @@
             <h5 class="text-danger text-center">Missile Artillery-D12</h5>
             <h6 class="text-center">1AP, 1MP, Range of 4</h6>
             <ul>
-              <li>Vs Infantry/Mech 1-4 (33%)</li>
-              <li>IFV 1-3 (25%)</li>
-              <li>MBT/All units in cities 1-2 (16%)</li>
-              <li>With Laser Designator 1-8 (67%) Vs Everything</li>
+              <li>Vs Infantry/Mech 1-5 (41%)</li>
+              <li>IFV 1-4 (33%)</li>
+              <li>MBT & All units in cities 1-2 (16%)</li>
+              <li>With Laser Designator 1-8 (67%)</li>
             </ul>
           </div>
         </div>
@@ -248,8 +246,9 @@
             <h6 class="text-center">1AP, 1MP, Range of 1</h6>
             <ul>
               <li>Vs Aircraft 1-7 (58%)</li>
-              <li>Vs missile 1-5 (50%)</li>
-              <li>With Point Defense 1-8 (67%)</li>
+              <li>Vs Missiles 1-6 (50%)</li>
+              <li>Vs Hypersonic Missile 1-5 (41%)</li>
+              <li>With Point Defense vs All 1-8 (67%)</li>
             </ul>
           </div>
         </div>
@@ -272,10 +271,10 @@
             <h5 class="text-danger text-center">Fighter Aircraft-D12</h5>
             <h6 class="text-center">1AP, 4MP, Range of 1</h6>
             <ul>
-              <li>1-4 (33%) on all ground targets</li>
               <li>Vs Figher 1-6 (50%)</li>
               <li>Vs CAS 1-9 (75%)</li>
               <li>Evade 1-4 (33%)</li>
+              <li>1-4 (33%) on all ground targets</li>
             </ul>
           </div>
         </div>
@@ -310,7 +309,7 @@
 
   <!-- SECTION naval forces -->
   <!-- Carrier modal -->
-  <div class="modal fade" id="carrier-odds" tabindex="-1" aria-labelledby="" aria-hidden="false">
+  <div class="modal fade" id="carrier-odds" tabindex="-1" aria-hidden="false">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -322,9 +321,10 @@
             <h5 class="text-danger text-center">Aircraft Carrier-D12</h5>
             <h6 class="text-center">0AP, 1MP, Range of 1</h6>
             <ul>
-              <li>Point Defense 1 tile range</li>
-              <li>Vs Missiles 1-9 (75%)</li>
-              <li>Vs Aircraft 1-5 (50%)</li>
+              <li>Vs Aircraft 1-7 (58%)</li>
+              <li>Vs Missiles 1-6 (50%)</li>
+              <li>Vs Hypersonic Missile 1-5 (41%)</li>
+              <li>With Point Defense vs All 1-8 (67%)</li>
             </ul>
           </div>
         </div>
@@ -345,9 +345,9 @@
             <h5 class="text-danger text-center">Cruiser-D12</h5>
             <h6 class="text-center">1AP, 2MP</h6>
             <ul>
-              <li>CB AA 1 tile range 1-7 (58%)</li>
-              <li>CB SS 3 tile range 1-8 (75%)</li>
-              <li>Missiles Vs land units follow Missile Artillery rules</li>
+              <li>Vs Aircraft 1 tile range 1-7 (58%)</li>
+              <li>Vs Ship 3 tile range 1-8 (75%)</li>
+              <li>Vs land use missile artillery dice</li>
             </ul>
           </div>
         </div>
@@ -371,8 +371,8 @@
               <li>Vs Cruiser 1-8 (66%)</li>
               <li>Vs Carrier 1-9 (75%)</li>
               <li>Vs Destroyer 1-6 (50%)</li>
-              <li>Vs land follow artillery rules</li>
               <li>Armor deflection D12 1-5 (42%)</li>
+              <li>Vs land use artillery dice</li>
             </ul>
           </div>
         </div>

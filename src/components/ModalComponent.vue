@@ -16,14 +16,8 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
+<script setup>
 
-
-    return {}
-  }
-}
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

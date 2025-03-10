@@ -4,7 +4,7 @@
   </header>
 
   <body class="container-fluid indepentant-scroll">
-    <!-- Ground Unit Dice -->
+    <!-- switches -->
     <section class="row justify-content-center">
       <div class="col-12 d-flex justify-content-center bg-green elevation-5 mt-5 py-3 text-light gap-3" v-motion-pop>
         <span class="material-symbols-outlined fs-xl">
@@ -91,6 +91,10 @@
         <input v-model="destroyer" class="form-check-input" type="checkbox" role="switch" id="destroyer">
         <label class="form-check-label" for="destroyer">Destroyer</label>
       </div>
+    </section>
+
+    <!-- ground unit dice -->
+    <section class="mt-3">
       <div class="accordion">
         <!-- Infantry -->
         <div v-if="infantry" class="accordion-item bg-infantry mb-4">
@@ -207,7 +211,7 @@
       </div>
     </section>
     <!-- Air Unit Dice -->
-    <section class="row justify-content-center">
+    <section class="row justify-content-center mt-3">
       <div class="accordion">
         <!-- Fighter Aircraft -->
         <div v-if="fighter" class="accordion-item bg-dark mb-4">
@@ -241,7 +245,7 @@
     </section>
 
     <!-- Navy Unit Dice -->
-    <section class="row justify-content-center">
+    <section class="row justify-content-center mt-3">
       <div class="accordion">
         <!-- Carrier -->
         <div v-if="carrier" class="accordion-item bg-dark mb-4">

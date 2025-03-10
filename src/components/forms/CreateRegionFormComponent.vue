@@ -38,7 +38,6 @@ export default {
     const db = useFirestore()
 
     const editable = ref({ regionNumber: null, capital: Math.floor(Math.random() * 6 + 1), industry: Math.floor(Math.random() * 6 + 1), agriculture: Math.floor(Math.random() * 6 + 1), creatorId: user.value?.uid })
-    // @ts-ignore
     const team = doc(db, "teams", route.params.id)
 
     computed(() => useRegionStore.teams)

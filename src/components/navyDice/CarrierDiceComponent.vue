@@ -7,96 +7,101 @@
         casino
       </span></button>
   </div>
-  <div class="col-12 d-flex justify-content-center py-2">
-    <input class="mx-1 checkbox" type="checkbox" v-model="aircraft">
-    <h3>Aircraft</h3>
-  </div>
-  <div class="col-12 d-flex text-center justify-content-center">
-    <input class="mx-1 checkbox" type="checkbox" v-model="missile">
-    <h3>Missile</h3>
-  </div>
-
-  <!-- Vs Aircraft -->
-  <div class="d-flex justify-content-center height-top">
-    <div class="col-3 d-flex justify-content-center mt-5" for="aircraft" v-if="aircraft == true">
-      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 5)">
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="fs-lg" role="status">
-            <span class="dice"></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-      <div class="text-center" v-else>
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="fs-lg" role="status">
-            <span class="dice"></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
+  <div class="col-12 d-flex justify-content-center gap-3">
+    <div class="d-flex">
+      <input class="mx-1 checkbox" type="checkbox" v-model="aircraft" :disabled="missile || pointDefense || hyperSonic">
+      <h3>Aircraft</h3>
     </div>
+    <div class="d-flex">
+      <input class="mx-1 checkbox" type="checkbox" v-model="missile" :disabled="aircraft || pointDefense || hyperSonic">
+      <h3>Missile</h3>
+    </div>
+  </div>
+  <div class="col-12 d-flex text-center justify-content-center gap-3">
+    <div class="d-flex">
+      <input class="mx-1 checkbox" type="checkbox" v-model="hyperSonic" :disabled="missile || aircraft || pointDefense">
+      <h3>Hypersonic Defense</h3>
+    </div>
+    <div class="d-flex">
+      <input class="mx-1 checkbox" type="checkbox" v-model="pointDefense" :disabled="missile || aircraft || hyperSonic">
+      <h3>Point Defense</h3>
+    </div>
+  </div>
 
-    <!-- Vs Missile Target -->
-    <div class="col-3 d-flex justify-content-center mt-5" for="missile" v-if="missile == true">
-      <div class="text-center" v-if="(oneTwelveDie.roll >= 1) && (oneTwelveDie.roll <= 9)">
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="fs-lg" role="status">
-            <span class="dice"></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
-      </div>
-      <div class="text-center" v-else>
-        <h6>Roll Dice</h6>
-        <button :disabled="isPending" type="button" @click="rollOneTwelveDie()" class="btn p-5 dice-btn">
-          <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
-          <div v-if="isPending" class="fs-lg" role="status">
-            <span class="dice"></span>
-          </div>
-        </button>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-danger">Fail</h3>
-        <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+  <!-- dice section-->
+  <div class="height-bottom">
+    <div class="d-flex justify-content-center">
+      <div class="col-3 d-flex justify-content-center mt-5" v-if="aircraft || missile || hyperSonic || pointDefense">
+        <div class="text-center">
+          <h6>Roll Dice</h6>
+          <button :disabled="isPending" type="button" @click="defensiveDie()" class="btn p-5 dice-btn">
+            <span v-if="!isPending" class="fs-lg">{{ oneTwelveDie.roll }}</span>
+            <div v-if="isPending" class="fs-lg" role="status">
+              <span class="dice"></span>
+            </div>
+          </button>
+          <h3 v-show="(!isPending)" v-if="(success == true)" class="text-center pt-3 text-success">Success</h3>
+          <h3 v-show="(!isPending)" v-if="(success == false)" class="text-center pt-3 text-danger">Fail</h3>
+          <h3 v-show="oneTwelveDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue"
-import ModalComponent from "../ModalComponent.vue";
 
-export default {
-  setup() {
-    const oneTwelveDie = ref({ roll: 0 });
-    const isPending = ref(false);
-    const aircraft = ref(false);
-    const missile = ref(false);
-    return {
-      aircraft,
-      missile,
-      oneTwelveDie,
-      isPending,
-      rollOneTwelveDie() {
-        setTimeout(() => {
-          isPending.value = false;
-        }, 1000);
-        oneTwelveDie.value = ({ roll: Math.floor(Math.random() * 12 + 1) });
-        isPending.value = true;
-      }
-    };
-  },
-  components: { ModalComponent }
+const oneTwelveDie = ref({ roll: 0 })
+const isPending = ref(false)
+const aircraft = ref(false)
+const missile = ref(false)
+const pointDefense = ref(false)
+const hyperSonic = ref(false)
+const success = ref(false)
+
+function defensiveDie() {
+  // isPending simulates dice roll
+  setTimeout(() => {
+    isPending.value = false;
+  }, 1000);
+  // one random number between 1-12 are chosen
+  oneTwelveDie.value = ({ roll: Math.floor(Math.random() * 12 + 1) });
+  isPending.value = true;
+  // vs aircraft
+  if (aircraft.value === true) {
+    if ([1, 2, 3, 4, 5, 6, 7].includes(oneTwelveDie.value.roll)) {
+      success.value = true
+    } else {
+      success.value = false
+    }
+  }
+  // vs missile
+  if (missile.value === true) {
+    if ([1, 2, 3, 4, 5].includes(oneTwelveDie.value.roll)) {
+      success.value = true
+    } else {
+      success.value = false
+    }
+  }
+  // if player has point defense
+  if (pointDefense.value === true) {
+    if ([1, 2, 3, 4, 5, 6, 7, 8].includes(oneTwelveDie.value.roll)) {
+      success.value = true
+    } else {
+      success.value = false
+    }
+  }
+  // vs hyper sonic missiles
+  if (hyperSonic.value === true) {
+    if ([1, 2, 3, 4, 5].includes(oneTwelveDie.value.roll)) {
+      success.value = true
+    } else {
+      success.value = false
+    }
+  }
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -105,12 +110,9 @@ input.checkbox {
   height: 20px;
 }
 
-.height-top {
-  min-height: 45vh;
-}
-
+// prevents from jumping around when checking box
 .height-bottom {
-  min-height: 45vh;
+  min-height: 30vh;
 }
 
 h2 {
