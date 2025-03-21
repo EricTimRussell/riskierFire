@@ -10,7 +10,7 @@
   <div class="col-12 d-flex justify-content-center py-2">
     <input class="mx-1 checkbox" type="checkbox" v-model="infantryMechArtillery"
       :disabled="ifvAA || mbt || laserDesignator">
-    <h3>Infantry, Mech, or Artillery</h3>
+    <h3>Inf, Mech, Art</h3>
   </div>
   <div class="col-12 d-flex justify-content-center">
     <input class="mx-1 checkbox" type="checkbox" v-model="ifvAA"
@@ -112,7 +112,7 @@ input.checkbox {
 }
 
 .height-bottom {
-  min-height: 30vh;
+  min-height: 50vh;
 }
 
 h2 {

@@ -212,7 +212,7 @@ input.checkbox {
 
 // prevents bg-image from jumping around 
 .height-top {
-  min-height: 58vh;
+  min-height: 70vh;
 }
 
 .height-bottom {

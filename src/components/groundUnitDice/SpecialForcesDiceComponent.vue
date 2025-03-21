@@ -50,12 +50,12 @@
     <h2>Select Defense Environment</h2>
   </div>
   <div class="col-12 d-flex justify-content-center">
-    <div class="d-flex gap-3">
-      <input id="highlands" class="mx-1 checkbox" type="checkbox" v-model="allEnvironments" :disabled="urban">
-      <h3>All Environments</h3>
-      <input id="urban" class="mx-1 checkbox" type="checkbox" v-model="urban" :disabled="allEnvironments">
-      <h3>Urban</h3>
-    </div>
+    <input id="urban" class="mx-1 checkbox" type="checkbox" v-model="urban" :disabled="allEnvironments">
+    <h3>Urban</h3>
+  </div>
+  <div class="col-12 d-flex justify-content-center">
+    <input id="highlands" class="mx-1 checkbox" type="checkbox" v-model="allEnvironments" :disabled="urban">
+    <h3>All Environments</h3>
   </div>
   <!-- Defense Dice -->
   <div class="d-flex justify-content-center height-bottom">

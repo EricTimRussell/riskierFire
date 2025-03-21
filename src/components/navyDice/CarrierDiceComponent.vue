@@ -112,7 +112,7 @@ input.checkbox {
 
 // prevents from jumping around when checking box
 .height-bottom {
-  min-height: 30vh;
+  min-height: 50vh;
 }
 
 h2 {
