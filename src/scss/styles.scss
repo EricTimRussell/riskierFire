@@ -83,21 +83,119 @@ body {
 .bg-infantry {
   background: #ffffff52;
   background-image: linear-gradient(#192101a3,
-      #192101a3), url(../assets/DiceBGImages/Infantry.jpg);
+      #192101a3), url(../assets/DiceBGImages/Infantry2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-x: 70%;
+  background-position-x: 45%;
 }
 
 .bg-specialForces {
   background: #ffffff52;
   background-image: linear-gradient(#192101a3,
-      #192101a3), url(../assets/DiceBGImages/SpecialForces.jpg);
+      #192101a3), url(../assets/DiceBGImages/specialForces1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-x: 76%;
+  background-position-x: 30%;
 }
 
+.bg-mech {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/humvees3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 25%;
+}
+
+.bg-ifv {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/ifv1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 40%;
+}
+
+.bg-mbt {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/mbt2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 35%;
+}
+
+.bg-aa {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/AAMissile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 30%;
+}
+
+.bg-artillery {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/artillery1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 30%;
+}
+
+.bg-missile {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/scud2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 40%;
+}
+
+.bg-fighter {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/fighter.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 50%;
+}
+
+.bg-cas {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/cas.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 50%;
+}
+
+.bg-carrier {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/carrier.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 50%;
+}
+
+.bg-cruiser {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/cruiser.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 10%;
+}
+
+.bg-destroyer {
+  background: #ffffff52;
+  background-image: linear-gradient(#192101a3,
+      #192101a3), url(../assets/DiceBGImages/destroyer.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: 40%;
+}
 
 .big-logo {
   width: 26rem;

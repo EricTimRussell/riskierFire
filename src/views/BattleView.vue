@@ -125,7 +125,7 @@
           </div>
         </div>
         <!-- Mechanized -->
-        <div v-if="mechanized" class="accordion-item bg-dark mb-4">
+        <div v-if="mechanized" class="accordion-item bg-mech mb-4">
           <h2 class="accordion-header" id="headingThree">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
@@ -139,7 +139,7 @@
           </div>
         </div>
         <!-- IFV -->
-        <div v-if="IFV" class="accordion-item bg-dark mb-4">
+        <div v-if="IFV" class="accordion-item bg-ifv mb-4">
           <h2 class="accordion-header" id="headingFour">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
@@ -153,7 +153,7 @@
           </div>
         </div>
         <!-- MBT -->
-        <div v-if="MBT" class="accordion-item bg-dark mb-4">
+        <div v-if="MBT" class="accordion-item bg-mbt mb-4">
           <h2 class="accordion-header" id="headingFive">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
@@ -167,7 +167,7 @@
           </div>
         </div>
         <!-- Artillery -->
-        <div v-if="artillery" class="accordion-item bg-dark mb-4">
+        <div v-if="artillery" class="accordion-item bg-artillery mb-4">
           <h2 class="accordion-header" id="headingEleven">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
@@ -181,7 +181,7 @@
           </div>
         </div>
         <!--Missile Artillery -->
-        <div v-if="missile" class="accordion-item bg-dark mb-4">
+        <div v-if="missile" class="accordion-item bg-missile mb-4">
           <h2 class="accordion-header" id="headingTwelve">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
@@ -195,7 +195,7 @@
           </div>
         </div>
         <!-- Anti-Aircraft -->
-        <div v-if="antiAir" class="accordion-item bg-dark mb-4">
+        <div v-if="antiAir" class="accordion-item bg-aa mb-4">
           <h2 class="accordion-header" id="headingThirteen">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseThirteen" aria-expanded="false" aria-controls="collapseThirteen">
@@ -214,7 +214,7 @@
     <section class="row justify-content-center mt-3">
       <div class="accordion">
         <!-- Fighter Aircraft -->
-        <div v-if="fighter" class="accordion-item bg-dark mb-4">
+        <div v-if="fighter" class="accordion-item bg-fighter mb-4">
           <h2 class="accordion-header" id="headingSix">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
@@ -228,7 +228,7 @@
           </div>
         </div>
         <!-- Close Air Support -->
-        <div v-if="CAS" class="accordion-item bg-dark mb-4">
+        <div v-if="CAS" class="accordion-item bg-cas mb-4">
           <h2 class="accordion-header" id="headingSeven">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
@@ -248,7 +248,7 @@
     <section class="row justify-content-center mt-3">
       <div class="accordion">
         <!-- Carrier -->
-        <div v-if="carrier" class="accordion-item bg-dark mb-4">
+        <div v-if="carrier" class="accordion-item bg-carrier mb-4">
           <h2 class="accordion-header" id="headingEight">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
@@ -262,7 +262,7 @@
           </div>
         </div>
         <!-- Cruiser -->
-        <div v-if="cruiser" class="accordion-item bg-dark mb-4">
+        <div v-if="cruiser" class="accordion-item bg-cruiser mb-4">
           <h2 class="accordion-header" id="headingNine">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
@@ -276,7 +276,7 @@
           </div>
         </div>
         <!-- Destroyer -->
-        <div v-if="destroyer" class="accordion-item bg-dark mb-4">
+        <div v-if="destroyer" class="accordion-item bg-destroyer mb-4">
           <h2 class="accordion-header" id="headingTen">
             <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">

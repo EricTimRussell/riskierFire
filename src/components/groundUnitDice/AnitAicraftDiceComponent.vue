@@ -17,14 +17,14 @@
       <h3>Missile</h3>
     </div>
   </div>
-  <div class="col-12 d-flex text-center justify-content-center gap-3">
+  <div class="col-12 d-flex justify-content-center gap-3">
     <div class="d-flex">
       <input class="mx-1 checkbox" type="checkbox" v-model="pointDefense" :disabled="missile || aircraft || hyperSonic">
-      <h3>Point Defense</h3>
+      <h3>Point</h3>
     </div>
     <div class="d-flex">
       <input class="mx-1 checkbox" type="checkbox" v-model="hyperSonic" :disabled="missile || aircraft || pointDefense">
-      <h3>Hypersonic Defense</h3>
+      <h3>Hypersonic</h3>
     </div>
   </div>
 
@@ -105,14 +105,14 @@ function defensiveDie() {
 </script>
 
 <style lang="scss" scoped>
-input.checkbox {
+.checkbox {
   width: 20px;
   height: 20px;
 }
 
 // prevents from jumping around when checking box
 .height-bottom {
-  min-height: 30vh;
+  min-height: 40vh;
 }
 
 h2 {

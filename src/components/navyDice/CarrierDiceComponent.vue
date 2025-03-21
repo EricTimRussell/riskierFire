@@ -20,11 +20,11 @@
   <div class="col-12 d-flex text-center justify-content-center gap-3">
     <div class="d-flex">
       <input class="mx-1 checkbox" type="checkbox" v-model="hyperSonic" :disabled="missile || aircraft || pointDefense">
-      <h3>Hypersonic Defense</h3>
+      <h3>Hypersonic</h3>
     </div>
     <div class="d-flex">
       <input class="mx-1 checkbox" type="checkbox" v-model="pointDefense" :disabled="missile || aircraft || hyperSonic">
-      <h3>Point Defense</h3>
+      <h3>Point</h3>
     </div>
   </div>
 
