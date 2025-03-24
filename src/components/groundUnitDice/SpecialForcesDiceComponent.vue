@@ -28,7 +28,7 @@
     </div>
   </div>
 
-  <!-- offensive die -->
+  <!-- Offensive Die -->
   <div class="d-flex justify-content-center height-top">
     <div class="col-3 d-flex justify-content-center mt-5" v-if="infantry || mech || ifv || mbt">
       <div class="text-center">
@@ -39,8 +39,11 @@
             <span class="dice"></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
-        <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+        <h3 v-if="!isPending && twoSixDie.roll > 0" class="text-center pt-3"
+          :class="{ 'text-success': success, 'text-danger': !success }">
+          {{ success ? 'Success' : 'Failure' }}
+        </h3>
+        <h3 v-if="isPending && twoSixDie.roll > 0" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
   </div>
@@ -57,7 +60,7 @@
     <input id="highlands" class="mx-1 checkbox" type="checkbox" v-model="allEnvironments" :disabled="urban">
     <h3>All Environments</h3>
   </div>
-  <!-- Defense Dice -->
+  <!-- Defensive Die -->
   <div class="d-flex justify-content-center height-bottom">
     <div class="col-3 d-flex justify-content-center mt-5" v-if="urban || allEnvironments">
       <div class="text-center">
@@ -68,8 +71,11 @@
             <span class="dice"></span>
           </div>
         </button>
-        <h3 v-show="twoSixDie.roll > 0" v-if="!isPending" class="text-center pt-3 text-success">Success</h3>
-        <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+        <h3 v-if="!isPending && twoSixDie.roll > 0" class="text-center pt-3"
+          :class="{ 'text-success': success, 'text-danger': !success }">
+          {{ success ? 'Success' : 'Failure' }}
+        </h3>
+        <h3 v-if="isPending && twoSixDie.roll > 0" class="text-center pt-3">Rolling...</h3>
       </div>
     </div>
   </div>
@@ -97,36 +103,19 @@ function offensiveDie() {
   twoSixDie.value = ({ roll: Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) });
   isPending.value = true;
   // vs infantry
-  if (infantry.value === true) {
-    if ([5, 6, 7, 8, 11, 12].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  // vs mech
-  if (mech.value === true) {
-    if ([7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  // vs ifv
-  if (ifv.value === true) {
-    if ([7, 8, 11, 12].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  // vs mbt
-  if (mbt.value === true) {
-    if ([7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
+  if (infantry.value) {
+    success.value = [5, 6, 7, 8, 11, 12].includes(twoSixDie.value.roll);
+    // vs mech
+  } else if (mech.value) {
+    success.value = [7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll);
+    // vs ifv
+  } else if (ifv.value) {
+    success.value = [7, 8, 11, 12].includes(twoSixDie.value.roll);
+    // vs mbt
+  } else if (mbt.value) {
+    success.value = [7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll);
+  } else {
+    success.value = false;
   }
 }
 
@@ -138,31 +127,17 @@ function defensiveDie() {
   // two random numbers between 1-6 are chosen and added together
   twoSixDie.value = ({ roll: Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) });
   isPending.value = true;
-  // all other environments
-  if (allEnvironments.value === true) {
-    if ([7, 8, 9].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
   // urban
-  if (urban.value === true) {
-    if ([5, 6, 7, 8, 9].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
+  if (urban.value) {
+    success.value = [5, 6, 7, 8, 9].includes(twoSixDie.value.roll);
+    // all environments
+  } else if (allEnvironments.value) {
+    success.value = [7, 8, 9].includes(twoSixDie.value.roll);
+  } else {
+    success.value = false;
   }
 }
 
-function rollTwoSixDie() {
-  setTimeout(() => {
-    isPending.value = false
-  }, 1000)
-  twoSixDie.value = ({ roll: Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) })
-  isPending.value = true
-}
 
 </script>
 

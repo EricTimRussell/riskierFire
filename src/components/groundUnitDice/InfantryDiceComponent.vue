@@ -28,24 +28,22 @@
         <h3>MBT</h3>
       </div>
     </div>
-    <!-- offense dice-->
-    <div class="d-flex justify-content-center">
+    <!-- Offensive Die -->
+    <div class="d-flex justify-content-center height-top">
       <div class="col-3 d-flex justify-content-center mt-5" v-if="infantry || mech || ifv || mbt">
         <div class="text-center">
           <h6>Roll Dice</h6>
-          <div class="d-flex justify-content-center" v-if="mbt">
-            <input id="mbt" class="mx-1 checkbox" type="checkbox" v-model="javelin">
-            <h3>Javelin's?</h3>
-          </div>
           <button :disabled="isPending" type="button" @click="offensiveDie()" class="btn p-5 dice-btn">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
             <div v-if="isPending" class="fs-lg" role="status">
               <span class="dice"></span>
             </div>
           </button>
-          <h3 v-show="(!isPending)" v-if="(success == true)" class="text-center pt-3 text-success">Success</h3>
-          <h3 v-show="(!isPending)" v-if="(success == false)" class="text-center pt-3 text-danger">Fail</h3>
-          <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+          <h3 v-if="!isPending && twoSixDie.roll > 0" class="text-center pt-3"
+            :class="{ 'text-success': success, 'text-danger': !success }">
+            {{ success ? 'Success' : 'Failure' }}
+          </h3>
+          <h3 v-if="isPending && twoSixDie.roll > 0" class="text-center pt-3">Rolling...</h3>
         </div>
       </div>
     </div>
@@ -98,8 +96,8 @@
       <h3>Urban</h3>
     </div>
 
-    <!-- Defense dice-->
-    <div class="d-flex justify-content-center">
+    <!-- Defensive Die -->
+    <div class="d-flex justify-content-center height-bottom">
       <div class="col-3 d-flex justify-content-center mt-5"
         v-if="highlands || grassland || marshland || urban || desert || forest || jungle">
         <div class="text-center">
@@ -110,9 +108,11 @@
               <span class="dice"></span>
             </div>
           </button>
-          <h3 v-show="(!isPending)" v-if="(success == true)" class="text-center pt-3 text-success">Success</h3>
-          <h3 v-show="(!isPending)" v-if="(success == false)" class="text-center pt-3 text-danger">Fail</h3>
-          <h3 v-show="twoSixDie.roll > 0" v-if="isPending" class="text-center pt-3">Rolling...</h3>
+          <h3 v-if="!isPending && twoSixDie.roll > 0" class="text-center pt-3"
+            :class="{ 'text-success': success, 'text-danger': !success }">
+            {{ success ? 'Success' : 'Failure' }}
+          </h3>
+          <h3 v-if="isPending && twoSixDie.roll > 0" class="text-center pt-3">Rolling...</h3>
         </div>
       </div>
     </div>
@@ -147,43 +147,23 @@ function offensiveDie() {
   twoSixDie.value = ({ roll: Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) });
   isPending.value = true;
   // vs infantry
-  if (infantry.value === true) {
-    if ([5, 6, 7, 8].includes(twoSixDie.value.roll)) {
-      success.value = true
+  if (infantry.value) {
+    success.value = [5, 6, 7, 8].includes(twoSixDie.value.roll);
+    // vs mech
+  } else if (mech.value) {
+    success.value = [7, 8, 9, 10].includes(twoSixDie.value.roll);
+    // vs ifv
+  } else if (ifv.value) {
+    success.value = [7, 8].includes(twoSixDie.value.roll);
+    // vs mbt
+  } else if (mbt.value) {
+    if (javelin.value) {
+      success.value = [7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll);
     } else {
-      success.value = false
+      success.value = [7, 8, 9].includes(twoSixDie.value.roll);
     }
-  }
-  // vs mech
-  if (mech.value === true) {
-    if ([7, 8, 9, 10].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  // vs ifv
-  if (ifv.value === true) {
-    if ([7, 8].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  // vs mbt
-  if (mbt.value === true && javelin.value === true) {
-    if ([7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  else {
-    if ([7, 8, 9].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
+  } else {
+    success.value = false;
   }
 }
 
@@ -196,46 +176,25 @@ function defensiveDie() {
   twoSixDie.value = ({ roll: Math.floor(Math.random() * 6 + 1) + Math.floor(Math.random() * 6 + 1) });
   isPending.value = true;
   // highlands
-  if (highlands.value === true) {
-    if ([7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  // marshland
-  if (marshland.value === true) {
-    if ([7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  // jungle/forest
-  if (jungle.value === true || forest.value === true) {
-    if ([5, 6, 7, 8, 9].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  // desert/grassland
-  if (desert.value === true || grassland.value === true) {
-    if ([7, 8, 9].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
-  }
-  // urban
-  if (urban.value === true) {
-    if ([5, 6, 7, 8, 9].includes(twoSixDie.value.roll)) {
-      success.value = true
-    } else {
-      success.value = false
-    }
+  if (highlands.value) {
+    success.value = [7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll);
+    // marshland
+  } else if (marshland.value) {
+    success.value = [7, 8, 9, 10, 11, 12].includes(twoSixDie.value.roll);
+    // jungle/forest
+  } else if (jungle.value || forest.value) {
+    success.value = [5, 6, 7, 8, 9].includes(twoSixDie.value.roll);
+    // desert/grassland
+  } else if (desert.value || grassland.value) {
+    success.value = [7, 8, 9].includes(twoSixDie.value.roll);
+    // urban
+  } else if (urban.value) {
+    success.value = [5, 6, 7, 8, 9].includes(twoSixDie.value.roll);
+  } else {
+    success.value = false;
   }
 }
+
 
 </script>
 
