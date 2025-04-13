@@ -33,6 +33,10 @@
       <div class="col-3 d-flex justify-content-center mt-5" v-if="infantry || mech || ifv || mbt">
         <div class="text-center">
           <h6>Roll Dice</h6>
+          <div class="d-flex justify-content-center" v-if="mbt">
+            <input id="mbt" class="mx-1 checkbox" type="checkbox" v-model="javelin">
+            <span>Javelins?</span>
+          </div>
           <button :disabled="isPending" type="button" @click="offensiveDie()" class="btn p-5 dice-btn">
             <span v-if="!isPending" class="fs-lg">{{ twoSixDie.roll }}</span>
             <div v-if="isPending" class="fs-lg" role="status">

@@ -27,20 +27,21 @@
             <h5 class="text-danger">Infantry: Offense-2D6</h5>
             <h6 class="text-center">1AP, 1MP, Range of 1</h6>
             <ul>
-              <li>Vs Infantry: 5-8 (55.6%)</li>
+              <li>Vs Infantry: 5-8 (55%)</li>
               <li>Vs Mech: 7-10 (50%)</li>
-              <li>Vs IFV: 7-8 (30.56%)</li>
-              <li>Vs MBT: 7-9 (41.7%)</li>
+              <li>Vs IFV: 7-8 (30%)</li>
+              <li>Vs MBT: 7-9 (42%)</li>
+              <li>Vs MBT with Javelins: 7-12 (58%)</li>
             </ul>
           </div>
           <div class="d-flex flex-column align-items-center text-dark">
             <h5 class="text-primary text-center">Infantry: Deffense-2D6</h5>
             <ul>
-              <li>Urban D: 5-9 (66.7%)</li>
-              <li>Marshland D: 7-12 (58.3%) </li>
-              <li>Jungle/Forest: D: 5-9 (66.7%)</li>
-              <li>Desert/Grassland D: 7-9 (41.7%)</li>
-              <li>Highlands D: 7-12 (58.3%)</li>
+              <li>Urban D: 5-9 (67%)</li>
+              <li>Marshland D: 7-12 (58%) </li>
+              <li>Jungle/Forest: D: 5-9 (67%)</li>
+              <li>Desert/Grassland D: 7-9 (42%)</li>
+              <li>Highlands D: 7-12 (58%)</li>
             </ul>
           </div>
         </div>
@@ -61,18 +62,18 @@
             <h5 class="text-danger text-center">Special Forces: Offense-2D6</h5>
             <h6 class="text-center">1AP, 1MP, Range of 1</h6>
             <ul>
-              <li>Vs Infantry: 5-8, 11-12 (63.94%)</li>
-              <li>Vs Mech: 7-12 (58.34%)</li>
-              <li>Vs IFV: 7-8, 11-12 (38.9%)</li>
-              <li>Vs MBT: 7-12 (58.34%)</li>
+              <li>Vs Infantry: 5-8, 11-12 (64%)</li>
+              <li>Vs Mech: 7-12 (58%)</li>
+              <li>Vs IFV: 7-8, 11-12 (39%)</li>
+              <li>Vs MBT: 7-12 (58%)</li>
             </ul>
           </div>
 
           <div class="d-flex flex-column align-items-center text-dark">
             <h5 class="text-primary text-center">Special Forces: Deffense-2D6</h5>
             <ul>
-              <li>Urban D: 5-9 (66.7%)</li>
-              <li>All Other Environments D: 7-9 (41.7%)</li>
+              <li>Urban D: 5-9 (67%)</li>
+              <li>All Other Environments D: 7-9 (42%)</li>
             </ul>
           </div>
         </div>
@@ -93,21 +94,21 @@
             <h5 class="text-danger text-center">Mechanized: Offense-2D6</h5>
             <h6 class="text-center">1AP, 2MP, Range of 1</h6>
             <ul>
-              <li>Vs Infantry: 5-9 (66.7%)</li>
-              <li>Vs Mech: 7-11 (55.6%)</li>
-              <li>Vs IFV: 2, 7-10 (52.8%)</li>
-              <li>Vs MBT: 2, 7-9 (44.5%)</li>
+              <li>Vs Infantry: 5-9 (67%)</li>
+              <li>Vs Mech: 7-11 (55%)</li>
+              <li>Vs IFV: 2, 7-10 (53%)</li>
+              <li>Vs MBT: 2, 7-9 (44%)</li>
             </ul>
           </div>
 
           <div class="d-flex flex-column align-items-center text-dark">
             <h5 class="text-primary text-center">Mechanized: Deffense-2D6</h5>
             <ul>
-              <li>Urban D: 7-12 (58.3%)</li>
-              <li>Marshland D: 7-9 (41.7%)</li>
-              <li>Jungle/Forest D: 7-12 (58.3%)</li>
+              <li>Urban D: 7-12 (58%)</li>
+              <li>Marshland D: 7-9 (42%)</li>
+              <li>Jungle/Forest D: 7-12 (58%)</li>
               <li>Desert/Grassland D: 7-10 (50%)</li>
-              <li>Highlands D: 5-8 (55.6%)</li>
+              <li>Highlands D: 5-8 (55%)</li>
             </ul>
           </div>
         </div>
@@ -128,10 +129,10 @@
             <h5 class="text-danger text-center">IFV: Offense-2D6</h5>
             <h6 class="text-center">1AP, 3MP, Range of 1</h6>
             <ul>
-              <li>Vs Infantry: 5-12 (77.8%)</li>
-              <li>Vs Mech: 5-9 (66.7%)</li>
-              <li>Vs IFV: 7-11 (55.6%)</li>
-              <li>Vs MBT: 7-8 (30.6%)</li>
+              <li>Vs Infantry: 5-12 (78%)</li>
+              <li>Vs Mech: 5-9 (67%)</li>
+              <li>Vs IFV: 7-11 (55%)</li>
+              <li>Vs MBT: 7-8 (30%)</li>
             </ul>
           </div>
 
@@ -139,9 +140,9 @@
             <h5 class="text-primary text-center">IFV: Deffense-2D6</h5>
             <ul>
               <li>Urban D: 7-10 (50%)</li>
-              <li>Marshland D: 7-8 (30.6%)</li>
-              <li>Jungle/Forest D: 7-9 (41.7%)</li>
-              <li>Desert/Grassland D: 5-8 (55.6%)</li>
+              <li>Marshland D: 7-8 (30%)</li>
+              <li>Jungle/Forest D: 7-9 (42%)</li>
+              <li>Desert/Grassland D: 5-8 (55%)</li>
               <li>Highlands D: 7-10 (50%)</li>
             </ul>
           </div>
@@ -163,10 +164,10 @@
             <h5 class="text-danger text-center">MBT: Offense-2D6</h5>
             <h6 class="text-center">2AP, 2MP, Range of 1</h6>
             <ul>
-              <li>Vs Infantry: 2, 7-12 (61.1%)</li>
-              <li>Vs Mech: 5-9 (66.7%)</li>
-              <li>Vs IFV: 5-12 (77.8%)</li>
-              <li>Vs MBT: 7-12 (58.3%) </li>
+              <li>Vs Infantry: 2, 7-12 (61%)</li>
+              <li>Vs Mech: 5-9 (67%)</li>
+              <li>Vs IFV: 5-12 (78%)</li>
+              <li>Vs MBT: 7-12 (58%) </li>
             </ul>
           </div>
 
@@ -175,8 +176,8 @@
             <ul>
               <li>Urban D: 7-10 (50%)</li>
               <li>Grassland/Desert D: 7-10 (50%)</li>
-              <li>Forest D: 7-9 (41.7%)</li>
-              <li>Highlands D: 7-9 (41.7%)</li>
+              <li>Forest D: 7-9 (42%)</li>
+              <li>Highlands D: 7-9 (42%)</li>
             </ul>
           </div>
         </div>

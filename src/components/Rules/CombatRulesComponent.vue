@@ -21,14 +21,14 @@
       aircraft. A maximum of 2 ground units can share the same tile, however there is no limit on aircraft. If
       there are more than 12 defending units involved the defending player can decide to retreat the extra units
       or keep them as reserves to be used in combat later. Offense can only deploy a max of 12 units at one time
-      and keep reserves as well. The defending player will place their 3 fortifications (if available) only 1 per tile
+      and keep reserves as well. The defending player will place their 3 fortifications only 1 per tile
       and only
-      infantry or Special forces can use fortifications by placing them ontop of the fortification piece. All of the
+      infantry can use fortifications by placing them ontop of the fortification piece. All of the
       defenders units involved will be placed in the
       middle of the combat board. The defending player cannot place units on first row of tiles closest to them or past
       the middle row. The offensive player will now place their units anywhere up to the defenders line but not on or
       past it.
-      Paratroopers can deploy past or directly on a defenders units.
+      Paratroopers can deploy behind a defenders units.
     </p>
     <p>-- The defending player must deploy all their units possible up to the maximum of 12. For
       example the

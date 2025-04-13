@@ -29,18 +29,16 @@
       Infantry have 1 movement point, 1 offensive point, and a range of 1.
     </p>
     <p><span class="text-tan fs-md">Special Forces</span> are an effective offensive unit, but are not a good defensive
-      unit. They also have the ability to occupy fortifications.
+      unit. They do not have the ability to occupy fortifications like infantry.
       Special forces have access to certain operational events. Special forces carry laser
       designators giving artillery more accuracy and gaining access to destroyer and cruiser artillery if
       applicable. SF units have 2 movement points, 1 offensive point, and a
       range of 1.
       <span class="text-tan fs-md">Laser Designators</span> are used to direct artillery or missile strikes more
-      accurately. LD's are most effective when used against enemies that are locked in combat by another friendly unit.
+      accurately. LD's can only be used against enemies that are locked in combat by another friendly unit.
       An SF unit can also spend their offensive point to attack an enemy directly. <span
-        class="text-tan fs-md">NOTE:</span> When an SF unit uses it's offensive point to conduct an LD attack the
-      defending unit gets to attack first (if not locked in combat). As an example an SF unit uses it's laser designator
-      to attack an IFV. The IFV
-      will get a chance to destroy the SF unit before the LD attack occurs.
+        class="text-tan fs-md">NOTE:</span> If two enemy units are present on a single space and only one of them is
+      locked in combat the unit not locked in combat can defend the other from LD attacks.
     </p>
     <p><span class="text-tan fs-md">Mechanized Infantry</span> are a heavier more mobile version of infantry. They
       are

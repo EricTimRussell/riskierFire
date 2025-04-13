@@ -15,14 +15,13 @@
       mountain environment. <span class="text-tan">Tan</span> represents a desert environemnt. Any tile with a
       <strong>City</strong> on it now becomes an urban environemnt.
     </p>
-    <p><span class="text-tan fs-md">Fortifications:</span> Each player has pillbox or bunker type pieces that
-      represents fortifications. When fortifications are built 1 bunker piece is placed on the main board where they
-      were built. This will provide 3 bunker pieces on the combat board. Only one can be built per tile. Bunkers can
-      be built during the build phase of a players turn. They take one turn to build. A player must own the tile to
-      build
-      fortifications on it. Only Infantry and special forces can
-      use fortifications and it provides immunity to artillery. It also gives the occupying unit an extra
-      hitpoint. A successfull hits on a fortification destroys it, but not the unit occupying it.
+    <p><span class="text-tan fs-md">Fortifications:</span> Each player has three pillbox or bunker type pieces that
+      represents fortifications. These will be used on the combat board when defending. Any enemy unit that enters a
+      space to the left or right of an occupied fortification the defending player automatically gets a chance to attack
+      that unit. If the defending player rolls a successfull attack the other player gets a chance to roll defense.
+      Only Infantry can
+      use fortifications and it provides immunity to all artillery. It also gives the occupying unit an extra
+      hitpoint. A successfull hit on a fortification destroys it, but not the unit occupying it.
     </p>
     <p><span class="text-tan fs-md">Cities:</span> Capital cities will be the same color as team it
       belongs to. Medium
