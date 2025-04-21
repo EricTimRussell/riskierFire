@@ -21,23 +21,6 @@ class NavyUnitsService {
     })
   }
 
-  async editCarrier(editable, carrier) {
-    await updateDoc(carrier, {
-      airUnit1: editable.value.airUnit1,
-      airUnit2: editable.value.airUnit2,
-      airUnit3: editable.value.airUnit3,
-      airUnit4: editable.value.airUnit4,
-      airUnit5: editable.value.airUnit5,
-      airUnit6: editable.value.airUnit6,
-      groundUnit1: editable.value.groundUnit1,
-      groundUnit2: editable.value.groundUnit2,
-      groundUnit3: editable.value.groundUnit3,
-      groundUnit4: editable.value.groundUnit4,
-      groundUnit5: editable.value.groundUnit5,
-      groundUnit6: editable.value.groundUnit6
-    });
-  }
-
   async deleteCarrierCard(carrier, team) {
     if (carrier.creatorId != team.creatorId) {
       console.error("invalid id's");

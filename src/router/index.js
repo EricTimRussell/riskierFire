@@ -30,7 +30,7 @@ const router = createRouter({
       component: () => import('../views/BattleView.vue')
     },
     {
-      path: '/construction:id',
+      path: '/construction/:id',
       name: 'construction',
       component: () => import('../views/ConstructionView.vue')
     },

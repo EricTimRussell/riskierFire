@@ -39,29 +39,6 @@
         <AirUnitsComponent :team="teams" />
       </div>
     </div>
-    <!-- Carriers -->
-    <!-- <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
-      <div class="col-12 d-flex justify-content-center">
-        <h2>Carriers</h2>
-        <span class="material-symbols-outlined fs-lg px-2">
-          flight_takeoff
-        </span>
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <button type="submit" class="rounded text-shadow-dark py-2 px-3 mx-3" data-bs-toggle="modal"
-          data-bs-target="#createCarrier-modal" aria-label="Create City">
-          Create Carrier
-        </button>
-      </div>
-    </div>
-    <div class="row justify-content-center" v-motion-pop-visible-once>
-      <div class="col-sm-6 col-md-3 d-flex mb-3" v-for="c in carriers" v-if="carriers.length > 0">
-        <CarrierCardComponent :carriers="c" :teams="teams" />
-      </div>
-      <div class="text-center" v-else>
-        <span class="fs-md">Your team has no carriers</span>
-      </div>
-    </div> -->
     <!-- Regions -->
     <div class="row my-3 bg-green py-3 elevation-5 text-light" v-motion-pop-visible-once>
       <div class="col-12 d-flex justify-content-center pb-2">
@@ -153,7 +130,6 @@ import { useRoute } from "vue-router";
 // Services
 import { regionsService } from "../services/RegionsService";
 import { teamsService } from "../services/TeamsService";
-import { navyUnitsService } from "../services/NavyUnitsService";
 
 // State management
 import { useRegionStore } from "../stores/RegionStore";
@@ -171,7 +147,6 @@ import MbtAntiAircraftComponent from "../components/addRemoveUnits/MbtAntiAircra
 import ArtilleryComponent from "../components/addRemoveUnits/ArtilleryComponent.vue";
 import AirUnitsComponent from "../components/addRemoveUnits/AirUnitsComponent.vue";
 import CreateCarrierGroupFormComponent from "../components/forms/CreateCarrierGroupFormComponent.vue";
-import CarrierCardComponent from "../components/cards/CarrierCardComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
 import CreateSmallCityFormComponent from "../components/forms/CreateSmallCityFormComponent.vue";
 import CreateMediumCityFormComponent from "../components/forms/CreateMediumCityFormComponent.vue";
@@ -219,20 +194,7 @@ async function getTeamByUserId() {
   }
 }
 
-async function getCarriersByUserId() {
-  try {
-    // get user id if undefined
-    if (user.value?.uid == undefined) {
-      const user = await getCurrentUser();
-    }
-    await navyUnitsService.getCarriersByUserId(user)
-  } catch (error) {
-    console.error(error)
-  }
-}
-
 onMounted(() => {
-  getCarriersByUserId()
   getRegionsByUserId()
   getCitiesByUserId()
   getTeamByUserId()
@@ -241,7 +203,6 @@ onMounted(() => {
 const region = computed(() => useRegionStore.regions.sort((a, b) => a.regionNumber - b.regionNumber))
 const teams = computed(() => useRegionStore.teams)
 const cities = computed(() => useRegionStore.cities.sort((a, b) => a.regionNumber - b.regionNumber))
-const carriers = computed(() => useNavyStore.navy)
 
 </script>
 
