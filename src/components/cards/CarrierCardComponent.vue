@@ -75,12 +75,12 @@ const carrier = doc(db, 'carriers', props.carriers.id)
 
 const isUpdating = ref(false)
 
-// Compute total air units
+// Sum total of air units
 const totalAirUnits = computed(() => {
   return airUnits.value.reduce((sum, unit) => sum + (props.carriers[unit.key] || 0), 0);
 })
 
-// Compute total ground units
+// Sum total of ground units
 const totalGroundUnits = computed(() => {
   return groundUnits.value.reduce((sum, unit) => sum + (props.carriers[unit.key] || 0), 0);
 })
@@ -109,11 +109,11 @@ async function updateUnit(unitKey, int) {
   isUpdating.value = true
 
   try {
-    // Check if unit is air or ground
+    // Check if unit is air or ground by returning true or false
     const isAirUnit = airUnits.value.some(unit => unit.key === unitKey);
     const isGroundUnit = groundUnits.value.some(unit => unit.key === unitKey);
 
-    // Prevent negative counts
+    // Prevent negative unit counts
     if (int < 0 && props.carriers[unitKey] <= 0) {
       Swal.fire({
         icon: 'warning',
@@ -123,7 +123,7 @@ async function updateUnit(unitKey, int) {
       return
     }
 
-    // Check maximum limits for increment cannot exceed six
+    // Check max air units cannot exceed six
     if (int > 0) {
       if (isAirUnit && totalAirUnits.value >= 6) {
         Swal.fire({
@@ -133,7 +133,7 @@ async function updateUnit(unitKey, int) {
         });
         return
       }
-      // Check max cannot exceed six
+      // Check max ground units cannot exceed 6
       if (isGroundUnit && totalGroundUnits.value >= 6) {
         Swal.fire({
           icon: 'warning',
@@ -161,7 +161,7 @@ async function updateUnit(unitKey, int) {
 }
 
 
-// delete carrier card by creator ID
+// delete carrier document by creator ID
 async function deleteCarrier() {
   try {
     await Swal.fire({
@@ -195,7 +195,7 @@ async function deleteCarrier() {
 }
 
 .unit-container {
-  gap: 0.2rem; /* Consistent spacing between buttons and label */
+  gap: 0.1rem; /* Consistent spacing between buttons and label */
   width: 100%; /* Ensure container takes full width */
   max-width: 200px; /* Limit width for consistency */
   justify-content: space-between; /* Distribute space evenly */

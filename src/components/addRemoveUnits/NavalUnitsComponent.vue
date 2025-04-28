@@ -1,99 +1,42 @@
 <template>
   <div>
-
-    <!-- SECTION Aircraft Carrier -->
-    <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
-      aria-label="Small button group">
-      <div>
-        <button :disabled="(team.totalCarriers <= 0)" @click="removeCarrier()" class="text-dark"><span
-            class="material-symbols-outlined fs-lg p-2">remove</span></button>
+    <!-- Dynamically render each unit type -->
+    <div v-for="unit in navalUnitTypes" :key="unit.name" class="mb-5">
+      <!-- Unit Control Buttons -->
+      <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
+        :aria-label="`Control for ${unit.name}`">
+        <div>
+          <button :disabled="team[unit.totalCount] <= 0" @click="removeUnit(unit)" class="text-dark">
+            <span class="material-symbols-outlined fs-lg p-2">remove</span>
+          </button>
+        </div>
+        <!-- Animation for add/remove unit -->
+        <div class="d-flex flex-column align-items-center">
+          <h6 class="px-2">{{ unit.label }}</h6>
+          <h6 v-if="unitStates[unit.name].plus" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong>
+          </h6>
+          <h6 v-if="unitStates[unit.name].minus" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong>
+          </h6>
+          <h6 v-if="!unitStates[unit.name].plus && !unitStates[unit.name].minus" class="px-2 fs-4">
+            <strong>{{ team[unit.totalCount] }}</strong>
+          </h6>
+        </div>
+        <div>
+          <button @click="addUnit(unit)" class="">
+            <span class="material-symbols-outlined fs-lg p-2">add</span>
+          </button>
+        </div>
       </div>
-      <div class="d-flex flex-column align-items-center">
-        <h6 class="px-2">Carriers</h6>
-        <h6 v-if="plusCarrier == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
-        <h6 v-if="minusCarrier == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
-        <h6 v-if="!plusCarrier && !minusCarrier" class="px-2 fs-4"><strong>{{ team.totalCarriers }}</strong></h6>
-      </div>
-      <div>
-        <button @click="addCarrier()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
-      </div>
-    </div>
-    <div class="col-12 d-flex justify-content-center mb-5 gap-5">
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">5</span>
-      </div>
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">3</span>
-      </div>
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
-        <span class="fs-lg">3</span>
-      </div>
-    </div>
-
-    <!-- SECTION Cruisers-->
-    <div class="col-12 btn-group btn-group-sm px-2 d-flex justify-content-center" role="group"
-      aria-label="Small button group">
-      <div>
-        <button :disabled="(team.totalCruisers <= 0)" @click="removeCruiser()" class="text-dark"><span
-            class="material-symbols-outlined fs-lg p-2">remove</span></button>
-      </div>
-      <div class="d-flex flex-column align-items-center">
-        <h6 class="px-2">Cruisers</h6>
-        <h6 v-if="plusCruiser == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
-        <h6 v-if="minusCruiser == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
-        <h6 v-if="!plusCruiser && !minusCruiser" class="px-2 fs-4"><strong>{{ team.totalCruisers }}</strong></h6>
-      </div>
-      <div>
-        <button @click="addCruiser()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
-      </div>
-    </div>
-    <div class="col-12 d-flex justify-content-center mb-5 gap-5">
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">3</span>
-      </div>
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">4</span>
-      </div>
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
-        <span class="fs-lg">1</span>
-      </div>
-    </div>
-
-    <!-- SECTION Destroyers -->
-    <div class="col-12 btn-group btn-group-sm px-2 d-flex justify-content-center" role="group"
-      aria-label="Small button group">
-      <div>
-        <button :disabled="(team.totalDestroyers <= 0)" @click="removeDestroyer()" class="text-dark"><span
-            class="material-symbols-outlined fs-lg p-2">remove</span></button>
-      </div>
-      <div class="d-flex flex-column align-items-center">
-        <h6 class="px-2">Destroyers</h6>
-        <h6 v-if="plusDestroyer == true" class="px-2 fs-4 text-success add-unit-transform"><strong>+1</strong></h6>
-        <h6 v-if="minusDestroyer == true" class="px-2 fs-4 text-danger add-unit-transform"><strong>-1</strong></h6>
-        <h6 v-if="!plusDestroyer && !minusDestroyer" class="px-2 fs-4"><strong>{{ team.totalDestroyers }}</strong></h6>
-      </div>
-      <div>
-        <button @click="addDestroyer()" class=""><span class="material-symbols-outlined fs-lg p-2">add</span></button>
-      </div>
-    </div>
-    <div class="col-12 d-flex justify-content-center mb-5 gap-5">
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
-        <span class="fs-lg">3</span>
-      </div>
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
-        <span class="fs-lg">3</span>
-      </div>
-      <div class="d-flex justify-content-center">
-        <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
-        <span class="fs-lg">1</span>
+      <!-- Resource Costs -->
+      <div class="col-12 d-flex justify-content-center mb-5 gap-5">
+        <div class="d-flex justify-content-center">
+          <span class="fs-xl material-symbols-outlined text-warning">attach_money</span>
+          <span class="fs-lg">{{ unit.costs.capital }}</span>
+        </div>
+        <div class="d-flex justify-content-center">
+          <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
+          <span class="fs-lg">{{ unit.costs.agriculture }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -102,12 +45,12 @@
 
 <script setup>
 // Firebase
-import { useFirestore } from "vuefire"
+import { useFirestore } from "vuefire";
 import { doc, updateDoc, increment } from "@firebase/firestore";
 
 // Vue
 import { useRoute } from "vue-router";
-import { ref } from "vue";
+import { reactive } from "vue";
 
 // Services
 import { resourcesService } from "../../services/ResourcesService";
@@ -116,115 +59,91 @@ import { resourcesService } from "../../services/ResourcesService";
 const props = defineProps({
   // current users team
   team: { type: Object }
-})
+});
 
-const db = useFirestore()
-const route = useRoute()
+const db = useFirestore();
+const route = useRoute();
 // teams database
-const teams = doc(db, 'teams', route.params.id)
+const teams = doc(db, 'teams', route.params.id);
 
-// conditional rendering for adding and removing units
-const plusCarrier = ref(false)
-const minusCarrier = ref(false)
-const plusCruiser = ref(false)
-const minusCruiser = ref(false)
-const plusDestroyer = ref(false)
-const minusDestroyer = ref(false)
+// Naval unit type configuration
+const navalUnitTypes = [
+  {
+    name: 'carrier',
+    label: 'Carriers',
+    totalCount: 'totalCarriers',
+    costs: { capital: 5, industry: 3, agriculture: 3 }
+  },
+  {
+    name: 'cruiser',
+    label: 'Cruisers',
+    totalCount: 'totalCruisers',
+    costs: { capital: 3, industry: 4, agriculture: 1 }
+  },
+  {
+    name: 'destroyer',
+    label: 'Destroyers',
+    totalCount: 'totalDestroyers',
+    costs: { capital: 3, industry: 3, agriculture: 1 }
+  }
+];
 
+// Reactive state for plus/minus animations
+const unitStates = reactive(
+  navalUnitTypes.reduce((acc, unit) => ({
+    ...acc,
+    [unit.name]: { plus: false, minus: false }
+  }), {})
+);
 
-async function addCarrier() {
+async function addUnit(unit) {
   try {
-    // change ref value to true to display +1 or -1 icon
-    plusCarrier.value = true
-    // update team resource count
-    await resourcesService.updateResources(teams, -3, -5, -3, 0)
+    // Show +1 animation
+    unitStates[unit.name].plus = true;
+    // Update resources (negative because we're spending)
+    await resourcesService.updateResources(
+      teams,
+      -unit.costs.agriculture,
+      -unit.costs.capital,
+      -unit.costs.industry,
+      0
+    );
+    // Increment unit count
     await updateDoc(teams, {
-      totalCarriers: increment(1)
+      [unit.totalCount]: increment(1)
     });
+    // Hide animation after 100ms
     setTimeout(() => {
-      // change ref value back to false to remove +1 or -1 icon
-      plusCarrier.value = false
+      unitStates[unit.name].plus = false;
     }, 100);
   } catch (error) {
-    console.error(error, "adding Carrier");
+    console.error(error, `adding ${unit.label}`);
   }
 }
 
-async function removeCarrier() {
+async function removeUnit(unit) {
   try {
-    minusCarrier.value = true
-    await resourcesService.updateResources(teams, 3, 5, 3, 0)
+    // Show -1 animation
+    unitStates[unit.name].minus = true;
+    // Update resources (positive because we're refunding)
+    await resourcesService.updateResources(
+      teams,
+      unit.costs.agriculture,
+      unit.costs.capital,
+      unit.costs.industry,
+      0
+    );
+    // Decrement unit count
     await updateDoc(teams, {
-      totalCarriers: increment(-1)
+      [unit.totalCount]: increment(-1)
     });
+    // Hide animation after 100ms
     setTimeout(() => {
-      minusCarrier.value = false
+      unitStates[unit.name].minus = false;
     }, 100);
   } catch (error) {
-    console.error(error, "removing Carrier");
-  }
-}
-
-async function addCruiser() {
-  try {
-    plusCruiser.value = true
-    await resourcesService.updateResources(teams, -1, -3, -4, 0)
-    await updateDoc(teams, {
-      totalCruisers: increment(1)
-    });
-    setTimeout(() => {
-      plusCruiser.value = false
-    }, 100);
-  } catch (error) {
-    console.error(error, "adding Cruiser");
-  }
-}
-
-async function removeCruiser() {
-  try {
-    minusCruiser.value = true
-    await resourcesService.updateResources(teams, 1, 3, 4, 0)
-    await updateDoc(teams, {
-      totalCruisers: increment(-1)
-    });
-    setTimeout(() => {
-      minusCruiser.value = false
-    }, 100);
-  } catch (error) {
-    console.error(error, "removing Cruiser");
-  }
-}
-
-async function addDestroyer() {
-  try {
-    plusDestroyer.value = true
-    await resourcesService.updateResources(teams, -1, -3, -3, 0)
-    await updateDoc(teams, {
-      totalDestroyers: increment(1)
-    });
-    setTimeout(() => {
-      plusDestroyer.value = false
-    }, 100);
-  } catch (error) {
-    console.error(error, "adding Destroyer");
-  }
-}
-
-async function removeDestroyer() {
-  try {
-    minusDestroyer.value = true
-    await resourcesService.updateResources(teams, 1, 3, 3, 0)
-    await updateDoc(teams, {
-      totalDestroyers: increment(-1)
-    });
-    setTimeout(() => {
-      minusDestroyer.value = false
-    }, 100);
-  } catch (error) {
-    console.error(error, "removing Destroyer");
+    console.error(error, `removing ${unit.label}`);
   }
 }
 
 </script>
-
-<style lang="scss" scoped></style>

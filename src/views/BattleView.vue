@@ -15,10 +15,10 @@
           swords
         </span>
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">Infantry</span>
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">Special Forces</span>
       </div>
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
@@ -27,10 +27,10 @@
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
         <input v-model="specialForces" class="form-check-input" type="checkbox" role="switch" id="specialForces">
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">Mechanized</span>
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">IFV</span>
       </div>
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
@@ -39,10 +39,10 @@
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
         <input v-model="IFV" class="form-check-input" type="checkbox" role="switch" id="IFV">
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">MBT</span>
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">Artillery</span>
       </div>
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
@@ -51,10 +51,10 @@
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
         <input v-model="artillery" class="form-check-input" type="checkbox" role="switch" id="artillery">
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">Missile</span>
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">Anti-Aircraft</span>
       </div>
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
@@ -63,10 +63,10 @@
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
         <input v-model="antiAir" class="form-check-input" type="checkbox" role="switch" id="antiair">
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">Fighter</span>
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">CAS</span>
       </div>
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
@@ -75,10 +75,10 @@
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
         <input v-model="CAS" class="form-check-input" type="checkbox" role="switch" id="CAS">
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">Carrier</span>
       </div>
-      <div class="d-flex justify-content-center col-6">
+      <div class="d-flex justify-content-center col-6 pt-3">
         <span class="fs-md">Cruiser</span>
       </div>
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
@@ -87,7 +87,7 @@
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
         <input v-model="cruiser" class="form-check-input" type="checkbox" role="switch" id="cruiser">
       </div>
-      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md pt-3">
         <input v-model="destroyer" class="form-check-input" type="checkbox" role="switch" id="destroyer">
         <label class="form-check-label" for="destroyer">Destroyer</label>
       </div>

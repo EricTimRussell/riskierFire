@@ -27,11 +27,16 @@
       <h3>Hypersonic</h3>
     </div>
   </div>
+  <div class="d-flex col-12 justify-content-center">
+    <input class="mx-1 checkbox" type="checkbox" v-model="retreat" :disabled="missile || aircraft || pointDefense">
+    <h3>Retreat</h3>
+  </div>
 
   <!-- Defense dice-->
   <div class="height-bottom">
     <div class="d-flex justify-content-center">
-      <div class="col-3 d-flex justify-content-center mt-5" v-if="aircraft || missile || hyperSonic || pointDefense">
+      <div class="col-3 d-flex justify-content-center mt-5"
+        v-if="aircraft || missile || hyperSonic || pointDefense || retreat">
         <div class="text-center">
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="defensiveDie()" class="btn p-5 dice-btn">
@@ -58,6 +63,7 @@ const aircraft = ref(false)
 const missile = ref(false)
 const pointDefense = ref(false)
 const hyperSonic = ref(false)
+const retreat = ref(false)
 const success = ref(false)
 
 function defensiveDie() {
@@ -95,6 +101,14 @@ function defensiveDie() {
   // vs hyper sonic missiles
   if (hyperSonic.value === true) {
     if ([1, 2, 3, 4, 5].includes(oneTwelveDie.value.roll)) {
+      success.value = true
+    } else {
+      success.value = false
+    }
+  }
+  // retreat
+  if (retreat.value === true) {
+    if ([1, 2, 3].includes(oneTwelveDie.value.roll)) {
       success.value = true
     } else {
       success.value = false

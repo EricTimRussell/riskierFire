@@ -17,7 +17,7 @@
       :disabled="infantryMechArtillery || mbt || laserDesignator">
     <h3>IFV & AA</h3>
   </div>
-  <div class="col-12 d-flex text-center justify-content-center py-2">
+  <div class="col-12 d-flex text-center justify-content-center">
     <input class="mx-1 checkbox" type="checkbox" v-model="mbt"
       :disabled="ifvAA || infantryMechArtillery || laserDesignator">
     <h3>MBT</h3>
@@ -27,12 +27,17 @@
       :disabled="ifvAA || mbt || infantryMechArtillery">
     <h3>Using Designator</h3>
   </div>
+  <div class="col-12 d-flex text-center justify-content-center">
+    <input class="mx-1 checkbox" type="checkbox" v-model="retreat"
+      :disabled="ifvAA || mbt || infantryMechArtillery || laserDesignator">
+    <h3>Retreat</h3>
+  </div>
 
   <!-- Defense dice-->
   <div class="height-bottom">
     <div class="d-flex justify-content-center">
       <div class="col-3 d-flex justify-content-center mt-5"
-        v-if="infantryMechArtillery || ifvAA || mbt || laserDesignator">
+        v-if="infantryMechArtillery || ifvAA || mbt || laserDesignator || retreat">
         <div class="text-center">
           <h6>Roll Dice</h6>
           <button :disabled="isPending" type="button" @click="offensiveDie()" class="btn p-5 dice-btn">
@@ -59,6 +64,7 @@ const infantryMechArtillery = ref(false)
 const ifvAA = ref(false)
 const mbt = ref(false)
 const laserDesignator = ref(false)
+const retreat = ref(false)
 const success = ref(false)
 
 function offensiveDie() {
@@ -96,6 +102,14 @@ function offensiveDie() {
   // with laser designator
   if (laserDesignator.value === true) {
     if ([1, 2, 3, 4, 5, 6, 7, 8].includes(oneTwelveDie.value.roll)) {
+      success.value = true
+    } else {
+      success.value = false
+    }
+  }
+  // retreat
+  if (retreat.value === true) {
+    if ([1, 2, 3].includes(oneTwelveDie.value.roll)) {
       success.value = true
     } else {
       success.value = false

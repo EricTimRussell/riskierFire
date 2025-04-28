@@ -58,21 +58,27 @@
       They
       can fire AA missiles at aircraft and missiles that are within range. They have no other offensive ability and
       do
-      not have any defensive ability. If they are attacked by ground units they are immediately destroyed. AA have 1
+      not have any defensive ability. If they are attacked the player rolls to retreat if the roll fails the unit is
+      destroyed. AA have 1
       movement point, 1 offensive point, and a range of 1. On the main board any aircraft
       that attacks a tile with AA will have to survive 1 shot from the AA unit before it can attempt to destroy its
       target.
     </p>
     <p><span class="text-tan fs-md">Artillery</span> is a form of indirect fire unless they have special
       forces
-      guiding their shots. Guided shots are much more effective. Artillery have 1 movement point, 1
+      guiding their shots. Guided shots are much more effective. If they are attacked the player rolls to retreat if the
+      roll fails the unit is
+      destroyed. Artillery have 1 movement point, 1
       offensive point, and a range of 3 on the combat board. Artillery cannot fire into tiles with fortifications.
     </p>
-    <p><span class="text-tan fs-md">Missile-Artillery</span> is a very effective form of artillery but are limited
+    <p><span class="text-tan fs-md">Missile-Artillery</span> is a very effective form of artillery its accuracy is
+      limited
       by
-      the need to be guided by a laser designator. Missile artillery can only fire when being guided by special
-      forces
-      unit. They do not have any defensive ability. They have a range of 4 on the combat board.
+      the need to be guided by a laser designator. If they are attacked the player rolls to retreat if the roll fails
+      the
+      unit is
+      destroyed. They have a range of 4 on the
+      combat board.
     </p>
   </body>
 
