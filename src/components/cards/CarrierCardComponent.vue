@@ -195,7 +195,6 @@ async function deleteCarrier() {
 }
 
 .unit-container {
-  gap: 0.1rem; /* Consistent spacing between buttons and label */
   width: 100%; /* Ensure container takes full width */
   max-width: 200px; /* Limit width for consistency */
   justify-content: space-between; /* Distribute space evenly */
@@ -220,6 +219,6 @@ async function deleteCarrier() {
 .unit-label {
   flex: 1; /* Allow label to take available space */
   text-align: center; /* Center text */
-  min-width: 80px; /* Minimum width to prevent squeezing */
+  min-width: 76px; /* Minimum width to prevent squeezing */
 }
 </style>
