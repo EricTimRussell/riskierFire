@@ -34,6 +34,10 @@
           <span class="fs-lg">{{ unit.costs.capital }}</span>
         </div>
         <div class="d-flex justify-content-center">
+          <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
+          <span class="fs-lg">{{ unit.costs.industry }}</span>
+        </div>
+        <div class="d-flex justify-content-center">
           <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
           <span class="fs-lg">{{ unit.costs.agriculture }}</span>
         </div>

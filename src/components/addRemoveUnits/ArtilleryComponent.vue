@@ -27,6 +27,10 @@
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
         <span class="fs-lg">3</span>
       </div>
+      <div class="d-flex justify-content-center">
+        <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
+        <span class="fs-lg">1</span>
+      </div>
     </div>
 
     <!-- SECTION Missile Artillery -->
@@ -44,7 +48,7 @@
         </h6>
         <h6 v-if="!plusMissileArtillery && !minusMissileArtillery" class="px-2 fs-4"><strong>{{
           team.totalMissileArtillery
-        }}</strong></h6>
+            }}</strong></h6>
       </div>
       <div>
         <button @click="addMissileArtillery()" class=""><span
@@ -59,6 +63,10 @@
       <div class="d-flex justify-content-center">
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
         <span class="fs-lg">3</span>
+      </div>
+      <div class="d-flex justify-content-center">
+        <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
+        <span class="fs-lg">1</span>
       </div>
     </div>
   </div>
@@ -100,7 +108,7 @@ async function addArtillery() {
     // change ref value to true to display +1 or -1 icon
     plusArtillery.value = true
     // update team resource count
-    await resourcesService.updateResources(teams, 0, -1, -3, 0)
+    await resourcesService.updateResources(teams, -1, -1, -3, 0)
     await updateDoc(teams, {
       totalArtillery: increment(1)
     });
@@ -116,7 +124,7 @@ async function addArtillery() {
 async function removeArtillery() {
   try {
     minusArtillery.value = true
-    await resourcesService.updateResources(teams, 0, 1, 3, 0)
+    await resourcesService.updateResources(teams, 1, 1, 3, 0)
     await updateDoc(teams, {
       totalArtillery: increment(-1)
     });
@@ -131,7 +139,7 @@ async function removeArtillery() {
 async function addMissileArtillery() {
   try {
     plusMissileArtillery.value = true
-    await resourcesService.updateResources(teams, 0, -3, -3, 0)
+    await resourcesService.updateResources(teams, -1, -3, -3, 0)
     await updateDoc(teams, {
       totalMissileArtillery: increment(1)
     });
@@ -146,7 +154,7 @@ async function addMissileArtillery() {
 async function removeMissileArtillery() {
   try {
     minusMissileArtillery.value = true
-    await resourcesService.updateResources(teams, 0, 3, 3, 0)
+    await resourcesService.updateResources(teams, 1, 3, 3, 0)
     await updateDoc(teams, {
       totalMissileArtillery: increment(-1)
     });

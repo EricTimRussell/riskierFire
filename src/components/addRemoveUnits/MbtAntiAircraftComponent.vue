@@ -62,6 +62,10 @@
         <span class="fs-xl text-secondary material-symbols-outlined">factory</span>
         <span class="fs-lg">1</span>
       </div>
+      <div class="d-flex justify-content-center">
+        <span class="fs-xl text-success material-symbols-outlined">psychiatry</span>
+        <span class="fs-lg">1</span>
+      </div>
     </div>
   </div>
 </template>
@@ -130,7 +134,7 @@ async function removeMBT() {
 async function addAntiAircraft() {
   try {
     plusAntiAircraft.value = true
-    await resourcesService.updateResources(teams, 0, -3, -1, 0)
+    await resourcesService.updateResources(teams, -1, -3, -1, 0)
     await updateDoc(teams, {
       totalAntiAircraft: increment(1)
     });
@@ -145,7 +149,7 @@ async function addAntiAircraft() {
 async function removeAntiAircraft() {
   try {
     minusAntiAircraft.value = true
-    await resourcesService.updateResources(teams, 0, 3, 1, 0)
+    await resourcesService.updateResources(teams, 1, 3, 1, 0)
     await updateDoc(teams, {
       totalAntiAircraft: increment(-1)
     });

@@ -70,7 +70,7 @@ const buildingTypes = [
     name: 'airfield',
     label: 'Airfields',
     totalCount: 'totalAirfields',
-    costs: { capital: 2, agriculture: 1, production: 0 }
+    costs: { capital: 2, agriculture: 2, production: 0 }
   },
   {
     name: 'navalYard',
