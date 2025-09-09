@@ -70,19 +70,19 @@ const buildingTypes = [
     name: 'airfield',
     label: 'Airfields',
     totalCount: 'totalAirfields',
-    costs: { capital: 2, agriculture: 1 }
+    costs: { capital: 2, agriculture: 1, production: 0 }
   },
   {
     name: 'navalYard',
     label: 'Naval Yards',
     totalCount: 'totalNavalYards',
-    costs: { capital: 2, agriculture: 2 }
+    costs: { capital: 2, agriculture: 2, production: 0 }
   },
   {
     name: 'factory',
     label: 'Factory',
     totalCount: 'totalFactories',
-    costs: { capital: 1, agriculture: 3 }
+    costs: { capital: 1, agriculture: 3, production: 1 }
   }
 ];
 
@@ -104,7 +104,7 @@ async function addUnit(unit) {
       -unit.costs.agriculture,
       -unit.costs.capital,
       0,
-      0
+      unit.costs.production
     );
     // Increment unit count
     await updateDoc(teams, {
@@ -129,7 +129,7 @@ async function removeUnit(unit) {
       unit.costs.agriculture,
       unit.costs.capital,
       0,
-      0
+      -unit.costs.production
     );
     // Decrement unit count
     await updateDoc(teams, {
