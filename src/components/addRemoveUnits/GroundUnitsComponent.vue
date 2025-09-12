@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Dynamically render each unit type -->
-    <div v-for="unit in navalUnitTypes" :key="unit.name" class="mb-5">
+    <div v-for="unit in groundUnitTypes" :key="unit.name" class="mb-5">
       <!-- Unit Control Buttons -->
       <div class="col-12 btn-group btn-group-sm d-flex justify-content-center" role="group"
         :aria-label="`Control for ${unit.name}`">
@@ -71,30 +71,60 @@ const route = useRoute();
 const teams = doc(db, 'teams', route.params.id);
 
 // Naval unit type configuration
-const navalUnitTypes = [
+const groundUnitTypes = [
   {
-    name: 'fighters',
-    label: 'Fighters',
-    totalCount: 'totalFighterAircraft',
-    costs: { capital: 3, industry: 3 }
+    name: 'infantry',
+    label: 'Infantry',
+    totalCount: 'totalInfantry',
+    costs: { capital: 2, industry: 1, agriculture: 3 }
   },
   {
-    name: 'cas',
-    label: 'CAS',
-    totalCount: 'totalCloseAirSupport',
-    costs: { capital: 3, industry: 3 }
+    name: 'specialForces',
+    label: 'SpecialForces',
+    totalCount: 'totalSpecialForces',
+    costs: { capital: 3, industry: 1, agriculture: 2 }
   },
   {
-    name: 'cargoAircraft',
-    label: 'CargoAircraft',
-    totalCount: 'totalCargoAircraft',
-    costs: { capital: 1, industry: 2 }
+    name: 'mechanized',
+    label: 'Mechanized',
+    totalCount: 'totalMechanized',
+    costs: { capital: 3, industry: 3, agriculture: 3 }
+  },
+  {
+    name: 'ifv',
+    label: 'IFV',
+    totalCount: 'totalIFV',
+    costs: { capital: 3, industry: 4, agriculture: 1 }
+  },
+  {
+    name: 'mbt',
+    label: 'MBT',
+    totalCount: 'totalMBT',
+    costs: { capital: 4, industry: 4, agriculture: 1 }
+  },
+  {
+    name: 'antiAircraft',
+    label: 'AntiAircraft',
+    totalCount: 'totalAntiAircraft',
+    costs: { capital: 3, industry: 1, agriculture: 1 }
+  },
+  {
+    name: 'artillery',
+    label: 'Artillery',
+    totalCount: 'totalArtillery',
+    costs: { capital: 1, industry: 3, agriculture: 1 }
+  },
+  {
+    name: 'missileArtillery',
+    label: 'MissileArtillery',
+    totalCount: 'totalMissileArtillery',
+    costs: { capital: 3, industry: 3, agriculture: 1 }
   }
 ];
 
 // Reactive state for plus/minus animations
 const unitStates = reactive(
-  navalUnitTypes.reduce((acc, unit) => ({
+  groundUnitTypes.reduce((acc, unit) => ({
     ...acc,
     [unit.name]: { plus: false, minus: false }
   }), {})
@@ -107,7 +137,7 @@ async function addUnit(unit) {
     // Update resources (negative because we're spending)
     await resourcesService.updateResources(
       teams,
-      -0,
+      -unit.costs.agriculture,
       -unit.costs.capital,
       -unit.costs.industry,
       0
@@ -132,7 +162,7 @@ async function removeUnit(unit) {
     // Update resources (positive because we're refunding)
     await resourcesService.updateResources(
       teams,
-      0,
+      unit.costs.agriculture,
       unit.costs.capital,
       unit.costs.industry,
       0

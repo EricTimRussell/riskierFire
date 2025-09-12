@@ -10,7 +10,7 @@
       <button type="button" class="btn-danger" data-bs-dismiss="modal">Close</button>
       <button type="submit" class="btn-green">Create</button>
       <ul>
-        <li>Large: 15 of all resources</li>
+        <li>Capital: 15 of all resources</li>
       </ul>
     </div>
   </form>

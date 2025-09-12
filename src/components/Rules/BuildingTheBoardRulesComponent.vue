@@ -18,18 +18,15 @@
       capital.
     </p>
     <p>
-      <span class="text-tan fs-md">Third</span> players need to place the 3-5 research centers on the board. It is up to
-      the players how many research centers they wish to place but atleast 4 is the recommended amount. One research
-      center is placed as closely as possible in the center of the board so long as it is atleast 3 tiles from any
-      players capital, and not on a water tile. Each player will be given another research center to be placed in the
-      next
-      step.
+      <span class="text-tan fs-md">Third</span> each player will be given one research center and can place it anywhere
+      within their initial territory during the fourth step. One research center is placed as closely as possible in the
+      center of the board so long as it is atleast 4 tiles from any players capital, and not on a water tile.
     </p>
     <p>
       <span class="text-tan fs-md">Fourth</span> players will need to place 10 region claim tokens on the board around
       their capital and within 2 tiles of their capital. These are the players starting regions. Then players will place
-      their other starting cities and research center on a tile they just put region claim tokens on. Only 1 city piece
-      per tile.
+      their other starting cities and research center on a tile they just put region claim tokens on. Only 1 building is
+      allowed per tile this includes cities.
     </p>
     <p>
       <span class="text-tan fs-md">Lastly</span> since each player starts with 1 research center they need to draw a

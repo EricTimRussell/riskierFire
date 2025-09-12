@@ -15,16 +15,7 @@
     </div>
     <div class="row" v-motion-slide-left>
       <div class="col-12 d-flex justify-content-center">
-        <InfantryComponent :team="teams" />
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <MechIfvComponent :team="teams" />
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <MbtAntiAircraftComponent :team="teams" />
-      </div>
-      <div class="col-12 d-flex justify-content-center">
-        <ArtilleryComponent :team="teams" />
+        <GroundUnitsComponent :team="teams" />
       </div>
     </div>
     <!-- Air Forces -->
@@ -80,7 +71,7 @@
         </button>
         <button type="submit" class="rounded text-shadow-dark py-2 px-3 mx-1" data-bs-toggle="modal"
           data-bs-target="#createLargeCity-modal" aria-label="Create Large City">
-          Create Large City
+          Create Capital City
         </button>
       </div>
     </div>
@@ -139,16 +130,13 @@ import RegionCardComponent from "../components/cards/RegionCardComponent.vue";
 import ModalComponent from "../components/ModalComponent.vue";
 import CreateRegionFormComponent from "../components/forms/CreateRegionFormComponent.vue";
 import CityCardComponent from "../components/cards/CityCardComponent.vue";
-import InfantryComponent from "../components/addRemoveUnits/InfantryComponent.vue";
-import MechIfvComponent from "../components/addRemoveUnits/MechIfvComponent.vue";
-import MbtAntiAircraftComponent from "../components/addRemoveUnits/MbtAntiAircraftComponent.vue";
-import ArtilleryComponent from "../components/addRemoveUnits/ArtilleryComponent.vue";
 import AirUnitsComponent from "../components/addRemoveUnits/AirUnitsComponent.vue";
 import CreateCarrierGroupFormComponent from "../components/forms/CreateCarrierGroupFormComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
 import CreateSmallCityFormComponent from "../components/forms/CreateSmallCityFormComponent.vue";
 import CreateMediumCityFormComponent from "../components/forms/CreateMediumCityFormComponent.vue";
 import CreateLargeCityFormComponent from "../components/forms/CreateLargeCityFormComponent.vue";
+import GroundUnitsComponent from "../components/addRemoveUnits/GroundUnitsComponent.vue";
 
 const route = useRoute()
 const user = useCurrentUser()
