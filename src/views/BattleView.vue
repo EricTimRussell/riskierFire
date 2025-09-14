@@ -87,9 +87,17 @@
       <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
         <input v-model="cruiser" class="form-check-input" type="checkbox" role="switch" id="cruiser">
       </div>
-      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md pt-3">
+      <div class="d-flex justify-content-center col-6 pt-3">
+        <span class="fs-md">Destroyer</span>
+      </div>
+      <div class="d-flex justify-content-center col-6 pt-3">
+        <span class="fs-md">Militia</span>
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
         <input v-model="destroyer" class="form-check-input" type="checkbox" role="switch" id="destroyer">
-        <label class="form-check-label" for="destroyer">Destroyer</label>
+      </div>
+      <div class="form-check form-switch d-flex justify-content-center col-6 fs-md">
+        <input v-model="militia" class="form-check-input" type="checkbox" role="switch" id="militia">
       </div>
     </section>
 
@@ -289,6 +297,20 @@
             </div>
           </div>
         </div>
+        <!-- Militia -->
+        <div v-if="militia" class="accordion-item bg-secondary mb-4">
+          <h2 class="accordion-header" id="headingEleven">
+            <button class="accordion-button fs-xl collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseEleven" aria-expanded="false" aria-controls="collapseTen">
+              Militia
+            </button>
+          </h2>
+          <div id="collapseEleven" class="accordion-collapse collapse" aria-labelledby="headingTen">
+            <div class="accordion-body text-light">
+              <MilitiaDiceCompnent />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -327,6 +349,7 @@ import CarrierDiceComponent from "../components/navyDice/CarrierDiceComponent.vu
 import CruiserDiceComponent from "../components/navyDice/CruiserDiceComponent.vue";
 import DestroyerDiceComponent from "../components/navyDice/DestroyerDiceComponent.vue";
 import NavbarComponent from "../components/NavbarComponent.vue";
+import MilitiaDiceCompnent from "../components/groundUnitDice/MilitiaDiceCompnent.vue";
 
 const infantry = ref(false)
 const specialForces = ref(false)
@@ -341,6 +364,7 @@ const CAS = ref(false)
 const cruiser = ref(false)
 const carrier = ref(false)
 const destroyer = ref(false)
+const militia = ref(false)
 const user = useCurrentUser()
 
 const teams = computed(() => useRegionStore.teams)

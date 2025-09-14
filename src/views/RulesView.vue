@@ -52,6 +52,7 @@
               <a class="nav-link dropdown-item" href="#ground">Ground Units</a>
               <a class="nav-link dropdown-item" href="#air">Air Units</a>
               <a class="nav-link dropdown-item" href="#navy">Navy Units</a>
+              <a class="nav-link dropdown-item" href="#militia">Militia</a>
             </nav>
             <a class="nav-link dropdown-item" href="#groundCombat">Ground Combat Rules</a>
             <a class="nav-link dropdown-item" href="#airCombat">Air Combat Rules</a>
@@ -82,6 +83,8 @@
         <AirUnitsRulesComponent />
         <!-- SECTION Navy Units -->
         <NavyUnitsRulesComponent />
+        <!-- SECTION Militia-->
+        <MilitiaRulesComponent />
         <!-- SECTION Combat Rules -->
         <CombatRulesComponent />
         <!-- SECTION Retreat Rules -->
@@ -122,6 +125,7 @@ import ItemCardRulesComponent from "../components/Rules/ItemCardRulesComponent.v
 import EventCardRulesComponent from "../components/Rules/EventCardRulesComponent.vue";
 import StructureRulesComponent from "../components/Rules/StructureRulesComponent.vue";
 import BuildingTheBoardRulesComponent from "../components/Rules/BuildingTheBoardRulesComponent.vue";
+import MilitiaRulesComponent from "../components/Rules/MilitiaRulesComponent.vue";
 
 const user = useCurrentUser();
 

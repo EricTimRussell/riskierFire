@@ -17,7 +17,7 @@
     <p><span class="text-tan fs-md">Second</span>
       a player should claim all regions that have region claim tokens, including ones with cities on them, by using the
       claim region button on the game
-      page. The region number should match the number on the region calim token.</p>
+      page. The region number should match the number on the region claim token.</p>
     <p><span class="text-tan fs-md">Third</span>
       a player should build and place all the buildings they want to start with. Then if a player has a naval yard
       they should build and place any ships they want to start with. During the set-up phase buildings and ships
@@ -30,6 +30,17 @@
       a player should build and place any units they wish to use. If a player builds a carrier they should also create a
       carrier card on
       the game page using the "Create Carrier" button. See <a href="#navy">Navy Unit Rules.</a></p>
+    <!-- SECTION Capturing regions -->
+    <div class="d-flex flex-column align-items-center text-center text-tan py-2">
+      <h2>Capturing Regions</h2>
+      <span class="divider"></span>
+    </div>
+    <p><span class="text-tan fs-md">Neutral </span>regions can be captured by having atleast 3 units present on the tile
+      for 1 turn. Regions can only be captured if the player has atleast 3 units present on the tile being captured.
+    </p>
+    <p><span class="text-tan fs-md">Hostile </span>regions can be captured by destroying any enemy units present and
+      having 3 units defend the tile for 1 turn.
+    </p>
     <!-- SECTION Turn Phases -->
     <div class="d-flex flex-column align-items-center text-center text-tan py-2">
       <h2>Turn Phases of Play</h2>
